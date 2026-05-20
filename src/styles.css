@@ -184,38 +184,6 @@ a {
   border-color: var(--bronze);
 }
 
-.issue-lockup {
-  min-width: 0;
-  padding: 10px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  border-radius: 999px;
-  color: var(--paper);
-  background: rgba(16, 13, 10, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-  backdrop-filter: blur(16px);
-}
-
-.issue-lockup span,
-.issue-lockup strong {
-  display: block;
-  white-space: nowrap;
-}
-
-.issue-lockup span {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-
-.issue-lockup strong {
-  margin-top: 2px;
-  font-family: var(--display);
-  font-size: 16px;
-  letter-spacing: 0.02em;
-}
-
 .drawer {
   position: fixed;
   top: 0;
@@ -1721,10 +1689,6 @@ a {
     top: 10px;
     left: 10px;
     right: 10px;
-  }
-
-  .issue-lockup {
-    display: none;
   }
 
   .source-button {
