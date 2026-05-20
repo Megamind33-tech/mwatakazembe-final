@@ -32,6 +32,22 @@ export const sources = [
     note: "Reusable media category containing the Kazembe map, Mtomboko 2017 ceremony photographs, and a 1961 Mwata Kazembe XVII photograph."
   },
   {
+    id: "commons-current",
+    type: "media",
+    label: "Commons portrait",
+    title: "Mwata Kazembe at Mtomboko 2017 02",
+    url: "https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp",
+    note: "CC BY-SA 4.0 image by ChaloNiZambia, dated 29 July 2017, showing Mwata Kazembe at the Mtomboko Ceremony."
+  },
+  {
+    id: "kazembe-lineage",
+    type: "reference",
+    label: "Kazembe lineage table",
+    title: "Kazembe / Mwata Kazembe lineage",
+    url: "https://www.chalochatu.org/Mwata_Kazembe",
+    note: "Lineage reference used for the contemporary entry listing Mwata Kazembe XIX as Paul Mpemba Kanyembo Kapale Mpalume from 1998 onward."
+  },
+  {
     id: "gordon",
     type: "academic",
     label: "Journal of African History",
@@ -71,6 +87,7 @@ export const sourceTypes = [
   { id: "academic", label: "Academic" },
   { id: "archive", label: "Archive" },
   { id: "media", label: "Media" },
+  { id: "reference", label: "Reference" },
   { id: "reconstruction", label: "Recon." }
 ];
 
@@ -376,7 +393,7 @@ export const kings = [
   { id: 16, name: "Kanyembo Kapema", reign: "1957-1961", title: "Mwata Kazembe XVI", era: "independence", confidence: "needs verification", note: "Final reign before Zambian independence-era transformation.", sources: ["gordon"] },
   { id: 17, name: "Paul Kanyembo Lutaba", reign: "1961-1983", title: "Mwata Kazembe XVII", era: "independence", confidence: "photographic + academic", note: "Crowned in 1961; linked to the emergence of Umutomboko as a national cultural event.", sources: ["unza", "commons"] },
   { id: 18, name: "Munona Chinyanta", reign: "1983-1998", title: "Mwata Kazembe XVIII", era: "contemporary", confidence: "modern record", note: "Bridged traditional authority and civil administration during late one-party and early multiparty eras.", sources: ["unza"] },
-  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalume", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Presides over contemporary Mutomboko and cross-border Lunda diplomatic presence.", sources: ["zta", "unza"] }
+  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalume", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Presides over contemporary Mutomboko and cross-border Lunda diplomatic presence. The library foregrounds his office as the living center of the archive.", sources: ["kazembe-lineage", "commons-current", "zta", "unza"] }
 ];
 
 export const sourceClaims = [
@@ -384,6 +401,7 @@ export const sourceClaims = [
   { claim: "The ceremony commemorates Lunda-Luba arrival from Kola in present-day DR Congo.", sources: ["zta", "gordon"], type: "oral tradition" },
   { claim: "The modern ceremony expanded from local royal practice into a national tourism event after 1971.", sources: ["unza"], type: "academic" },
   { claim: "Portuguese expedition material survives in the public-domain 1873 Cazembe volume.", sources: ["smithsonian"], type: "archive" },
+  { claim: "The current Mwata Kazembe XIX is listed as Paul Mpemba Kanyembo Kapale Mpalume, from 1998 onward.", sources: ["kazembe-lineage"], type: "reference" },
   { claim: "Some artifact visuals in this site are generated reconstructions, not documentary records.", sources: ["reconstruction"], type: "reconstruction" }
 ];
 
@@ -396,4 +414,3 @@ export const calendar = {
   location: "Mwansabombwe, Luapula Province, Zambia",
   sources: ["zta", "mot2025"]
 };
-

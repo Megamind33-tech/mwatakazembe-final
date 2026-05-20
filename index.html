@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Mwata Kazembe Interactive Cultural Archive</title>
+  <title>Mwata Kazembe XIX Royal Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
       <span></span><span></span><span></span>
     </button>
     <div class="issue-lockup">
-      <span>Interactive Cultural Archive</span>
-      <strong>Mwata Kazembe Kingdom</strong>
+      <span>Royal Library</span>
+      <strong>Mwata Kazembe XIX</strong>
     </div>
     <button class="source-button" id="source-toggle" type="button">Sources</button>
   </header>
@@ -30,7 +30,7 @@
   <nav id="contents" class="drawer drawer-left" aria-label="Archive sections" aria-hidden="true">
     <button class="drawer-close" type="button" data-close="contents" aria-label="Close contents">Close</button>
     <p class="eyebrow">Contents</p>
-    <h2>Eight exhibits, one living archive.</h2>
+    <h2>A royal library organized around the current Mwata.</h2>
     <div class="contents-list" id="contents-list"></div>
   </nav>
 
@@ -44,43 +44,48 @@
 
   <main id="archive" class="archive-shell">
     <div id="track" class="track">
-      <section class="spread cover-spread active" id="cover" data-title="Living Archive">
-        <img class="cover-image" src="assets/generated/hero-living-archive.png" alt="Generated historical reconstruction of a ceremonial Luapula procession">
+      <section class="spread cover-spread active" id="cover" data-title="Current Mwata">
+        <img class="cover-image" src="assets/images/mwata-kazembe-current-2017.png" alt="Mwata Kazembe XIX performing the royal dance at Mtomboko 2017">
         <div class="cover-scrim"></div>
         <svg class="cover-route" viewBox="0 0 1000 600" aria-hidden="true">
           <path d="M70 470 C220 355 360 395 486 314 S730 210 920 96"/>
         </svg>
         <div class="cover-grid">
           <div class="cover-title-block">
-            <p class="eyebrow">Luapula Province, Zambia</p>
-            <h1>Mwata Kazembe Kingdom</h1>
-            <p class="cover-deck">A source-led digital archive of Lunda-Kazembe memory, royal regalia, routes, ceremony, and governance.</p>
+            <p class="eyebrow">Current Senior Chief · Mwansabombwe</p>
+            <h1>Mwata Kazembe XIX</h1>
+            <p class="king-name-line">Paul Mpemba Kanyembo Kapale Mpalume</p>
+            <p class="cover-deck">A royal library centered on the living Mwata: his office, ceremony, regalia, lineage, sources, and the Lunda-Kazembe memory held around him.</p>
             <div class="quick-jumps" aria-label="Quick jumps">
-              <button type="button" data-jump="atlas">Map</button>
+              <button type="button" data-jump="lineage">Profile</button>
+              <button type="button" data-jump="archive-desk">Library</button>
               <button type="button" data-jump="regalia">Regalia</button>
               <button type="button" data-jump="ceremony">Ceremony</button>
-              <button type="button" data-jump="lineage">Kings</button>
             </div>
           </div>
           <div class="evidence-stack">
+            <figure class="current-mwata-card source-pulse">
+              <img src="assets/images/mwata-kazembe-current-2017.png" alt="Mwata Kazembe XIX at Mtomboko 2017">
+              <figcaption>
+                <span>Current Mwata</span>
+                <strong>Paul Mpemba Kanyembo Kapale Mpalume</strong>
+                <p>Mwata Kazembe XIX · reign listed from 1998 to present</p>
+                <button type="button" data-source-link="commons-current">Image source</button>
+              </figcaption>
+            </figure>
             <article class="evidence-card source-pulse">
               <span>Verified</span>
-              <strong>Umutomboko is held annually on the last weekend of July in Mwansabombwe.</strong>
-              <button type="button" data-source-link="zta">Open source</button>
+              <strong>The current officeholder is listed as Mwata Kazembe XIX, Paul Mpemba Kanyembo Kapale Mpalume.</strong>
+              <button type="button" data-source-link="kazembe-lineage">Open source</button>
             </article>
             <article class="evidence-card">
-              <span>Oral Tradition</span>
-              <strong>Migration memory connects Kola, the Luapula crossing, and the founding of Kazembe authority.</strong>
-              <button type="button" data-source-link="gordon">Open source</button>
-            </article>
-            <article class="evidence-card">
-              <span>Reconstruction</span>
-              <strong>Generated artifact plates are clearly labeled and separated from documentary media.</strong>
+              <span>Library Method</span>
+              <strong>Every exhibit reads as a catalog entry around the Mwata's office: map, regalia, ritual, lineage, and source evidence.</strong>
               <button type="button" data-source-link="reconstruction">Open note</button>
             </article>
           </div>
         </div>
-        <div class="cover-credit">Hero image: generated historical reconstruction, not documentary photography.</div>
+        <div class="cover-credit">Image: ChaloNiZambia, Wikimedia Commons, CC BY-SA 4.0.</div>
       </section>
 
       <section class="spread atlas-spread" id="atlas" data-title="Kingdom Atlas">
