@@ -21,12 +21,25 @@ The following images in `assets/generated/` were created with GPT Images for thi
 
 ## Licensed Documentary Media
 
+- `assets/images/mwata-kazembe-home-portrait.jpg`
+  - Source: Project-supplied image from local attachment
+  - Original local file: `C:/Users/Administrator/Downloads/493935015_3487231551410709_6416165067543791207_n.jpg`
+  - Use: Homepage image of Mwata Kazembe
+  - Rights: Photographer/source credit pending confirmation.
+
 - `assets/images/mwata-kazembe-current-2017.png`
   - Source: Wikimedia Commons, *Mwata Kazembe at Mtomboko 2017 02*
   - URL: https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp
   - Author: ChaloNiZambia
   - Date: 29 July 2017
   - License: CC BY-SA 4.0
+
+- `assets/images/kazembe-kingdom-map-2007.jpg`
+  - Source: Wikimedia Commons, *Kazembe Kingdom 433x455*
+  - URL: https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG
+  - Author: Rex Parry
+  - Date: 10 February 2007
+  - License: CC BY 2.5
 
 ## Research Sources Referenced In-Site
 
@@ -37,9 +50,10 @@ The following images in `assets/generated/` were created with GPT Images for thi
 - Cambridge / Journal of African History, David Gordon, "History on the Luapula Retold": https://www.cambridge.org/core/journals/journal-of-african-history/article/history-on-the-luapula-retold-landscape-memory-and-identity-in-the-kazembe-kingdom/19989870F232E77A3CB7057EAA8BDABF
 - Wikimedia Commons Kazembe category: https://commons.wikimedia.org/wiki/Category:Kazembe
 - Wikimedia Commons current Mwata image: https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp
+- Wikimedia Commons Kazembe map: https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG
 - Kazembe lineage reference: https://www.chalochatu.org/Mwata_Kazembe
 - Encyclopaedia Britannica, Kazembe: https://www.britannica.com/place/Kazembe
 
 ## Notes
 
-The homepage now bundles a licensed Commons ceremony image of the current Mwata. Artifact visuals remain generated reconstruction plates unless explicitly labeled as documentary media.
+The homepage now uses the project-supplied portrait of the current Mwata. The Commons ceremony image and Kazembe map are bundled as supporting assets with attribution. Additional Wikimedia downloads were blocked by rate limiting and were not committed when they returned error pages.

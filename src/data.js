@@ -40,6 +40,22 @@ export const sources = [
     note: "CC BY-SA 4.0 image by ChaloNiZambia, dated 29 July 2017, showing Mwata Kazembe at the Mtomboko Ceremony."
   },
   {
+    id: "user-home-portrait",
+    type: "media",
+    label: "Home portrait",
+    title: "Project-supplied Mwata Kazembe portrait",
+    url: "",
+    note: "Portrait supplied directly for this project and used as the homepage image of the current Mwata Kazembe. Source rights and photographer credit should be confirmed before public release."
+  },
+  {
+    id: "commons-kazembe-map",
+    type: "media",
+    label: "Commons map",
+    title: "Kazembe Kingdom 433x455",
+    url: "https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG",
+    note: "CC BY 2.5 map by Rex Parry showing Kazembe-Lunda routes and regional context."
+  },
+  {
     id: "kazembe-lineage",
     type: "reference",
     label: "Kazembe lineage table",
