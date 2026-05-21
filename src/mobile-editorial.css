@@ -4,9 +4,14 @@
     --mobile-stage-height: 100svh;
   }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
   body {
@@ -24,7 +29,8 @@
 
   .issue-lockup,
   .progress,
-  .mobile-nav {
+  .mobile-nav,
+  .nav-arrow {
     display: none !important;
   }
 
@@ -44,17 +50,33 @@
     background: var(--paper);
   }
 
-  .archive-shell,
+  .archive-shell {
+    width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+    perspective: 1200px;
+  }
+
   .track {
-    overflow: visible;
+    display: flex;
+    width: auto;
+    height: 100svh;
+    transform: translateX(calc(var(--mobile-page, 0) * -100vw)) !important;
+    transition: transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
   }
 
   .spread {
-    scroll-snap-align: start;
-    min-height: var(--mobile-stage-height);
+    flex: 0 0 100vw;
+    width: 100vw;
+    min-width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
     padding: 86px var(--mobile-edge) 54px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(22, 20, 17, 0.12);
+    border-bottom: 0;
+    scroll-snap-align: none;
   }
 
   .spread.mobile-active {
@@ -147,6 +169,7 @@
     overflow-y: auto;
     padding-right: 4px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .evidence-stack::-webkit-scrollbar,
@@ -154,7 +177,9 @@
   .segmented::-webkit-scrollbar,
   .route-rail::-webkit-scrollbar,
   .king-timeline::-webkit-scrollbar,
-  .source-type-row::-webkit-scrollbar {
+  .source-type-row::-webkit-scrollbar,
+  .artifact-wall::-webkit-scrollbar,
+  .source-grid::-webkit-scrollbar {
     display: none;
   }
 
@@ -170,11 +195,24 @@
 
   .atlas-spread .section-heading h2,
   .atlas-spread .section-heading p:not(.eyebrow),
-  .atlas-spread .eyebrow {
+  .atlas-spread .eyebrow,
+  .archive-spread .section-heading h2,
+  .archive-spread .section-heading p:not(.eyebrow),
+  .archive-spread .eyebrow,
+  .ceremony-spread .section-heading h2,
+  .ceremony-spread .section-heading p:not(.eyebrow),
+  .ceremony-spread .eyebrow {
     color: var(--paper);
   }
 
-  .atlas-layout {
+  .atlas-layout,
+  .routes-layout,
+  .archive-desk-layout,
+  .visit-grid,
+  .lineage-top {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr;
     gap: 14px;
   }
 
@@ -183,6 +221,11 @@
     border-color: rgba(251, 247, 237, 0.26);
     border-radius: 22px 22px 4px 4px;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+  }
+
+  .map-tools {
+    bottom: 12px;
+    left: 12px;
   }
 
   .atlas-panel {
@@ -199,8 +242,10 @@
   .filter-row {
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 2px 0 10px;
     scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
   .segmented button,
@@ -223,14 +268,16 @@
     backdrop-filter: blur(16px);
   }
 
+  .story-panel {
+    max-height: 28vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .routes-spread {
     background:
       radial-gradient(circle at 80% 0%, rgba(125, 15, 17, 0.18), transparent 32%),
       var(--paper);
-  }
-
-  .routes-layout {
-    gap: 14px;
   }
 
   .route-map-wrap {
@@ -246,12 +293,17 @@
     min-height: auto;
     height: auto;
     max-height: 32vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .route-rail {
+    position: static;
     margin-top: 12px;
     padding-bottom: 8px;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .route-rail button {
@@ -274,6 +326,7 @@
     scroll-snap-type: x mandatory;
     padding: 4px 0 18px;
     height: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .artifact-card:nth-child(n) {
@@ -298,12 +351,6 @@
     border-color: rgba(251, 247, 237, 0.16);
   }
 
-  .ceremony-spread .section-heading h2,
-  .ceremony-spread .section-heading p:not(.eyebrow),
-  .ceremony-spread .eyebrow {
-    color: var(--paper);
-  }
-
   .ceremony-stage {
     min-height: 0;
   }
@@ -311,8 +358,10 @@
   .ceremony-controls {
     gap: 10px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding: 0 0 10px;
     margin-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .day-pill {
@@ -336,6 +385,7 @@
     overflow-y: visible;
     scroll-snap-type: x mandatory;
     padding: 4px 8px 18px 0;
+    -webkit-overflow-scrolling: touch;
   }
 
   .ceremony-path::before {
@@ -376,9 +426,10 @@
   }
 
   .ceremony-detail {
-    max-height: none;
+    max-height: 32vh;
     min-height: 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     border-color: rgba(251, 247, 237, 0.16);
     border-radius: 30px 30px 4px 4px;
     background:
@@ -419,6 +470,8 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     padding-bottom: 16px;
+    height: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .king-card {
@@ -433,28 +486,24 @@
       linear-gradient(180deg, #171411 0%, var(--parchment) 34%, var(--paper) 100%);
   }
 
-  .archive-spread .section-heading h2,
-  .archive-spread .section-heading p:not(.eyebrow),
-  .archive-spread .eyebrow {
-    color: var(--paper);
-  }
-
   .archive-desk-layout {
     gap: 16px;
   }
 
-  .claim-list,
-  .source-grid {
-    max-height: none;
-    overflow: visible;
+  .claim-list {
+    max-height: 26vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .source-grid {
     display: flex;
     gap: 14px;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     padding-bottom: 14px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .source-grid .source-card {
@@ -470,7 +519,9 @@
   }
 
   .visit-grid {
-    gap: 14px;
+    max-height: 62vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .calendar-card,
@@ -481,6 +532,8 @@
   .drawer {
     width: min(92vw, 420px);
     padding: 34px 24px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal {
@@ -489,6 +542,8 @@
 
   .modal-panel {
     max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 22px;
     border-radius: 26px 26px 4px 4px;
   }
