@@ -550,6 +550,63 @@
     padding: 22px;
     border-radius: 26px 26px 4px 4px;
   }
+
+  /* ── Mobile homepage cleanup ── */
+
+  .cover-spread .inline-image-chips,
+  .cover-spread .quick-jumps,
+  .cover-spread .evidence-stack,
+  .cover-spread .current-mwata-card {
+    display: none !important;
+  }
+
+  .cover-credit {
+    display: none !important;
+  }
+
+  body[data-active-mobile-section="cover"] #source-toggle {
+    display: none !important;
+  }
+
+  .cover-grid {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 96px 28px 42px;
+    gap: 0;
+  }
+
+  .cover-title-block,
+  .cover-deck,
+  .king-name-line {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .cover-title-block h1 {
+    font-size: clamp(56px, 17vw, 82px) !important;
+    line-height: 0.82;
+    letter-spacing: -0.045em;
+  }
+
+  .cover-deck {
+    font-size: 16px;
+    line-height: 1.45;
+    max-width: 340px;
+  }
+
+  .cover-image {
+    object-fit: cover;
+    object-position: 54% center;
+  }
+
+  .cover-scrim {
+    background:
+      linear-gradient(180deg, rgba(9, 6, 4, 0.16), rgba(9, 6, 4, 0.42) 42%, rgba(9, 6, 4, 0.88) 100%),
+      linear-gradient(90deg, rgba(17, 12, 8, 0.74), rgba(17, 12, 8, 0.18));
+  }
 }
 
 @keyframes mobileSpreadEnter {
@@ -587,14 +644,13 @@
     line-height: 1.4;
   }
   
-  /* Cover */
+  /* Cover — short screens */
   .cover-grid {
-    padding: 72px var(--mobile-edge) 32px;
-    gap: 12px;
+    padding: 72px 24px 28px;
   }
   
   .cover-title-block h1 {
-    font-size: clamp(36px, 12vw, 54px) !important;
+    font-size: clamp(42px, 13vw, 62px) !important;
   }
   
   .king-name-line {
@@ -605,50 +661,6 @@
   .cover-deck {
     font-size: 13px;
     line-height: 1.4;
-  }
-  
-  .quick-jumps {
-    margin-top: 10px;
-    gap: 6px;
-  }
-  
-  .quick-jumps button {
-    padding: 8px 10px;
-    font-size: 9px;
-  }
-  
-  .evidence-stack {
-    max-height: 24vh;
-    gap: 8px;
-  }
-  
-  .current-mwata-card figcaption {
-    padding: 10px 12px;
-  }
-  
-  .current-mwata-card strong {
-    font-size: 16px;
-  }
-  
-  .current-mwata-card p {
-    margin: 4px 0 0;
-    font-size: 11px;
-  }
-  
-  .evidence-card {
-    padding: 10px 12px;
-  }
-  
-  .evidence-card strong {
-    font-size: 12px;
-    line-height: 1.35;
-  }
-  
-  .evidence-card button,
-  .current-mwata-card button {
-    margin-top: 6px;
-    padding: 6px 8px;
-    font-size: 9px;
   }
   
   /* Atlas */
@@ -771,22 +783,17 @@
     padding: 50px var(--mobile-edge) 20px;
   }
   
-  /* Cover */
+  /* Cover — very short screens */
   .cover-grid {
-    padding: 64px var(--mobile-edge) 24px;
-    gap: 8px;
+    padding: 58px 24px 20px;
   }
   
   .cover-title-block h1 {
-    font-size: clamp(30px, 10vw, 44px) !important;
+    font-size: clamp(36px, 11vw, 50px) !important;
   }
   
   .cover-deck {
     font-size: 12px;
-  }
-  
-  .evidence-stack {
-    max-height: 20vh;
   }
   
   /* Atlas */
