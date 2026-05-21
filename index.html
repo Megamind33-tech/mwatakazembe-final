@@ -2,137 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Mwata Kazembe XIX Royal Library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mwata Kazembe Kingdom — Official Digital Home</title>
+  <meta name="description" content="The official digital home of the Mwata Kazembe Kingdom — governance, Mutomboko, development, and official communications from Mwansabombwe.">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/styles.css">
   <link rel="stylesheet" href="src/mobile-editorial.css">
-  <link rel="stylesheet" href="src/interaction-dna.css">
 </head>
 <body>
-  <div id="loader" class="loader">
-    <div class="loader-mark">MK</div>
-    <div class="loader-rule"></div>
-    <div class="loader-copy">Opening the archive</div>
-  </div>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="topbar" aria-label="Archive controls">
-    <button class="icon-button" id="contents-toggle" type="button" aria-label="Open contents">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="mode-toggle" aria-label="Exploration mode">
-      <button type="button" class="active" data-mode-choice="orbit" aria-pressed="true">Orbit</button>
-      <button type="button" data-mode-choice="index" aria-pressed="false">Index</button>
+  <div class="utility-bar" id="utility-bar" aria-label="Kingdom contact and links"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" data-nav="home">
+        <span class="brand-mark" aria-hidden="true">MK</span>
+        <span class="brand-text">
+          <strong>Mwata Kazembe</strong>
+          <span>Kingdom of Kazembe</span>
+        </span>
+      </a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"></nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
     </div>
-    <button class="source-button" id="source-toggle" type="button">Sources</button>
   </header>
 
-  <section id="intro-ritual" class="intro-ritual" aria-label="Archive entry ritual">
-    <div class="intro-orbit" aria-hidden="true"></div>
-    <div class="intro-panel">
-      <p class="eyebrow">Mwata Kazembe Royal Library</p>
-      <h2>Enter the archive around the Mwata.</h2>
-      <p>Choose a quiet opening or a brief drum pulse. Sound only begins after your choice.</p>
-      <div class="intro-actions">
-        <button type="button" data-enter-archive="drum">Enter with drum</button>
-        <button type="button" data-enter-archive="silent">Enter silently</button>
-      </div>
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-panel">
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">Close</button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"></nav>
     </div>
-  </section>
-
-  <div class="kinetic-ribbons" aria-hidden="true">
-    <div class="kinetic-ribbon ribbon-one"><span>UMUTOMBOKO • MWANSABOMBWE • LUAPULA • KAZEMBE • UMUTOMBOKO • MWANSABOMBWE • LUAPULA • KAZEMBE •</span></div>
-    <div class="kinetic-ribbon ribbon-two"><span>REGALIA • ROUTES • LINEAGE • ARCHIVE • REGALIA • ROUTES • LINEAGE • ARCHIVE •</span></div>
-    <div class="kinetic-ribbon ribbon-three"><span>MWATA KAZEMBE XIX • ROYAL LIBRARY • MWATA KAZEMBE XIX • ROYAL LIBRARY •</span></div>
   </div>
 
-  <svg class="orbit-motif" viewBox="0 0 520 520" aria-hidden="true">
-    <circle class="orbit-ring" cx="260" cy="260" r="204"></circle>
-    <circle class="orbit-ring inner" cx="260" cy="260" r="132"></circle>
-    <g class="orbit-node" data-orbit-node="cover" transform="translate(260 56)"><circle r="5"></circle><text y="-12">Mwata</text></g>
-    <g class="orbit-node" data-orbit-node="atlas" transform="translate(420 134)"><circle r="5"></circle><text x="12" y="4">Map</text></g>
-    <g class="orbit-node" data-orbit-node="routes" transform="translate(464 300)"><circle r="5"></circle><text x="12" y="4">Routes</text></g>
-    <g class="orbit-node" data-orbit-node="regalia" transform="translate(346 456)"><circle r="5"></circle><text x="12" y="4">Regalia</text></g>
-    <g class="orbit-node" data-orbit-node="ceremony" transform="translate(174 456)"><circle r="5"></circle><text x="-86" y="4">Umutomboko</text></g>
-    <g class="orbit-node" data-orbit-node="lineage" transform="translate(56 300)"><circle r="5"></circle><text x="-66" y="4">Lineage</text></g>
-    <g class="orbit-node" data-orbit-node="archive-desk" transform="translate(100 134)"><circle r="5"></circle><text x="-68" y="4">Sources</text></g>
-  </svg>
-
-  <nav id="contents" class="drawer drawer-left" aria-label="Archive sections" aria-hidden="true">
-    <button class="drawer-close" type="button" data-close="contents" aria-label="Close contents">Close</button>
-    <p class="eyebrow">Contents</p>
-    <h2>A royal library organized around the current Mwata.</h2>
-    <div class="contents-list" id="contents-list"></div>
-  </nav>
-
-  <aside id="source-drawer" class="drawer drawer-right" aria-label="Source drawer" aria-hidden="true">
-    <button class="drawer-close" type="button" data-close="source-drawer" aria-label="Close sources">Close</button>
-    <p class="eyebrow">Evidence Desk</p>
-    <h2>Claims are labeled by source type.</h2>
-    <div class="source-type-row" id="drawer-source-types"></div>
-    <div class="drawer-sources" id="drawer-sources"></div>
-  </aside>
-
-  <main id="archive" class="archive-shell">
-    <div id="track" class="track">
-      <section class="spread cover-spread active" id="cover" data-title="Current Mwata">
-        <img class="cover-image" src="assets/images/mwata-kazembe-home-portrait.jpg" alt="Mwata Kazembe seated in royal regalia">
-        <div class="cover-scrim"></div>
-        <svg class="cover-route" viewBox="0 0 1000 600" aria-hidden="true"><path d="M70 470 C220 355 360 395 486 314 S730 210 920 96"/></svg>
-        <div class="cover-grid">
-          <div class="cover-title-block">
-            <p class="eyebrow">Current Mwata · Mwansabombwe</p>
-            <h1>Mwata Kazembe XIX</h1>
-            <p class="king-name-line">Paul Mpemba Kanyembo Kapale Mpalume</p>
-            <p class="cover-deck">A royal library centered on the living Mwata: his office, ceremony, regalia, lineage, sources, and the Lunda-Kazembe memory held around him.</p>
-            <div class="inline-image-chips" aria-label="Archive image shortcuts">
-              <button type="button" data-jump="cover"><img src="assets/images/mwata-kazembe-home-portrait.jpg" alt=""><span>Portrait</span></button>
-              <button type="button" data-jump="atlas"><img src="assets/images/kazembe-kingdom-map-2007.jpg" alt=""><span>Map</span></button>
-              <button type="button" data-jump="regalia"><img src="assets/generated/reconstruction-crowns.png" alt=""><span>Regalia</span></button>
-              <button type="button" data-jump="ceremony"><img src="assets/images/mwata-kazembe-current-2017.png" alt=""><span>Umutomboko</span></button>
-              <button type="button" data-jump="archive-desk"><img src="assets/generated/atlas-parchment-map.png" alt=""><span>Sources</span></button>
-            </div>
-            <div class="quick-jumps" aria-label="Quick jumps"><button type="button" data-jump="lineage">Profile</button><button type="button" data-jump="archive-desk">Library</button><button type="button" data-jump="regalia">Regalia</button><button type="button" data-jump="ceremony">Ceremony</button></div>
-          </div>
-          <div class="evidence-stack">
-            <figure class="current-mwata-card source-pulse"><img src="assets/images/mwata-kazembe-home-portrait.jpg" alt="Mwata Kazembe seated in royal regalia"><figcaption><span>Current Mwata</span><strong>Paul Mpemba Kanyembo Kapale Mpalume</strong><p>Mwata Kazembe XIX - reign listed from 1998 to present</p><button type="button" data-source-link="user-home-portrait">Image note</button></figcaption></figure>
-            <article class="evidence-card source-pulse"><span>Verified</span><strong>The current officeholder is listed as Mwata Kazembe XIX, Paul Mpemba Kanyembo Kapale Mpalume.</strong><button type="button" data-source-link="kazembe-lineage">Open source</button></article>
-            <article class="evidence-card"><span>Library Method</span><strong>Every exhibit reads as a catalog entry around the Mwata's office: map, regalia, ritual, lineage, and source evidence.</strong><button type="button" data-source-link="reconstruction">Open note</button></article>
-          </div>
-        </div>
-        <div class="cover-credit">Image: project-supplied portrait of Mwata Kazembe; source rights pending confirmation.</div>
-      </section>
-      <section class="spread atlas-spread" id="atlas" data-title="Kingdom Atlas"><div class="section-heading"><p class="eyebrow">Exhibit 02</p><h2>Kingdom Atlas</h2><p>Switch between migration memory, political landscape, trade routes, and colonial disruption. Routes draw themselves as evidence layers, not fixed borders.</p></div><div class="atlas-layout"><div class="map-frame"><img class="map-base" src="assets/generated/atlas-parchment-map.png" alt="Generated parchment atlas background for the Luapula region"><svg id="atlas-svg" class="interactive-map" viewBox="0 0 900 820" role="img" aria-label="Interactive historical map of Kazembe route layers"></svg><div class="map-tools"><button type="button" id="map-zoom-out">-</button><button type="button" id="map-reset">Reset</button><button type="button" id="map-zoom-in">+</button></div></div><aside class="atlas-panel"><div class="segmented" id="atlas-modes"></div><div id="atlas-story" class="story-panel"></div></aside></div></section>
-      <section class="spread routes-spread" id="routes" data-title="Routes of Memory"><div class="section-heading compact"><p class="eyebrow">Exhibit 03</p><h2>Routes of Memory</h2><p>Drag the rail or select a route. The map and card update together.</p></div><div class="routes-layout"><div class="route-map-wrap"><img class="map-base" src="assets/generated/atlas-parchment-map.png" alt="Generated parchment atlas background"><svg id="routes-svg" class="interactive-map" viewBox="0 0 900 820" aria-label="Animated route map"></svg></div><div class="route-card-shell" id="route-card-shell"></div></div><div class="route-rail" id="route-rail"></div></section>
-      <section class="spread regalia-spread" id="regalia" data-title="Regalia Vault"><div class="section-heading compact"><p class="eyebrow">Exhibit 04</p><h2>Regalia Vault</h2><p>Object cards open into folios with meaning, performance role, provenance, visual evidence, reconstruction notes, and sources.</p></div><div class="artifact-wall" id="artifact-wall"></div></section>
-      <section class="spread ceremony-spread" id="ceremony" data-title="Umutomboko Ceremony"><div class="ceremony-stage"><div class="section-heading compact"><p class="eyebrow">Exhibit 05 - Ritual Path</p><h2>Umutomboko Ceremony</h2><p>A two-day ritual path from ancestral ground to the public dance of victory. Use the local controls to move through the ceremonial sequence.</p></div><div class="ceremony-controls" aria-label="Umutomboko sequence filters"><button type="button" class="day-pill active" data-day="all">All</button><button type="button" class="day-pill" data-day="Day 1">Day 1</button><button type="button" class="day-pill" data-day="Day 2">Day 2</button></div><div class="ceremony-path" id="ceremony-path"></div></div><aside class="ceremony-detail" id="ceremony-detail"></aside></section>
-      <section class="spread lineage-spread" id="lineage" data-title="Lineage and Governance"><div class="lineage-top"><div class="section-heading compact"><p class="eyebrow">Exhibit 06</p><h2>Lineage and Governance</h2><p>Search or filter the royal line. Uncertain entries remain visibly marked instead of smoothed away.</p></div><div class="lineage-tools"><input id="king-search" type="search" placeholder="Search a ruler or period" aria-label="Search rulers"><div id="king-filters" class="filter-row"></div></div></div><div class="king-timeline" id="king-timeline"></div></section>
-      <section class="spread archive-spread" id="archive-desk" data-title="Archive Desk"><div class="section-heading compact"><p class="eyebrow">Exhibit 07</p><h2>Archive Desk</h2><p>Filter the archive by source type and compare verified claims, oral tradition, outsider accounts, and reconstruction notes.</p></div><div class="archive-desk-layout"><div><div class="source-type-row" id="archive-source-types"></div><div class="claim-list" id="claim-list"></div></div><div class="source-grid" id="source-grid"></div></div></section>
-      <section class="spread visit-spread" id="visit" data-title="Visit and Calendar"><div class="visit-hero"><p class="eyebrow">Exhibit 08</p><h2>Visit and Calendar</h2><p>Visitor information is kept distinct from verified historical claims. The next ceremony date is shown as expected until official confirmation appears.</p></div><div class="visit-grid"><article class="calendar-card"><span class="status-tag">Tentative</span><h3>Expected next Umutomboko</h3><div class="countdown" id="countdown">Calculating</div><p id="calendar-copy"></p><button type="button" data-source-link="mot2025">View date source</button></article><article class="visit-card"><h3>Mwansabombwe</h3><p>The ceremony is associated with Mwansabombwe in Luapula Province, with routes of memory reaching toward Kola, the Luapula River, Lake Mweru, and regional trade worlds.</p><button type="button" data-jump="atlas">Open map</button></article><article class="visit-card"><h3>Preservation Note</h3><p>Generated visuals are reconstructions, public-domain scans remain cited, and living custodial authority is treated as essential for deeper publication.</p><button type="button" data-jump="archive-desk">Open archive</button></article></div><footer class="site-footer"><span>Built as a research-backed cultural archive.</span><a href="assets/ATTRIBUTION.md">Attribution file</a><button type="button" data-jump="cover">Reopen from cover</button></footer></section>
-    </div>
+  <main id="main">
+    <section class="page page-home active" id="page-home" data-page="home"></section>
+    <section class="page" id="page-mwata" data-page="mwata"></section>
+    <section class="page" id="page-governance" data-page="governance"></section>
+    <section class="page" id="page-kingdom" data-page="kingdom"></section>
+    <section class="page" id="page-mutomboko" data-page="mutomboko"></section>
+    <section class="page" id="page-development" data-page="development"></section>
+    <section class="page" id="page-newsroom" data-page="newsroom"></section>
+    <section class="page" id="page-contact" data-page="contact"></section>
   </main>
-  <section id="archive-index" class="archive-index" aria-label="Archive index" aria-hidden="true">
-    <div class="index-topline">
-      <p class="eyebrow">Archive Index</p>
-      <button type="button" data-mode-choice="orbit">Return to orbit</button>
-    </div>
-    <div class="index-hero">
-      <h2>Kazembe royal library index.</h2>
-      <p>Structured access to sections, regalia, rulers, source cards, and the Umutomboko sequence without leaving the cultural archive.</p>
-    </div>
-    <div id="index-grid" class="index-grid"></div>
-  </section>
-  <button class="nav-arrow prev" id="prev-page" type="button" aria-label="Previous exhibit"></button>
-  <button class="nav-arrow next" id="next-page" type="button" aria-label="Next exhibit"></button>
-  <div class="progress" id="progress" aria-label="Section progress"></div>
-  <div class="modal" id="folio-modal" aria-hidden="true" role="dialog" aria-label="Artifact folio"><div class="modal-panel"><button class="modal-close" id="modal-close" type="button" aria-label="Close folio">Close</button><div id="modal-content"></div></div></div>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
   <script src="src/vendor/gsap.min.js"></script>
-  <script type="module" src="src/editorial-language-normalize.js"></script>
   <script type="module" src="src/app.js"></script>
   <script type="module" src="src/mobile-editorial.js"></script>
-  <script type="module" src="src/interaction-dna.js"></script>
 </body>
 </html>

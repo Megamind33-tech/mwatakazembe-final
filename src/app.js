@@ -1,504 +1,874 @@
 import {
-  artifacts,
-  atlasModes,
+  agencies,
   calendar,
-  ceremonySteps,
+  developmentPillars,
+  governanceSections,
+  governanceStructure,
+  heroCtas,
+  historyChapters,
+  kingdomGlance,
+  kingdomSections,
   kings,
-  mapMarkers,
-  routes,
-  sourceClaims,
-  sources,
-  sourceTypes
-} from "./data.js";
+  latestCommunications,
+  leadershipCards,
+  mutombokoFeature,
+  mwataProfile,
+  navigation,
+  newsCategories,
+  newsItems,
+  publications,
+  royalMap,
+  siteMeta,
+  socialLinks,
+  symbolsOfAuthority,
+  utilityLinks,
+  warsDiplomacy,
+  ceremonySteps
+} from "./kingdom-data.js";
 
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-const byId = (id) => document.getElementById(id);
-const sections = $$(".spread");
-const sourceById = new Map(sources.map((source) => [source.id, source]));
-const routeById = new Map(routes.map((route) => [route.id, route]));
-const artifactById = new Map(artifacts.map((artifact) => [artifact.id, artifact]));
-const isMobile = () => window.matchMedia("(max-width: 760px)").matches;
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-let page = 0;
-let activeRouteId = routes[0].id;
-let activeStepId = ceremonySteps[0].id;
-let activeKingEra = "all";
-let activeSourceType = "all";
-let mapScale = 1;
-let touchStartX = 0;
-let wheelLocked = false;
-
-function html(value) {
+function esc(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replaceAll('"', "&quot;");
 }
 
-function sourceChips(ids) {
+function placeholderBadge(show) {
+  return show ? `<span class="badge badge-required">content required</span>` : "";
+}
+
+function cardImage(src, alt, label) {
+  if (src) {
+    return `<div class="card-media"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></div>`;
+  }
+  return `<div class="card-media card-media-placeholder"><span>${esc(label || "Image")}</span></div>`;
+}
+
+function readMore(href, label = "Read more") {
+  return `<a class="link-arrow" href="${esc(href)}">${esc(label)}</a>`;
+}
+
+function sectionHead(eyebrow, title, deck = "") {
   return `
-    <div class="source-list">
-      ${ids.map((id) => {
-        const source = sourceById.get(id);
-        return `<button class="source-chip" type="button" data-source-link="${id}">${html(source?.label ?? id)}</button>`;
-      }).join("")}
+    <header class="section-head">
+      ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ""}
+      <h2>${esc(title)}</h2>
+      ${deck ? `<p class="section-deck">${esc(deck)}</p>` : ""}
+    </header>
+  `;
+}
+
+function renderUtilityBar() {
+  const links = utilityLinks.map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`).join("");
+  const social = socialLinks
+    .map((s) => `<a href="${esc(s.href)}" title="${esc(s.status)}">${esc(s.label)}</a>`)
+    .join("");
+  $("#utility-bar").innerHTML = `
+    <div class="utility-inner">
+      <div class="utility-left">${links}</div>
+      <div class="utility-right">${social}</div>
     </div>
   `;
 }
 
-function goToPage(nextPage) {
-  page = Math.max(0, Math.min(sections.length - 1, nextPage));
-  if (isMobile()) {
-    sections[page].scrollIntoView({ behavior: "smooth", block: "start" });
-  } else {
-    byId("track").style.transform = `translateX(-${page * 100}vw)`;
-  }
-  sections.forEach((section, index) => section.classList.toggle("active", index === page));
-  byId("prev-page").disabled = page === 0;
-  byId("next-page").disabled = page === sections.length - 1;
-  $$(".progress button").forEach((button, index) => button.classList.toggle("active", index === page));
-}
-
-function openDrawer(drawer) {
-  drawer.classList.add("open");
-  drawer.setAttribute("aria-hidden", "false");
-}
-
-function closeDrawer(drawer) {
-  drawer.classList.remove("open");
-  drawer.setAttribute("aria-hidden", "true");
-}
-
-function buildNavigation() {
-  sections.forEach((section, index) => {
-    const title = section.dataset.title;
-    const item = document.createElement("button");
-    item.type = "button";
-    item.className = "contents-item";
-    item.innerHTML = `<span class="num">${String(index + 1).padStart(2, "0")}</span><strong>${html(title)}</strong><span class="page">${index + 1}</span>`;
-    item.addEventListener("click", () => {
-      closeDrawer(byId("contents"));
-      goToPage(index);
-    });
-    byId("contents-list").appendChild(item);
-
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.setAttribute("aria-label", `Open ${title}`);
-    dot.addEventListener("click", () => goToPage(index));
-    byId("progress").appendChild(dot);
-
-  });
-}
-
-function renderSourceTypeButtons(container, active, onSelect) {
-  container.innerHTML = sourceTypes.map((type) => `
-    <button type="button" class="${type.id === active ? "active" : ""}" data-type="${type.id}">${html(type.label)}</button>
-  `).join("");
-  $$("button", container).forEach((button) => {
-    button.addEventListener("click", () => onSelect(button.dataset.type));
-  });
-}
-
-function renderDrawerSources(active = "all", focus = "") {
-  const filtered = sources.filter((source) => active === "all" || source.type === active || source.id === focus);
-  byId("drawer-sources").innerHTML = filtered.map((source) => `
-    <article class="source-card" id="drawer-source-${source.id}">
-      <span class="tag">${html(source.type)}</span>
-      <strong>${html(source.title)}</strong>
-      <p>${html(source.note)}</p>
-      ${source.url ? `<a href="${source.url}" target="_blank" rel="noreferrer">Open source</a>` : ""}
-    </article>
-  `).join("");
-}
-
-function openSource(id = "") {
-  openDrawer(byId("source-drawer"));
-  renderSourceTypeButtons(byId("drawer-source-types"), activeSourceType, (next) => {
-    activeSourceType = next;
-    renderDrawerSources(next);
-  });
-  renderDrawerSources(activeSourceType, id);
-  if (id) {
-    requestAnimationFrame(() => byId(`drawer-source-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" }));
-  }
-}
-
-function markerPoint(marker) {
-  return { x: marker.x * 9, y: marker.y * 8.2 };
-}
-
-function drawMap(svg, handlers = {}) {
-  svg.innerHTML = "";
-  routes.forEach((route) => {
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", route.path);
-    path.setAttribute("stroke", route.color);
-    path.dataset.route = route.id;
-    path.classList.add("map-route", "ghost");
-    path.addEventListener("click", () => handlers.onRoute?.(route.id));
-    svg.appendChild(path);
-    path.style.setProperty("--dash", Math.ceil(path.getTotalLength()));
-  });
-  mapMarkers.forEach((marker) => {
-    const point = markerPoint(marker);
-    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    group.classList.add("map-marker");
-    group.dataset.marker = marker.id;
-    group.setAttribute("transform", `translate(${point.x} ${point.y})`);
-    group.innerHTML = `<circle r="${marker.kind === "capital" ? 10 : 7}"></circle><text x="14" y="5">${html(marker.label)}</text>`;
-    group.addEventListener("click", () => handlers.onMarker?.(marker.id));
-    svg.appendChild(group);
-  });
-}
-
-function updateMap(svg, routeIds = [], markerIds = []) {
-  $$(".map-route", svg).forEach((routePath) => {
-    const active = routeIds.includes(routePath.dataset.route);
-    routePath.classList.toggle("active", active);
-    routePath.classList.toggle("ghost", !active);
-  });
-  $$(".map-marker", svg).forEach((marker) => {
-    marker.classList.toggle("active", markerIds.includes(marker.dataset.marker));
-  });
-}
-
-function renderAtlas() {
-  const svg = byId("atlas-svg");
-  const modes = byId("atlas-modes");
-  const story = byId("atlas-story");
-
-  drawMap(svg, {
-    onRoute: (id) => selectMode((atlasModes.find((mode) => mode.activeRoutes.includes(id)) ?? atlasModes[0]).id),
-    onMarker: (id) => selectMode((atlasModes.find((mode) => mode.markers.includes(id)) ?? atlasModes[0]).id)
-  });
-
-  modes.innerHTML = atlasModes.map((mode) => `<button type="button" data-mode="${mode.id}">${html(mode.label)}</button>`).join("");
-  $$("button", modes).forEach((button) => button.addEventListener("click", () => selectMode(button.dataset.mode)));
-
-  function selectMode(id) {
-    const mode = atlasModes.find((item) => item.id === id) ?? atlasModes[0];
-    $$("button", modes).forEach((button) => button.classList.toggle("active", button.dataset.mode === id));
-    updateMap(svg, mode.activeRoutes, mode.markers);
-    story.innerHTML = `
-      <div class="meta"><span class="tag">${html(mode.period)}</span><span class="tag">${html(mode.confidence)}</span></div>
-      <h3>${html(mode.title)}</h3>
-      <p>${html(mode.summary)}</p>
-      <p><strong>Evidence label:</strong> ${html(mode.claim)}</p>
-      ${sourceChips(mode.sources)}
-    `;
-  }
-
-  selectMode(atlasModes[0].id);
-}
-
-function renderRoutes() {
-  const svg = byId("routes-svg");
-  const rail = byId("route-rail");
-  const shell = byId("route-card-shell");
-
-  drawMap(svg, {
-    onRoute: selectRoute,
-    onMarker: (id) => {
-      const route = routes.find((item) => item.nodes.includes(id));
-      if (route) selectRoute(route.id);
-    }
-  });
-
-  rail.innerHTML = routes.map((route, index) => `
-    <button type="button" data-route="${route.id}">
-      <span>${String(index + 1).padStart(2, "0")} / ${html(route.period)}</span>
-      <strong>${html(route.title)}</strong>
-    </button>
-  `).join("");
-  $$("button", rail).forEach((button) => button.addEventListener("click", () => selectRoute(button.dataset.route)));
-
-  let dragging = false;
-  let startX = 0;
-  let scrollLeft = 0;
-  rail.addEventListener("pointerdown", (event) => {
-    dragging = true;
-    startX = event.pageX;
-    scrollLeft = rail.scrollLeft;
-    rail.setPointerCapture(event.pointerId);
-  });
-  rail.addEventListener("pointermove", (event) => {
-    if (dragging) rail.scrollLeft = scrollLeft - (event.pageX - startX);
-  });
-  rail.addEventListener("pointerup", () => {
-    dragging = false;
-  });
-
-  function selectRoute(id) {
-    activeRouteId = id;
-    const route = routeById.get(id) ?? routes[0];
-    updateMap(svg, [route.id], route.nodes);
-    $$("button", rail).forEach((button) => button.classList.toggle("active", button.dataset.route === route.id));
-    shell.innerHTML = `
-      <article class="route-card">
-        <span class="route-number">${html(route.period)} / ${html(route.type)}</span>
-        <h3>${html(route.title)}</h3>
-        <p>${html(route.summary)}</p>
-        <p><strong>Evidence:</strong> ${html(route.evidence)}</p>
-        ${sourceChips(route.sources)}
-      </article>
-    `;
-  }
-
-  selectRoute(activeRouteId);
-}
-
-function artifactImage(artifact) {
-  if (artifact.image) {
-    return `<img src="${artifact.image}" alt="${html(artifact.name)} reconstruction plate">`;
-  }
-  return `<div class="artifact-placeholder">${html(artifact.name)}</div>`;
-}
-
-function renderArtifacts() {
-  const wall = byId("artifact-wall");
-  wall.innerHTML = artifacts.map((artifact) => `
-    <button class="artifact-card" type="button" data-artifact="${artifact.id}">
-      ${artifactImage(artifact)}
-      <span class="artifact-copy">
-        <span>${html(artifact.status)} / ${html(artifact.className)}</span>
-        <strong>${html(artifact.name)}</strong>
-        <p>${html(artifact.meaning)}</p>
-      </span>
-    </button>
-  `).join("");
-  $$(".artifact-card", wall).forEach((card) => card.addEventListener("click", () => openFolio(card.dataset.artifact)));
-}
-
-function openFolio(id) {
-  const artifact = artifactById.get(id);
-  if (!artifact) return;
-  const modal = byId("folio-modal");
-  const content = byId("modal-content");
-  const tabs = [
-    ["meaning", "Meaning", artifact.meaning],
-    ["performance", "Performance Role", artifact.performance],
-    ["provenance", "Provenance", artifact.provenance],
-    ["visualEvidence", "Visual Evidence", artifact.visualEvidence],
-    ["reconstruction", "Reconstruction Notes", artifact.reconstruction],
-    ["sources", "Sources", ""]
-  ];
-  content.innerHTML = `
-    <div class="folio-grid">
-      <div class="folio-media">${artifactImage(artifact)}</div>
-      <div>
-        <div class="meta"><span class="tag">${html(artifact.status)}</span><span class="tag">${html(artifact.className)}</span></div>
-        <h2>${html(artifact.name)}</h2>
-        <div class="folio-tabs">
-          ${tabs.map((tab, index) => `<button type="button" class="${index === 0 ? "active" : ""}" data-tab="${tab[0]}">${tab[1]}</button>`).join("")}
+function renderNav() {
+  const desktop = navigation
+    .map((item) => {
+      const children = item.children
+        ? `<div class="nav-dropdown">${item.children
+            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+            .join("")}</div>`
+        : "";
+      return `
+        <div class="nav-item">
+          <a href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+          ${children}
         </div>
-        <div class="folio-pane" id="folio-pane"></div>
+      `;
+    })
+    .join("");
+  $("#primary-nav").innerHTML = desktop;
+
+  const mobile = navigation
+    .map((item) => {
+      const sub = item.children
+        ? `<div class="mobile-sub">${item.children
+            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+            .join("")}</div>`
+        : "";
+      return `
+        <div class="mobile-nav-group">
+          <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+          ${sub}
+        </div>
+      `;
+    })
+    .join("");
+  $("#mobile-nav").innerHTML = mobile;
+}
+
+function renderFooter() {
+  const cols = navigation
+    .map(
+      (item) => `
+      <div class="footer-col">
+        <h3><a href="${esc(item.href)}">${esc(item.label)}</a></h3>
+        ${
+          item.children
+            ? `<ul>${item.children.map((c) => `<li><a href="${esc(c.href)}">${esc(c.label)}</a></li>`).join("")}</ul>`
+            : ""
+        }
+      </div>
+    `
+    )
+    .join("");
+  $("#site-footer").innerHTML = `
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <strong>Mwata Kazembe Kingdom</strong>
+        <p>${esc(siteMeta.location)}</p>
+        <p class="footer-tagline">${esc(siteMeta.tagline)}</p>
+      </div>
+      <div class="footer-grid">${cols}</div>
+      <div class="footer-bottom">
+        <span>© ${new Date().getFullYear()} Mwata Kazembe Kingdom</span>
+        <a href="assets/ATTRIBUTION.md">Image and source attribution</a>
       </div>
     </div>
   `;
-  const pane = byId("folio-pane");
-  function selectTab(key) {
-    $$(".folio-tabs button", content).forEach((button) => button.classList.toggle("active", button.dataset.tab === key));
-    if (key === "sources") pane.innerHTML = `<p>Sources connected to this folio:</p>${sourceChips(artifact.sources)}`;
-    else pane.innerHTML = `<p>${html((tabs.find((tab) => tab[0] === key) ?? tabs[0])[2])}</p>`;
-  }
-  $$(".folio-tabs button", content).forEach((button) => button.addEventListener("click", () => selectTab(button.dataset.tab)));
-  selectTab("meaning");
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden", "false");
 }
 
-function closeModal() {
-  byId("folio-modal").classList.remove("open");
-  byId("folio-modal").setAttribute("aria-hidden", "true");
-}
+function renderHome() {
+  const leadership = leadershipCards
+    .map(
+      (c) => `
+      <article class="authority-card">
+        ${c.image ? cardImage(c.image, c.title, c.title) : cardImage("", c.title, c.title)}
+        <div class="authority-card-body">
+          <p class="office-label">${esc(c.role)}</p>
+          <h3>${esc(c.title)}</h3>
+          <p>${esc(c.description)}</p>
+          ${placeholderBadge(c.placeholder)}
+          ${readMore(c.href)}
+        </div>
+      </article>
+    `
+    )
+    .join("");
 
-function renderCeremony() {
-  const path = byId("ceremony-path");
-  path.innerHTML = ceremonySteps.map((step, index) => `
-    <button class="ceremony-step" type="button" data-step="${step.id}" data-day="${step.day}">
-      <span>${html(step.day)} / ${String(index + 1).padStart(2, "0")}</span>
-      <strong>${html(step.label)}</strong>
-      <p>${html(step.title)}</p>
-    </button>
-  `).join("");
-  $$(".ceremony-step", path).forEach((button) => button.addEventListener("click", () => selectCeremony(button.dataset.step)));
-  $$(".day-pill").forEach((button) => {
-    button.addEventListener("click", () => {
-      $$(".day-pill").forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
-      $$(".ceremony-step").forEach((step) => {
-        step.classList.toggle("hidden-by-day", button.dataset.day !== "all" && step.dataset.day !== button.dataset.day);
-      });
-    });
-  });
-  selectCeremony(activeStepId);
-}
+  const glance = kingdomGlance
+    .map((f) => `<div class="fact-cell"><span class="fact-label">${esc(f.label)}</span><strong>${esc(f.value)}</strong></div>`)
+    .join("");
 
-function selectCeremony(id) {
-  activeStepId = id;
-  const step = ceremonySteps.find((item) => item.id === id) ?? ceremonySteps[0];
-  $$(".ceremony-step").forEach((button) => button.classList.toggle("active", button.dataset.step === id));
-  const imageArtifact = artifactById.get(step.objectIds[0]) ?? artifacts[0];
-  byId("ceremony-detail").innerHTML = `
-    <div class="meta"><span class="tag">${html(step.day)}</span><span class="tag">${html(step.location)}</span></div>
-    <h3>${html(step.title)}</h3>
-    <p>${html(step.summary)}</p>
-    <div class="detail-image">${artifactImage(imageArtifact)}</div>
-    <p><strong>Evidence:</strong> ${html(step.evidence)}</p>
-    <div class="object-chips">
-      ${step.objectIds.map((artifactId) => {
-        const artifact = artifactById.get(artifactId);
-        return artifact ? `<button type="button" data-artifact-link="${artifact.id}">${html(artifact.name)}</button>` : "";
-      }).join("")}
-    </div>
-    ${sourceChips(step.sources)}
+  const gov = governanceStructure
+    .map(
+      (g) => `
+      <article class="gov-node" data-tier="${g.tier}">
+        <span class="gov-tier">Tier ${g.tier}</span>
+        <h3>${esc(g.title)}</h3>
+        <p>${esc(g.description)}</p>
+        ${placeholderBadge(g.placeholder)}
+      </article>
+    `
+    )
+    .join("");
+
+  const news = latestCommunications
+    .map(
+      (n) => `
+      <article class="comm-card ${n.placeholder ? "is-placeholder" : ""}">
+        <span class="comm-category">${esc(n.category)}</span>
+        <h3>${esc(n.title)}</h3>
+        <time>${esc(n.date)}</time>
+        <p>${esc(n.excerpt)}</p>
+        ${placeholderBadge(n.placeholder)}
+        ${n.href ? readMore(n.href) : readMore("#newsroom")}
+      </article>
+    `
+    )
+    .join("");
+
+  const dev = developmentPillars
+    .map(
+      (d) => `
+      <article class="pillar-card">
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.summary)}</p>
+        ${placeholderBadge(d.placeholder)}
+        ${readMore(d.href)}
+      </article>
+    `
+    )
+    .join("");
+
+  const mutoStages = mutombokoFeature.stages
+    .map((s) => `<li><strong>${esc(s.day)} — ${esc(s.label)}</strong> ${esc(s.title)} · ${esc(s.location)}</li>`)
+    .join("");
+
+  const history = historyChapters
+    .map(
+      (ch) => `
+      <article class="history-chapter">
+        <span class="chapter-marker">${esc(ch.marker)}</span>
+        <h3>${esc(ch.title)}</h3>
+        <p>${esc(ch.summary)}</p>
+        <a class="btn btn-ghost" href="#kingdom-timeline">Read full history</a>
+      </article>
+    `
+    )
+    .join("");
+
+  const wars = warsDiplomacy
+    .map((w) => `<article class="triumph-card"><h3>${esc(w.title)}</h3><p>${esc(w.summary)}</p></article>`)
+    .join("");
+
+  const agencyList = agencies
+    .map((a) => `<li><strong>${esc(a.name)}</strong> — <span>${esc(a.status)}</span></li>`)
+    .join("");
+
+  const ctas = heroCtas
+    .map(
+      (c) =>
+        `<a class="btn ${c.primary ? "btn-primary" : "btn-secondary"}" href="${esc(c.href)}">${esc(c.label)}</a>`
+    )
+    .join("");
+
+  $("#page-home").innerHTML = `
+    <section class="royal-hero" id="home">
+      <div class="hero-media">
+        <img src="${esc(siteMeta.heroImage)}" alt="Mwata Kazembe in royal regalia">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-label">${esc(siteMeta.tagline)}</p>
+        <h1>${esc(siteMeta.headline)}</h1>
+        <p class="hero-sub">${esc(siteMeta.subheadline)}</p>
+        <div class="hero-ctas">${ctas}</div>
+      </div>
+    </section>
+
+    <section class="section section-statement">
+      <div class="container narrow">
+        <p class="lead-statement">${esc(siteMeta.openingStatement)}</p>
+      </div>
+    </section>
+
+    <section class="section section-leadership" id="leadership">
+      <div class="container">
+        ${sectionHead("Kingdom Authority", "Leadership of the Kingdom")}
+        <div class="authority-grid swipe-track" data-swipe="leadership">${leadership}</div>
+      </div>
+    </section>
+
+    <section class="section section-glance">
+      <div class="container">
+        ${sectionHead("The Kingdom Today", "Kingdom at a Glance")}
+        <div class="facts-strip">${glance}</div>
+      </div>
+    </section>
+
+    <section class="section section-governance" id="government">
+      <div class="container">
+        ${sectionHead("Heritage and Governance", "Government of the Kingdom")}
+        <p class="section-deck">Power flows from the Mwata through council, chiefs, courts, and public offices — a living structure of traditional authority and administration.</p>
+        <div class="governance-panel">${gov}</div>
+      </div>
+    </section>
+
+    <section class="section section-news">
+      <div class="container">
+        ${sectionHead("Official Communication", "Latest from the Kingdom")}
+        <div class="comm-grid swipe-track" data-swipe="news">${news}</div>
+        <p class="section-cta"><a class="btn btn-primary" href="#newsroom" data-nav="newsroom">Visit Newsroom</a></p>
+      </div>
+    </section>
+
+    <section class="section section-development">
+      <div class="container">
+        ${sectionHead("Kingdom Development", "Development and Progress")}
+        <div class="pillar-grid swipe-track" data-swipe="development">${dev}</div>
+      </div>
+    </section>
+
+    <section class="section section-mutomboko-feature" id="mutomboko-home">
+      <div class="container split-feature">
+        <div class="split-media">
+          <img src="${esc(mutombokoFeature.gallery[0].image)}" alt="Mwata Kazembe at Umutomboko ceremony">
+          <p class="caption">${esc(mutombokoFeature.gallery[0].caption)}</p>
+        </div>
+        <div class="split-copy">
+          ${sectionHead("Ceremonial Protocol", mutombokoFeature.title)}
+          <p><strong>What it means:</strong> ${esc(mutombokoFeature.meaning)}</p>
+          <p><strong>Why it matters:</strong> ${esc(mutombokoFeature.why)}</p>
+          <ul class="ceremony-stages">${mutoStages}</ul>
+          <p><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)} (${esc(calendar.status)}).</p>
+          <a class="btn btn-primary" href="#mutomboko" data-nav="mutomboko">Full Mutomboko section</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-history">
+      <div class="container">
+        ${sectionHead("Timeline of Power", "History of Power")}
+        <div class="history-grid">${history}</div>
+      </div>
+    </section>
+
+    <section class="section section-wars">
+      <div class="container">
+        ${sectionHead("Trade, Land and Community Order", "Wars, Diplomacy and Triumphs")}
+        <p class="section-deck">Presented with historical seriousness — defence, state formation, trade power, and cultural continuity.</p>
+        <div class="triumph-grid">${wars}</div>
+      </div>
+    </section>
+
+    <section class="section section-map">
+      <div class="container">
+        ${sectionHead("The Royal Seat", "Royal Map")}
+        <div class="map-layout">
+          <figure class="map-figure">
+            <img src="${esc(royalMap.image)}" alt="Map of Kazembe Kingdom">
+            <figcaption>${esc(royalMap.caption)}</figcaption>
+          </figure>
+          <aside class="map-aside">
+            <h3>Key Places</h3>
+            <ul>${royalMap.places.map((p) => `<li><strong>${esc(p.name)}</strong> — ${esc(p.role)}</li>`).join("")}</ul>
+            <h3>Historic Routes</h3>
+            <ul class="route-list">${royalMap.routes.map((r) => `<li><strong>${esc(r.title)}</strong> (${esc(r.period)})</li>`).join("")}</ul>
+            <p class="map-note"><span class="badge badge-required">Map data required</span> for interactive GIS layers.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-agencies">
+      <div class="container">
+        ${sectionHead("Institutions", "Agencies, Institutions and Partners")}
+        <ul class="agency-list">${agencyList}</ul>
+      </div>
+    </section>
   `;
 }
 
-function renderKings() {
-  const filters = byId("king-filters");
-  const eras = ["all", ...new Set(kings.map((king) => king.era))];
-  filters.innerHTML = eras.map((era) => `<button type="button" class="${era === "all" ? "active" : ""}" data-era="${era}">${html(era)}</button>`).join("");
-  $$("button", filters).forEach((button) => {
-    button.addEventListener("click", () => {
-      activeKingEra = button.dataset.era;
-      $$("button", filters).forEach((item) => item.classList.toggle("active", item.dataset.era === activeKingEra));
-      updateKingList();
+function renderMwata() {
+  const past = kings
+    .slice()
+    .reverse()
+    .map(
+      (k) => `
+      <tr class="${k.confidence?.includes("uncertain") || k.confidence?.includes("contested") ? "is-uncertain" : ""}">
+        <td>${esc(k.title)}</td>
+        <td>${esc(k.name)}</td>
+        <td>${esc(k.reign)}</td>
+        <td><span class="confidence">${esc(k.confidence)}</span></td>
+      </tr>
+    `
+    )
+    .join("");
+
+  const symbols = symbolsOfAuthority
+    .map(
+      (s) => `
+      <article class="symbol-card">
+        ${s.image ? cardImage(s.image, s.title, s.title) : cardImage("", s.title, "Symbol")}
+        <h3>${esc(s.title)}</h3>
+        <p>${esc(s.description)}</p>
+        ${placeholderBadge(s.placeholder)}
+      </article>
+    `
+    )
+    .join("");
+
+  $("#page-mwata").innerHTML = `
+    <div class="page-hero page-hero-compact">
+      <div class="page-hero-bg" style="background-image:url('${esc(mwataProfile.image)}')"></div>
+      <div class="container page-hero-content">
+        <p class="eyebrow">The Mwata</p>
+        <h1>Office of the Mwata Kazembe</h1>
+        <p>Centre of authority, continuity, ceremony, and public leadership.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <section class="subsection" id="mwata-office">
+        ${sectionHead("The Royal Seat", "His Royal Highness Mwata Kazembe")}
+        <div class="profile-layout">
+          <figure class="profile-portrait">
+            <img src="${esc(mwataProfile.image)}" alt="${esc(mwataProfile.name)}">
+            <figcaption>Portrait supplied for official use; source rights pending confirmation.</figcaption>
+          </figure>
+          <div>
+            <h3>${esc(mwataProfile.title)} — ${esc(mwataProfile.name)}</h3>
+            <p><strong>Reign:</strong> ${esc(mwataProfile.reign)}</p>
+            <p>${esc(mwataProfile.role)}</p>
+            <ul>${mwataProfile.biography.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </section>
+      <section class="subsection accordion-block" id="mwata-household">
+        <button class="accordion-trigger" type="button" aria-expanded="false">Royal Household</button>
+        <div class="accordion-panel"><p>content required — structure and officers of the royal household.</p></div>
+      </section>
+      <section class="subsection" id="mwata-past">
+        ${sectionHead("Continuity of Power", "Past Mwatas")}
+        <div class="table-wrap">
+          <table class="ruler-table">
+            <thead><tr><th>Title</th><th>Name</th><th>Reign</th><th>Record</th></tr></thead>
+            <tbody>${past}</tbody>
+          </table>
+        </div>
+      </section>
+      <section class="subsection accordion-block" id="mwata-palace">
+        <button class="accordion-trigger" type="button" aria-expanded="false">Palace and Royal Court</button>
+        <div class="accordion-panel"><p>content required — palace grounds, Ichota, and court protocol at Mwansabombwe.</p></div>
+      </section>
+      <section class="subsection" id="mwata-symbols">
+        ${sectionHead("Ceremonial Protocol", "Symbols of Authority")}
+        <div class="symbol-grid">${symbols}</div>
+      </section>
+    </div>
+  `;
+}
+
+function renderGovernance() {
+  const blocks = governanceSections
+    .map(
+      (s) => `
+      <section class="subsection accordion-block" id="${esc(s.id)}">
+        <button class="accordion-trigger" type="button" aria-expanded="false">${esc(s.title)}</button>
+        <div class="accordion-panel"><p>${esc(s.body)}</p></div>
+      </section>
+    `
+    )
+    .join("");
+
+  $("#page-governance").innerHTML = `
+    <div class="page-hero page-hero-compact page-hero-governance">
+      <div class="container page-hero-content">
+        <p class="eyebrow">Governance</p>
+        <h1>Royal Governance and Administration</h1>
+        <p>How the Kingdom is organized — council, chiefs, court, land, protocol, and public communication.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <div class="governance-panel governance-panel-page">${governanceStructure
+        .map(
+          (g) => `
+        <article class="gov-node" data-tier="${g.tier}">
+          <h3>${esc(g.title)}</h3>
+          <p>${esc(g.description)}</p>
+          ${placeholderBadge(g.placeholder)}
+        </article>`
+        )
+        .join("")}</div>
+      ${blocks}
+    </div>
+  `;
+}
+
+function renderKingdom() {
+  const chapters = historyChapters
+    .map(
+      (ch) => `
+      <article class="history-chapter">
+        <span class="chapter-marker">${esc(ch.marker)}</span>
+        <h3>${esc(ch.title)}</h3>
+        <p>${esc(ch.summary)}</p>
+      </article>
+    `
+    )
+    .join("");
+
+  const sections = kingdomSections
+    .map(
+      (s) => `
+      <section class="subsection accordion-block" id="${esc(s.id)}">
+        <button class="accordion-trigger" type="button" aria-expanded="false">${esc(s.title)}</button>
+        <div class="accordion-panel"><p>${esc(s.body)}</p></div>
+      </section>
+    `
+    )
+    .join("");
+
+  const timeline = kings
+    .map(
+      (k) => `
+      <article class="timeline-entry ${k.id === 19 ? "is-current" : ""}">
+        <span class="timeline-reign">${esc(k.reign)}</span>
+        <h3>${esc(k.title)}</h3>
+        <p><strong>${esc(k.name)}</strong> — ${esc(k.note)}</p>
+        <span class="confidence">${esc(k.confidence)}</span>
+      </article>
+    `
+    )
+    .join("");
+
+  $("#page-kingdom").innerHTML = `
+    <div class="page-hero page-hero-compact">
+      <div class="container page-hero-content">
+        <p class="eyebrow">The Kingdom</p>
+        <h1>History as State Formation</h1>
+        <p>Migration, trade, war, diplomacy, settlement, survival, and triumph — not a dusty archive.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <section class="subsection" id="kingdom-chapters">
+        ${sectionHead("Chapters of Power", "History of Power")}
+        <div class="history-grid">${chapters}</div>
+      </section>
+      ${sections}
+      <section class="subsection" id="kingdom-timeline">
+        ${sectionHead("Timeline of Power", "Mwata Kazembe Line")}
+        <div class="timeline-list">${timeline}</div>
+      </section>
+      <section class="subsection" id="kingdom-map-ref">
+        <figure class="map-figure">
+          <img src="${esc(royalMap.image)}" alt="Kazembe Kingdom map">
+          <figcaption>${esc(royalMap.caption)}</figcaption>
+        </figure>
+      </section>
+    </div>
+  `;
+}
+
+function renderMutomboko() {
+  const program = ceremonySteps
+    .map(
+      (step) => `
+      <article class="ceremony-step">
+        <span class="step-day">${esc(step.day)}</span>
+        <h3>${esc(step.label)} — ${esc(step.title)}</h3>
+        <p class="step-location">${esc(step.location)}</p>
+        <p>${esc(step.summary)}</p>
+      </article>
+    `
+    )
+    .join("");
+
+  const gallery = mutombokoFeature.gallery
+    .map(
+      (g) => `
+      <figure class="gallery-card">
+        <img src="${esc(g.image)}" alt="${esc(g.caption)}">
+        <figcaption>${esc(g.caption)}</figcaption>
+      </figure>
+    `
+    )
+    .join("");
+
+  $("#page-mutomboko").innerHTML = `
+    <div class="page-hero page-hero-mutomboko">
+      <div class="page-hero-bg" style="background-image:url('${esc(siteMeta.ceremonyImage)}')"></div>
+      <div class="container page-hero-content">
+        <p class="eyebrow">State Ceremony</p>
+        <h1>Mutomboko — Dance of Victory</h1>
+        <p>Ceremonial power, identity, and unity at Mwansabombwe.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <section class="subsection" id="mutomboko-meaning">
+        ${sectionHead("Ceremonial Protocol", "Meaning of Mutomboko")}
+        <p>${esc(mutombokoFeature.meaning)}</p>
+        <p>${esc(mutombokoFeature.why)}</p>
+      </section>
+      <section class="subsection" id="mutomboko-program">
+        ${sectionHead("Ceremony Program", "Ceremony Stages")}
+        <div class="ceremony-program">${program}</div>
+      </section>
+      <section class="subsection accordion-block" id="mutomboko-past">
+        <button class="accordion-trigger" type="button" aria-expanded="false">Past Ceremonies</button>
+        <div class="accordion-panel"><p>Archive of past ceremony reports and media: content required.</p></div>
+      </section>
+      <section class="subsection" id="mutomboko-gallery">
+        ${sectionHead("Media Gallery", "Photo and Video Gallery")}
+        <div class="gallery-grid swipe-track" data-swipe="gallery">${gallery}
+          <figure class="gallery-card gallery-placeholder"><span>content required — additional verified media</span></figure>
+        </div>
+      </section>
+      <section class="subsection" id="mutomboko-visitor">
+        ${sectionHead("Visitor Information", "Visitor Guidance")}
+        <p><strong>Location:</strong> ${esc(calendar.location)}</p>
+        <p><strong>Annual pattern:</strong> ${esc(calendar.annualPattern)}</p>
+        <p><strong>Expected next:</strong> ${esc(calendar.nextExpected)} (${esc(calendar.status)})</p>
+        <p>Confirmed 2025 dates on record: ${esc(calendar.confirmed2025)}.</p>
+      </section>
+      <section class="subsection" id="mutomboko-protocol">
+        ${sectionHead("Dress and Conduct", "Protocol and Dress Guidance")}
+        <p>${esc(mutombokoFeature.protocolNote)}</p>
+      </section>
+    </div>
+  `;
+}
+
+function renderDevelopment() {
+  const pillars = developmentPillars
+    .map(
+      (d) => `
+      <article class="pillar-card pillar-card-page" id="${esc(d.id)}">
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.summary)}</p>
+        ${placeholderBadge(d.placeholder)}
+      </article>
+    `
+    )
+    .join("");
+
+  $("#page-development").innerHTML = `
+    <div class="page-hero page-hero-compact">
+      <div class="container page-hero-content">
+        <p class="eyebrow">Kingdom Development</p>
+        <h1>Development and Progress</h1>
+        <p>The Kingdom active in agriculture, fisheries, tourism, youth, business, and community building.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <div class="pillar-grid pillar-grid-page">${pillars}</div>
+    </div>
+  `;
+}
+
+function renderNewsroom() {
+  const filters = newsCategories
+    .map((c) => `<button type="button" class="filter-btn ${c === "all" ? "active" : ""}" data-filter="${esc(c)}">${esc(c === "all" ? "All" : c)}</button>`)
+    .join("");
+
+  const items = newsItems
+    .map(
+      (n) => `
+      <article class="news-card" data-category="${esc(n.category)}">
+        <span class="comm-category">${esc(n.category)}</span>
+        <h3>${esc(n.title)}</h3>
+        <time>${esc(n.date)}</time>
+        <p>${esc(n.excerpt)}</p>
+        ${placeholderBadge(n.placeholder)}
+      </article>
+    `
+    )
+    .join("");
+
+  const pubs = publications
+    .map(
+      (p) => `
+      <article class="publication-card">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.note || p.type)}</p>
+        ${p.url ? `<a href="${esc(p.url)}" ${p.url.endsWith(".pdf") ? "" : 'target="_blank" rel="noreferrer"'}>Open</a>` : placeholderBadge(p.placeholder)}
+      </article>
+    `
+    )
+    .join("");
+
+  $("#page-newsroom").innerHTML = `
+    <div class="page-hero page-hero-compact">
+      <div class="container page-hero-content">
+        <p class="eyebrow">Newsroom</p>
+        <h1>Official Communications</h1>
+        <p>Statements, news, speeches, events, and publications from the Kingdom.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <div class="news-tools">
+        <label class="search-label" for="news-search">Search publications and news</label>
+        <input id="news-search" type="search" placeholder="Search by title or category" aria-label="Search news">
+        <div class="filter-row" id="news-filters">${filters}</div>
+      </div>
+      <div class="news-grid" id="news-grid">${items}</div>
+      <section class="subsection" id="news-publications">
+        ${sectionHead("Publications", "Kingdom Publications")}
+        <div class="publication-grid">${pubs}</div>
+      </section>
+    </div>
+  `;
+}
+
+function renderContact() {
+  const offices = Object.values(siteMeta.contact)
+    .map(
+      (o) => `
+      <article class="contact-card">
+        <h3>${esc(o.label)}</h3>
+        <p>${esc(o.value)}</p>
+        <p>${esc(o.email)}</p>
+        <span class="badge badge-required">content required</span>
+      </article>
+    `
+    )
+    .join("");
+
+  $("#page-contact").innerHTML = `
+    <div class="page-hero page-hero-compact">
+      <div class="container page-hero-content">
+        <p class="eyebrow">Contact</p>
+        <h1>Official Contact</h1>
+        <p>Royal office, media, events, and visitor inquiries.</p>
+      </div>
+    </div>
+    <div class="container page-body">
+      <p class="contact-location"><strong>Location:</strong> ${esc(siteMeta.location)}</p>
+      <div class="contact-grid">${offices}</div>
+    </div>
+  `;
+}
+
+function pageFromHash(hash) {
+  if (!hash || hash === "home") return "home";
+  if (hash.startsWith("mwata")) return "mwata";
+  if (hash.startsWith("gov")) return "governance";
+  if (hash.startsWith("kingdom")) return "kingdom";
+  if (hash.startsWith("mutomboko")) return "mutomboko";
+  if (hash.startsWith("dev")) return "development";
+  if (hash.startsWith("news")) return "newsroom";
+  if (hash === "contact") return "contact";
+  if (hash === "leadership" || hash === "government") return "home";
+  const top = hash.split("-")[0];
+  return navigation.some((n) => n.id === top) ? top : "home";
+}
+
+function showPage(pageId) {
+  $$(".page").forEach((p) => p.classList.toggle("active", p.dataset.page === pageId));
+  $$("[data-nav]").forEach((el) => {
+    if (el.dataset.nav) el.classList.toggle("is-active", el.dataset.nav === pageId);
+  });
+  document.body.dataset.page = pageId;
+  closeMobileDrawer();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  animateReveal();
+}
+
+function resolvePageFromHash() {
+  const hash = (location.hash || "#home").slice(1);
+  const pageId = pageFromHash(hash);
+  showPage(pageId);
+  if (hash && hash !== pageId) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+}
+
+function closeMobileDrawer() {
+  const drawer = $("#mobile-drawer");
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  $("#menu-toggle").setAttribute("aria-expanded", "false");
+}
+
+function openMobileDrawer() {
+  const drawer = $("#mobile-drawer");
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  $("#menu-toggle").setAttribute("aria-expanded", "true");
+}
+
+function bindAccordions() {
+  $$(".accordion-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      btn.nextElementSibling?.classList.toggle("open", !expanded);
     });
   });
-  byId("king-search").addEventListener("input", updateKingList);
-  updateKingList();
 }
 
-function updateKingList() {
-  const term = byId("king-search").value.trim().toLowerCase();
-  const filtered = kings.filter((king) => {
-    const matchesEra = activeKingEra === "all" || king.era === activeKingEra;
-    const haystack = `${king.name} ${king.reign} ${king.title} ${king.note} ${king.confidence}`.toLowerCase();
-    return matchesEra && (!term || haystack.includes(term));
-  });
-  byId("king-timeline").innerHTML = filtered.length ? filtered.map((king) => `
-    <article class="king-card">
-      <span>${html(king.era)} / ${html(king.confidence)}</span>
-      <strong>${html(king.name)}</strong>
-      <em>${html(king.title)} - ${html(king.reign)}</em>
-      <p>${html(king.note)}</p>
-      ${sourceChips(king.sources)}
-      <div class="king-number">${String(king.id).padStart(2, "0")}</div>
-    </article>
-  `).join("") : `<div class="empty-state">No ruler matches the current filters.</div>`;
-}
+function bindNewsFilters() {
+  const grid = $("#news-grid");
+  if (!grid) return;
+  const cards = $$(".news-card", grid);
+  const search = $("#news-search");
 
-function renderArchiveDesk() {
-  const typeRow = byId("archive-source-types");
-  const grid = byId("source-grid");
-  const claims = byId("claim-list");
-
-  function render(type = "all") {
-    renderSourceTypeButtons(typeRow, type, render);
-    const filteredSources = sources.filter((source) => type === "all" || source.type === type);
-    const filteredClaims = sourceClaims.filter((claim) => type === "all" || claim.sources.some((id) => sourceById.get(id)?.type === type));
-    grid.innerHTML = filteredSources.map((source) => `
-      <article class="source-card">
-        <span class="tag">${html(source.type)}</span>
-        <strong>${html(source.label)}</strong>
-        <p>${html(source.note)}</p>
-        ${source.url ? `<a href="${source.url}" target="_blank" rel="noreferrer">Open source</a>` : ""}
-      </article>
-    `).join("");
-    claims.innerHTML = filteredClaims.map((claim) => `
-      <article class="claim-card">
-        <span class="tag">${html(claim.type)}</span>
-        <p>${html(claim.claim)}</p>
-        ${sourceChips(claim.sources)}
-      </article>
-    `).join("");
+  function applyFilters() {
+    const q = (search?.value || "").toLowerCase();
+    const active = $(".filter-btn.active", $("#news-filters"))?.dataset.filter || "all";
+    cards.forEach((card) => {
+      const cat = card.dataset.category;
+      const text = card.textContent.toLowerCase();
+      const matchCat = active === "all" || cat === active;
+      const matchQ = !q || text.includes(q);
+      card.hidden = !(matchCat && matchQ);
+    });
   }
 
-  render("all");
-}
-
-function renderCalendar() {
-  const target = new Date(calendar.nextDateISO);
-  const days = Math.max(0, Math.ceil((target - new Date()) / 86400000));
-  byId("countdown").textContent = days > 0 ? `${days} days` : "Now / confirm";
-  byId("calendar-copy").textContent = `${calendar.nextExpected} is shown as the expected next ceremony window based on the annual ${calendar.annualPattern} pattern. The 2025 notice listed ${calendar.confirmed2025}. Status: ${calendar.status}. Location: ${calendar.location}.`;
-}
-
-function setMapScale(next) {
-  mapScale = Math.max(0.85, Math.min(1.55, next));
-  $(".map-frame").style.setProperty("--map-scale", mapScale);
-}
-
-function bindGlobalEvents() {
-  byId("contents-toggle").addEventListener("click", () => openDrawer(byId("contents")));
-  byId("source-toggle").addEventListener("click", () => openSource());
-  $$("[data-close]").forEach((button) => button.addEventListener("click", () => closeDrawer(byId(button.dataset.close))));
-  byId("prev-page").addEventListener("click", () => goToPage(page - 1));
-  byId("next-page").addEventListener("click", () => goToPage(page + 1));
-  byId("modal-close").addEventListener("click", closeModal);
-  byId("folio-modal").addEventListener("click", (event) => {
-    if (event.target.id === "folio-modal") closeModal();
+  $$(".filter-btn", $("#news-filters")).forEach((btn) => {
+    btn.addEventListener("click", () => {
+      $$(".filter-btn", $("#news-filters")).forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyFilters();
+    });
   });
-  document.addEventListener("click", (event) => {
-    const jump = event.target.closest("[data-jump]");
-    if (jump) goToPage(sections.findIndex((section) => section.id === jump.dataset.jump));
-    const source = event.target.closest("[data-source-link]");
-    if (source) openSource(source.dataset.sourceLink);
-    const artifact = event.target.closest("[data-artifact-link]");
-    if (artifact) openFolio(artifact.dataset.artifactLink);
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight") goToPage(page + 1);
-    if (event.key === "ArrowLeft") goToPage(page - 1);
-    if (event.key === "Escape") {
-      closeModal();
-      closeDrawer(byId("contents"));
-      closeDrawer(byId("source-drawer"));
+  search?.addEventListener("input", applyFilters);
+}
+
+function bindNavigation() {
+  document.addEventListener("click", (e) => {
+    const nav = e.target.closest("[data-nav]");
+    if (nav) {
+      e.preventDefault();
+      const page = nav.dataset.nav;
+      history.pushState(null, "", `#${page}`);
+      showPage(page);
+      return;
+    }
+    const href = e.target.closest("a[href^='#']");
+    if (href) {
+      const id = href.getAttribute("href").slice(1);
+      const pageId = pageFromHash(id);
+      if (pageId) {
+        e.preventDefault();
+        history.pushState(null, "", href.getAttribute("href"));
+        showPage(pageId);
+        requestAnimationFrame(() => {
+          const anchor = document.getElementById(id);
+          if (anchor && id !== pageId) anchor.scrollIntoView({ behavior: "smooth" });
+        });
+      }
     }
   });
-  document.addEventListener("wheel", (event) => {
-    if (isMobile() || wheelLocked || Math.abs(event.deltaY) < 35) return;
-    wheelLocked = true;
-    goToPage(page + (event.deltaY > 0 ? 1 : -1));
-    setTimeout(() => {
-      wheelLocked = false;
-    }, 780);
-  }, { passive: true });
-  document.addEventListener("touchstart", (event) => {
-    touchStartX = event.changedTouches[0].screenX;
-  }, { passive: true });
-  document.addEventListener("touchend", (event) => {
-    if (isMobile()) return;
-    const diff = touchStartX - event.changedTouches[0].screenX;
-    if (Math.abs(diff) > 60) goToPage(page + (diff > 0 ? 1 : -1));
-  }, { passive: true });
-  byId("map-zoom-in").addEventListener("click", () => setMapScale(mapScale + 0.12));
-  byId("map-zoom-out").addEventListener("click", () => setMapScale(mapScale - 0.12));
-  byId("map-reset").addEventListener("click", () => setMapScale(1));
+
+  window.addEventListener("hashchange", resolvePageFromHash);
+  window.addEventListener("popstate", resolvePageFromHash);
+
+  $("#menu-toggle")?.addEventListener("click", () => {
+    if ($("#mobile-drawer").classList.contains("open")) closeMobileDrawer();
+    else openMobileDrawer();
+  });
+  $("#drawer-close")?.addEventListener("click", closeMobileDrawer);
+  $("#mobile-drawer")?.addEventListener("click", (e) => {
+    if (e.target === $("#mobile-drawer")) closeMobileDrawer();
+  });
+}
+
+function animateReveal() {
+  if (!window.gsap) return;
+  gsap.from(".page.active .section-head, .page.active .royal-hero .hero-content > *", {
+    opacity: 0,
+    y: 18,
+    duration: 0.55,
+    stagger: 0.06,
+    ease: "power2.out",
+    clearProps: "opacity,transform"
+  });
 }
 
 function init() {
-  buildNavigation();
-  renderSourceTypeButtons(byId("drawer-source-types"), "all", (type) => {
-    activeSourceType = type;
-    renderDrawerSources(type);
-  });
-  renderDrawerSources("all");
-  renderAtlas();
-  renderRoutes();
-  renderArtifacts();
-  renderCeremony();
-  renderKings();
-  renderArchiveDesk();
-  renderCalendar();
-  bindGlobalEvents();
-  goToPage(0);
-  setTimeout(() => byId("loader").classList.add("hide"), 650);
+  renderUtilityBar();
+  renderNav();
+  renderFooter();
+  renderHome();
+  renderMwata();
+  renderGovernance();
+  renderKingdom();
+  renderMutomboko();
+  renderDevelopment();
+  renderNewsroom();
+  renderContact();
+  bindAccordions();
+  bindNewsFilters();
+  bindNavigation();
+  resolvePageFromHash();
 }
 
 init();

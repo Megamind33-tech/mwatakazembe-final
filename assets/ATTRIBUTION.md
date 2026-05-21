@@ -1,4 +1,4 @@
-# Mwata Kazembe Interactive Cultural Archive Attribution
+# Mwata Kazembe Kingdom — Official Digital Home — Attribution
 
 ## Generated Reconstruction Assets
 
@@ -63,4 +63,4 @@ The following images in `assets/generated/` were created with GPT Images for thi
 
 ## Notes
 
-The homepage now uses the project-supplied portrait of the current Mwata. The Commons ceremony image and Kazembe map are bundled as supporting assets with attribution. Additional Wikimedia downloads were blocked by rate limiting and were not committed when they returned error pages.
+The official kingdom portal uses the project-supplied portrait of the current Mwata on the homepage and Mwata section. The Commons ceremony image and Kazembe map are used on Mutomboko and map sections. Generated assets in `assets/generated/` are not used on the public-facing portal except where noted in research materials; placeholders are shown instead when no verified image exists.
