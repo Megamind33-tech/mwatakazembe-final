@@ -91,10 +91,6 @@ function buildNavigation() {
     dot.addEventListener("click", () => goToPage(index));
     byId("progress").appendChild(dot);
 
-    const mobileLink = document.createElement("a");
-    mobileLink.href = `#${section.id}`;
-    mobileLink.textContent = String(index + 1).padStart(2, "0");
-    byId("mobile-nav").appendChild(mobileLink);
   });
 }
 

@@ -103,7 +103,7 @@ function setMode(mode) {
   if (hasGsap() && index) {
     if (next === "index") {
       gsap.fromTo(index, { y: 24 }, { y: 0, duration: 0.55, ease: "power3.out", clearProps: "transform" });
-      gsap.fromTo($$(".index-card", index), { y: 18 }, { y: 0, duration: 0.45, stagger: 0.025, delay: 0.1, ease: "power2.out", clearProps: "transform" });
+      gsap.fromTo($$(".index-card", index), { y: 18 }, { y: 0, duration: 0.45, stagger: 0.025, delay: 0.1, ease: "power2.out", clearProps: "transform,opacity,visibility" });
     }
   }
 }
@@ -142,7 +142,10 @@ function closeIntro(playSound) {
       scale: 1.02,
       duration: 0.65,
       ease: "power2.inOut",
-      onComplete: () => intro.classList.add("seen")
+      onComplete: () => {
+        intro.classList.add("seen");
+        gsap.set(intro, { clearProps: "transform" });
+      }
     });
   } else {
     intro.classList.add("seen");
@@ -163,8 +166,8 @@ function initIntro() {
     return;
   }
   if (hasGsap()) {
-    gsap.fromTo(".intro-panel", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.7, delay: 0.72, ease: "power3.out" });
-    gsap.fromTo(".intro-orbit", { rotate: -12, scale: 0.92, autoAlpha: 0 }, { rotate: 0, scale: 1, autoAlpha: 1, duration: 1, delay: 0.55, ease: "power2.out" });
+    gsap.fromTo(".intro-panel", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.7, delay: 0.72, ease: "power3.out", clearProps: "transform,opacity,visibility" });
+    gsap.fromTo(".intro-orbit", { rotate: -12, scale: 0.92, autoAlpha: 0 }, { rotate: 0, scale: 1, autoAlpha: 1, duration: 1, delay: 0.55, ease: "power2.out", clearProps: "transform,opacity,visibility" });
   }
   $$("[data-enter-archive]").forEach((button) => {
     button.addEventListener("click", () => closeIntro(button.dataset.enterArchive === "drum"));
@@ -184,14 +187,14 @@ function animateActiveTitle(section) {
   if (!hasGsap() || !section) return;
   const words = $$(".split-word", section);
   if (!words.length) return;
-  gsap.fromTo(words, { autoAlpha: 0, yPercent: 42, rotateX: -18 }, { autoAlpha: 1, yPercent: 0, rotateX: 0, duration: 0.62, stagger: 0.035, ease: "power3.out" });
+  gsap.fromTo(words, { autoAlpha: 0, yPercent: 42, rotateX: -18 }, { autoAlpha: 1, yPercent: 0, rotateX: 0, duration: 0.62, stagger: 0.035, ease: "power3.out", clearProps: "transform,opacity,visibility" });
 }
 
 function animateActiveCards(section) {
   if (!hasGsap() || !section) return;
   const cards = $$(".evidence-card, .current-mwata-card, .artifact-card, .ceremony-step, .king-card, .source-card, .route-card", section).slice(0, 12);
   if (!cards.length) return;
-  gsap.fromTo(cards, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.035, ease: "power2.out" });
+  gsap.fromTo(cards, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.035, ease: "power2.out", clearProps: "transform,opacity,visibility" });
 }
 
 function animateRoutes(section) {
@@ -299,7 +302,7 @@ function observeDrawers() {
         return;
       }
       gsap.fromTo(drawer, { x: drawer.classList.contains("drawer-left") ? "-6%" : "6%" }, { x: "0%", duration: 0.42, ease: "power3.out" });
-      gsap.fromTo($$(".contents-item, .source-card", drawer), { autoAlpha: 0, x: drawer.classList.contains("drawer-left") ? -18 : 18 }, { autoAlpha: 1, x: 0, duration: 0.36, stagger: 0.025, ease: "power2.out" });
+      gsap.fromTo($$(".contents-item, .source-card", drawer), { autoAlpha: 0, x: drawer.classList.contains("drawer-left") ? -18 : 18 }, { autoAlpha: 1, x: 0, duration: 0.36, stagger: 0.025, ease: "power2.out", clearProps: "transform,opacity,visibility" });
     });
     observer.observe(drawer, { attributes: true, attributeFilter: ["class"] });
   });

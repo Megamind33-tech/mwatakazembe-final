@@ -39,7 +39,7 @@
 .intro-ritual {
   position: fixed;
   inset: 0;
-  z-index: 3600;
+  z-index: 5000;
   display: grid;
   place-items: center;
   padding: 32px;
@@ -343,9 +343,17 @@
 }
 
 body[data-explore-mode="index"] .archive-index {
-  opacity: 1;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
   pointer-events: auto;
+}
+
+body[data-explore-mode="index"] .index-card,
+body[data-explore-mode="index"] .index-hero h2,
+body[data-explore-mode="index"] .index-hero p,
+body[data-explore-mode="index"] .index-column h3 {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 body[data-explore-mode="index"] .archive-shell,
