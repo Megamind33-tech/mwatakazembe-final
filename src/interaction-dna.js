@@ -294,7 +294,10 @@ function observeDrawers() {
   if (!hasGsap()) return;
   $$(".drawer").forEach((drawer) => {
     const observer = new MutationObserver(() => {
-      if (!drawer.classList.contains("open")) return;
+      if (!drawer.classList.contains("open")) {
+        gsap.set(drawer, { clearProps: "transform" });
+        return;
+      }
       gsap.fromTo(drawer, { x: drawer.classList.contains("drawer-left") ? "-6%" : "6%" }, { x: "0%", duration: 0.42, ease: "power3.out" });
       gsap.fromTo($$(".contents-item, .source-card", drawer), { autoAlpha: 0, x: drawer.classList.contains("drawer-left") ? -18 : 18 }, { autoAlpha: 1, x: 0, duration: 0.36, stagger: 0.025, ease: "power2.out" });
     });
