@@ -21,7 +21,7 @@ export const sources = [
     label: "Smithsonian Libraries",
     title: "The Lands of Cazembe",
     url: "https://library.si.edu/digital-library/book/landsofcazembel00roya",
-    note: "CC0 public-domain 1873 Royal Geographical Society volume gathering Portuguese expedition material connected to Cazembe."
+    note: "CC0 public-domain 1873 Royal Geographical Society volume gathering Portuguese expedition material connected to the historical Cazembe source title."
   },
   {
     id: "commons",
@@ -67,7 +67,7 @@ export const sources = [
     id: "mot2025",
     type: "official",
     label: "Ministry of Tourism",
-    title: "2025 Mutomboko notice",
+    title: "2025 Umutomboko notice",
     url: "https://www.mot.gov.zm/?p=4471",
     note: "Government notice used for the archived 2025 ceremony date; site labels it separately from the annual timing pattern."
   },
@@ -225,7 +225,7 @@ export const artifacts = [
     className: "Royal head regalia",
     image: "assets/generated/reconstruction-crowns.png",
     status: "reconstruction",
-    tags: ["reconstruction", "regalia", "Mutomboko"],
+    tags: ["reconstruction", "regalia", "Umutomboko"],
     meaning: "The crowns signal royal authority during public ceremony and visually connect the Mwata Kazembe court to wider Luba-Lunda regalia worlds.",
     performance: "Displayed in the site as a combined reconstruction because available public images are limited and context-specific.",
     provenance: "Luba-Lunda stylistic heritage, worn in contemporary ceremonial settings under custodial protocols.",
@@ -242,7 +242,7 @@ export const artifacts = [
     tags: ["reconstruction", "dance", "authority"],
     meaning: "The sword and axe embody victory, protection, and the Mwata's public statement of authority during the dance of conquest.",
     performance: "The Umutomboko dance includes directional gestures and vertical claims of authority; the site separates choreography from mythic overstatement.",
-    provenance: "Court regalia associated with Mutomboko performance.",
+    provenance: "Court regalia associated with Umutomboko performance.",
     visualEvidence: "Described in ceremony accounts and contemporary visual records; exact object details need custodial verification.",
     reconstruction: "Generated as a museum-style object plate to avoid fabricating documentary evidence.",
     sources: ["unza", "reconstruction"]
@@ -267,7 +267,7 @@ export const artifacts = [
     className: "Processional vehicle",
     image: "assets/generated/reconstruction-muselo-litter.png",
     status: "reconstruction",
-    tags: ["reconstruction", "procession", "Mutomboko"],
+    tags: ["reconstruction", "procession", "Umutomboko"],
     meaning: "The muselo transforms the Mwata's movement into public theatre: authority is carried, witnessed, and rhythmically advanced.",
     performance: "The royal litter appears in descriptions of the procession from palace space toward the main arena.",
     provenance: "Ceremonial tradition associated with bearers and public procession.",
@@ -393,7 +393,7 @@ export const kings = [
   { id: 16, name: "Kanyembo Kapema", reign: "1957-1961", title: "Mwata Kazembe XVI", era: "independence", confidence: "needs verification", note: "Final reign before Zambian independence-era transformation.", sources: ["gordon"] },
   { id: 17, name: "Paul Kanyembo Lutaba", reign: "1961-1983", title: "Mwata Kazembe XVII", era: "independence", confidence: "photographic + academic", note: "Crowned in 1961; linked to the emergence of Umutomboko as a national cultural event.", sources: ["unza", "commons"] },
   { id: 18, name: "Munona Chinyanta", reign: "1983-1998", title: "Mwata Kazembe XVIII", era: "contemporary", confidence: "modern record", note: "Bridged traditional authority and civil administration during late one-party and early multiparty eras.", sources: ["unza"] },
-  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalume", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Presides over contemporary Mutomboko and cross-border Lunda diplomatic presence. The library foregrounds his office as the living center of the archive.", sources: ["kazembe-lineage", "commons-current", "zta", "unza"] }
+  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalume", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Presides over contemporary Umutomboko and cross-border Lunda diplomatic presence. The library foregrounds his office as the living center of the archive.", sources: ["kazembe-lineage", "commons-current", "zta", "unza"] }
 ];
 
 export const sourceClaims = [
