@@ -1,36 +1,25 @@
 const mobileQuery = window.matchMedia("(max-width: 760px)");
 const sections = Array.from(document.querySelectorAll(".spread"));
-let mobileObserver;
+const track = document.getElementById("track");
+let mobilePage = 0;
 
 function isMobile() {
   return mobileQuery.matches;
 }
 
-function setMobileActiveSection(id) {
-  document.body.dataset.activeMobileSection = id;
-  sections.forEach((section) => section.classList.toggle("mobile-active", section.id === id));
-}
-
-function setupMobileSectionObserver() {
-  if (mobileObserver) mobileObserver.disconnect();
-  if (!isMobile()) {
-    sections.forEach((section) => section.classList.remove("mobile-active"));
-    document.body.removeAttribute("data-active-mobile-section");
-    return;
-  }
-
-  mobileObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible?.target?.id) setMobileActiveSection(visible.target.id);
-    },
-    { threshold: [0.45, 0.62, 0.8] }
-  );
-
-  sections.forEach((section) => mobileObserver.observe(section));
-  setMobileActiveSection(sections[0]?.id ?? "cover");
+function setMobileActiveSection(index) {
+  mobilePage = Math.max(0, Math.min(sections.length - 1, index));
+  const active = sections[mobilePage];
+  document.body.dataset.activeMobileSection = active?.id ?? "cover";
+  sections.forEach((section, sectionIndex) => {
+    section.classList.toggle("mobile-active", sectionIndex === mobilePage);
+    section.classList.toggle("active", sectionIndex === mobilePage);
+  });
+  if (track) track.style.setProperty("--mobile-page", String(mobilePage));
+  const prev = document.getElementById("prev-page");
+  const next = document.getElementById("next-page");
+  if (prev) prev.disabled = mobilePage === 0;
+  if (next) next.disabled = mobilePage === sections.length - 1;
 }
 
 function removeMobileGlobalChrome() {
@@ -46,6 +35,42 @@ function removeMobileGlobalChrome() {
 function centerLocalControl(container, active) {
   if (!container || !active || !isMobile()) return;
   active.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+}
+
+function closeDrawerById(id) {
+  const drawer = document.getElementById(id);
+  if (!drawer) return;
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+}
+
+function bindMobilePageNavigation() {
+  document.addEventListener("click", (event) => {
+    if (!isMobile()) return;
+
+    const jump = event.target.closest("[data-jump]");
+    if (jump) {
+      const targetIndex = sections.findIndex((section) => section.id === jump.dataset.jump);
+      if (targetIndex >= 0) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        setMobileActiveSection(targetIndex);
+      }
+      return;
+    }
+
+    const contentsItem = event.target.closest(".contents-item");
+    if (contentsItem) {
+      const items = Array.from(document.querySelectorAll(".contents-item"));
+      const targetIndex = items.indexOf(contentsItem);
+      if (targetIndex >= 0) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        closeDrawerById("contents");
+        setMobileActiveSection(targetIndex);
+      }
+    }
+  }, true);
 }
 
 function enhanceLocalControls() {
@@ -95,6 +120,27 @@ function enableCeremonySwipe() {
   }, { passive: true });
 }
 
+function enableIssueSwipe() {
+  let startX = 0;
+  let startY = 0;
+
+  document.addEventListener("touchstart", (event) => {
+    if (!isMobile()) return;
+    startX = event.changedTouches[0].clientX;
+    startY = event.changedTouches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener("touchend", (event) => {
+    if (!isMobile()) return;
+    if (event.target.closest(".ceremony-path, .route-rail, .artifact-wall, .king-timeline, .source-grid, .segmented, .source-type-row, .filter-row, .drawer, .modal-panel, .story-panel, .route-card, .ceremony-detail")) return;
+
+    const diffX = startX - event.changedTouches[0].clientX;
+    const diffY = startY - event.changedTouches[0].clientY;
+    if (Math.abs(diffX) < 58 || Math.abs(diffX) < Math.abs(diffY)) return;
+    setMobileActiveSection(mobilePage + (diffX > 0 ? 1 : -1));
+  }, { passive: true });
+}
+
 function labelCeremonyDepth() {
   const detail = document.getElementById("ceremony-detail");
   if (!detail || detail.querySelector(".mobile-return-note")) return;
@@ -111,14 +157,24 @@ if (ceremonyDetail) {
 }
 
 removeMobileGlobalChrome();
-setupMobileSectionObserver();
+setMobileActiveSection(0);
+bindMobilePageNavigation();
 enhanceLocalControls();
 enableCeremonySwipe();
+enableIssueSwipe();
 labelCeremonyDepth();
 
 mobileQuery.addEventListener("change", () => {
   removeMobileGlobalChrome();
-  setupMobileSectionObserver();
+  if (isMobile()) setMobileActiveSection(mobilePage);
+  else {
+    if (track) track.style.removeProperty("--mobile-page");
+    sections.forEach((section) => section.classList.remove("mobile-active"));
+    document.body.removeAttribute("data-active-mobile-section");
+  }
 });
 
-window.addEventListener("resize", removeMobileGlobalChrome);
+window.addEventListener("resize", () => {
+  removeMobileGlobalChrome();
+  if (isMobile()) setMobileActiveSection(mobilePage);
+});
