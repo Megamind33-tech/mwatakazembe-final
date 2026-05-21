@@ -54,6 +54,13 @@ function bindMobilePageNavigation() {
       if (targetIndex >= 0) {
         event.preventDefault();
         event.stopImmediatePropagation();
+        document.body.dataset.exploreMode = "orbit";
+        document.getElementById("archive-index")?.setAttribute("aria-hidden", "true");
+        document.querySelectorAll("[data-mode-choice]").forEach((button) => {
+          const active = button.dataset.modeChoice === "orbit";
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
         setMobileActiveSection(targetIndex);
       }
       return;

@@ -54,6 +54,13 @@ The following images in `assets/generated/` were created with GPT Images for thi
 - Kazembe lineage reference: https://www.chalochatu.org/Mwata_Kazembe
 - Encyclopaedia Britannica, Kazembe: https://www.britannica.com/place/Kazembe
 
+## Vendored Frontend Library
+
+- `src/vendor/gsap.min.js`
+  - Source: GSAP 3.12.5 distribution via cdnjs
+  - URL: https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
+  - Use: Lightweight transition sequencing for the intro, archive drawer, title reveal, route drawing, and card entrances.
+
 ## Notes
 
 The homepage now uses the project-supplied portrait of the current Mwata. The Commons ceremony image and Kazembe map are bundled as supporting assets with attribution. Additional Wikimedia downloads were blocked by rate limiting and were not committed when they returned error pages.
