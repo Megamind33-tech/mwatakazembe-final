@@ -1,16 +1,12 @@
 import {
-  agencies,
   calendar,
   developmentPillars,
   governanceSections,
   governanceStructure,
-  heroCtas,
   historyChapters,
-  kingdomGlance,
   kingdomSections,
   kings,
   latestCommunications,
-  leadershipCards,
   mutombokoFeature,
   mwataProfile,
   navigation,
@@ -22,9 +18,11 @@ import {
   socialLinks,
   symbolsOfAuthority,
   utilityLinks,
-  warsDiplomacy,
   ceremonySteps
 } from "./kingdom-data.js";
+import { creditCaption, getCreditById } from "./image-credits.js";
+import { initInteractions } from "./interactions.js";
+import { homePageHtml } from "./render-home.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -41,7 +39,13 @@ function placeholderBadge(show) {
   return show ? `<span class="badge badge-required">content required</span>` : "";
 }
 
-function cardImage(src, alt, label) {
+function cardImage(src, alt, label, creditId = "") {
+  if (creditId) {
+    const item = getCreditById(creditId);
+    if (item) {
+      return `<div class="card-media has-hover-credit"><img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(creditId)}"><span class="hover-credit">${esc(item.creditLine)}</span></div>`;
+    }
+  }
   if (src) {
     return `<div class="card-media"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></div>`;
   }
@@ -143,217 +147,8 @@ function renderFooter() {
 }
 
 function renderHome() {
-  const leadership = leadershipCards
-    .map(
-      (c) => `
-      <article class="authority-card">
-        ${c.image ? cardImage(c.image, c.title, c.title) : cardImage("", c.title, c.title)}
-        <div class="authority-card-body">
-          <p class="office-label">${esc(c.role)}</p>
-          <h3>${esc(c.title)}</h3>
-          <p>${esc(c.description)}</p>
-          ${placeholderBadge(c.placeholder)}
-          ${readMore(c.href)}
-        </div>
-      </article>
-    `
-    )
-    .join("");
-
-  const glance = kingdomGlance
-    .map((f) => `<div class="fact-cell"><span class="fact-label">${esc(f.label)}</span><strong>${esc(f.value)}</strong></div>`)
-    .join("");
-
-  const gov = governanceStructure
-    .map(
-      (g) => `
-      <article class="gov-node" data-tier="${g.tier}">
-        <span class="gov-tier">Tier ${g.tier}</span>
-        <h3>${esc(g.title)}</h3>
-        <p>${esc(g.description)}</p>
-        ${placeholderBadge(g.placeholder)}
-      </article>
-    `
-    )
-    .join("");
-
-  const news = latestCommunications
-    .map(
-      (n) => `
-      <article class="comm-card ${n.placeholder ? "is-placeholder" : ""}">
-        <span class="comm-category">${esc(n.category)}</span>
-        <h3>${esc(n.title)}</h3>
-        <time>${esc(n.date)}</time>
-        <p>${esc(n.excerpt)}</p>
-        ${placeholderBadge(n.placeholder)}
-        ${n.href ? readMore(n.href) : readMore("#newsroom")}
-      </article>
-    `
-    )
-    .join("");
-
-  const dev = developmentPillars
-    .map(
-      (d) => `
-      <article class="pillar-card">
-        <h3>${esc(d.title)}</h3>
-        <p>${esc(d.summary)}</p>
-        ${placeholderBadge(d.placeholder)}
-        ${readMore(d.href)}
-      </article>
-    `
-    )
-    .join("");
-
-  const mutoStages = mutombokoFeature.stages
-    .map((s) => `<li><strong>${esc(s.day)} — ${esc(s.label)}</strong> ${esc(s.title)} · ${esc(s.location)}</li>`)
-    .join("");
-
-  const history = historyChapters
-    .map(
-      (ch) => `
-      <article class="history-chapter">
-        <span class="chapter-marker">${esc(ch.marker)}</span>
-        <h3>${esc(ch.title)}</h3>
-        <p>${esc(ch.summary)}</p>
-        <a class="btn btn-ghost" href="#kingdom-timeline">Read full history</a>
-      </article>
-    `
-    )
-    .join("");
-
-  const wars = warsDiplomacy
-    .map((w) => `<article class="triumph-card"><h3>${esc(w.title)}</h3><p>${esc(w.summary)}</p></article>`)
-    .join("");
-
-  const agencyList = agencies
-    .map((a) => `<li><strong>${esc(a.name)}</strong> — <span>${esc(a.status)}</span></li>`)
-    .join("");
-
-  const ctas = heroCtas
-    .map(
-      (c) =>
-        `<a class="btn ${c.primary ? "btn-primary" : "btn-secondary"}" href="${esc(c.href)}">${esc(c.label)}</a>`
-    )
-    .join("");
-
-  $("#page-home").innerHTML = `
-    <section class="royal-hero" id="home">
-      <div class="hero-media">
-        <img src="${esc(siteMeta.heroImage)}" alt="Mwata Kazembe in royal regalia">
-        <div class="hero-overlay"></div>
-      </div>
-      <div class="hero-content">
-        <p class="hero-label">${esc(siteMeta.tagline)}</p>
-        <h1>${esc(siteMeta.headline)}</h1>
-        <p class="hero-sub">${esc(siteMeta.subheadline)}</p>
-        <div class="hero-ctas">${ctas}</div>
-      </div>
-    </section>
-
-    <section class="section section-statement">
-      <div class="container narrow">
-        <p class="lead-statement">${esc(siteMeta.openingStatement)}</p>
-      </div>
-    </section>
-
-    <section class="section section-leadership" id="leadership">
-      <div class="container">
-        ${sectionHead("Kingdom Authority", "Leadership of the Kingdom")}
-        <div class="authority-grid swipe-track" data-swipe="leadership">${leadership}</div>
-      </div>
-    </section>
-
-    <section class="section section-glance">
-      <div class="container">
-        ${sectionHead("The Kingdom Today", "Kingdom at a Glance")}
-        <div class="facts-strip">${glance}</div>
-      </div>
-    </section>
-
-    <section class="section section-governance" id="government">
-      <div class="container">
-        ${sectionHead("Heritage and Governance", "Government of the Kingdom")}
-        <p class="section-deck">Power flows from the Mwata through council, chiefs, courts, and public offices — a living structure of traditional authority and administration.</p>
-        <div class="governance-panel">${gov}</div>
-      </div>
-    </section>
-
-    <section class="section section-news">
-      <div class="container">
-        ${sectionHead("Official Communication", "Latest from the Kingdom")}
-        <div class="comm-grid swipe-track" data-swipe="news">${news}</div>
-        <p class="section-cta"><a class="btn btn-primary" href="#newsroom" data-nav="newsroom">Visit Newsroom</a></p>
-      </div>
-    </section>
-
-    <section class="section section-development">
-      <div class="container">
-        ${sectionHead("Kingdom Development", "Development and Progress")}
-        <div class="pillar-grid swipe-track" data-swipe="development">${dev}</div>
-      </div>
-    </section>
-
-    <section class="section section-mutomboko-feature" id="mutomboko-home">
-      <div class="container split-feature">
-        <div class="split-media">
-          <img src="${esc(mutombokoFeature.gallery[0].image)}" alt="Mwata Kazembe at Umutomboko ceremony">
-          <p class="caption">${esc(mutombokoFeature.gallery[0].caption)}</p>
-        </div>
-        <div class="split-copy">
-          ${sectionHead("Ceremonial Protocol", mutombokoFeature.title)}
-          <p><strong>What it means:</strong> ${esc(mutombokoFeature.meaning)}</p>
-          <p><strong>Why it matters:</strong> ${esc(mutombokoFeature.why)}</p>
-          <ul class="ceremony-stages">${mutoStages}</ul>
-          <p><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)} (${esc(calendar.status)}).</p>
-          <a class="btn btn-primary" href="#mutomboko" data-nav="mutomboko">Full Mutomboko section</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-history">
-      <div class="container">
-        ${sectionHead("Timeline of Power", "History of Power")}
-        <div class="history-grid">${history}</div>
-      </div>
-    </section>
-
-    <section class="section section-wars">
-      <div class="container">
-        ${sectionHead("Trade, Land and Community Order", "Wars, Diplomacy and Triumphs")}
-        <p class="section-deck">Presented with historical seriousness — defence, state formation, trade power, and cultural continuity.</p>
-        <div class="triumph-grid">${wars}</div>
-      </div>
-    </section>
-
-    <section class="section section-map">
-      <div class="container">
-        ${sectionHead("The Royal Seat", "Royal Map")}
-        <div class="map-layout">
-          <figure class="map-figure">
-            <img src="${esc(royalMap.image)}" alt="Map of Kazembe Kingdom">
-            <figcaption>${esc(royalMap.caption)}</figcaption>
-          </figure>
-          <aside class="map-aside">
-            <h3>Key Places</h3>
-            <ul>${royalMap.places.map((p) => `<li><strong>${esc(p.name)}</strong> — ${esc(p.role)}</li>`).join("")}</ul>
-            <h3>Historic Routes</h3>
-            <ul class="route-list">${royalMap.routes.map((r) => `<li><strong>${esc(r.title)}</strong> (${esc(r.period)})</li>`).join("")}</ul>
-            <p class="map-note"><span class="badge badge-required">Map data required</span> for interactive GIS layers.</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-agencies">
-      <div class="container">
-        ${sectionHead("Institutions", "Agencies, Institutions and Partners")}
-        <ul class="agency-list">${agencyList}</ul>
-      </div>
-    </section>
-  `;
+  $("#page-home").innerHTML = homePageHtml();
 }
-
 function renderMwata() {
   const past = kings
     .slice()
@@ -374,7 +169,7 @@ function renderMwata() {
     .map(
       (s) => `
       <article class="symbol-card">
-        ${s.image ? cardImage(s.image, s.title, s.title) : cardImage("", s.title, "Symbol")}
+        ${s.image ? cardImage("", s.title, s.title, "mutomboko-ceremony-2017-02") : cardImage("", s.title, "Symbol")}
         <h3>${esc(s.title)}</h3>
         <p>${esc(s.description)}</p>
         ${placeholderBadge(s.placeholder)}
@@ -396,9 +191,12 @@ function renderMwata() {
       <section class="subsection" id="mwata-office">
         ${sectionHead("The Royal Seat", "His Royal Highness Mwata Kazembe")}
         <div class="profile-layout">
-          <figure class="profile-portrait">
-            <img src="${esc(mwataProfile.image)}" alt="${esc(mwataProfile.name)}">
-            <figcaption>Portrait supplied for official use; source rights pending confirmation.</figcaption>
+          <figure class="profile-portrait credited-figure">
+            <div class="figure-media has-hover-credit">
+              <img src="${esc(getCreditById("hero-home-portrait")?.src || mwataProfile.image)}" alt="${esc(mwataProfile.name)}" data-credit-id="hero-home-portrait">
+              <span class="hover-credit">${esc(getCreditById("hero-home-portrait")?.creditLine || "")}</span>
+            </div>
+            ${creditCaption("hero-home-portrait")}
           </figure>
           <div>
             <h3>${esc(mwataProfile.title)} — ${esc(mwataProfile.name)}</h3>
@@ -496,11 +294,17 @@ function renderKingdom() {
   const timeline = kings
     .map(
       (k) => `
-      <article class="timeline-entry ${k.id === 19 ? "is-current" : ""}">
+      <article class="timeline-entry ${k.id === 19 ? "is-current" : ""}" data-king-id="${k.id}" role="button" tabindex="0">
         <span class="timeline-reign">${esc(k.reign)}</span>
         <h3>${esc(k.title)}</h3>
         <p><strong>${esc(k.name)}</strong> — ${esc(k.note)}</p>
         <span class="confidence">${esc(k.confidence)}</span>
+        <div class="timeline-detail-source hidden">
+          <h3>${esc(k.title)} — ${esc(k.name)}</h3>
+          <p><strong>Reign:</strong> ${esc(k.reign)}</p>
+          <p>${esc(k.note)}</p>
+          <p><strong>Record status:</strong> ${esc(k.confidence)}</p>
+        </div>
       </article>
     `
     )
@@ -522,12 +326,19 @@ function renderKingdom() {
       ${sections}
       <section class="subsection" id="kingdom-timeline">
         ${sectionHead("Timeline of Power", "Mwata Kazembe Line")}
-        <div class="timeline-list">${timeline}</div>
+        <div class="timeline-layout">
+          <div class="timeline-list">${timeline}</div>
+          <aside class="timeline-detail" id="timeline-detail" aria-live="polite">
+            <p>Select a ruler to view the profile panel.</p>
+          </aside>
+        </div>
       </section>
       <section class="subsection" id="kingdom-map-ref">
-        <figure class="map-figure">
-          <img src="${esc(royalMap.image)}" alt="Kazembe Kingdom map">
-          <figcaption>${esc(royalMap.caption)}</figcaption>
+        <figure class="map-figure credited-figure">
+          <div class="figure-media">
+            <img src="${esc(getCreditById("places-kingdom-map-2007")?.src || royalMap.image)}" alt="Kazembe Kingdom map" data-credit-id="places-kingdom-map-2007">
+          </div>
+          ${creditCaption("places-kingdom-map-2007")}
         </figure>
       </section>
     </div>
@@ -549,14 +360,16 @@ function renderMutomboko() {
     .join("");
 
   const gallery = mutombokoFeature.gallery
-    .map(
-      (g) => `
-      <figure class="gallery-card">
-        <img src="${esc(g.image)}" alt="${esc(g.caption)}">
-        <figcaption>${esc(g.caption)}</figcaption>
-      </figure>
-    `
-    )
+    .map((g) => {
+      const item = getCreditById(g.imageCreditId);
+      if (!item) return "";
+      return `
+      <button type="button" class="gallery-card" data-lightbox="${esc(item.id)}">
+        <img src="${esc(item.src)}" alt="${esc(item.altText)}" data-credit-id="${esc(item.id)}">
+        <figcaption>${esc(item.creditLine)}</figcaption>
+      </button>
+    `;
+    })
     .join("");
 
   $("#page-mutomboko").innerHTML = `
@@ -564,7 +377,7 @@ function renderMutomboko() {
       <div class="page-hero-bg" style="background-image:url('${esc(siteMeta.ceremonyImage)}')"></div>
       <div class="container page-hero-content">
         <p class="eyebrow">State Ceremony</p>
-        <h1>Mutomboko — Dance of Victory</h1>
+        <h1>Umutomboko — Dance of Victory</h1>
         <p>Ceremonial power, identity, and unity at Mwansabombwe.</p>
       </div>
     </div>
@@ -584,9 +397,7 @@ function renderMutomboko() {
       </section>
       <section class="subsection" id="mutomboko-gallery">
         ${sectionHead("Media Gallery", "Photo and Video Gallery")}
-        <div class="gallery-grid swipe-track" data-swipe="gallery">${gallery}
-          <figure class="gallery-card gallery-placeholder"><span>content required — additional verified media</span></figure>
-        </div>
+        <div class="gallery-grid swipe-track" data-swipe="gallery">${gallery}</div>
       </section>
       <section class="subsection" id="mutomboko-visitor">
         ${sectionHead("Visitor Information", "Visitor Guidance")}
@@ -722,7 +533,8 @@ function pageFromHash(hash) {
   if (hash.startsWith("dev")) return "development";
   if (hash.startsWith("news")) return "newsroom";
   if (hash === "contact") return "contact";
-  if (hash === "leadership" || hash === "government") return "home";
+  if (hash === "leadership" || hash === "government" || hash === "living-kingdom") return "home";
+  if (hash === "kingdom-story" || hash === "mwata-lineage" || hash === "mutomboko-journey" || hash === "people-kingdom" || hash === "projects-progress" || hash === "royal-news" || hash === "home-gallery" || hash === "visit-support" || hash === "kingdom-glance") return "home";
   const top = hash.split("-")[0];
   return navigation.some((n) => n.id === top) ? top : "home";
 }
@@ -736,6 +548,7 @@ function showPage(pageId) {
   closeMobileDrawer();
   window.scrollTo({ top: 0, behavior: "smooth" });
   animateReveal();
+  if (pageId === "home") initInteractions();
 }
 
 function resolvePageFromHash() {
@@ -869,6 +682,7 @@ function init() {
   bindNewsFilters();
   bindNavigation();
   resolvePageFromHash();
+  initInteractions();
 }
 
 init();

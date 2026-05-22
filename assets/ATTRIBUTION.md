@@ -1,8 +1,51 @@
 # Mwata Kazembe Kingdom — Official Digital Home — Attribution
 
-## Generated Reconstruction Assets
+## Image registry
 
-The following images in `assets/generated/` were created with GPT Images for this project. They are used as clearly labeled historical reconstructions, not documentary photographs:
+All public images are registered in `src/image-credits.js` and stored under `assets/images/kazembe/`:
+
+| Folder | Purpose |
+|---|---|
+| `hero/` | Royal hero portraits |
+| `mwata/` | Office of the Mwata |
+| `mutomboko/` | Umutomboko ceremony |
+| `people/` | Community and ceremony participants |
+| `places/` | Maps and geography |
+| `governance/` | Governance imagery (reserved) |
+| `archive/` | Historical documentary photographs |
+
+## Licensed documentary media
+
+- `assets/images/kazembe/mutomboko/ceremony-2017-02.png`
+  - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 02](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp)
+  - Author: ChaloNiZambia
+  - License: CC BY-SA 4.0
+
+- `assets/images/kazembe/mutomboko/dance-2017-01.webp`
+  - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 01](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_01.webp)
+  - Author: ChaloNiZambia
+  - License: CC BY-SA 4.0
+
+- `assets/images/kazembe/archive/mwata-xvii-1961.jpg`
+  - Source: Wikimedia Commons — [Mwata Kazembe XVII Zambia 1961](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_XVII_Zambia_1961.jpg)
+  - Author: Dr John Edward Parry
+  - License: CC BY-SA 3.0 / CC BY 2.5 / GFDL
+
+- `assets/images/kazembe/places/kingdom-map-2007.jpg`
+  - Source: Wikimedia Commons — [Kazembe Kingdom 433x455](https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG)
+  - Author: Rex Parry
+  - License: CC BY 2.5
+
+## Permission required before public launch
+
+- `assets/images/kazembe/hero/home-portrait.jpg`
+  - Source: Project-supplied portrait for the Office of the Mwata
+  - Use: Royal hero and Mwata profile sections
+  - Rights: Photographer/source credit pending confirmation with the Office of the Mwata
+
+## Generated reconstruction assets (not on public face)
+
+The following images in `assets/generated/` were created with GPT Images for research materials only:
 
 - `hero-living-archive.png`
 - `atlas-parchment-map.png`
@@ -12,55 +55,21 @@ The following images in `assets/generated/` were created with GPT Images for thi
 - `reconstruction-muselo-litter.png`
 - `reconstruction-amapango-ulupemba.png`
 
-## Public-Domain Archive Asset
+## Public-domain archive asset
 
 - `assets/archive/the-lands-of-cazembe-1873.pdf`
   - Source: Smithsonian Libraries, *The Lands of Cazembe*
   - URL: https://library.si.edu/digital-library/book/landsofcazembel00roya
-  - Rights: Smithsonian Libraries marks the digital book as public domain / CC0.
+  - Rights: CC0
 
-## Licensed Documentary Media
-
-- `assets/images/mwata-kazembe-home-portrait.jpg`
-  - Source: Project-supplied image from local attachment
-  - Original local file: `C:/Users/Administrator/Downloads/493935015_3487231551410709_6416165067543791207_n.jpg`
-  - Use: Homepage image of Mwata Kazembe
-  - Rights: Photographer/source credit pending confirmation.
-
-- `assets/images/mwata-kazembe-current-2017.png`
-  - Source: Wikimedia Commons, *Mwata Kazembe at Mtomboko 2017 02*
-  - URL: https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp
-  - Author: ChaloNiZambia
-  - Date: 29 July 2017
-  - License: CC BY-SA 4.0
-
-- `assets/images/kazembe-kingdom-map-2007.jpg`
-  - Source: Wikimedia Commons, *Kazembe Kingdom 433x455*
-  - URL: https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG
-  - Author: Rex Parry
-  - Date: 10 February 2007
-  - License: CC BY 2.5
-
-## Research Sources Referenced In-Site
+## Research sources referenced in-site
 
 - Zambia Tourism Agency: https://www.zambia.travel/umutomboko.html
 - Ministry of Tourism, Zambia 2025 notice: https://www.mot.gov.zm/?p=4471
 - UNZA dissertation by Caroline Mwiinga: https://dspace.unza.zm/bitstreams/9ecd9cbe-8b9c-46f5-8b75-3f4b5fce9bb8/download
-- Smithsonian Libraries, *The Lands of Cazembe*: https://library.si.edu/digital-library/book/landsofcazembel00roya
-- Cambridge / Journal of African History, David Gordon, "History on the Luapula Retold": https://www.cambridge.org/core/journals/journal-of-african-history/article/history-on-the-luapula-retold-landscape-memory-and-identity-in-the-kazembe-kingdom/19989870F232E77A3CB7057EAA8BDABF
+- Nkwazi Magazine interactive feature (text reference): https://interactive.nkwazimagazine.com/mutomboko-ceremonyan-epic-of-the-luba-lunda/
 - Wikimedia Commons Kazembe category: https://commons.wikimedia.org/wiki/Category:Kazembe
-- Wikimedia Commons current Mwata image: https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp
-- Wikimedia Commons Kazembe map: https://commons.wikimedia.org/wiki/File:Kazembe_Kingdom_433x455.JPG
-- Kazembe lineage reference: https://www.chalochatu.org/Mwata_Kazembe
-- Encyclopaedia Britannica, Kazembe: https://www.britannica.com/place/Kazembe
 
-## Vendored Frontend Library
+## Vendored frontend library
 
-- `src/vendor/gsap.min.js`
-  - Source: GSAP 3.12.5 distribution via cdnjs
-  - URL: https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js
-  - Use: Lightweight transition sequencing for the intro, archive drawer, title reveal, route drawing, and card entrances.
-
-## Notes
-
-The official kingdom portal uses the project-supplied portrait of the current Mwata on the homepage and Mwata section. The Commons ceremony image and Kazembe map are used on Mutomboko and map sections. Generated assets in `assets/generated/` are not used on the public-facing portal except where noted in research materials; placeholders are shown instead when no verified image exists.
+- `src/vendor/gsap.min.js` — GSAP 3.12.5 for dignified scroll and section motion

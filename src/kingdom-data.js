@@ -5,12 +5,12 @@ export const siteMeta = {
   tagline: "THE OFFICIAL DIGITAL HOME OF THE MWATA KAZEMBE KINGDOM",
   headline: "A Kingdom of Authority, Memory, Victory and Progress",
   subheadline:
-    "From the royal seat of Mwansabombwe, the Mwata Kazembe Kingdom carries forward the legacy of the Luba-Lunda people through governance, culture, unity, land, leadership, and development.",
+    "From the royal seat of Mwansabombwe, the Mwata Kazembe Kingdom governs the Luapula Valley through kingship, council, Umutomboko, and public leadership.",
   openingStatement:
-    "The Mwata Kazembe Kingdom is not merely a memory of the past. It is a living institution of authority, identity, land, culture, and public leadership. From Mwansabombwe to the wider Luapula region, the Kingdom continues to preserve its traditions, guide its people, communicate its vision, and strengthen the inheritance of the Luba-Lunda people.",
-  heroImage: "assets/images/mwata-kazembe-home-portrait.jpg",
-  ceremonyImage: "assets/images/mwata-kazembe-current-2017.png",
-  mapImage: "assets/images/kazembe-kingdom-map-2007.jpg",
+    "The royal seat at Mwansabombwe is where council deliberates, chiefs receive directives, ceremonies affirm victory, and the kingdom addresses its people — a living institution, not a closed archive.",
+  heroImage: "assets/images/kazembe/hero/home-portrait.jpg",
+  ceremonyImage: "assets/images/kazembe/mutomboko/ceremony-2017-02.png",
+  mapImage: "assets/images/kazembe/places/kingdom-map-2007.jpg",
   location: "Mwansabombwe, Luapula Province, Zambia",
   contact: {
     royalOffice: { label: "Office of the Mwata", value: "content required", email: "content required" },
@@ -124,9 +124,39 @@ export const navigation = [
 ];
 
 export const heroCtas = [
-  { label: "Explore the Kingdom", href: "#kingdom", primary: true },
-  { label: "Read Official Communications", href: "#newsroom" },
-  { label: "Mutomboko Ceremony", href: "#mutomboko" }
+  { label: "The Lunda-Kazembe Story", href: "#kingdom-story", primary: true },
+  { label: "Official Communications", href: "#newsroom" },
+  { label: "Umutomboko Ceremony", href: "#mutomboko-journey" }
+];
+
+export const homeLeadershipCards = [
+  {
+    id: "mwata",
+    title: "His Royal Highness Mwata Kazembe",
+    role: "Office of the Mwata",
+    description:
+      "Paul Mpemba Kanyembo Kapale Mpalume, Mwata Kazembe XIX, holds the royal seat at Mwansabombwe as the centre of authority, ceremony, and public leadership.",
+    imageCreditId: "hero-home-portrait",
+    href: "#mwata"
+  },
+  {
+    id: "council",
+    title: "Royal Council",
+    role: "Traditional Governance",
+    description:
+      "The Royal Council advises the Mwata, deliberates on kingdom affairs, and upholds customary law alongside public administration.",
+    href: "#gov-council",
+    placeholder: true
+  },
+  {
+    id: "mutomboko",
+    title: "Umutomboko Ceremony",
+    role: "State Ceremony of Victory",
+    description:
+      "Umutomboko commemorates Lunda arrival, royal installation, and the dance of victory — a public affirmation of identity and unity.",
+    imageCreditId: "mutomboko-ceremony-2017-02",
+    href: "#mutomboko-journey"
+  }
 ];
 
 export const leadershipCards = [
@@ -176,6 +206,30 @@ export const leadershipCards = [
     placeholder: true
   }
 ];
+
+export const storyChapters = ["origins", "trade", "present"];
+
+export const featuredKingIds = [1, 3, 17, 18, 19];
+
+export const peopleSpotlights = [
+  {
+    creditId: "mutomboko-dance-2017-01",
+    title: "Royal performance at Umutomboko",
+    note: "The Mwata's public dance closes two days of ritual — victory made visible before the kingdom."
+  },
+  {
+    creditId: "archive-mwata-xvii-1961",
+    title: "Procession and public witness, 1961",
+    note: "Mwata Kazembe XVII carried on tour shortly after installation — authority moving through the land."
+  },
+  {
+    creditId: "hero-home-portrait",
+    title: "Office of the reigning Mwata",
+    note: "Mwata Kazembe XIX presides over council, ceremony, and cross-border Lunda diplomatic presence."
+  }
+];
+
+export const homeDevelopmentIds = ["dev-agriculture", "dev-fisheries", "dev-tourism", "dev-youth"];
 
 export const kingdomGlance = [
   { label: "Royal Seat", value: "Mwansabombwe" },
@@ -374,8 +428,15 @@ export const mutombokoFeature = {
     "Visitors should observe ceremonial protocol, dress respectfully, and follow guidance from kingdom officials. Full dress code publication: content required.",
   gallery: [
     {
-      image: siteMeta.ceremonyImage,
-      caption: "Mwata Kazembe at Umutomboko, 29 July 2017. Wikimedia Commons, CC BY-SA 4.0, ChaloNiZambia.",
+      imageCreditId: "mutomboko-ceremony-2017-02",
+      verified: true
+    },
+    {
+      imageCreditId: "mutomboko-dance-2017-01",
+      verified: true
+    },
+    {
+      imageCreditId: "archive-mwata-xvii-1961",
       verified: true
     }
   ]
