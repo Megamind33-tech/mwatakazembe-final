@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mwata Kazembe Kingdom — Official Digital Home</title>
+  <meta name="description" content="The official digital home of the Mwata Kazembe Kingdom — governance, Mutomboko, development, and official communications from Mwansabombwe.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+  <link rel="stylesheet" href="src/mobile-editorial.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="utility-bar" id="utility-bar" aria-label="Kingdom contact and links"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" data-nav="home">
+        <span class="brand-mark" aria-hidden="true">MK</span>
+        <span class="brand-text">
+          <strong>Mwata Kazembe</strong>
+          <span>Kingdom of Kazembe</span>
+        </span>
+      </a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation"></nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-panel">
+      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">Close</button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"></nav>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="page page-home active" id="page-home" data-page="home"></section>
+    <section class="page" id="page-mwata" data-page="mwata"></section>
+    <section class="page" id="page-clans" data-page="clans"></section>
+    <section class="page" id="page-governance" data-page="governance"></section>
+    <section class="page" id="page-kingdom" data-page="kingdom"></section>
+    <section class="page" id="page-mutomboko" data-page="mutomboko"></section>
+    <section class="page" id="page-development" data-page="development"></section>
+    <section class="page" id="page-newsroom" data-page="newsroom"></section>
+    <section class="page" id="page-contact" data-page="contact"></section>
+    <section class="page" id="page-museum" data-page="museum"></section>
+    <section class="page" id="page-store" data-page="store"></section>
+    <section class="page" id="page-donations" data-page="donations"></section>
+    <section class="page" id="page-membership" data-page="membership"></section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="src/vendor/gsap.min.js"></script>
+  <script type="module" src="src/app.js"></script>
+  <script type="module" src="src/mobile-editorial.js"></script>
+</body>
+</html>

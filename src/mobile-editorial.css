@@ -1,0 +1,58 @@
+/* Mobile kingdom portal — horizontal swipe sections */
+
+@media (max-width: 760px) {
+  .swipe-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.85rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .swipe-track > * {
+    flex: 0 0 min(85vw, 300px);
+    scroll-snap-align: start;
+  }
+
+  .authority-grid.swipe-track > .authority-card,
+  .comm-grid.swipe-track > .comm-card,
+  .pillar-grid.swipe-track > .pillar-card {
+    flex: 0 0 min(85vw, 300px);
+  }
+
+  .gallery-grid.swipe-track > .gallery-card {
+    flex: 0 0 min(88vw, 320px);
+  }
+
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .governance-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .page-body .subsection {
+    scroll-margin-top: calc(var(--header-h) + var(--utility-h) + 12px);
+  }
+
+  .utility-left {
+    display: none;
+  }
+
+  .utility-inner {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .swipe-track {
+    scroll-snap-type: none;
+  }
+}
