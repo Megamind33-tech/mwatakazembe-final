@@ -29,11 +29,6 @@ All public images are registered in `src/image-credits.js` and stored under `ass
   - License: CC BY-SA 4.0
   - Corroborated: Lusaka Times / ZANIS 2017 ceremony report
 
-- `assets/images/kazembe/mutomboko/dance-2017-01.webp`
-  - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 01](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_01.webp)
-  - Author: ChaloNiZambia
-  - License: CC BY-SA 4.0
-
 - `assets/images/kazembe/archive/mwata-xvii-1961.jpg`
   - Source: Wikimedia Commons — [Mwata Kazembe XVII Zambia 1961](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_XVII_Zambia_1961.jpg)
   - Author: Dr John Edward Parry
