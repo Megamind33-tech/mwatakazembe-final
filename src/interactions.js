@@ -131,15 +131,89 @@ function bindCeremonyJourney() {
   activate(steps[0].dataset.step);
 }
 
-function bindLineageProfiles() {
-  $$(".lineage-card").forEach((card) => {
-    const trigger = $(".lineage-trigger", card);
-    if (!trigger) return;
-    trigger.addEventListener("click", () => {
-      const open = card.classList.toggle("open");
-      trigger.setAttribute("aria-expanded", String(open));
-    });
-  });
+function bindLineageRail() {
+  const detail = $("#lineage-detail");
+  const items = $$(".lineage-rail-item");
+  if (!detail || !items.length) return;
+
+  function show(btn) {
+    items.forEach((b) => b.classList.toggle("active", b === btn));
+    const needsVerify =
+      btn.dataset.kingConfidence.includes("uncertain") ||
+      btn.dataset.kingConfidence.includes("contested") ||
+      btn.dataset.kingConfidence.includes("verification");
+    detail.innerHTML = `
+      <span class="lineage-reign">${esc(btn.dataset.kingReign)}</span>
+      <h3>${esc(btn.dataset.kingTitle)}</h3>
+      <p><strong>${esc(btn.dataset.kingName)}</strong></p>
+      <p>${esc(btn.dataset.kingNote)}</p>
+      <span class="confidence">${esc(btn.dataset.kingConfidence)}</span>
+      ${needsVerify ? `<p class="verify-note">Details to be verified against kingdom records.</p>` : ""}
+    `;
+    detail.classList.add("has-content");
+    if (motionEnabled()) {
+      gsap.fromTo(detail, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out", clearProps: "transform,opacity,visibility" });
+    }
+  }
+
+  items.forEach((btn) => btn.addEventListener("click", () => show(btn)));
+  const current = items.find((b) => b.classList.contains("is-current")) || items[items.length - 1];
+  if (current) show(current);
+}
+
+function initStatCounters() {
+  const cards = $$(".stat-card .stat-value[data-stat-numeric]");
+  if (!cards.length || reduceMotion.matches) return;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.statNumeric);
+        if (!target || el.dataset.counted === "true") return;
+        el.dataset.counted = "true";
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 1.1,
+          ease: "power2.out",
+          onUpdate: () => {
+            el.textContent = Math.round(obj.val);
+          }
+        });
+        observer.unobserve(el);
+      });
+    },
+    { threshold: 0.4 }
+  );
+  cards.forEach((el) => observer.observe(el));
+}
+
+function initNewsTicker() {
+  const track = $("#news-ticker-track");
+  if (!track || track.dataset.ready === "true") return;
+  track.dataset.ready = "true";
+  track.innerHTML = track.innerHTML + track.innerHTML;
+}
+
+function initHomeSectionNav() {
+  const nav = $("#home-section-nav");
+  if (!nav) return;
+  const links = $$(".home-section-link", nav);
+  const sections = links.map((link) => document.getElementById(link.getAttribute("href").slice(1))).filter(Boolean);
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        links.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+      });
+    },
+    { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+  );
+  sections.forEach((section) => observer.observe(section));
 }
 
 function bindHistoryChapters() {
@@ -259,17 +333,21 @@ export function initInteractions() {
     initScrollReveal();
     initImageHoverCredits();
     initHeroMotion();
+    initStatCounters();
     return;
   }
   bound = true;
   bindLightbox();
   bindGalleryFilters();
   bindCeremonyJourney();
-  bindLineageProfiles();
+  bindLineageRail();
   bindHistoryChapters();
   bindTimelineDetail();
   initScrollProgress();
   initScrollReveal();
   initHeroMotion();
   initImageHoverCredits();
+  initStatCounters();
+  initNewsTicker();
+  initHomeSectionNav();
 }

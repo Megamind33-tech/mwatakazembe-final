@@ -1,20 +1,23 @@
 import {
   calendar,
   developmentPillars,
-  featuredKingIds,
   heroCtas,
   historyChapters,
   homeDevelopmentIds,
   homeLeadershipCards,
+  homeSectionNav,
   kingdomGlance,
+  kingdomStats,
   kings,
   latestCommunications,
   mutombokoFeature,
   peopleSpotlights,
   royalMap,
+  royalSpotlight,
   siteMeta,
   storyChapters,
-  ceremonySteps
+  ceremonySteps,
+  externalMediaSources
 } from "./kingdom-data.js";
 import { creditCaption, galleryCategories, getCreditById, imageCredits } from "./image-credits.js";
 
@@ -124,31 +127,67 @@ export function homePageHtml() {
     )
     .join("");
 
-  const lineage = kings
-    .filter((k) => featuredKingIds.includes(k.id))
+  const lineageRail = kings
     .map((k) => {
-      const imageId = k.id === 19 ? "hero-home-portrait" : k.id === 17 ? "archive-mwata-xvii-1961" : "";
-      const needsVerify =
+      const uncertain =
         k.confidence.includes("uncertain") ||
         k.confidence.includes("contested") ||
         k.confidence.includes("verification");
       return `
-      <article class="lineage-card reveal-block ${k.id === 19 ? "is-current" : ""}">
-        <button type="button" class="lineage-trigger" aria-expanded="false">
-          <span class="lineage-reign">${esc(k.reign)}</span>
-          <h3>${esc(k.title)}</h3>
-          <p><strong>${esc(k.name)}</strong></p>
-        </button>
-        <div class="lineage-panel">
-          ${imageId ? cardImage("", k.name, k.title, imageId) : ""}
-          <p>${esc(k.note)}</p>
-          <span class="confidence">${esc(k.confidence)}</span>
-          ${needsVerify ? `<p class="verify-note">Details to be verified against kingdom records.</p>` : ""}
-          <a class="link-arrow" href="#kingdom-timeline" data-nav="kingdom">Full lineage</a>
-        </div>
-      </article>
+      <button type="button" class="lineage-rail-item ${k.id === 19 ? "is-current" : ""} ${uncertain ? "is-uncertain" : ""}"
+        data-king-id="${k.id}"
+        data-king-title="${esc(k.title)}"
+        data-king-name="${esc(k.name)}"
+        data-king-reign="${esc(k.reign)}"
+        data-king-note="${esc(k.note)}"
+        data-king-confidence="${esc(k.confidence)}">
+        <span class="lineage-rail-num">${String(k.id).padStart(2, "0")}</span>
+        <span class="lineage-rail-title">${esc(k.title)}</span>
+        <span class="lineage-rail-name">${esc(k.name)}</span>
+        <span class="lineage-rail-reign">${esc(k.reign)}</span>
+      </button>
     `;
     })
+    .join("");
+
+  const stats = kingdomStats
+    .map(
+      (s) => `
+      <article class="stat-card reveal-block">
+        <strong class="stat-value" data-stat-value="${s.display ? esc(s.display) : s.value}" data-stat-numeric="${s.display ? "" : s.value}">${s.display ? esc(s.display) : s.value}</strong>
+        <span class="stat-label">${esc(s.label)}</span>
+        <p class="stat-note">${esc(s.note)}</p>
+      </article>
+    `
+    )
+    .join("");
+
+  const spotlight = royalSpotlight
+    .map(
+      (r) => `
+      <article class="spotlight-card reveal-block">
+        ${r.imageCreditId ? cardImage("", r.name, r.name, r.imageCreditId) : cardImage("", r.name, r.name)}
+        <div class="spotlight-body">
+          <p class="office-label">${esc(r.role)}</p>
+          <h3>${esc(r.name)}</h3>
+          <p class="spotlight-person">${esc(r.person)}</p>
+          <p>${esc(r.summary)}</p>
+          ${placeholderBadge(r.placeholder)}
+          <a class="btn btn-ghost" href="${esc(r.href)}" ${r.navId ? `data-nav="${esc(r.navId)}"` : ""}>${r.placeholder ? "Learn more" : "Open section"}</a>
+        </div>
+      </article>
+    `
+    )
+    .join("");
+
+  const sectionNav = homeSectionNav
+    .map((s) => `<a class="home-section-link" href="#${esc(s.id)}">${esc(s.label)}</a>`)
+    .join("");
+
+  const tickerItems = latestCommunications
+    .filter((n) => !n.placeholder || n.id === "ceremony-1")
+    .slice(0, 5)
+    .map((n) => `<a href="${esc(n.href || "#newsroom")}">${esc(n.title.replace(/^content required — /, ""))}</a>`)
     .join("");
 
   const journeySteps = ceremonySteps
@@ -167,8 +206,8 @@ export function homePageHtml() {
       const imageId =
         step.id === "arena-dance"
           ? "mutomboko-dance-2017-01"
-          : step.id === "ichota" || step.id === "muselo-procession"
-            ? "mutomboko-ceremony-2017-02"
+          : step.id === "muselo-procession"
+            ? "mutomboko-dance-2017-01"
             : "";
       return `
       <article class="journey-panel ${i === 0 ? "active" : ""}" data-panel="${esc(step.id)}">
@@ -214,6 +253,18 @@ export function homePageHtml() {
     )
     .join("");
 
+  const mediaSources = externalMediaSources
+    .map(
+      (s) => `
+      <li class="media-source-item">
+        <a href="${esc(s.url)}" target="_blank" rel="noreferrer"><strong>${esc(s.title)}</strong></a>
+        <span>${esc(s.publisher)}</span>
+        <p>${esc(s.note)}</p>
+      </li>
+    `
+    )
+    .join("");
+
   const ctas = heroCtas
     .map((c) => `<a class="btn ${c.primary ? "btn-primary" : "btn-secondary"}" href="${esc(c.href)}">${esc(c.label)}</a>`)
     .join("");
@@ -230,6 +281,27 @@ export function homePageHtml() {
         <p class="hero-sub">${esc(siteMeta.subheadline)}</p>
         <div class="hero-ctas">${ctas}</div>
         <p class="hero-credit">${esc(heroCredit?.creditLine || "")}</p>
+      </div>
+    </section>
+
+    <div class="news-ticker" aria-label="Kingdom announcements">
+      <span class="ticker-label">Latest</span>
+      <div class="ticker-track" id="news-ticker-track">${tickerItems}</div>
+    </div>
+
+    <nav class="home-section-nav" id="home-section-nav" aria-label="Homepage sections">${sectionNav}</nav>
+
+    <section class="section section-stats reveal-block" id="kingdom-stats">
+      <div class="container">
+        ${sectionHead("The Kingdom in numbers", "Facts and Figures")}
+        <div class="stats-grid">${stats}</div>
+      </div>
+    </section>
+
+    <section class="section section-spotlight reveal-block" id="royal-spotlight">
+      <div class="container">
+        ${sectionHead("Royal Office", "The Kingdom Today")}
+        <div class="spotlight-grid">${spotlight}</div>
       </div>
     </section>
 
@@ -273,9 +345,15 @@ export function homePageHtml() {
 
     <section class="section section-lineage reveal-block" id="mwata-lineage">
       <div class="container">
-        ${sectionHead("Continuity of Kingship", "The Mwata Lineage")}
-        <p class="section-deck">Selected rulers from founding memory to the present officeholder. Uncertain entries remain visibly marked.</p>
-        <div class="lineage-grid">${lineage}</div>
+        ${sectionHead("Continuity of Kingship", "All 19 Mwata Kazembe Rulers")}
+        <p class="section-deck">The recorded line from Mwata Kazembe I to Mwata Kazembe XIX. Select a ruler to read reign dates and historical notes. Uncertain entries are marked.</p>
+        <div class="lineage-shell">
+          <div class="lineage-rail swipe-track" data-swipe="lineage" role="tablist" aria-label="Mwata Kazembe rulers">${lineageRail}</div>
+          <aside class="lineage-detail" id="lineage-detail" aria-live="polite">
+            <p class="lineage-detail-placeholder">Select a Mwata to open the ruler profile.</p>
+          </aside>
+        </div>
+        <p class="section-cta"><a class="btn btn-ghost" href="#kingdom-timeline" data-nav="kingdom">Full timeline on Kingdom page</a></p>
       </div>
     </section>
 
@@ -320,6 +398,11 @@ export function homePageHtml() {
         ${sectionHead("Visual Record", "Gallery")}
         <div class="filter-row" id="home-gallery-filters">${galleryFilters}</div>
         <div class="gallery-grid premium-gallery" id="home-gallery-grid">${gallery}</div>
+        <div class="media-sources-panel reveal-block">
+          <h3>Further verified media sources</h3>
+          <p class="section-deck">Additional ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
+          <ul class="media-sources-list">${mediaSources}</ul>
+        </div>
       </div>
     </section>
 

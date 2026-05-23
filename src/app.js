@@ -169,7 +169,7 @@ function renderMwata() {
     .map(
       (s) => `
       <article class="symbol-card">
-        ${s.image ? cardImage("", s.title, s.title, "mutomboko-ceremony-2017-02") : cardImage("", s.title, "Symbol")}
+        ${s.image || s.verified ? cardImage("", s.title, s.title, "mutomboko-dance-2017-01") : cardImage("", s.title, "Symbol")}
         <h3>${esc(s.title)}</h3>
         <p>${esc(s.description)}</p>
         ${placeholderBadge(s.placeholder)}
@@ -315,7 +315,7 @@ function renderKingdom() {
       <div class="container page-hero-content">
         <p class="eyebrow">The Kingdom</p>
         <h1>History as State Formation</h1>
-        <p>Migration, trade, war, diplomacy, settlement, survival, and triumph — not a dusty archive.</p>
+        <p>Migration, trade, diplomacy, settlement, and the continuity of Lunda-Kazembe rule on the Luapula.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -361,7 +361,8 @@ function renderMutomboko() {
 
   const gallery = mutombokoFeature.gallery
     .map((g) => {
-      const item = getCreditById(g.imageCreditId);
+      const creditId = g.imageCreditId || (g.image ? null : null);
+      const item = creditId ? getCreditById(creditId) : null;
       if (!item) return "";
       return `
       <button type="button" class="gallery-card" data-lightbox="${esc(item.id)}">
@@ -534,7 +535,20 @@ function pageFromHash(hash) {
   if (hash.startsWith("news")) return "newsroom";
   if (hash === "contact") return "contact";
   if (hash === "leadership" || hash === "government" || hash === "living-kingdom") return "home";
-  if (hash === "kingdom-story" || hash === "mwata-lineage" || hash === "mutomboko-journey" || hash === "people-kingdom" || hash === "projects-progress" || hash === "royal-news" || hash === "home-gallery" || hash === "visit-support" || hash === "kingdom-glance") return "home";
+  if (
+    hash === "kingdom-story" ||
+    hash === "mwata-lineage" ||
+    hash === "mutomboko-journey" ||
+    hash === "people-kingdom" ||
+    hash === "projects-progress" ||
+    hash === "royal-news" ||
+    hash === "home-gallery" ||
+    hash === "visit-support" ||
+    hash === "kingdom-glance" ||
+    hash === "royal-spotlight" ||
+    hash === "kingdom-stats"
+  )
+    return "home";
   const top = hash.split("-")[0];
   return navigation.some((n) => n.id === top) ? top : "home";
 }

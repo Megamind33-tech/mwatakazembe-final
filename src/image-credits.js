@@ -21,35 +21,38 @@ export const imageCredits = [
     creditLine: "Photo source: Office of the Mwata (credit pending confirmation)"
   },
   {
-    id: "mutomboko-ceremony-2017-02",
+    id: "people-lukwesa-umutomboko-2017",
     fileName: "ceremony-2017-02.png",
     src: "assets/images/kazembe/mutomboko/ceremony-2017-02.png",
-    title: "Mwata Kazembe at Umutomboko, 2017",
-    description: "Mwata Kazembe during the royal dance at the Umutomboko ceremony in Mwansabombwe.",
-    sourceName: "Wikimedia Commons",
-    sourceUrl: "https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp",
-    photographerOrCredit: "ChaloNiZambia",
-    dateAccessed: "2026-05-22",
-    licenseOrUsageNote: "CC BY-SA 4.0",
-    altText: "Mwata Kazembe performing the royal dance at Umutomboko surrounded by attendants.",
-    sectionUsedIn: "Mutomboko Ceremony, Gallery, People of the Kingdom",
-    category: "ceremony",
-    creditLine: "Photo: ChaloNiZambia / Wikimedia Commons"
+    title: "Chieftainess Lukwesa at Umutomboko, 2017",
+    description:
+      "Chieftainess Lukwesa performing the Umutomboko dance at Mwansabombwe. This image was incorrectly labelled on some archives; kingdom records identify her as Lukwesa, not the Mwata.",
+    sourceName: "Lusaka Times / ZANIS (reference); Wikimedia Commons file mislabelled",
+    sourceUrl: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
+    photographerOrCredit: "Charles Banda / ZANIS (2017 report); file on Commons: ChaloNiZambia",
+    dateAccessed: "2026-05-23",
+    licenseOrUsageNote:
+      "CC BY-SA 4.0 on Commons file — verify identity and ZANIS reuse with publisher before republication beyond fair reference.",
+    altText: "Chieftainess Lukwesa in ceremonial dress performing the Umutomboko dance before spectators at Mwansabombwe.",
+    sectionUsedIn: "People of the Kingdom, Gallery",
+    category: "people",
+    creditLine: "Photo: Charles Banda / ZANIS · Source: Lusaka Times (2017)"
   },
   {
     id: "mutomboko-dance-2017-01",
     fileName: "dance-2017-01.webp",
     src: "assets/images/kazembe/mutomboko/dance-2017-01.webp",
-    title: "Royal dance at Umutomboko, 2017",
-    description: "Mwata Kazembe performing the victory dance in the main arena at Mwansabombwe.",
-    sourceName: "Wikimedia Commons",
+    title: "Mwata Kazembe at Umutomboko, 2017",
+    description:
+      "Mwata Kazembe XIX performing the royal Umutomboko dance in the main arena at Mwansabombwe, as reported alongside ZANIS coverage of the 2017 ceremony.",
+    sourceName: "Wikimedia Commons; corroborated Lusaka Times / ZANIS report",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_01.webp",
     photographerOrCredit: "ChaloNiZambia",
-    dateAccessed: "2026-05-22",
+    dateAccessed: "2026-05-23",
     licenseOrUsageNote: "CC BY-SA 4.0",
-    altText: "Mwata Kazembe in ceremonial regalia during the Umutomboko royal dance.",
-    sectionUsedIn: "Mutomboko Ceremony, People of the Kingdom, Gallery",
-    category: "ceremony",
+    altText: "Mwata Kazembe in ceremonial regalia during the Umutomboko royal dance at Mwansabombwe.",
+    sectionUsedIn: "Mutomboko Ceremony, Royal spotlight, Gallery, Leadership",
+    category: "mwata",
     creditLine: "Photo: ChaloNiZambia / Wikimedia Commons"
   },
   {

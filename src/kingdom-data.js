@@ -7,9 +7,9 @@ export const siteMeta = {
   subheadline:
     "From the royal seat of Mwansabombwe, the Mwata Kazembe Kingdom governs the Luapula Valley through kingship, council, Umutomboko, and public leadership.",
   openingStatement:
-    "The royal seat at Mwansabombwe is where council deliberates, chiefs receive directives, ceremonies affirm victory, and the kingdom addresses its people — a living institution, not a closed archive.",
+    "Council, senior chiefs, and the Office of the Mwata coordinate public order, land affairs, Umutomboko, and official communication from the royal seat at Mwansabombwe.",
   heroImage: "assets/images/kazembe/hero/home-portrait.jpg",
-  ceremonyImage: "assets/images/kazembe/mutomboko/ceremony-2017-02.png",
+  ceremonyImage: "assets/images/kazembe/mutomboko/dance-2017-01.webp",
   mapImage: "assets/images/kazembe/places/kingdom-map-2007.jpg",
   location: "Mwansabombwe, Luapula Province, Zambia",
   contact: {
@@ -154,9 +154,90 @@ export const homeLeadershipCards = [
     role: "State Ceremony of Victory",
     description:
       "Umutomboko commemorates Lunda arrival, royal installation, and the dance of victory — a public affirmation of identity and unity.",
-    imageCreditId: "mutomboko-ceremony-2017-02",
+    imageCreditId: "mutomboko-dance-2017-01",
     href: "#mutomboko-journey"
   }
+];
+
+export const kingdomStats = [
+  { id: "rulers", label: "Recorded Mwata Kazembe rulers", value: 19, note: "Lineage I–XIX on record" },
+  { id: "seat", label: "Royal seat", value: 1, display: "Mwansabombwe", note: "Luapula Province, Zambia" },
+  { id: "ceremony", label: "State ceremony", value: 1, display: "Umutomboko", note: "Last weekend of July" },
+  { id: "identity", label: "Political tradition", value: 1, display: "Lunda-Kazembe", note: "Luapula Valley authority" }
+];
+
+export const royalSpotlight = [
+  {
+    id: "mwata",
+    role: "Office of the Mwata",
+    name: "Mwata Kazembe XIX",
+    person: "Paul Mpemba Kanyembo Kapale Mpalume",
+    summary: "Reigning Mwata from 1998; presides over Umutomboko and kingdom public leadership.",
+    imageCreditId: "hero-home-portrait",
+    href: "#mwata",
+    navId: "mwata"
+  },
+  {
+    id: "ceremony",
+    role: "State ceremony",
+    name: "Umutomboko",
+    person: "Dance of victory",
+    summary: "Two days of ritual at Mwansabombwe commemorating Lunda arrival and royal authority.",
+    imageCreditId: "mutomboko-dance-2017-01",
+    href: "#mutomboko-journey",
+    navId: "mutomboko"
+  },
+  {
+    id: "governance",
+    role: "Royal governance",
+    name: "Council and chiefs",
+    person: "Traditional administration",
+    summary: "Royal Council, senior chiefs, and protocol offices extend authority across Luapula.",
+    imageCreditId: "",
+    href: "#governance",
+    navId: "governance",
+    placeholder: true
+  }
+];
+
+export const externalMediaSources = [
+  {
+    title: "Umutomboko 2017 — Lusaka Times picture report",
+    publisher: "Lusaka Times / ZANIS",
+    url: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
+    note: "Charles Banda photographs including Chieftainess Lukwesa, Princess Kanyanta, Prince Kanyembo, and Mwata Kazembe at the ceremony."
+  },
+  {
+    title: "Umutomboko Ceremony",
+    publisher: "Zambia Tourism Agency",
+    url: "https://www.zambia.travel/umutomboko.html",
+    note: "Official summary of timing, location, and meaning of the ceremony."
+  },
+  {
+    title: "2025 Umutomboko notice",
+    publisher: "Ministry of Tourism, Zambia",
+    url: "https://www.mot.gov.zm/?p=4471",
+    note: "Government notice for the 2025 ceremony dates."
+  },
+  {
+    title: "Mutomboko — War dance of the Luba-Lunda Empire",
+    publisher: "Smithsonian Photo Contest",
+    url: "https://photocontest.smithsonianmag.com/photocontest/detail/mutomboko-war-dance-of-the-luba-lunda-empire/",
+    note: "Ulf Krone, July 2016, Mwansabombwe — contact photographer for reuse beyond linking."
+  }
+];
+
+export const homeSectionNav = [
+  { id: "kingdom-glance", label: "At a glance" },
+  { id: "royal-spotlight", label: "Royal office" },
+  { id: "living-kingdom", label: "Governance" },
+  { id: "kingdom-story", label: "History" },
+  { id: "mwata-lineage", label: "19 Mwatas" },
+  { id: "mutomboko-journey", label: "Umutomboko" },
+  { id: "people-kingdom", label: "People" },
+  { id: "projects-progress", label: "Development" },
+  { id: "royal-news", label: "News" },
+  { id: "home-gallery", label: "Gallery" }
 ];
 
 export const leadershipCards = [
@@ -209,23 +290,26 @@ export const leadershipCards = [
 
 export const storyChapters = ["origins", "trade", "present"];
 
-export const featuredKingIds = [1, 3, 17, 18, 19];
-
 export const peopleSpotlights = [
   {
+    creditId: "people-lukwesa-umutomboko-2017",
+    title: "Chieftainess Lukwesa at Umutomboko",
+    note: "Senior royal woman performing the victory dance during the 2017 ceremony at Mwansabombwe."
+  },
+  {
     creditId: "mutomboko-dance-2017-01",
-    title: "Royal performance at Umutomboko",
-    note: "The Mwata's public dance closes two days of ritual — victory made visible before the kingdom."
+    title: "Mwata Kazembe at Umutomboko, 2017",
+    note: "Mwata Kazembe XIX performing the royal dance in the main arena — documented at the 2017 ceremony."
   },
   {
     creditId: "archive-mwata-xvii-1961",
-    title: "Procession and public witness, 1961",
-    note: "Mwata Kazembe XVII carried on tour shortly after installation — authority moving through the land."
+    title: "Mwata Kazembe XVII, 1961",
+    note: "Mwata Kazembe XVII Paul Kanyembo Lutaba on tour shortly after installation."
   },
   {
     creditId: "hero-home-portrait",
     title: "Office of the reigning Mwata",
-    note: "Mwata Kazembe XIX presides over council, ceremony, and cross-border Lunda diplomatic presence."
+    note: "Mwata Kazembe XIX — public leadership from the royal seat at Mwansabombwe."
   }
 ];
 
@@ -428,7 +512,7 @@ export const mutombokoFeature = {
     "Visitors should observe ceremonial protocol, dress respectfully, and follow guidance from kingdom officials. Full dress code publication: content required.",
   gallery: [
     {
-      imageCreditId: "mutomboko-ceremony-2017-02",
+      imageCreditId: "people-lukwesa-umutomboko-2017",
       verified: true
     },
     {
@@ -691,7 +775,11 @@ export const symbolsOfAuthority = [
     title: "Royal Regalia at Ceremony",
     description:
       "Crowns, beadwork, red and blue regalia language, sword, and axe appear in Umutomboko performance as symbols of authority and victory.",
-    image: siteMeta.ceremonyImage,
+    imageCreditId: "mutomboko-dance-2017-01",
+    verified: true
+  },
+  {
+    imageCreditId: "people-lukwesa-umutomboko-2017",
     verified: true
   },
   {

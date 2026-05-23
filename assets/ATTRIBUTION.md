@@ -17,9 +17,17 @@ All public images are registered in `src/image-credits.js` and stored under `ass
 ## Licensed documentary media
 
 - `assets/images/kazembe/mutomboko/ceremony-2017-02.png`
-  - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 02](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp)
+  - Subject: **Chieftainess Lukwesa** at Umutomboko (not the Mwata)
+  - Source: Lusaka Times / ZANIS — [Last week in pictures (31 July 2017)](https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/)
+  - Photographer: Charles Banda / ZANIS
+  - Commons file mislabelled: [Mwata_Kazembe_at_Mtomboko_2017_02](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_02.webp) — verify reuse with ZANIS
+
+- `assets/images/kazembe/mutomboko/dance-2017-01.webp`
+  - Subject: **Mwata Kazembe XIX** performing the royal Umutomboko dance
+  - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 01](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_01.webp)
   - Author: ChaloNiZambia
   - License: CC BY-SA 4.0
+  - Corroborated: Lusaka Times / ZANIS 2017 ceremony report
 
 - `assets/images/kazembe/mutomboko/dance-2017-01.webp`
   - Source: Wikimedia Commons — [Mwata Kazembe at Mtomboko 2017 01](https://commons.wikimedia.org/wiki/File:Mwata_Kazembe_at_Mtomboko_2017_01.webp)
