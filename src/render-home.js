@@ -6,32 +6,25 @@ import {
   homeDevelopmentIds,
   homeLeadershipCards,
   homeSectionNav,
+  kingdomAgencies,
   kingdomGlance,
   kingdomStats,
   kings,
   latestCommunications,
   mutombokoFeature,
+  officialNoticeStrip,
   peopleSpotlights,
   royalMap,
-  royalSpotlight,
   siteMeta,
   storyChapters,
   ceremonySteps,
-  externalMediaSources
+  externalMediaSources,
+  governanceInstitutions
 } from "./kingdom-data.js";
+import { clansIntroduction, clanRegistry, clanRegistryNote } from "./clans-data.js";
+import { enrichKings } from "./ruler-profiles.js";
 import { creditCaption, galleryCategories, getCreditById, imageCredits } from "./image-credits.js";
-
-function esc(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
-
-function placeholderBadge(show) {
-  return show ? `<span class="badge badge-required">content required</span>` : "";
-}
+import { esc, pendingNote, sectionHead } from "./ui-helpers.js";
 
 function cardImage(src, alt, label, creditId = "") {
   if (creditId) {
@@ -50,84 +43,10 @@ function readMore(href, label = "Read more") {
   return `<a class="link-arrow" href="${esc(href)}">${esc(label)}</a>`;
 }
 
-function sectionHead(eyebrow, title, deck = "") {
-  return `
-    <header class="section-head">
-      ${eyebrow ? `<p class="eyebrow">${esc(eyebrow)}</p>` : ""}
-      <h2>${esc(title)}</h2>
-      ${deck ? `<p class="section-deck">${esc(deck)}</p>` : ""}
-    </header>
-  `;
-}
+const enrichedKings = enrichKings(kings);
 
-export function homePageHtml() {
-  const heroCredit = getCreditById("hero-home-portrait");
-  const mapCredit = getCreditById("places-kingdom-map-2007");
-
-  const leadership = homeLeadershipCards
-    .map(
-      (c) => `
-      <article class="authority-card reveal-block">
-        ${c.imageCreditId ? cardImage("", c.title, c.title, c.imageCreditId) : cardImage("", c.title, c.title)}
-        <div class="authority-card-body">
-          <p class="office-label">${esc(c.role)}</p>
-          <h3>${esc(c.title)}</h3>
-          <p>${esc(c.description)}</p>
-          ${placeholderBadge(c.placeholder)}
-          ${readMore(c.href)}
-        </div>
-      </article>
-    `
-    )
-    .join("");
-
-  const glance = kingdomGlance
-    .map((f) => `<div class="fact-cell"><span class="fact-label">${esc(f.label)}</span><strong>${esc(f.value)}</strong></div>`)
-    .join("");
-
-  const news = latestCommunications
-    .slice(0, 3)
-    .map(
-      (n) => `
-      <article class="comm-card reveal-block ${n.placeholder ? "is-placeholder" : ""}">
-        <span class="comm-category">${esc(n.category)}</span>
-        <h3>${esc(n.title)}</h3>
-        <time>${esc(n.date)}</time>
-        <p>${esc(n.excerpt)}</p>
-        ${placeholderBadge(n.placeholder)}
-        ${n.href ? readMore(n.href) : readMore("#newsroom")}
-      </article>
-    `
-    )
-    .join("");
-
-  const dev = developmentPillars
-    .filter((d) => homeDevelopmentIds.includes(d.id))
-    .map(
-      (d) => `
-      <article class="pillar-card reveal-block">
-        <h3>${esc(d.title)}</h3>
-        <p>${esc(d.summary)}</p>
-        ${placeholderBadge(d.placeholder)}
-        ${readMore(d.href)}
-      </article>
-    `
-    )
-    .join("");
-
-  const story = historyChapters
-    .filter((ch) => storyChapters.includes(ch.id))
-    .map(
-      (ch) => `
-      <button type="button" class="story-chip reveal-block" data-history-id="${esc(ch.id)}" data-history-title="${esc(ch.title)}" data-history-marker="${esc(ch.marker)}" data-history-summary="${esc(ch.summary)}">
-        <span class="chapter-marker">${esc(ch.marker)}</span>
-        <strong>${esc(ch.title)}</strong>
-      </button>
-    `
-    )
-    .join("");
-
-  const lineageRail = kings
+function lineageRailHtml() {
+  return enrichedKings
     .map((k) => {
       const uncertain =
         k.confidence.includes("uncertain") ||
@@ -140,7 +59,8 @@ export function homePageHtml() {
         data-king-name="${esc(k.name)}"
         data-king-reign="${esc(k.reign)}"
         data-king-note="${esc(k.note)}"
-        data-king-confidence="${esc(k.confidence)}">
+        data-king-confidence="${esc(k.confidence)}"
+        data-king-sources="${esc((k.sources || []).join(","))}">
         <span class="lineage-rail-num">${String(k.id).padStart(2, "0")}</span>
         <span class="lineage-rail-title">${esc(k.title)}</span>
         <span class="lineage-rail-name">${esc(k.name)}</span>
@@ -149,12 +69,80 @@ export function homePageHtml() {
     `;
     })
     .join("");
+}
+
+export function homePageHtml() {
+  const heroCredit = getCreditById("hero-home-portrait");
+  const mapCredit = getCreditById("places-kingdom-map-2007");
+
+  const leadership = homeLeadershipCards
+    .map(
+      (c) => `
+      <article class="authority-card">
+        ${c.imageCreditId ? cardImage("", c.title, c.title, c.imageCreditId) : cardImage("", c.title, c.title)}
+        <div class="authority-card-body">
+          <p class="office-label">${esc(c.role)}</p>
+          <h3>${esc(c.title)}</h3>
+          <p>${esc(c.description)}</p>
+          ${c.placeholder ? pendingNote("Officer list to be published by the Royal Council.") : ""}
+          ${readMore(c.href)}
+        </div>
+      </article>
+    `
+    )
+    .join("");
+
+  const glance = kingdomGlance
+    .map((f) => `<div class="fact-cell"><span class="fact-label">${esc(f.label)}</span><strong>${esc(f.value)}</strong></div>`)
+    .join("");
+
+  const news = latestCommunications
+    .filter((n) => !n.placeholder)
+    .slice(0, 3)
+    .concat(latestCommunications.filter((n) => n.placeholder).slice(0, 1))
+    .map(
+      (n) => `
+      <article class="comm-card ${n.placeholder ? "is-pending" : ""}">
+        <span class="comm-category">${esc(n.category)}</span>
+        <h3>${esc(n.title)}</h3>
+        <time>${esc(n.date)}</time>
+        <p>${esc(n.excerpt)}</p>
+        ${n.placeholder ? pendingNote() : readMore(n.href || "#newsroom")}
+      </article>
+    `
+    )
+    .join("");
+
+  const dev = developmentPillars
+    .filter((d) => homeDevelopmentIds.includes(d.id))
+    .map(
+      (d) => `
+      <article class="pillar-card">
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.summary)}</p>
+        ${readMore(d.href)}
+      </article>
+    `
+    )
+    .join("");
+
+  const story = historyChapters
+    .filter((ch) => storyChapters.includes(ch.id))
+    .map(
+      (ch) => `
+      <button type="button" class="story-chip" data-history-id="${esc(ch.id)}" data-history-title="${esc(ch.title)}" data-history-marker="${esc(ch.marker)}" data-history-summary="${esc(ch.summary)}">
+        <span class="chapter-marker">${esc(ch.marker)}</span>
+        <strong>${esc(ch.title)}</strong>
+      </button>
+    `
+    )
+    .join("");
 
   const stats = kingdomStats
     .map(
       (s) => `
-      <article class="stat-card reveal-block">
-        <strong class="stat-value" data-stat-value="${s.display ? esc(s.display) : s.value}" data-stat-numeric="${s.display ? "" : s.value}">${s.display ? esc(s.display) : s.value}</strong>
+      <article class="stat-card">
+        <strong class="stat-value">${s.display ? esc(s.display) : s.value}</strong>
         <span class="stat-label">${esc(s.label)}</span>
         <p class="stat-note">${esc(s.note)}</p>
       </article>
@@ -162,19 +150,43 @@ export function homePageHtml() {
     )
     .join("");
 
-  const spotlight = royalSpotlight
+  const govCards = governanceInstitutions.slice(0, 6)
     .map(
-      (r) => `
-      <article class="spotlight-card reveal-block">
-        ${r.imageCreditId ? cardImage("", r.name, r.name, r.imageCreditId) : cardImage("", r.name, r.name)}
-        <div class="spotlight-body">
-          <p class="office-label">${esc(r.role)}</p>
-          <h3>${esc(r.name)}</h3>
-          <p class="spotlight-person">${esc(r.person)}</p>
-          <p>${esc(r.summary)}</p>
-          ${placeholderBadge(r.placeholder)}
-          <a class="btn btn-ghost" href="${esc(r.href)}" ${r.navId ? `data-nav="${esc(r.navId)}"` : ""}>${r.placeholder ? "Learn more" : "Open section"}</a>
-        </div>
+      (g) => `
+      <article class="gov-institution-card">
+        <h3>${esc(g.title)}</h3>
+        <p>${esc(g.function)}</p>
+        ${g.pending ? pendingNote("Roster to be confirmed with the Royal Office.") : readMore(`#${g.id === "protocol" ? "protocol" : "governance"}`)}
+      </article>
+    `
+    )
+    .join("");
+
+  const clanRoles = clansIntroduction.roles
+    .map((r) => `<article class="clan-role-card"><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p></article>`)
+    .join("");
+
+  const clanRows = clanRegistry
+    .map(
+      (row) => `
+      <tr>
+        <td>${row.clanName ? esc(row.clanName) : '<em class="pending-cell">Verified register pending</em>'}</td>
+        <td>${row.clanHead ? esc(row.clanHead) : "—"}</td>
+        <td>${esc(row.area || "—")}</td>
+        <td>${esc(row.ceremonyRole || "—")}</td>
+        <td><span class="verification-badge">${esc(row.verification === "pending_official_register" ? "Awaiting Royal Office" : row.verification)}</span></td>
+      </tr>
+    `
+    )
+    .join("");
+
+  const agencies = kingdomAgencies
+    .map(
+      (a) => `
+      <article class="agency-card" id="${esc(a.id)}">
+        <h3>${esc(a.title)}</h3>
+        <p>${esc(a.function)}</p>
+        ${a.pending ? pendingNote() : readMore(a.href)}
       </article>
     `
     )
@@ -184,10 +196,13 @@ export function homePageHtml() {
     .map((s) => `<a class="home-section-link" href="#${esc(s.id)}">${esc(s.label)}</a>`)
     .join("");
 
+  const noticeStrip = officialNoticeStrip
+    .map((n) => `<a class="notice-strip-item" href="${esc(n.href)}"><span>${esc(n.label)}</span> ${esc(n.text)}</a>`)
+    .join("");
+
   const tickerItems = latestCommunications
-    .filter((n) => !n.placeholder || n.id === "ceremony-1")
-    .slice(0, 5)
-    .map((n) => `<a href="${esc(n.href || "#newsroom")}">${esc(n.title.replace(/^content required — /, ""))}</a>`)
+    .filter((n) => n.showOnTicker || (!n.placeholder && !n.title.toLowerCase().includes("pending")))
+    .map((n) => `<a href="${esc(n.href || "#newsroom")}">${esc(n.title)}</a>`)
     .join("");
 
   const journeySteps = ceremonySteps
@@ -204,11 +219,7 @@ export function homePageHtml() {
   const journeyPanels = ceremonySteps
     .map((step, i) => {
       const imageId =
-        step.id === "arena-dance"
-          ? "mutomboko-dance-2017-01"
-          : step.id === "muselo-procession"
-            ? "mutomboko-dance-2017-01"
-            : "";
+        step.id === "arena-dance" || step.id === "muselo-procession" ? "mutomboko-dance-2017-01" : "";
       return `
       <article class="journey-panel ${i === 0 ? "active" : ""}" data-panel="${esc(step.id)}">
         ${imageId ? cardImage("", step.title, step.label, imageId) : ""}
@@ -223,7 +234,7 @@ export function homePageHtml() {
   const people = peopleSpotlights
     .map(
       (p) => `
-      <article class="people-card reveal-block">
+      <article class="people-card">
         ${cardImage("", p.title, p.title, p.creditId)}
         <div class="people-card-body">
           <h3>${esc(p.title)}</h3>
@@ -242,12 +253,13 @@ export function homePageHtml() {
   const gallery = imageCredits
     .map(
       (item) => `
-      <button type="button" class="gallery-item reveal-block" data-category="${esc(item.category)}" data-lightbox="${esc(item.id)}" aria-label="Open ${esc(item.title)}">
+      <button type="button" class="gallery-item" data-category="${esc(item.category)}" data-lightbox="${esc(item.id)}" aria-label="Open ${esc(item.title)}">
         <div class="gallery-item-media has-hover-credit">
           <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(item.id)}">
           <span class="hover-credit">${esc(item.creditLine)}</span>
         </div>
         <span class="gallery-item-title">${esc(item.title)}</span>
+        <span class="gallery-item-type">${esc(item.imageType || "documentary")}</span>
       </button>
     `
     )
@@ -270,11 +282,7 @@ export function homePageHtml() {
     .join("");
 
   return `
-    <section class="royal-hero" id="home">
-      <div class="hero-media">
-        <img src="${esc(heroCredit?.src || siteMeta.heroImage)}" alt="${esc(heroCredit?.altText || "Mwata Kazembe in royal regalia")}" data-credit-id="hero-home-portrait">
-        <div class="hero-overlay"></div>
-      </div>
+    <section class="royal-hero royal-hero-split" id="home">
       <div class="hero-content">
         <p class="hero-label">${esc(siteMeta.tagline)}</p>
         <h1>${esc(siteMeta.headline)}</h1>
@@ -282,33 +290,31 @@ export function homePageHtml() {
         <div class="hero-ctas">${ctas}</div>
         <p class="hero-credit">${esc(heroCredit?.creditLine || "")}</p>
       </div>
+      <div class="hero-media">
+        <img src="${esc(heroCredit?.src || siteMeta.heroImage)}" alt="${esc(heroCredit?.altText || "Mwata Kazembe in royal regalia")}" data-credit-id="hero-home-portrait">
+        <div class="hero-overlay"></div>
+      </div>
     </section>
 
-    <div class="news-ticker" aria-label="Kingdom announcements">
-      <span class="ticker-label">Latest</span>
-      <div class="ticker-track" id="news-ticker-track">${tickerItems}</div>
+    <section class="official-notice-strip" id="official-notices" aria-label="Official notices">
+      <div class="container notice-strip-inner">
+        <span class="notice-strip-heading">Official notices</span>
+        <div class="notice-strip-items">${noticeStrip}</div>
+      </div>
+    </section>
+
+    <div class="news-ticker news-ticker-static" aria-label="Ceremony update">
+      <span class="ticker-label">Notice</span>
+      <div class="ticker-track" id="news-ticker-track">${tickerItems || `<span>Umutomboko — ${esc(calendar.nextExpected)}</span>`}</div>
     </div>
 
     <nav class="home-section-nav" id="home-section-nav" aria-label="Homepage sections">${sectionNav}</nav>
 
-    <section class="section section-stats reveal-block" id="kingdom-stats">
+    <section class="section section-glance" id="kingdom-glance">
       <div class="container">
-        ${sectionHead("The Kingdom in numbers", "Facts and Figures")}
-        <div class="stats-grid">${stats}</div>
-      </div>
-    </section>
-
-    <section class="section section-spotlight reveal-block" id="royal-spotlight">
-      <div class="container">
-        ${sectionHead("Royal Office", "The Kingdom Today")}
-        <div class="spotlight-grid">${spotlight}</div>
-      </div>
-    </section>
-
-    <section class="section section-glance reveal-block" id="kingdom-glance">
-      <div class="container">
-        ${sectionHead("The Kingdom Today", "Kingdom at a Glance")}
+        ${sectionHead("The Royal Seat at Mwansabombwe", "Kingdom at a Glance")}
         <div class="facts-strip">${glance}</div>
+        <div class="stats-grid stats-grid-inline">${stats}</div>
         <div class="glance-map">
           <figure class="credited-figure">
             <div class="figure-media has-hover-credit">
@@ -321,16 +327,44 @@ export function homePageHtml() {
       </div>
     </section>
 
-    <section class="section section-living-kingdom reveal-block" id="living-kingdom">
+    <section class="section section-office" id="office-mwata">
       <div class="container">
-        ${sectionHead("Governance and Public Life", "The Living Kingdom")}
-        <p class="section-deck">${esc(siteMeta.openingStatement)}</p>
+        ${sectionHead("Centre of Authority", "Office of the Mwata Kazembe")}
+        <p class="section-deck">His Royal Highness Mwata Kazembe XIX presides over ceremony, council deliberation, and public leadership from Mwansabombwe.</p>
         <div class="authority-grid swipe-track" data-swipe="leadership">${leadership}</div>
-        <p class="section-cta"><a class="btn btn-ghost" href="#governance" data-nav="governance">Royal governance and administration</a></p>
+        <p class="section-cta"><a class="btn btn-ghost" href="#mwata" data-nav="mwata">Full Office of the Mwata</a></p>
       </div>
     </section>
 
-    <section class="section section-story reveal-block" id="kingdom-story">
+    <section class="section section-governance-home" id="home-governance">
+      <div class="container">
+        ${sectionHead("Traditional Administration", "The Council, Chiefs and Court of the Kingdom")}
+        <div class="gov-institution-grid">${govCards}</div>
+        <p class="section-cta"><a class="btn btn-ghost" href="#governance" data-nav="governance">Royal governance</a></p>
+      </div>
+    </section>
+
+    <section class="section section-clans-home" id="clans-people">
+      <div class="container">
+        ${sectionHead("Lineage and Community", clansIntroduction.title)}
+        <p class="section-deck">${esc(clansIntroduction.deck)}</p>
+        <div class="clan-roles-grid">${clanRoles}</div>
+        <div class="clan-registry-wrap">
+          <h3 class="subsection-title">Clan register</h3>
+          <table class="clan-registry-table">
+            <thead><tr><th>Clan</th><th>Head / representative</th><th>Area</th><th>Ceremony / governance</th><th>Status</th></tr></thead>
+            <tbody>${clanRows}</tbody>
+          </table>
+          <p class="editorial-note">${esc(clanRegistryNote)}</p>
+          <p class="section-cta">
+            <a class="btn btn-primary" href="#clans" data-nav="clans">Clans & People</a>
+            <a class="btn btn-ghost" href="#clans-verify" data-nav="clans">Submit correction</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-story" id="kingdom-story">
       <div class="container story-layout">
         <div>
           ${sectionHead("Migration and Rule", "The Lunda-Kazembe Story")}
@@ -343,77 +377,89 @@ export function homePageHtml() {
       </div>
     </section>
 
-    <section class="section section-lineage reveal-block" id="mwata-lineage">
+    <section class="section section-lineage" id="mwata-lineage">
       <div class="container">
-        ${sectionHead("Continuity of Kingship", "All 19 Mwata Kazembe Rulers")}
-        <p class="section-deck">The recorded line from Mwata Kazembe I to Mwata Kazembe XIX. Select a ruler to read reign dates and historical notes. Uncertain entries are marked.</p>
+        ${sectionHead("Continuity of Kingship", "The Mwata Kazembe Line")}
+        <p class="section-deck">Nineteen recorded rulers from Mwata Kazembe I to XIX — select a Mwata for reign dates, historical role, and source notes.</p>
         <div class="lineage-shell">
-          <div class="lineage-rail swipe-track" data-swipe="lineage" role="tablist" aria-label="Mwata Kazembe rulers">${lineageRail}</div>
+          <div class="lineage-rail swipe-track" data-swipe="lineage" role="tablist" aria-label="Mwata Kazembe rulers">${lineageRailHtml()}</div>
           <aside class="lineage-detail" id="lineage-detail" aria-live="polite">
             <p class="lineage-detail-placeholder">Select a Mwata to open the ruler profile.</p>
           </aside>
         </div>
-        <p class="section-cta"><a class="btn btn-ghost" href="#kingdom-timeline" data-nav="kingdom">Full timeline on Kingdom page</a></p>
+        <p class="section-cta">
+          <a class="btn btn-ghost" href="#early-mwatas" data-nav="kingdom">Early Mwatas — full profiles</a>
+          <a class="btn btn-ghost" href="#kingdom-timeline" data-nav="kingdom">Kingdom timeline</a>
+        </p>
       </div>
     </section>
 
-    <section class="section section-mutomboko-journey reveal-block" id="mutomboko-journey">
+    <section class="section section-mutomboko-journey" id="mutomboko-journey">
       <div class="container">
-        ${sectionHead("State Ceremony", "Umutomboko — Ceremonial Journey")}
+        ${sectionHead("State Ceremony", "Umutomboko: The State Ceremony of Victory")}
         <p class="section-deck">${esc(mutombokoFeature.meaning)}</p>
         <div class="journey-shell">
           <div class="journey-rail" role="tablist" aria-label="Ceremony stages">${journeySteps}</div>
           <div class="journey-panels">${journeyPanels}</div>
         </div>
-        <p class="section-cta"><a class="btn btn-primary" href="#mutomboko" data-nav="mutomboko">Full ceremony section</a></p>
+        <p class="section-cta"><a class="btn btn-primary" href="#mutomboko" data-nav="mutomboko">Ceremony and visitor protocol</a></p>
       </div>
     </section>
 
-    <section class="section section-people reveal-block" id="people-kingdom">
+    <section class="section section-agencies" id="kingdom-agencies">
       <div class="container">
-        ${sectionHead("Community and Ceremony", "People of the Kingdom")}
-        <p class="section-deck">Elders, dancers, chiefs, and visitors appear in documented ceremony and royal procession — shown here with source credit.</p>
-        <div class="people-grid swipe-track" data-swipe="people">${people}</div>
+        ${sectionHead("Royal Administration", "Kingdom Agencies and Development Desks")}
+        <div class="agency-grid">${agencies}</div>
+        <p class="section-cta"><a class="btn btn-ghost" href="#agencies" data-nav="governance">All agencies</a></p>
       </div>
     </section>
 
-    <section class="section section-development reveal-block" id="projects-progress">
+    <section class="section section-development" id="development-public">
       <div class="container">
-        ${sectionHead("Kingdom Development", "Projects and Progress")}
+        ${sectionHead("Luapula Public Life", "Development & Public Life")}
         <div class="pillar-grid swipe-track" data-swipe="development">${dev}</div>
         <p class="section-cta"><a class="btn btn-ghost" href="#development" data-nav="development">All development pillars</a></p>
       </div>
     </section>
 
-    <section class="section section-news reveal-block" id="royal-news">
+    <section class="section section-news" id="royal-news">
       <div class="container">
-        ${sectionHead("Official Communication", "Royal News and Notices")}
+        ${sectionHead("Communications", "Royal Notices and Public Affairs")}
         <div class="comm-grid swipe-track" data-swipe="news">${news}</div>
         <p class="section-cta"><a class="btn btn-primary" href="#newsroom" data-nav="newsroom">Visit Newsroom</a></p>
       </div>
     </section>
 
-    <section class="section section-gallery reveal-block" id="home-gallery">
+    <section class="section section-gallery" id="home-gallery">
       <div class="container">
-        ${sectionHead("Visual Record", "Gallery")}
+        ${sectionHead("Visual Record", "Gallery & Sources")}
         <div class="filter-row" id="home-gallery-filters">${galleryFilters}</div>
         <div class="gallery-grid premium-gallery" id="home-gallery-grid">${gallery}</div>
-        <div class="media-sources-panel reveal-block">
+        <div class="media-sources-panel">
           <h3>Further verified media sources</h3>
-          <p class="section-deck">Additional ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
+          <p class="section-deck">Ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
           <ul class="media-sources-list">${mediaSources}</ul>
         </div>
       </div>
     </section>
 
-    <section class="section section-visit reveal-block" id="visit-support">
+    <section class="section section-people" id="people-kingdom">
+      <div class="container">
+        ${sectionHead("Ceremony and Court", "Clans, Lineage and the People of Luapula")}
+        <p class="section-deck">Documented ceremony participants and royal office — every image credited to source.</p>
+        <div class="people-grid swipe-track" data-swipe="people">${people}</div>
+      </div>
+    </section>
+
+    <section class="section section-visit" id="visit-support">
       <div class="container visit-cta-panel">
         ${sectionHead("Official Contact", "Visit · Learn · Support")}
         <p class="section-deck">Ceremony dates, visitor protocol, royal office contact, and official publications.</p>
         <div class="visit-actions">
           <a class="btn btn-primary" href="#mutomboko-visitor" data-nav="mutomboko">Umutomboko visitor guidance</a>
           <a class="btn btn-ghost" href="#contact" data-nav="contact">Official contact</a>
-          <a class="btn btn-ghost" href="#news-publications" data-nav="newsroom">Publications</a>
+          <a class="btn btn-ghost" href="#publications" data-nav="newsroom">Publications</a>
+          <a class="btn btn-ghost" href="#gallery" data-nav="newsroom">Gallery</a>
         </div>
         <p class="visit-note"><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)} (${esc(calendar.status)}). ${esc(calendar.location)}.</p>
       </div>

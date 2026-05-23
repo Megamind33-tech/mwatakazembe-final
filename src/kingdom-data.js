@@ -3,9 +3,9 @@ import { calendar, ceremonySteps, kings, routes, sources } from "./data.js";
 export const siteMeta = {
   title: "Mwata Kazembe Kingdom — Official Digital Home",
   tagline: "THE OFFICIAL DIGITAL HOME OF THE MWATA KAZEMBE KINGDOM",
-  headline: "A Kingdom of Authority, Memory, Victory and Progress",
+  headline: "The Royal Seat of the Mwata Kazembe",
   subheadline:
-    "From the royal seat of Mwansabombwe, the Mwata Kazembe Kingdom governs the Luapula Valley through kingship, council, Umutomboko, and public leadership.",
+    "From Mwansabombwe, the Lunda-Kazembe throne carries a history of migration, victory, trade, governance and living culture.",
   openingStatement:
     "Council, senior chiefs, and the Office of the Mwata coordinate public order, land affairs, Umutomboko, and official communication from the royal seat at Mwansabombwe.",
   heroImage: "assets/images/kazembe/hero/home-portrait.jpg",
@@ -13,10 +13,10 @@ export const siteMeta = {
   mapImage: "assets/images/kazembe/places/kingdom-map-2007.jpg",
   location: "Mwansabombwe, Luapula Province, Zambia",
   contact: {
-    royalOffice: { label: "Office of the Mwata", value: "content required", email: "content required" },
-    media: { label: "Media and Communications", value: "content required", email: "content required" },
-    events: { label: "Ceremony and Events", value: "content required", email: "content required" },
-    visitors: { label: "Visitor Affairs", value: "content required", email: "content required" }
+    royalOffice: { label: "Office of the Mwata", value: "Mwansabombwe, Luapula Province", email: null, pending: true },
+    media: { label: "Media and Communications", value: "Royal Protocol and Communications Office", email: null, pending: true },
+    events: { label: "Ceremony and Events", value: "Ceremony Committee — Umutomboko coordination", email: null, pending: true },
+    visitors: { label: "Visitor Affairs", value: "Visitor guidance published under Umutomboko", email: null, pending: true }
   }
 };
 
@@ -27,9 +27,9 @@ export const utilityLinks = [
 ];
 
 export const socialLinks = [
-  { label: "Facebook", href: "#", status: "content required" },
-  { label: "YouTube", href: "#", status: "content required" },
-  { label: "X / Twitter", href: "#", status: "content required" }
+  { label: "Facebook", href: "#contact", status: "Official channels to be confirmed by the Royal Office" },
+  { label: "YouTube", href: "#contact", status: "Official channels to be confirmed by the Royal Office" },
+  { label: "X / Twitter", href: "#contact", status: "Official channels to be confirmed by the Royal Office" }
 ];
 
 export const navigation = [
@@ -51,16 +51,27 @@ export const navigation = [
     ]
   },
   {
+    id: "clans",
+    label: "Clans & People",
+    href: "#clans",
+    children: [
+      { label: "Clan Register", href: "#clans-register" },
+      { label: "Clan Roles", href: "#clans-roles" },
+      { label: "Royal Family", href: "#royal-family" },
+      { label: "Verify a Record", href: "#clans-verify" }
+    ]
+  },
+  {
     id: "governance",
     label: "Governance",
     href: "#governance",
     children: [
-      { label: "Royal Council", href: "#gov-council" },
-      { label: "Senior Chiefs", href: "#gov-chiefs" },
+      { label: "Royal Council", href: "#council" },
+      { label: "Senior Chiefs", href: "#chiefs" },
       { label: "Traditional Court", href: "#gov-court" },
       { label: "Administration", href: "#gov-admin" },
       { label: "Land and Community Affairs", href: "#gov-land" },
-      { label: "Protocol and Public Affairs", href: "#gov-protocol" }
+      { label: "Protocol", href: "#protocol" }
     ]
   },
   {
@@ -69,11 +80,11 @@ export const navigation = [
     href: "#kingdom",
     children: [
       { label: "Origin and Migration", href: "#kingdom-origin" },
-      { label: "Wars and Triumphs", href: "#kingdom-wars" },
+      { label: "Wars and Resistance", href: "#kingdom-wars" },
       { label: "Trade and Diplomacy", href: "#kingdom-trade" },
       { label: "Luapula and Lake Mweru", href: "#kingdom-geography" },
-      { label: "Clans and People", href: "#kingdom-clans" },
-      { label: "Timeline of Power", href: "#kingdom-timeline" }
+      { label: "Early Mwatas", href: "#early-mwatas" },
+      { label: "Full Ruler Line", href: "#kingdom-timeline" }
     ]
   },
   {
@@ -112,8 +123,8 @@ export const navigation = [
       { label: "Latest News", href: "#news-latest" },
       { label: "Speeches", href: "#news-speeches" },
       { label: "Events", href: "#news-events" },
-      { label: "Media Gallery", href: "#news-gallery" },
-      { label: "Publications", href: "#news-publications" }
+      { label: "Gallery", href: "#gallery" },
+      { label: "Publications", href: "#publications" }
     ]
   },
   {
@@ -125,7 +136,7 @@ export const navigation = [
 
 export const heroCtas = [
   { label: "The Lunda-Kazembe Story", href: "#kingdom-story", primary: true },
-  { label: "Official Communications", href: "#newsroom" },
+  { label: "Clans & People", href: "#clans-people" },
   { label: "Umutomboko Ceremony", href: "#mutomboko-journey" }
 ];
 
@@ -228,16 +239,19 @@ export const externalMediaSources = [
 ];
 
 export const homeSectionNav = [
+  { id: "official-notices", label: "Notices" },
   { id: "kingdom-glance", label: "At a glance" },
-  { id: "royal-spotlight", label: "Royal office" },
-  { id: "living-kingdom", label: "Governance" },
-  { id: "kingdom-story", label: "History" },
-  { id: "mwata-lineage", label: "19 Mwatas" },
+  { id: "office-mwata", label: "Office of the Mwata" },
+  { id: "home-governance", label: "Governance" },
+  { id: "clans-people", label: "Clans & People" },
+  { id: "kingdom-story", label: "Lunda-Kazembe story" },
+  { id: "mwata-lineage", label: "Mwata line" },
   { id: "mutomboko-journey", label: "Umutomboko" },
-  { id: "people-kingdom", label: "People" },
-  { id: "projects-progress", label: "Development" },
-  { id: "royal-news", label: "News" },
-  { id: "home-gallery", label: "Gallery" }
+  { id: "kingdom-agencies", label: "Agencies" },
+  { id: "development-public", label: "Development" },
+  { id: "royal-news", label: "Newsroom" },
+  { id: "home-gallery", label: "Gallery" },
+  { id: "visit-support", label: "Contact" }
 ];
 
 export const leadershipCards = [
@@ -334,6 +348,66 @@ export const kingdomGlance = [
   }
 ];
 
+export const governanceInstitutions = [
+  {
+    id: "mwata",
+    title: "Office of the Mwata Kazembe",
+    function:
+      "Supreme traditional authority: installation memory, Umutomboko presidency, public leadership, and final customary decisions at Mwansabombwe."
+  },
+  {
+    id: "household",
+    title: "Royal Household",
+    function:
+      "Palace officers, regalia custodians, Ichota protocol, and domestic arrangements for the reigning Mwata and senior royal family."
+  },
+  {
+    id: "council",
+    title: "Royal Council",
+    function:
+      "Deliberates policy, succession memory, land disputes referred upward, and coordination with civil administration.",
+    pending: true
+  },
+  {
+    id: "chiefs",
+    title: "Senior Chiefs",
+    function: "Regional traditional leaders representing communities, tribute corridors, and ceremony duty across Luapula.",
+    pending: true
+  },
+  {
+    id: "court",
+    title: "Traditional Court",
+    function: "Customary adjudication for lineage, marriage, land, and community order under established court protocol."
+  },
+  {
+    id: "headmen",
+    title: "Headmen and Village Structures",
+    function: "Village-level authority linking households to chiefs and the royal seat for tax, ceremony, and dispute referral."
+  },
+  {
+    id: "protocol",
+    title: "Protocol and Communications Office",
+    function: "Royal notices, press protocol, dignitary visits, and official tone for public communications.",
+    pending: true
+  },
+  {
+    id: "ceremony",
+    title: "Ceremony Committee",
+    function: "Umutomboko planning, procession order, arena protocol, and visitor briefings."
+  },
+  {
+    id: "development",
+    title: "Development and Investment Desk",
+    function: "Agriculture, fisheries, tourism, youth programmes, and investment inquiries under council oversight.",
+    pending: true
+  },
+  {
+    id: "heritage",
+    title: "Heritage and Culture Office",
+    function: "Archives, oral history verification, schools outreach, and museum liaison."
+  }
+];
+
 export const governanceStructure = [
   {
     id: "mwata",
@@ -387,54 +461,43 @@ export const governanceStructure = [
 
 export const latestCommunications = [
   {
-    id: "stmt-1",
-    category: "Official Statements",
-    title: "content required — Official statement from the Office of the Mwata",
-    date: "content required",
-    excerpt: "Structured placeholder for verified official communications.",
-    placeholder: true
-  },
-  {
-    id: "notice-1",
-    category: "Public Notices",
-    title: "content required — Public notice",
-    date: "content required",
-    excerpt: "Kingdom notices will appear here once confirmed by the communications office.",
-    placeholder: true
-  },
-  {
     id: "ceremony-1",
     category: "Ceremony Updates",
     title: `Umutomboko — expected ${calendar.nextExpected}`,
     date: calendar.annualPattern,
-    excerpt: `The ceremony is associated with Mwansabombwe, Luapula Province. Annual pattern: ${calendar.annualPattern}. Status: ${calendar.status}.`,
+    excerpt: `The state ceremony at Mwansabombwe follows the annual pattern (${calendar.annualPattern}). Status: ${calendar.status}.`,
     placeholder: false,
+    href: "#mutomboko-visitor",
+    showOnTicker: true
+  },
+  {
+    id: "notice-contact",
+    category: "Public Notices",
+    title: "Official contact channels under review",
+    date: "Royal Office",
+    excerpt: "Telephone and email for the Office of the Mwata will be published once confirmed by the Protocol Office.",
+    placeholder: true,
+    href: "#contact"
+  },
+  {
+    id: "stmt-pending",
+    category: "Official Statements",
+    title: "Royal statements archive",
+    date: "Pending publication",
+    excerpt: "Verified statements from the Office of the Mwata will be published in the newsroom.",
+    placeholder: true,
+    href: "#news-statements"
+  }
+];
+
+export const officialNoticeStrip = [
+  {
+    label: "Umutomboko",
+    text: `Next expected: ${calendar.nextExpected} (${calendar.status})`,
     href: "#mutomboko-visitor"
   },
-  {
-    id: "dev-1",
-    category: "Development Announcements",
-    title: "content required — Kingdom development announcement",
-    date: "content required",
-    excerpt: "Development-facing communications from kingdom committees.",
-    placeholder: true
-  },
-  {
-    id: "community-1",
-    category: "Community Messages",
-    title: "content required — Community message",
-    date: "content required",
-    excerpt: "Messages to communities across Luapula and the wider kingdom.",
-    placeholder: true
-  },
-  {
-    id: "speech-1",
-    category: "Speeches",
-    title: "content required — Royal address",
-    date: "content required",
-    excerpt: "Official speeches and public addresses from the Mwata and senior officeholders.",
-    placeholder: true
-  }
+  { label: "Royal seat", text: "Mwansabombwe, Luapula Province, Zambia", href: "#kingdom-glance" },
+  { label: "Contact", text: "Official channels — Royal Office", href: "#contact" }
 ];
 
 export const developmentPillars = [
@@ -509,7 +572,7 @@ export const mutombokoFeature = {
   })),
   calendar,
   protocolNote:
-    "Visitors should observe ceremonial protocol, dress respectfully, and follow guidance from kingdom officials. Full dress code publication: content required.",
+    "Visitors should observe ceremonial protocol, dress respectfully, and follow guidance from kingdom officials. Detailed dress guidance will be published by the Ceremony Committee ahead of each Umutomboko.",
   gallery: [
     {
       imageCreditId: "people-lukwesa-umutomboko-2017",
@@ -550,7 +613,7 @@ export const historyChapters = [
   },
   {
     id: "trade",
-    title: "Trade Routes and Diplomacy",
+    title: "Trade, Tribute and Diplomacy on the Luapula",
     summary:
       "Portuguese, Arab, and Swahili networks intersected the Kazembe court. Copper, ivory, and caravan diplomacy made the kingdom an interior node of regional power.",
     marker: "18th–19th c."
@@ -616,7 +679,7 @@ export const warsDiplomacy = [
 export const royalMap = {
   image: siteMeta.mapImage,
   caption:
-    "Kazembe Kingdom map (Rex Parry, 2007, Wikimedia Commons CC BY 2.5). Routes and zones below use verified historical synthesis; full GIS integration: content required.",
+    "Kazembe Kingdom map (Rex Parry, 2007, Wikimedia Commons CC BY 2.5). Routes and zones use verified historical synthesis; detailed GIS layers to follow official survey publication.",
   places: [
     { name: "Mwansabombwe", role: "Royal seat and ceremony grounds" },
     { name: "Luapula River", role: "Water corridor and fisheries" },
@@ -627,16 +690,59 @@ export const royalMap = {
   routes: routes.map((r) => ({ title: r.title, period: r.period, summary: r.summary }))
 };
 
-export const agencies = [
-  { name: "Cultural Affairs", status: "content required" },
-  { name: "Ceremony Committee", status: "content required" },
-  { name: "Media and Communications", status: "content required" },
-  { name: "Tourism and Visitor Affairs", status: "content required" },
-  { name: "Youth and Community Development", status: "content required" },
-  { name: "Heritage Protection", status: "content required" },
-  { name: "Business and Investment Desk", status: "content required" },
-  { name: "Royal Protocol Office", status: "content required" }
+export const kingdomAgencies = [
+  {
+    id: "heritage-culture",
+    title: "Heritage and Culture Office",
+    function:
+      "Custodianship of oral history, regalia memory, museum liaison, and publication of verified cultural records for schools and the public.",
+    href: "#agencies",
+    pending: false
+  },
+  {
+    id: "ceremony-committee",
+    title: "Ceremony Committee",
+    function:
+      "Plans Umutomboko stages, procession routes, arena protocol, and coordination with chiefs, dancers, and visitors at Mwansabombwe.",
+    href: "#mutomboko-program",
+    pending: false
+  },
+  {
+    id: "protocol-comms",
+    title: "Protocol and Communications Office",
+    function:
+      "Issues royal notices, manages press accreditation, and maintains official tone for statements, speeches, and public affairs.",
+    href: "#protocol",
+    pending: true
+  },
+  {
+    id: "tourism-visitors",
+    title: "Tourism and Visitor Affairs",
+    function:
+      "Visitor guidance for ceremony weekends, dignified conduct briefings, and liaison with provincial tourism authorities.",
+    href: "#mutomboko-visitor",
+    pending: false
+  },
+  {
+    id: "youth-community",
+    title: "Youth and Community Development",
+    function:
+      "Skills, education outreach, and community projects linking villages to kingdom development priorities.",
+    href: "#dev-youth",
+    pending: true
+  },
+  {
+    id: "development-desk",
+    title: "Development and Investment Desk",
+    function:
+      "Agriculture, fisheries, business facilitation, and investment inquiries under royal council oversight.",
+    href: "#development-public",
+    pending: true
+  }
 ];
+
+/** @deprecated use kingdomAgencies */
+export const agencies = kingdomAgencies.map((a) => ({ name: a.title, status: a.pending ? "pending" : "active" }));
 
 export const mwataProfile = {
   name: "Paul Mpemba Kanyembo Kapale Mpalume",
@@ -647,7 +753,7 @@ export const mwataProfile = {
   biography: [
     "Listed in public lineage references as Mwata Kazembe XIX from 1998 onward.",
     "Presides over contemporary Umutomboko and represents the kingdom in regional Lunda diplomatic contexts.",
-    "Biographical detail beyond verified public listings: content required — Office of the Mwata."
+    "Further biographical detail is to be published by the Office of the Mwata when officially released."
   ],
   appearances: [
     {
@@ -662,12 +768,14 @@ export const governanceSections = [
   {
     id: "gov-council",
     title: "Royal Council",
-    body: "The Royal Council deliberates with the Mwata on kingdom affairs, succession memory, and customary governance. Council membership and current officers: content required."
+    body:
+      "The Royal Council deliberates with the Mwata on kingdom affairs, succession memory, and customary governance. Current membership and officers are to be published by the Royal Office."
   },
   {
     id: "gov-chiefs",
     title: "Senior Chiefs",
-    body: "Senior chiefs extend royal authority across Luapula. Names, jurisdictions, and portfolios: content required."
+    body:
+      "Senior chiefs extend royal authority across Luapula through land order, tribute memory, and representation at court. Named portfolios will be listed when verified with the Royal Council."
   },
   {
     id: "gov-court",
@@ -715,7 +823,8 @@ export const kingdomSections = [
   {
     id: "kingdom-clans",
     title: "Clans and People",
-    body: "Luba-Lunda identity and clan structures bind communities to the royal seat. Detailed clan registry: content required."
+    body:
+      "Luba-Lunda identity and clan structures bind communities to the royal seat. The verified clan register is published on the Clans & People section."
   },
   {
     id: "kingdom-timeline",
@@ -739,9 +848,9 @@ export const newsItems = [
   {
     id: "news-2",
     category: "Latest News",
-    title: "content required — Kingdom news item",
-    date: "content required",
-    excerpt: "Verified news articles will be published here.",
+    title: "Kingdom news — pending publication",
+    date: "Newsroom",
+    excerpt: "Verified news articles will be published here once confirmed by the communications office.",
     placeholder: true
   },
   {
@@ -763,10 +872,11 @@ export const publications = [
     note: "Public-domain expedition volume — read critically as outsider account."
   },
   {
-    title: "content required — Kingdom publication",
+    title: "Official kingdom publications — forthcoming",
     type: "Official publication",
     url: "",
-    placeholder: true
+    placeholder: true,
+    note: "Royal gazette and policy papers to be published by the Protocol Office."
   }
 ];
 

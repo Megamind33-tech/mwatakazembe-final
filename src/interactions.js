@@ -1,8 +1,12 @@
 import { getCreditById } from "./image-credits.js";
+import { kings } from "./kingdom-data.js";
+import { enrichKings } from "./ruler-profiles.js";
+import { sourceCitation } from "./ui-helpers.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const enrichedById = new Map(enrichKings(kings).map((k) => [k.id, k]));
 
 function esc(value) {
   return String(value ?? "")
@@ -121,14 +125,44 @@ function bindCeremonyJourney() {
   function activate(id) {
     steps.forEach((s) => s.classList.toggle("active", s.dataset.step === id));
     panels.forEach((p) => p.classList.toggle("active", p.dataset.panel === id));
-    const panel = panels.find((p) => p.dataset.panel === id);
-    if (motionEnabled() && panel) {
-      gsap.fromTo(panel, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: "power2.out", clearProps: "transform,opacity,visibility" });
-    }
   }
 
   steps.forEach((step) => step.addEventListener("click", () => activate(step.dataset.step)));
   activate(steps[0].dataset.step);
+}
+
+function lineageDetailHtml(kingId, btn) {
+  const k = enrichedById.get(Number(kingId));
+  if (!k?.profile) {
+    const needsVerify =
+      btn.dataset.kingConfidence.includes("uncertain") ||
+      btn.dataset.kingConfidence.includes("contested") ||
+      btn.dataset.kingConfidence.includes("verification");
+    return `
+      <span class="lineage-reign">${esc(btn.dataset.kingReign)}</span>
+      <h3>${esc(btn.dataset.kingTitle)}</h3>
+      <p><strong>${esc(btn.dataset.kingName)}</strong></p>
+      <p>${esc(btn.dataset.kingNote)}</p>
+      <span class="confidence">${esc(btn.dataset.kingConfidence)}</span>
+      ${needsVerify ? `<p class="verify-note">Details to be verified against kingdom records.</p>` : ""}
+    `;
+  }
+  const p = k.profile;
+  const events = (p.keyEvents || []).map((e) => `<li>${esc(e)}</li>`).join("");
+  const sourceIds = k.sources || [];
+  return `
+    <span class="lineage-reign">${esc(k.reign)}</span>
+    <h3>${esc(k.title)}</h3>
+    <p><strong>${esc(k.name)}</strong></p>
+    <p class="profile-role"><strong>Historical role:</strong> ${esc(p.historicalRole)}</p>
+    ${events ? `<ul class="profile-events">${events}</ul>` : `<p>${esc(k.note)}</p>`}
+    ${p.governance ? `<p><strong>Governance:</strong> ${esc(p.governance)}</p>` : ""}
+    ${p.warsDiplomacyTrade ? `<p><strong>Trade & diplomacy:</strong> ${esc(p.warsDiplomacyTrade)}</p>` : ""}
+    ${p.culturalNote ? `<p><strong>Culture:</strong> ${esc(p.culturalNote)}</p>` : ""}
+    <span class="confidence">${esc(k.confidence)}</span>
+    ${p.sourceNote ? `<p class="source-note"><em>${esc(p.sourceNote)}</em></p>` : ""}
+    ${sourceCitation(sourceIds)}
+  `;
 }
 
 function bindLineageRail() {
@@ -138,62 +172,13 @@ function bindLineageRail() {
 
   function show(btn) {
     items.forEach((b) => b.classList.toggle("active", b === btn));
-    const needsVerify =
-      btn.dataset.kingConfidence.includes("uncertain") ||
-      btn.dataset.kingConfidence.includes("contested") ||
-      btn.dataset.kingConfidence.includes("verification");
-    detail.innerHTML = `
-      <span class="lineage-reign">${esc(btn.dataset.kingReign)}</span>
-      <h3>${esc(btn.dataset.kingTitle)}</h3>
-      <p><strong>${esc(btn.dataset.kingName)}</strong></p>
-      <p>${esc(btn.dataset.kingNote)}</p>
-      <span class="confidence">${esc(btn.dataset.kingConfidence)}</span>
-      ${needsVerify ? `<p class="verify-note">Details to be verified against kingdom records.</p>` : ""}
-    `;
+    detail.innerHTML = lineageDetailHtml(btn.dataset.kingId, btn);
     detail.classList.add("has-content");
-    if (motionEnabled()) {
-      gsap.fromTo(detail, { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power2.out", clearProps: "transform,opacity,visibility" });
-    }
   }
 
   items.forEach((btn) => btn.addEventListener("click", () => show(btn)));
-  const current = items.find((b) => b.classList.contains("is-current")) || items[items.length - 1];
+  const current = items.find((b) => b.classList.contains("is-current")) || items[0];
   if (current) show(current);
-}
-
-function initStatCounters() {
-  const cards = $$(".stat-card .stat-value[data-stat-numeric]");
-  if (!cards.length || reduceMotion.matches) return;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = Number(el.dataset.statNumeric);
-        if (!target || el.dataset.counted === "true") return;
-        el.dataset.counted = "true";
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          duration: 1.1,
-          ease: "power2.out",
-          onUpdate: () => {
-            el.textContent = Math.round(obj.val);
-          }
-        });
-        observer.unobserve(el);
-      });
-    },
-    { threshold: 0.4 }
-  );
-  cards.forEach((el) => observer.observe(el));
-}
-
-function initNewsTicker() {
-  const track = $("#news-ticker-track");
-  if (!track || track.dataset.ready === "true") return;
-  track.dataset.ready = "true";
-  track.innerHTML = track.innerHTML + track.innerHTML;
 }
 
 function initHomeSectionNav() {
@@ -228,9 +213,6 @@ function bindHistoryChapters() {
         <a class="btn btn-ghost" href="#kingdom" data-nav="kingdom">Full kingdom history</a>
       `;
       detail.classList.add("has-content");
-      if (motionEnabled()) {
-        gsap.fromTo(detail, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out", clearProps: "transform,opacity,visibility" });
-      }
     });
   });
 }
@@ -249,77 +231,39 @@ function bindTimelineDetail() {
   });
 }
 
-function initScrollProgress() {
-  if ($("#scroll-progress")) return;
-  const bar = document.createElement("div");
-  bar.id = "scroll-progress";
-  bar.className = "scroll-progress";
-  bar.setAttribute("aria-hidden", "true");
-  bar.innerHTML = "<span></span>";
-  document.body.prepend(bar);
-  const track = $("span", bar);
-  window.addEventListener(
-    "scroll",
-    () => {
-      const doc = document.documentElement;
-      const pct = doc.scrollHeight > doc.clientHeight ? (window.scrollY / (doc.scrollHeight - doc.clientHeight)) * 100 : 0;
-      track.style.width = `${pct}%`;
-    },
-    { passive: true }
-  );
-}
-
 function initScrollReveal() {
-  if (reduceMotion.matches) {
-    $$(".reveal-block").forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
+  $$(".reveal-block").forEach((el) => el.classList.add("is-visible"));
+  if (reduceMotion.matches) return;
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("is-visible");
-        if (motionEnabled()) {
-          gsap.fromTo(
-            entry.target,
-            { autoAlpha: 0, y: 22 },
-            { autoAlpha: 1, y: 0, duration: 0.85, ease: "power2.out", clearProps: "transform,opacity,visibility" }
-          );
-        }
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
   );
-  $$(".reveal-block").forEach((el) => observer.observe(el));
+  $$(".section:not(.royal-hero)").forEach((el) => observer.observe(el));
 }
 
 function initHeroMotion() {
-  const hero = $(".royal-hero");
-  if (!hero || reduceMotion.matches) return;
-  const media = $(".hero-media img", hero);
+  const hero = $(".royal-hero-split");
+  if (!hero || reduceMotion.matches || !motionEnabled()) return;
   const content = $$(".hero-content > *", hero);
-  if (motionEnabled()) {
-    if (media) gsap.fromTo(media, { scale: 1.06 }, { scale: 1, duration: 1.2, ease: "power2.out" });
-    gsap.fromTo(content, { autoAlpha: 0, y: 28 }, { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.1, delay: 0.15, ease: "power3.out", clearProps: "transform,opacity,visibility" });
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!media) return;
-        const y = Math.min(window.scrollY * 0.18, 80);
-        media.style.transform = `translate3d(0, ${y}px, 0) scale(1.04)`;
-      },
-      { passive: true }
-    );
-  }
+  gsap.fromTo(
+    content,
+    { autoAlpha: 0, y: 16 },
+    { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.08, ease: "power2.out", clearProps: "transform,opacity,visibility" }
+  );
 }
 
 function initImageHoverCredits() {
-  $$(".figure-media img, .gallery-item img, .card-media img").forEach((img) => {
+  $$(".figure-media img, .gallery-item img, .card-media img, .hero-media img").forEach((img) => {
     const creditId = img.dataset.creditId;
     const item = creditId ? getCreditById(creditId) : null;
     if (!item) return;
-    const wrap = img.closest(".figure-media, .gallery-item-media, .card-media");
+    const wrap = img.closest(".figure-media, .gallery-item-media, .card-media, .hero-media");
     if (!wrap || wrap.querySelector(".hover-credit")) return;
     wrap.classList.add("has-hover-credit");
     wrap.insertAdjacentHTML("beforeend", `<span class="hover-credit">${esc(item.creditLine)}</span>`);
@@ -333,7 +277,7 @@ export function initInteractions() {
     initScrollReveal();
     initImageHoverCredits();
     initHeroMotion();
-    initStatCounters();
+    bindLineageRail();
     return;
   }
   bound = true;
@@ -343,11 +287,8 @@ export function initInteractions() {
   bindLineageRail();
   bindHistoryChapters();
   bindTimelineDetail();
-  initScrollProgress();
   initScrollReveal();
   initHeroMotion();
   initImageHoverCredits();
-  initStatCounters();
-  initNewsTicker();
   initHomeSectionNav();
 }
