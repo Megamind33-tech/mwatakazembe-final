@@ -247,11 +247,11 @@ function renderClans() {
     .map(
       (row) => `
       <tr>
-        <td>${row.clanName ? esc(row.clanName) : '<em class="pending-cell">Verified register pending</em>'}</td>
-        <td>${row.clanHead ? esc(row.clanHead) : "—"}</td>
-        <td>${esc(row.area || "—")}</td>
-        <td>${esc(row.ceremonyRole || "—")}</td>
-        <td><span class="verification-badge">Awaiting Royal Office</span></td>
+        <td data-label="Clan">${row.clanName ? esc(row.clanName) : "—"}</td>
+        <td data-label="Head">${row.clanHead ? esc(row.clanHead) : "—"}</td>
+        <td data-label="Area">${esc(row.area || "—")}</td>
+        <td data-label="Ceremony &amp; Governance">${esc(row.ceremonyRole || "—")}</td>
+        <td data-label="Status"><span class="verification-badge">${esc(row.verification)}</span></td>
       </tr>
     `
     )
@@ -276,11 +276,23 @@ function renderClans() {
       </section>
       <section class="subsection" id="clans-register">
         ${sectionHead("Official register", "Clan register")}
-        ${rows ? `<table class="clan-registry-table">
-          <thead><tr><th>Clan</th><th>Head / representative</th><th>Area</th><th>Ceremony / governance</th><th>Status</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>` : ""}
-        <p class="editorial-note">${esc(clanRegistryNote)}</p>
+        <div class="clan-registry-wrap">
+          <table class="clan-registry-table">
+            <thead>
+              <tr>
+                <th>Clan</th>
+                <th>Head / representative</th>
+                <th>Area</th>
+                <th>Ceremony &amp; governance</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows || `<tr class="registry-empty-row"><td colspan="5">${esc(clanRegistryNote)}</td></tr>`}
+            </tbody>
+          </table>
+          ${rows ? `<p class="editorial-note">${esc(clanRegistryNote)}</p>` : ""}
+        </div>
       </section>
       <section class="subsection" id="royal-family">
         ${sectionHead("Royal household", "Royal family and senior offices")}

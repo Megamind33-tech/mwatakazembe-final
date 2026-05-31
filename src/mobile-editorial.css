@@ -47,6 +47,83 @@
   }
 }
 
+/* Clan registry — card-stack layout on narrow screens */
+@media (max-width: 680px) {
+  .clan-registry-wrap {
+    overflow-x: unset;
+  }
+
+  .clan-registry-table,
+  .clan-registry-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide column headers — labels come from data-label instead */
+  .clan-registry-table thead {
+    display: none;
+  }
+
+  /* Each row becomes a card */
+  .clan-registry-table tbody tr {
+    display: block;
+    margin-bottom: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .clan-registry-table tbody tr:nth-child(even),
+  .clan-registry-table tbody tr:hover {
+    background: var(--white);
+  }
+
+  /* Each cell is a label+value row */
+  .clan-registry-table td {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    padding: 0.5rem 0.85rem;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+
+  .clan-registry-table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Column label from data-label attribute */
+  .clan-registry-table td::before {
+    content: attr(data-label);
+    flex: 0 0 100px;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--royal-blue);
+    padding-top: 0.15rem;
+    line-height: 1.4;
+  }
+
+  /* Empty-state row — no card treatment needed */
+  .registry-empty-row {
+    background: var(--surface) !important;
+  }
+
+  .registry-empty-row td {
+    display: block;
+    text-align: center;
+    padding: 1.75rem 1rem;
+    border: none;
+  }
+
+  .registry-empty-row td::before {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

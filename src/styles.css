@@ -2129,9 +2129,8 @@ body.lightbox-open {
 }
 
 .clan-registry-wrap {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   max-width: 100%;
+  margin-top: 1.5rem;
 }
 
 .clan-registry-table {
@@ -2144,8 +2143,9 @@ body.lightbox-open {
 .clan-registry-table th,
 .clan-registry-table td {
   border: 1px solid var(--border);
-  padding: 0.65rem 0.75rem;
+  padding: 0.65rem 0.85rem;
   text-align: left;
+  vertical-align: top;
 }
 
 .clan-registry-table th {
@@ -2155,11 +2155,25 @@ body.lightbox-open {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
-.pending-cell {
+.clan-registry-table tbody tr:nth-child(even) {
+  background: rgba(64, 95, 143, 0.04);
+}
+
+.clan-registry-table tbody tr:hover {
+  background: rgba(64, 95, 143, 0.07);
+}
+
+/* Empty-state row — spans all columns */
+.registry-empty-row td {
+  text-align: center;
   color: var(--stone);
+  padding: 2rem 1.5rem;
   font-style: italic;
+  font-size: 0.92rem;
+  border: 1px solid var(--border);
 }
 
 .verification-badge {
