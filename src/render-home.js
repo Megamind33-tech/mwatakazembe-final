@@ -82,7 +82,7 @@ export function homePageHtml() {
           <p class="office-label">${esc(c.role)}</p>
           <h3>${esc(c.title)}</h3>
           <p>${esc(c.description)}</p>
-          ${c.placeholder ? pendingNote("Officer list to be published by the Royal Council.") : ""}
+          ${c.placeholder ? pendingNote("Member profiles are available through the Royal Protocol Office.") : ""}
           ${readMore(c.href)}
         </div>
       </article>
@@ -142,7 +142,7 @@ export function homePageHtml() {
       <article class="gov-institution-card">
         <h3>${esc(g.title)}</h3>
         <p>${esc(g.function)}</p>
-        ${g.pending ? pendingNote("Roster to be confirmed with the Royal Office.") : readMore(`#${g.id === "protocol" ? "protocol" : "governance"}`)}
+        ${g.pending ? pendingNote("Full institutional detail available through the Royal Protocol Office.") : readMore(`#${g.id === "protocol" ? "protocol" : "governance"}`)}
       </article>
     `
     )
@@ -349,10 +349,10 @@ export function homePageHtml() {
         <div class="clan-roles-grid">${clanRoles}</div>
         <div class="clan-registry-wrap">
           <h3 class="subsection-title">Clan register</h3>
-          <table class="clan-registry-table">
+          ${clanRows ? `<table class="clan-registry-table">
             <thead><tr><th>Clan</th><th>Head / representative</th><th>Area</th><th>Ceremony / governance</th><th>Status</th></tr></thead>
             <tbody>${clanRows}</tbody>
-          </table>
+          </table>` : ""}
           <p class="editorial-note">${esc(clanRegistryNote)}</p>
           <p class="section-cta">
             <a class="btn btn-primary" href="#clans" data-nav="clans">Clans & People</a>
@@ -459,7 +459,7 @@ export function homePageHtml() {
           <a class="btn btn-ghost" href="#publications" data-nav="newsroom">Publications</a>
           <a class="btn btn-ghost" href="#gallery" data-nav="newsroom">Gallery</a>
         </div>
-        <p class="visit-note"><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)} (${esc(calendar.status)}). ${esc(calendar.location)}.</p>
+        <p class="visit-note"><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)}. ${esc(calendar.location)}. Confirm final arrangements through the Royal Protocol Office.</p>
       </div>
     </section>
   `;

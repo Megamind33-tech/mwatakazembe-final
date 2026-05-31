@@ -215,7 +215,7 @@ function renderMwata() {
       </section>
       <section class="subsection accordion-block" id="mwata-household">
         <button class="accordion-trigger" type="button" aria-expanded="false">Royal Household</button>
-        <div class="accordion-panel"><p>The Royal Household comprises palace officers, regalia custodians, and protocol staff at Ichota. A verified officer list will be published by the Office of the Mwata.</p></div>
+        <div class="accordion-panel"><p>The Royal Household comprises the palace officers, regalia custodians, and protocol staff at Ichota and the royal compound. Formal inquiries regarding royal household matters are directed to the Royal Protocol Office.</p></div>
       </section>
       <section class="subsection" id="mwata-past">
         ${sectionHead("Continuity of Power", "Past Mwatas")}
@@ -276,10 +276,10 @@ function renderClans() {
       </section>
       <section class="subsection" id="clans-register">
         ${sectionHead("Official register", "Clan register")}
-        <table class="clan-registry-table">
+        ${rows ? `<table class="clan-registry-table">
           <thead><tr><th>Clan</th><th>Head / representative</th><th>Area</th><th>Ceremony / governance</th><th>Status</th></tr></thead>
           <tbody>${rows}</tbody>
-        </table>
+        </table>` : ""}
         <p class="editorial-note">${esc(clanRegistryNote)}</p>
       </section>
       <section class="subsection" id="royal-family">
@@ -288,7 +288,7 @@ function renderClans() {
       </section>
       <section class="subsection" id="clans-verify">
         ${sectionHead("Corrections", "Verify a clan record")}
-        <p>Submissions and corrections should be directed to the Royal Protocol Office once official contact channels are confirmed.</p>
+        <p>Submissions and corrections are directed to the Royal Protocol Office at Mwansabombwe. Use the official contact page to reach the Royal Office.</p>
         <p class="section-cta"><a class="btn btn-primary" href="#contact" data-nav="contact">Official contact</a></p>
       </section>
     </div>
@@ -534,8 +534,8 @@ function renderMutomboko() {
         ${sectionHead("Visitor Information", "Visitor Guidance")}
         <p><strong>Location:</strong> ${esc(calendar.location)}</p>
         <p><strong>Annual pattern:</strong> ${esc(calendar.annualPattern)}</p>
-        <p><strong>Expected next:</strong> ${esc(calendar.nextExpected)} (${esc(calendar.status)})</p>
-        <p>Confirmed 2025 dates on record: ${esc(calendar.confirmed2025)}.</p>
+        <p><strong>Expected next:</strong> ${esc(calendar.nextExpected)}. Confirm final arrangements through the Royal Protocol Office before travel.</p>
+        <p>2025 ceremony dates on record: ${esc(calendar.confirmed2025)}.</p>
       </section>
       <section class="subsection" id="mutomboko-protocol">
         ${sectionHead("Dress and Conduct", "Protocol and Dress Guidance")}
@@ -597,7 +597,7 @@ function renderNewsroom() {
       <article class="publication-card">
         <h3>${esc(p.title)}</h3>
         <p>${esc(p.note || p.type)}</p>
-        ${p.url ? `<a href="${esc(p.url)}" ${p.url.endsWith(".pdf") ? "" : 'target="_blank" rel="noreferrer"'}>Open</a>` : pendingNote("Publication pending from the Royal Office.")}
+        ${p.url ? `<a href="${esc(p.url)}" ${p.url.endsWith(".pdf") ? "" : 'target="_blank" rel="noreferrer"'}>Open</a>` : pendingNote("Available through the Royal Protocol Office.")}
       </article>
     `
     )
@@ -637,7 +637,7 @@ function renderContact() {
       <article class="contact-card">
         <h3>${esc(o.label)}</h3>
         <p>${esc(o.value)}</p>
-        ${o.email ? `<p><a href="mailto:${esc(o.email)}">${esc(o.email)}</a></p>` : pendingNote("Direct contact to be confirmed by the Protocol Office.")}
+        ${o.email ? `<p><a href="mailto:${esc(o.email)}">${esc(o.email)}</a></p>` : pendingNote("Direct inquiries to the Royal Protocol Office, Mwansabombwe.")}
       </article>
     `
     )
@@ -672,7 +672,7 @@ function renderMuseum() {
     <div class="container page-body">
       <section class="subsection">
         ${sectionHead("Royal Collection", "Sacred Regalia & Artifacts")}
-        <p class="donations-deck">Explore our digital exhibition of the physical symbols of Lunda-Kazembe authority. Each artifact represents centuries of state formation, migration, and ritual continuity, backed by academic research and oral tradition.</p>
+        <p class="donations-deck">The Royal Museum presents the ceremonial and material heritage of the Lunda-Kazembe state — regalia, instruments, processional objects, and archival sources that carry the memory of authority, migration, and identity across three centuries of continuity.</p>
         <div class="museum-grid">
           ${museumItems.map(item => `
             <article class="museum-item">
