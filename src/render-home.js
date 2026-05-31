@@ -156,11 +156,11 @@ export function homePageHtml() {
     .map(
       (row) => `
       <tr>
-        <td>${row.clanName ? esc(row.clanName) : '<em class="pending-cell">Verified register pending</em>'}</td>
-        <td>${row.clanHead ? esc(row.clanHead) : "—"}</td>
-        <td>${esc(row.area || "—")}</td>
-        <td>${esc(row.ceremonyRole || "—")}</td>
-        <td><span class="verification-badge">${esc(row.verification === "pending_official_register" ? "Awaiting Royal Office" : row.verification)}</span></td>
+        <td data-label="Clan">${row.clanName ? esc(row.clanName) : "—"}</td>
+        <td data-label="Head">${row.clanHead ? esc(row.clanHead) : "—"}</td>
+        <td data-label="Area">${esc(row.area || "—")}</td>
+        <td data-label="Ceremony &amp; Governance">${esc(row.ceremonyRole || "—")}</td>
+        <td data-label="Status"><span class="verification-badge">${esc(row.verification)}</span></td>
       </tr>
     `
     )
@@ -349,11 +349,21 @@ export function homePageHtml() {
         <div class="clan-roles-grid">${clanRoles}</div>
         <div class="clan-registry-wrap">
           <h3 class="subsection-title">Clan register</h3>
-          ${clanRows ? `<table class="clan-registry-table">
-            <thead><tr><th>Clan</th><th>Head / representative</th><th>Area</th><th>Ceremony / governance</th><th>Status</th></tr></thead>
-            <tbody>${clanRows}</tbody>
-          </table>` : ""}
-          <p class="editorial-note">${esc(clanRegistryNote)}</p>
+          <table class="clan-registry-table">
+            <thead>
+              <tr>
+                <th>Clan</th>
+                <th>Head / representative</th>
+                <th>Area</th>
+                <th>Ceremony &amp; governance</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${clanRows || `<tr class="registry-empty-row"><td colspan="5">${esc(clanRegistryNote)}</td></tr>`}
+            </tbody>
+          </table>
+          ${clanRows ? `<p class="editorial-note">${esc(clanRegistryNote)}</p>` : ""}
           <p class="section-cta">
             <a class="btn btn-primary" href="#clans" data-nav="clans">Clans & People</a>
             <a class="btn btn-ghost" href="#clans-verify" data-nav="clans">Submit correction</a>
