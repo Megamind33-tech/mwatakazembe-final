@@ -125,9 +125,14 @@ function renderFooter() {
   $("#site-footer").innerHTML = `
     <div class="footer-inner">
       <div class="footer-brand">
-        <strong>Mwata Kazembe Kingdom</strong>
+        <div class="footer-brand-identity">
+          <img class="footer-coa" src="assets/images/kazembe/identity/coat-of-arms.png" alt="Mwata Kazembe Coat of Arms" width="44" height="44" loading="lazy">
+          <div>
+            <strong>Mwata Kazembe Kingdom</strong>
+            <p class="footer-tagline">${esc(siteMeta.tagline)}</p>
+          </div>
+        </div>
         <p>${esc(siteMeta.location)}</p>
-        <p class="footer-tagline">${esc(siteMeta.tagline)}</p>
       </div>
       <div class="footer-grid">${cols}</div>
       <div class="footer-bottom">
@@ -136,6 +141,16 @@ function renderFooter() {
       </div>
     </div>
   `;
+
+  if (!document.getElementById("back-to-top")) {
+    const btn = document.createElement("button");
+    btn.id = "back-to-top";
+    btn.className = "back-to-top";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.textContent = "↑";
+    document.body.appendChild(btn);
+  }
 }
 
 function renderHome() {
@@ -1517,15 +1532,31 @@ function bindNavigation() {
   $("#mobile-drawer")?.addEventListener("click", (e) => {
     if (e.target === $("#mobile-drawer")) closeMobileDrawer();
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && $("#mobile-drawer")?.classList.contains("open")) {
+      closeMobileDrawer();
+    }
+  });
+}
+
+function bindBackToTop() {
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+  window.addEventListener("scroll", () => {
+    btn.classList.toggle("is-visible", window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 }
 
 function animateReveal() {
   if (!window.gsap) return;
-  gsap.from(".page.active .section-head, .page.active .royal-hero .hero-content > *", {
+  gsap.from(".page.active .royal-hero .hero-content > *", {
     opacity: 0,
-    y: 18,
-    duration: 0.55,
-    stagger: 0.06,
+    y: 20,
+    duration: 0.75,
+    stagger: 0.09,
     ease: "power2.out",
     clearProps: "opacity,transform"
   });
@@ -1554,6 +1585,7 @@ function init() {
   bindCartEvents();
   bindDonationsEvents();
   bindMembershipEvents();
+  bindBackToTop();
   resolvePageFromHash();
   initInteractions();
 }

@@ -1396,7 +1396,8 @@ h3 {
 
 .reveal-block {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
 }
 
 .reveal-block.is-visible {
@@ -3006,6 +3007,117 @@ body.lightbox-open {
   .membership-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+/* ——— Card hover lift (desktop pointer devices only) ——— */
+.authority-card,
+.comm-card,
+.news-card,
+.pillar-card,
+.clan-role-card,
+.gov-institution-card,
+.agency-card {
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .authority-card:hover,
+  .comm-card:hover,
+  .news-card:hover,
+  .pillar-card:hover,
+  .gov-institution-card:hover,
+  .agency-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(12, 31, 61, 0.1);
+  }
+}
+
+/* ——— Back to top button ——— */
+.back-to-top {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.25rem;
+  z-index: 150;
+  width: 44px;
+  height: 44px;
+  background: var(--royal-blue);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s var(--ease), visibility 0.3s, transform 0.3s var(--ease), background 0.2s var(--ease);
+  box-shadow: 0 4px 18px rgba(12, 31, 61, 0.22);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--ceremonial-red);
+}
+
+/* ——— Footer identity ——— */
+.footer-brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-coa {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  opacity: 0.9;
+}
+
+.footer-tagline {
+  font-size: 0.72rem;
+  color: var(--bronze);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0.15rem 0 0;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--parchment);
+  opacity: 0.75;
+  margin: 0.35rem 0 0;
+}
+
+/* ——— Comprehensive reduced-motion support ——— */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-block {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .ticker-track {
+    animation: none;
   }
 }
 

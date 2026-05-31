@@ -270,8 +270,13 @@ function bindTimelineDetail() {
 }
 
 function initScrollReveal() {
-  $$(".reveal-block").forEach((el) => el.classList.add("is-visible"));
-  if (reduceMotion.matches) return;
+  if (reduceMotion.matches) {
+    $$(".reveal-block").forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const activePage = document.querySelector(".page.active") || document;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -280,9 +285,35 @@ function initScrollReveal() {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -20px 0px" }
+    { threshold: 0.06, rootMargin: "0px 0px -30px 0px" }
   );
-  $$(".section:not(.royal-hero)").forEach((el) => observer.observe(el));
+
+  const selectors = [
+    ".section:not(.royal-hero) .section-head",
+    ".section:not(.royal-hero) .facts-strip",
+    ".section:not(.royal-hero) .authority-grid",
+    ".section:not(.royal-hero) .comm-grid",
+    ".section:not(.royal-hero) .pillar-grid",
+    ".section:not(.royal-hero) .gov-institution-grid",
+    ".section:not(.royal-hero) .agency-grid",
+    ".section:not(.royal-hero) .story-layout",
+    ".section:not(.royal-hero) .lineage-shell",
+    ".section:not(.royal-hero) .journey-shell",
+    ".section:not(.royal-hero) .glance-map",
+    ".section:not(.royal-hero) .gallery-grid",
+    ".section:not(.royal-hero) .clan-registry-wrap",
+    ".official-notice-strip",
+    ".news-ticker",
+  ];
+
+  selectors.flatMap((s) => $$(s, activePage)).forEach((el) => {
+    if (el.classList.contains("is-visible")) return;
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) return;
+    el.classList.add("reveal-block");
+    observer.observe(el);
+  });
 }
 
 function initHeroMotion() {
