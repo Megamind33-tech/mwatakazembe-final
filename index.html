@@ -5,7 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mwata Kazembe Kingdom — Official Digital Home</title>
   <meta name="description" content="The official digital home of the Mwata Kazembe Kingdom — governance, Mutomboko, development, and official communications from Mwansabombwe.">
-  <link rel="icon" href="data:,">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <meta name="theme-color" content="#405f8f">
+  <meta name="msapplication-TileColor" content="#405f8f">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +27,13 @@
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a class="brand" href="#home" data-nav="home">
-        <span class="brand-mark" aria-hidden="true">MK</span>
+        <img
+          class="brand-coat-of-arms"
+          src="assets/images/kazembe/identity/coat-of-arms.png"
+          alt="Mwata Kazembe Coat of Arms"
+          width="44"
+          height="44"
+        >
         <span class="brand-text">
           <strong>Mwata Kazembe</strong>
           <span>Kingdom of Kazembe</span>
@@ -34,9 +47,19 @@
     </div>
   </header>
 
-  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation menu">
     <div class="mobile-drawer-panel">
-      <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">Close</button>
+      <div class="mobile-drawer-header">
+        <img
+          class="mobile-drawer-coa"
+          src="assets/images/kazembe/identity/coat-of-arms.png"
+          alt="Mwata Kazembe Coat of Arms"
+          width="36"
+          height="36"
+        >
+        <span class="mobile-drawer-title">Mwata Kazembe</span>
+        <button class="drawer-close" id="drawer-close" type="button" aria-label="Close menu">✕</button>
+      </div>
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"></nav>
     </div>
   </div>
