@@ -40,6 +40,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: var(--header-h);
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -146,8 +147,10 @@ h3 {
 
 /* Header */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 300;
   background: var(--white);
   border-bottom: 6px solid var(--ceremonial-red);
@@ -1785,7 +1788,7 @@ body.lightbox-open {
 /* Home section nav */
 .home-section-nav {
   position: sticky;
-  top: calc(var(--utility-h) + var(--header-h));
+  top: var(--header-h);
   z-index: 90;
   display: flex;
   gap: 0.35rem;

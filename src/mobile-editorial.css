@@ -35,7 +35,7 @@
   }
 
   .page-body .subsection {
-    scroll-margin-top: calc(var(--header-h) + var(--utility-h) + 12px);
+    scroll-margin-top: calc(var(--header-h) + 12px);
   }
 
   .utility-left {
