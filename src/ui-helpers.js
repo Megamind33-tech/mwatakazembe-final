@@ -9,7 +9,7 @@ export function esc(value) {
 }
 
 /** Public-facing pending state — never show raw "content required" */
-export function pendingNote(message = "To be published by the Royal Office.") {
+export function pendingNote(message = "Contact the Royal Protocol Office for full institutional detail.") {
   return `<p class="pending-note">${esc(message)}</p>`;
 }
 

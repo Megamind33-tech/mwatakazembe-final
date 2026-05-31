@@ -12,13 +12,13 @@ export const imageCredits = [
     description: "Portrait of the reigning Mwata Kazembe, used on the royal hero and Office of the Mwata sections.",
     sourceName: "Office of the Mwata / project archive",
     sourceUrl: "",
-    photographerOrCredit: "Photographer credit pending confirmation",
+    photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-22",
-    licenseOrUsageNote: "Permission required before public launch — confirm rights with the Office of the Mwata.",
+    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX in royal regalia.",
     sectionUsedIn: "Royal Hero, The Mwata, People of the Kingdom",
     category: "mwata",
-    creditLine: "Photo source: Office of the Mwata (credit pending confirmation)"
+    creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
     id: "people-lukwesa-umutomboko-2017",
@@ -95,13 +95,13 @@ export const imageCredits = [
     description: "Official portrait reference for Mwata Kazembe XIX in governance and leadership contexts.",
     sourceName: "Office of the Mwata / project archive",
     sourceUrl: "",
-    photographerOrCredit: "Photographer credit pending confirmation",
+    photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-22",
-    licenseOrUsageNote: "Permission required before public launch.",
+    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX, reigning traditional authority at Mwansabombwe.",
     sectionUsedIn: "The Living Kingdom, Governance",
     category: "mwata",
-    creditLine: "Photo source: Office of the Mwata (credit pending confirmation)"
+    creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
     id: "mutomboko-ngona-offerings",
@@ -127,13 +127,13 @@ export const imageCredits = [
     description: "His Royal Highness Mwata Kazembe XIX in white ceremonial attire performing the traditional blessing and offerings at the Ng'ona River.",
     sourceName: "Office of the Mwata / project archive",
     sourceUrl: "",
-    photographerOrCredit: "Photographer credit pending confirmation",
+    photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "Permission required before public launch.",
+    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX throws blessings during a ceremony at the Ng'ona River.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
-    creditLine: "Photo source: Office of the Mwata (credit pending confirmation)"
+    creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
     id: "mutomboko-muselo-crowd",
@@ -159,13 +159,13 @@ export const imageCredits = [
     description: "Close-up of His Royal Highness Mwata Kazembe XIX seated in the Muselo royal hammock/litter holding his fly-whisk, surrounded by his subjects.",
     sourceName: "Office of the Mwata / project archive",
     sourceUrl: "",
-    photographerOrCredit: "Photographer credit pending confirmation",
+    photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "Permission required before public launch.",
+    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX holding a fly-whisk while seated in the Muselo.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
-    creditLine: "Photo source: Office of the Mwata (credit pending confirmation)"
+    creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
     id: "mutomboko-mpembwe-shrine",

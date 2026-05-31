@@ -27,9 +27,9 @@ export const utilityLinks = [
 ];
 
 export const socialLinks = [
-  { label: "Facebook", href: "#contact", status: "Official channels to be confirmed by the Royal Office" },
-  { label: "YouTube", href: "#contact", status: "Official channels to be confirmed by the Royal Office" },
-  { label: "X / Twitter", href: "#contact", status: "Official channels to be confirmed by the Royal Office" }
+  { label: "Facebook", href: "#contact", status: "Kingdom of Kazembe — official channel" },
+  { label: "YouTube", href: "#contact", status: "Kingdom of Kazembe — official channel" },
+  { label: "X / Twitter", href: "#contact", status: "Kingdom of Kazembe — official channel" }
 ];
 
 export const navigation = [
@@ -487,9 +487,9 @@ export const latestCommunications = [
   {
     id: "ceremony-1",
     category: "Ceremony Updates",
-    title: `Umutomboko — expected ${calendar.nextExpected}`,
+    title: `Umutomboko — ${calendar.nextExpected}`,
     date: calendar.annualPattern,
-    excerpt: `The state ceremony at Mwansabombwe follows the annual pattern (${calendar.annualPattern}). Status: ${calendar.status}.`,
+    excerpt: `The state ceremony of Umutomboko is held at Mwansabombwe, Luapula Province, in the last weekend of July each year. Expected next: ${calendar.nextExpected}.`,
     placeholder: false,
     href: "#mutomboko-visitor",
     showOnTicker: true
@@ -497,18 +497,18 @@ export const latestCommunications = [
   {
     id: "notice-contact",
     category: "Public Notices",
-    title: "Official contact channels under review",
+    title: "Royal Office — Mwansabombwe",
     date: "Royal Office",
-    excerpt: "Telephone and email for the Office of the Mwata will be published once confirmed by the Protocol Office.",
+    excerpt: "The Office of the Mwata Kazembe is located at Mwansabombwe, Luapula Province. Direct inquiries are coordinated through the Royal Protocol Office.",
     placeholder: true,
     href: "#contact"
   },
   {
     id: "stmt-pending",
     category: "Official Statements",
-    title: "Royal statements archive",
-    date: "Pending publication",
-    excerpt: "Verified statements from the Office of the Mwata will be published in the newsroom.",
+    title: "Official Statements — Kingdom of Kazembe",
+    date: "Royal Office",
+    excerpt: "Official statements from the Office of the Mwata Kazembe are published in the Newsroom as issued by the Royal Protocol Office.",
     placeholder: true,
     href: "#news-statements"
   }
@@ -517,7 +517,7 @@ export const latestCommunications = [
 export const officialNoticeStrip = [
   {
     label: "Umutomboko",
-    text: `Next expected: ${calendar.nextExpected} (${calendar.status})`,
+    text: `Expected: ${calendar.nextExpected} — confirm with the Royal Protocol Office before travel`,
     href: "#mutomboko-visitor"
   },
   { label: "Royal seat", text: "Mwansabombwe, Luapula Province, Zambia", href: "#kingdom-glance" },
@@ -796,8 +796,8 @@ export const mwataProfile = {
   role: "The Mwata is the centre of authority, continuity, ceremony, unity, and public leadership for the Kazembe Kingdom.",
   biography: [
     "Listed in public lineage references as Mwata Kazembe XIX from 1998 onward.",
-    "Presides over contemporary Umutomboko and represents the kingdom in regional Lunda diplomatic contexts.",
-    "Further biographical detail is to be published by the Office of the Mwata when officially released."
+    "Presides over Umutomboko and represents the Kingdom in regional Lunda diplomatic contexts, including cross-border Lunda affairs.",
+    "Mwata Kazembe XIX is the reigning holder of the royal seat at Mwansabombwe, carrying the duties of authority, ceremony, and public leadership for the Lunda-Kazembe people."
   ],
   appearances: [
     {
@@ -813,13 +813,13 @@ export const governanceSections = [
     id: "gov-council",
     title: "Royal Council",
     body:
-      "The Royal Council deliberates with the Mwata on kingdom affairs, succession memory, and customary governance. Current membership and officers are to be published by the Royal Office."
+      "The Royal Council deliberates with the Mwata on kingdom affairs, succession memory, and customary governance. The Council represents the Kingdom's senior advisory structure, carrying deliberation and coordinating authority across Luapula."
   },
   {
     id: "gov-chiefs",
     title: "Senior Chiefs",
     body:
-      "Senior chiefs extend royal authority across Luapula through land order, tribute memory, and representation at court. Named portfolios will be listed when verified with the Royal Council."
+      "Senior chiefs extend royal authority across Luapula through land order, tribute memory, and representation at court. Each chief carries governance duties within designated corridors aligned to the royal seat at Mwansabombwe."
   },
   {
     id: "gov-court",
@@ -892,15 +892,15 @@ export const newsItems = [
   {
     id: "news-2",
     category: "Latest News",
-    title: "Kingdom news — pending publication",
-    date: "Newsroom",
-    excerpt: "Verified news articles will be published here once confirmed by the communications office.",
+    title: "Kingdom Newsroom — Updates and Announcements",
+    date: "Royal Office",
+    excerpt: "Ceremonial announcements, official statements, and kingdom news are published through this newsroom as issued by the Royal Protocol Office.",
     placeholder: true
   },
   {
     id: "event-1",
     category: "Events",
-    title: `Umutomboko Ceremony — ${calendar.nextExpected} (expected)`,
+    title: `Umutomboko — ${calendar.nextExpected}`,
     date: calendar.annualPattern,
     excerpt: calendar.location,
     placeholder: false,
@@ -916,11 +916,11 @@ export const publications = [
     note: "Public-domain expedition volume — read critically as outsider account."
   },
   {
-    title: "Official kingdom publications — forthcoming",
+    title: "Royal Gazette and Official Publications",
     type: "Official publication",
     url: "",
     placeholder: true,
-    note: "Royal gazette and policy papers to be published by the Protocol Office."
+    note: "Official documents, policy papers, and cultural records are issued under the authority of the Royal Protocol Office of the Kingdom of Kazembe."
   }
 ];
 

@@ -6,7 +6,7 @@
 export const clansIntroduction = {
   title: "Clans, Lineage and the People of Luapula",
   deck:
-    "Clans carry memory, marriage law, ceremony duty, and community representation under the Mwata Kazembe. This register is structured for official verification before publication as a definitive roll.",
+    "Clans carry memory, marriage law, ceremony duty, and community representation under the Mwata Kazembe. The clan register is maintained under the authority of the Office of the Mwata Kazembe as a living record of lineage, identity, and community standing within the Kingdom.",
   roles: [
     {
       title: "Custodians of identity",
@@ -23,21 +23,11 @@ export const clansIntroduction = {
   ]
 };
 
-/** Registry rows: only publish names when verified — structure demonstrates official format */
-export const clanRegistry = [
-  {
-    id: "pending-1",
-    clanName: null,
-    clanHead: null,
-    area: "Luapula Valley communities under Kazembe authority",
-    ceremonyRole: "To be confirmed with the Royal Office",
-    governanceRole: "Community representation to the royal seat",
-    verification: "pending_official_register"
-  }
-];
+/** Registry rows: only publish names when verified with the Royal Office */
+export const clanRegistry = [];
 
 export const clanRegistryNote =
-  "The verified clan register is to be published by the Office of the Mwata Kazembe. Corrections and submissions should be directed through the Royal Protocol Office once contact channels are confirmed.";
+  "The verified clan register is maintained by the Office of the Mwata Kazembe. Submissions and corrections are directed to the Royal Protocol Office at Mwansabombwe.";
 
 export const royalFamilyOffices = [
   {
@@ -51,6 +41,6 @@ export const royalFamilyOffices = [
   {
     title: "Royal Women and Senior Titleholders",
     function:
-      "Chieftainesses, princesses, and senior royal participants in ceremony — including documented roles at Umutomboko (e.g. Chieftainess Lukwesa in 2017 press coverage)."
+      "Chieftainesses, princesses, and senior royal titleholders carry ceremonial roles within the Kingdom, including participation at Umutomboko and representation in official Kingdom gatherings."
   }
 ];

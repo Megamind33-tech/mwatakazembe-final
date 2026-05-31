@@ -426,7 +426,7 @@ export const calendar = {
   confirmed2025: "25-26 July 2025",
   nextExpected: "24-25 July 2026",
   nextDateISO: "2026-07-24T09:00:00+02:00",
-  status: "Tentative until official confirmation",
+  status: "Expected — confirm dates through the Royal Protocol Office before travel",
   location: "Mwansabombwe, Luapula Province, Zambia",
   sources: ["zta", "mot2025"]
 };
