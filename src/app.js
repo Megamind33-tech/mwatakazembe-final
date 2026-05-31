@@ -1428,13 +1428,18 @@ function closeMobileDrawer() {
   drawer.classList.remove("open");
   drawer.setAttribute("aria-hidden", "true");
   $("#menu-toggle").setAttribute("aria-expanded", "false");
+  document.body.style.overflowX = "";
 }
 
 function openMobileDrawer() {
+  const header = document.getElementById("site-header");
+  const headerBottom = header ? header.getBoundingClientRect().bottom : 72;
+  document.documentElement.style.setProperty("--drawer-top", headerBottom + "px");
   const drawer = $("#mobile-drawer");
   drawer.classList.add("open");
   drawer.setAttribute("aria-hidden", "false");
   $("#menu-toggle").setAttribute("aria-expanded", "true");
+  document.body.style.overflowX = "hidden";
 }
 
 function bindAccordions() {
