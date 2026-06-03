@@ -142,7 +142,7 @@ const lineageImages = {
   8: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
   9: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
   10: { src: "assets/generated/reconstruction-muselo-litter.png", credit: "Reconstruction: Muselo litter" },
-  11: { src: "assets/generated/reconstruction-crowns.png", credit: "Reconstruction: Royal crowns" },
+  11: { src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg", credit: "Mwata Kazembe XI, Muonga Kapakata (1904–1919)" },
   12: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
   13: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
   14: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
