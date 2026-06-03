@@ -228,10 +228,6 @@ function renderMwata() {
             <ul>${mwataProfile.biography.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
           </div>
         </div>
-        <div class="media-figure-grid">
-          ${creditFigureCard("mwata-white-ceremonial-dress")}
-          ${creditFigureCard("mwata-beaded-crown")}
-        </div>
       </section>
       <section class="subsection accordion-block" id="mwata-household">
         <button class="accordion-trigger" type="button" aria-expanded="false">Royal Household</button>
@@ -248,11 +244,12 @@ function renderMwata() {
       </section>
       <section class="subsection" id="mwata-continuity">
         ${sectionHead("Historical continuity", "Past Mwatas and Royal Occasions")}
-        <p class="section-deck">Selected historical photographs connected to the office of the Mwata Kazembe. Where a photograph is firmly identified, the officeholder and dates are named; remaining identifications are held pending official confirmation.</p>
-        <div class="media-figure-grid media-figure-grid-3">
+        <p class="section-deck">These photographs record earlier holders of the office of the Mwata Kazembe and past royal occasions — distinct from the reigning Mwata shown above. Where a photograph is firmly identified, the officeholder and dates are named; other identifications are held pending official confirmation.</p>
+        <div class="media-figure-grid">
           ${creditFigureCard("archive-mwata-xi-kapakata")}
           ${creditFigureCard("archive-mwata-staff-of-office")}
           ${creditFigureCard("archive-royal-ceremony-colonial")}
+          ${creditFigureCard("mwata-beaded-crown")}
         </div>
       </section>
       <section class="subsection accordion-block" id="mwata-palace">

@@ -1548,15 +1548,19 @@ h3 {
   margin: 0;
 }
 
+.glance-media .figure-media {
+  border: 1px solid var(--border);
+}
+
 .glance-media .figure-media img {
   width: 100%;
   height: auto;
   display: block;
-  border: 1px solid var(--border);
 }
 
 .glance-flag .figure-media {
   background: var(--royal-blue);
+  padding: 0.75rem;
 }
 
 .glance-map {
@@ -1570,13 +1574,14 @@ h3 {
 
 .identity-figure .figure-media {
   background: var(--royal-blue);
+  border: 1px solid var(--border);
+  padding: 0.85rem;
 }
 
 .identity-figure .figure-media img {
   width: 100%;
   height: auto;
   display: block;
-  border: 1px solid var(--border);
 }
 
 .figure-credit,
