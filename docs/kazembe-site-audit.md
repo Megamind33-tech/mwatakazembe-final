@@ -127,8 +127,8 @@ public captions.
 | Mwata Kazembe XI, Muonga Kapakata (1904–1919) | Office of the Mwata → Historical continuity; Gallery | **Verified** — the photograph's printed caption matches the Kingdom lineage record (`kings` id 11). | identity sourced; rights needs-confirmation |
 | A Mwata Kazembe with the staff of office (B&W) | Office of the Mwata → Historical continuity; Gallery | Visibly a Mwata Kazembe with staff; which officeholder unconfirmed. | needs-confirmation |
 | Royal ceremony at Kazembe, colonial era | Office of the Mwata → Historical continuity; Gallery | Union Jack bunting + colonial officer → colonial era (consistent with c. 1961); exact event/year unconfirmed. | needs-confirmation |
-| The Mwata Kazembe in the beaded ceremonial crown | Office of the Mwata; Gallery | Central beaded-crown royal figure at a Kazembe gathering. | needs-confirmation |
-| The Mwata Kazembe in white ceremonial dress | Office of the Mwata; Gallery | Royal beadwork + fly-whisk at a ceremony. | needs-confirmation |
+| His Royal Highness the Mwata Kazembe at a traditional ceremony | Office of the Mwata; Gallery | The Mwata in royal regalia at a Kingdom ceremony. | needs-confirmation |
+| His Royal Highness the Mwata Kazembe during the Mutomboko ceremony | Office of the Mwata; Mutomboko gallery; Gallery | White attire is worn during Mutomboko (confirmed by the Kingdom). | needs-confirmation (year) |
 | Royal procession on the Muselo litter, Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe district signboard + Mutomboko monument visible. | needs-confirmation (year) |
 | Ceremony crowd at Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe monument visible. | needs-confirmation (year) |
 | Royal women in Lunda-Kazembe ceremonial dress | People of the Kingdom; Gallery | Women in the Kingdom's red-white-blue ceremonial colours. | needs-confirmation |
