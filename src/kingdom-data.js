@@ -124,7 +124,8 @@ export const navigation = [
       { label: "Speeches", href: "#news-speeches" },
       { label: "Events", href: "#news-events" },
       { label: "Gallery", href: "#gallery" },
-      { label: "Publications", href: "#publications" }
+      { label: "Publications", href: "#publications" },
+      { label: "Archive", href: "#archive" }
     ]
   },
   {
@@ -887,24 +888,84 @@ export const newsCategories = [
   "Publications"
 ];
 
+/**
+ * Newsroom entries.
+ * `verification` is an internal record only — it is NOT rendered loudly on the
+ * public site. Allowed values: "verified" | "sourced" | "official" |
+ * "needs-confirmation" | "draft". Items that are not officially issued by the
+ * Royal Protocol Office carry `placeholder: true` so the public render keeps a
+ * dignified, non-overclaiming tone. No fictional announcements are listed here.
+ */
 export const newsItems = [
-  ...latestCommunications,
   {
-    id: "news-2",
-    category: "Latest News",
-    title: "Kingdom Newsroom — Updates and Announcements",
-    date: "Royal Office",
-    excerpt: "Ceremonial announcements, official statements, and kingdom news are published through this newsroom as issued by the Royal Protocol Office.",
-    placeholder: true
+    id: "ceremony-annual",
+    category: "Events",
+    title: "Umutomboko — the State Ceremony of Conquest",
+    date: calendar.annualPattern,
+    excerpt: `Umutomboko is held at ${calendar.location} on the last weekend of July, commemorating Lunda arrival from Kola, royal installation, and the continuity of Kazembe authority.`,
+    placeholder: false,
+    href: "#mutomboko",
+    verification: "verified"
   },
   {
-    id: "event-1",
+    id: "ceremony-1",
     category: "Events",
-    title: `Umutomboko — ${calendar.nextExpected}`,
+    title: `Umutomboko — Expected ${calendar.nextExpected}`,
     date: calendar.annualPattern,
-    excerpt: calendar.location,
+    excerpt: `Following the annual pattern, the next Umutomboko is expected on ${calendar.nextExpected} at Mwansabombwe. Confirm final dates through the Royal Protocol Office before travel.`,
     placeholder: false,
-    href: "#mutomboko"
+    href: "#mutomboko-visitor",
+    verification: "needs-confirmation"
+  },
+  {
+    id: "ceremony-2025",
+    category: "Latest News",
+    title: "2025 Umutomboko on record",
+    date: calendar.confirmed2025,
+    excerpt: "The 2025 Umutomboko was held at Mwansabombwe on the dates recorded in the Ministry of Tourism notice. Photographic and press coverage is consolidated in the Gallery and verified media sources.",
+    placeholder: false,
+    href: "#gallery",
+    verification: "sourced"
+  },
+  {
+    id: "notice-contact",
+    category: "Public Notices",
+    title: "Official correspondence — Royal Protocol Office",
+    date: "Royal Office",
+    excerpt: "Cultural inquiries, media accreditation, heritage records, and official correspondence are coordinated through the Royal Protocol Office at Mwansabombwe, Luapula Province.",
+    placeholder: false,
+    href: "#contact",
+    verification: "official"
+  },
+  {
+    id: "notice-clans",
+    category: "Public Notices",
+    title: "Clan register — submissions and corrections",
+    date: "Royal Office",
+    excerpt: "The clan register is maintained under the authority of the Office of the Mwata Kazembe. Submissions and corrections are directed to the Royal Protocol Office.",
+    placeholder: false,
+    href: "#clans-verify",
+    verification: "official"
+  },
+  {
+    id: "heritage-archive",
+    category: "Publications",
+    title: "The Lands of Cazembe (1873) in the Kingdom archive",
+    date: "Archive",
+    excerpt: "The public-domain 1873 expedition volume is available in the Kingdom archive as a primary historical reference, to be read critically as an outsider account.",
+    placeholder: false,
+    href: "#publications",
+    verification: "sourced"
+  },
+  {
+    id: "stmt-pending",
+    category: "Official Statements",
+    title: "Official Statements — Kingdom of Kazembe",
+    date: "Royal Office",
+    excerpt: "Official statements from the Office of the Mwata Kazembe are published in the Newsroom as issued by the Royal Protocol Office.",
+    placeholder: true,
+    href: "#news-statements",
+    verification: "official"
   }
 ];
 
@@ -921,6 +982,57 @@ export const publications = [
     url: "",
     placeholder: true,
     note: "Official documents, policy papers, and cultural records are issued under the authority of the Royal Protocol Office of the Kingdom of Kazembe."
+  }
+];
+
+/**
+ * Archive register. Records with `available: false` are surfaced with the
+ * dignified label "Archive entry pending official material" rather than a
+ * broken link. No archival content is fabricated.
+ */
+export const archiveRecords = [
+  {
+    id: "arc-cazembe-1873",
+    title: "The Lands of Cazembe (1873)",
+    type: "Document — expedition volume",
+    date: "1873",
+    note: "Public-domain Royal Geographical Society volume gathering Portuguese expedition material connected to Cazembe. Read critically as an outsider account.",
+    url: "assets/archive/the-lands-of-cazembe-1873.pdf",
+    available: true
+  },
+  {
+    id: "arc-mwata-xvii-1961",
+    title: "Mwata Kazembe XVII on tour, 1961",
+    type: "Photograph — documentary",
+    date: "1961",
+    note: "Mwata Kazembe XVII Paul Kanyembo Lutaba carried in an open palanquin shortly after installation. Held on Wikimedia Commons.",
+    creditId: "archive-mwata-xvii-1961",
+    available: true
+  },
+  {
+    id: "arc-umutomboko-2017",
+    title: "Umutomboko 2017 — photographic record",
+    type: "Photographs — ceremony",
+    date: "2017",
+    note: "Ceremony photography from the 2017 Umutomboko, consolidated in the Gallery with full source credit.",
+    url: "#home-gallery",
+    available: true
+  },
+  {
+    id: "arc-speeches",
+    title: "Royal speeches and addresses",
+    type: "Records — speeches",
+    date: "Pending",
+    note: "Archive entry pending official material from the Royal Protocol Office.",
+    available: false
+  },
+  {
+    id: "arc-gazette",
+    title: "Royal Gazette and official statements",
+    type: "Records — official documents",
+    date: "Pending",
+    note: "Archive entry pending official material from the Royal Protocol Office.",
+    available: false
   }
 ];
 
