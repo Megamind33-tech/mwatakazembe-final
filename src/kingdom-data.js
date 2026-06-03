@@ -633,6 +633,10 @@ export const mutombokoFeature = {
       verified: true
     },
     {
+      imageCreditId: "mwata-white-ceremonial-dress",
+      verified: true
+    },
+    {
       imageCreditId: "mutomboko-muselo-procession",
       verified: true
     },
