@@ -14,6 +14,20 @@ All public images are registered in `src/image-credits.js` and stored under `ass
 | `governance/` | Governance imagery (reserved) |
 | `archive/` | Historical documentary photographs |
 
+## Kingdom identity emblems
+
+- `assets/images/kazembe/identity/flag.png`
+  - Subject: Official flag of the Mwata Kazembe Kingdom (crossed axe and sword, feathered crown, royal litter, royal-blue field, red-white-red band)
+  - Source: Office of the Mwata / Kingdom identity assets
+  - Use: Splash animation, Kingdom at a Glance, Symbols of Authority, Gallery (Identity)
+  - Rights: Official Kingdom emblem
+
+- `assets/images/kazembe/identity/coat-of-arms.png`
+  - Subject: Coat of arms of the Mwata Kazembe Kingdom
+  - Source: Office of the Mwata / Kingdom identity assets
+  - Use: Header, footer, favicon source, splash, Gallery (Identity)
+  - Rights: Official Kingdom emblem
+
 ## Licensed documentary media
 
 - `assets/images/kazembe/mutomboko/ceremony-2017-02.png`

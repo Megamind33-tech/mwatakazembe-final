@@ -72,6 +72,7 @@ function lineageRailHtml() {
 export function homePageHtml() {
   const heroCredit = getCreditById("hero-home-portrait");
   const mapCredit = getCreditById("places-kingdom-map-2007");
+  const flagCredit = getCreditById("identity-flag");
 
   const leadership = homeLeadershipCards
     .map(
@@ -313,8 +314,15 @@ export function homePageHtml() {
       <div class="container">
         ${sectionHead("The Royal Seat at Mwansabombwe", "Kingdom at a Glance")}
         <div class="facts-strip">${glance}</div>
-        <div class="glance-map">
-          <figure class="credited-figure">
+        <div class="glance-media">
+          <figure class="credited-figure glance-flag">
+            <div class="figure-media has-hover-credit">
+              <img src="${esc(flagCredit?.src || "assets/images/kazembe/identity/flag.png")}" alt="${esc(flagCredit?.altText || "Flag of the Mwata Kazembe Kingdom")}" loading="lazy" data-credit-id="identity-flag">
+              <span class="hover-credit">${esc(flagCredit?.creditLine || "")}</span>
+            </div>
+            <figcaption class="figure-credit"><span class="image-credit">Flag of the Mwata Kazembe Kingdom — the crossed axe and sword, feathered crown, and royal litter of the Lunda-Kazembe state.</span></figcaption>
+          </figure>
+          <figure class="credited-figure glance-map">
             <div class="figure-media has-hover-credit">
               <img src="${esc(mapCredit?.src || royalMap.image)}" alt="${esc(mapCredit?.altText || "Kazembe Kingdom map")}" loading="lazy" data-credit-id="places-kingdom-map-2007">
               <span class="hover-credit">${esc(mapCredit?.creditLine || "")}</span>

@@ -1,4 +1,5 @@
 import {
+  archiveRecords,
   calendar,
   developmentPillars,
   governanceInstitutions,
@@ -232,6 +233,13 @@ function renderMwata() {
       </section>
       <section class="subsection" id="mwata-symbols">
         ${sectionHead("Ceremonial Protocol", "Symbols of Authority")}
+        <figure class="identity-figure credited-figure">
+          <div class="figure-media has-hover-credit">
+            <img src="${esc(getCreditById("identity-flag")?.src || "assets/images/kazembe/identity/flag.png")}" alt="${esc(getCreditById("identity-flag")?.altText || "Flag of the Mwata Kazembe Kingdom")}" loading="lazy" data-credit-id="identity-flag">
+            <span class="hover-credit">${esc(getCreditById("identity-flag")?.creditLine || "")}</span>
+          </div>
+          <figcaption class="figure-credit"><span class="image-credit">The flag of the Kingdom gathers the symbols of authority into a single emblem — the crossed ceremonial axe and sword, the feathered amapango crown, and the royal litter, set on a royal-blue field above a red-white-red band.</span></figcaption>
+        </figure>
         <div class="symbol-grid">${symbols}</div>
       </section>
     </div>
@@ -615,6 +623,20 @@ function renderNewsroom() {
     )
     .join("");
 
+  const archives = archiveRecords
+    .map(
+      (a) => `
+      <article class="archive-card ${a.available ? "" : "is-pending"}">
+        <span class="archive-type">${esc(a.type)}</span>
+        <h3>${esc(a.title)}</h3>
+        <time>${esc(a.date)}</time>
+        <p>${esc(a.note)}</p>
+        ${a.available && a.url ? `<a class="link-arrow" href="${esc(a.url)}" ${a.url.startsWith("#") ? 'data-nav="home"' : a.url.endsWith(".pdf") ? "" : 'target="_blank" rel="noreferrer"'}>Open record</a>` : ""}
+      </article>
+    `
+    )
+    .join("");
+
   $("#page-newsroom").innerHTML = `
     <div class="page-hero page-hero-compact">
       <div class="container page-hero-content">
@@ -633,6 +655,11 @@ function renderNewsroom() {
       <section class="subsection" id="publications">
         ${sectionHead("Publications", "Kingdom Publications")}
         <div class="publication-grid">${pubs}</div>
+      </section>
+      <section class="subsection" id="archive">
+        ${sectionHead("Records", "Kingdom Archive")}
+        <p class="section-deck">Historical records, ceremony photography, and documents held or referenced by the Kingdom. Records not yet available are marked as pending official material.</p>
+        <div class="archive-grid">${archives}</div>
       </section>
       <section class="subsection" id="gallery">
         ${sectionHead("Media", "Gallery")}
@@ -1394,7 +1421,7 @@ function pageFromHash(hash) {
   if (hash.startsWith("kingdom") || hash === "early-mwatas") return "kingdom";
   if (hash.startsWith("mutomboko")) return "mutomboko";
   if (hash.startsWith("dev") || hash === "development-public") return "development";
-  if (hash.startsWith("news") || hash === "publications" || hash === "gallery") return "newsroom";
+  if (hash.startsWith("news") || hash === "publications" || hash === "gallery" || hash === "archive") return "newsroom";
   if (hash === "contact") return "contact";
   if (hash === "museum") return "museum";
   if (hash === "store") return "store";

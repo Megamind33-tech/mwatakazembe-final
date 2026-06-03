@@ -6,7 +6,7 @@
   var pageLoaded = false;
   var timerDone = false;
 
-  var FLAG_SRC = "assets/images/kazembe/flag.png";
+  var FLAG_SRC = "assets/images/kazembe/identity/flag.png";
   var COA_SRC = "assets/images/kazembe/identity/coat-of-arms.png";
   var SEGMENTS = 28;
   var AMPLITUDE = 14;   // px at free (right) edge

@@ -5,6 +5,43 @@
 
 export const imageCredits = [
   {
+    id: "identity-flag",
+    fileName: "flag.png",
+    src: "assets/images/kazembe/identity/flag.png",
+    title: "Flag of the Mwata Kazembe Kingdom",
+    description:
+      "The official flag of the Kingdom of Kazembe — a royal-blue field bearing the crossed ceremonial axe (imbafi) and sword (mpoko), the feathered amapango crown, and the royal litter, above a red-white-red band.",
+    sourceName: "Office of the Mwata / Kingdom identity assets",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-06-03",
+    licenseOrUsageNote: "Official Kingdom emblem — symbol design used as the identity mark of the Mwata Kazembe Kingdom.",
+    altText:
+      "Flag of the Mwata Kazembe Kingdom: a crossed axe and sword beneath a feathered crown on a royal-blue field, above a red-white-red band.",
+    sectionUsedIn: "Kingdom at a Glance, Office of the Mwata, Gallery",
+    category: "identity",
+    imageType: "official emblem",
+    creditLine: "Emblem: Office of the Mwata Kazembe"
+  },
+  {
+    id: "identity-coat-of-arms",
+    fileName: "coat-of-arms.png",
+    src: "assets/images/kazembe/identity/coat-of-arms.png",
+    title: "Coat of Arms of the Mwata Kazembe Kingdom",
+    description:
+      "The royal coat of arms of the Kingdom of Kazembe, used as the primary identity mark across the site header, footer, and favicon.",
+    sourceName: "Office of the Mwata / Kingdom identity assets",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-06-03",
+    licenseOrUsageNote: "Official Kingdom emblem — primary identity mark of the Mwata Kazembe Kingdom.",
+    altText: "Coat of arms of the Mwata Kazembe Kingdom.",
+    sectionUsedIn: "Header, Footer, Splash, Gallery",
+    category: "identity",
+    imageType: "official emblem",
+    creditLine: "Emblem: Office of the Mwata Kazembe"
+  },
+  {
     id: "hero-home-portrait",
     fileName: "home-portrait.jpg",
     src: "assets/images/kazembe/hero/home-portrait.jpg",
@@ -18,6 +55,7 @@ export const imageCredits = [
     altText: "Mwata Kazembe XIX in royal regalia.",
     sectionUsedIn: "Royal Hero, The Mwata, People of the Kingdom",
     category: "mwata",
+    imageType: "official portrait",
     creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
@@ -232,6 +270,7 @@ export function galleryItems() {
 
 export const galleryCategories = [
   { id: "all", label: "All" },
+  { id: "identity", label: "Identity" },
   { id: "mwata", label: "Mwata Kazembe" },
   { id: "ceremony", label: "Ceremony" },
   { id: "people", label: "People" },

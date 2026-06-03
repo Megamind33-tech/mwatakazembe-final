@@ -27,11 +27,15 @@
 |---|---|
 | **File path** | `assets/images/kazembe/identity/flag.png` |
 | **Purpose** | Official kingdom flag — available for use in identity and governance sections |
-| **Where used** | Not yet placed on any page — stored and ready |
-| **Required display size** | Flexible — responsive with `max-width: 100%` |
+| **Where used** | Splash animation (`splash.js`), Kingdom at a Glance (home), Symbols of Authority (Office of the Mwata), Gallery (Identity filter) |
+| **Required display size** | Flexible — responsive with `width: 100%; height: auto` |
 | **Transparent background** | No — RGB |
-| **Mobile overflow risk** | Low — use `max-width: 100%; height: auto` |
-| **Status** | ✅ Present |
+| **Mobile overflow risk** | Low — `width: 100%; height: auto`; `.glance-media` grid stacks on mobile |
+| **Status** | ✅ Present and placed (2026-06-03) |
+
+> **2026-06-03 fix:** `splash.js` previously loaded the flag from the wrong path
+> (`assets/images/kazembe/flag.png`), so the animated splash flag silently failed.
+> Corrected to `assets/images/kazembe/identity/flag.png`.
 
 ---
 
@@ -126,7 +130,7 @@ The following are noted as pending (not missing — they require future official
 
 - Official roster photographs for governance officers (leadership cards show placeholders — correct behavior)
 - Official high-resolution ceremony photographs beyond what is available on Wikimedia (sourcing to be confirmed with Royal Council)
-- Flag usage placement on site pages (flag is stored and ready but not yet positioned on any page)
+- ~~Flag usage placement on site pages~~ — **Resolved 2026-06-03:** flag placed in splash, Kingdom at a Glance, Symbols of Authority, and Gallery
 
 ---
 
