@@ -183,6 +183,28 @@
 
 ---
 
+## 17. Supplied Image Batch — Identification and Rights (2026-06-03)
+
+**Page:** Office of the Mwata (Historical continuity + ceremonial portraits), Mutomboko gallery, People, Gallery
+**Claim:** Eight supplied images were placed live (see `kazembe-site-audit.md` → Supplied Media Batch)
+**Issue:** Most carry `verificationStatus: "needs-confirmation"` in `image-credits.js` for either the specific person/year or the original photographer/rights. The exception is the Mwata Kazembe XI portrait, whose identity is verified by its printed caption matching the lineage record (rights still to confirm).
+**Safe to publish now?** Public captions state only what is visually verifiable (location, regalia, "a Mwata Kazembe"); no uncertain detail is presented as fact.
+**Verification needed:**
+- Original photographer / reuse rights for each supplied image
+- Specific officeholder for the B&W staff-of-office portrait
+- Exact event and year for the colonial-era ceremony photograph
+- Confirmation that the beaded-crown / white-dress figures are Mwata Kazembe XIX
+- Year of the Mwansabombwe procession/crowd photographs
+- Event and individuals in the royal-women photograph
+**Source needed:** Office of the Mwata / Royal Protocol Office
+
+## 18. Held-Back Supplied Images — Rights / Identification
+
+**Page:** Not published (held back)
+**Issue:** A watermarked "© Andy Luku Jr. Photography" image, an "Explore Zambia with Prosper" branded infographic, an unidentified two-man photo, and two unconfirmed building shots were **not** placed live.
+**Verification needed:** Photographer permission (Andy Luku Jr.), permission/Kingdom-made alternative for the lineage infographic, identification of the two-man photo, and confirmation of the building(s).
+**Source needed:** Royal Protocol Office / respective rights holders. See `image-candidates-needing-approval.md`.
+
 ## Priority Order for Verification
 
 | Priority | Item | Impact if unresolved |

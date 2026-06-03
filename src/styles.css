@@ -1194,6 +1194,39 @@ h3 {
   color: var(--stone);
 }
 
+/* Credited media figure groups (Office of the Mwata) */
+.media-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.media-figure-grid-3 {
+  margin-top: 1rem;
+}
+
+.media-figure {
+  margin: 0;
+}
+
+.media-figure .figure-media {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.media-figure .figure-media img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.media-figure .figure-credit {
+  margin-top: 0.5rem;
+}
+
 /* Public Records & Media (supporting media block) */
 .media-records {
   margin-top: 2.5rem;

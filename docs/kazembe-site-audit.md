@@ -112,6 +112,38 @@ museum, or video-gallery site.
   filters were added (the gallery was already clean; overloading it was explicitly avoided).
 - Chronology stays lightweight: references are a short curated list, not a chronological database.
 
+## Supplied Media Batch (2026-06-03)
+
+A batch of 20 images was supplied for the website. They were reviewed individually and connected to
+people/events using only (a) what is visible in each image and (b) cross-reference with the
+project's already-verified lineage records. **Nothing was invented**; uncertain identifications are
+recorded as `needs-confirmation` in `image-credits.js` and below, and are not stated as fact in
+public captions.
+
+**Placed live (8), each registered in `image-credits.js` with provenance + `verificationStatus`:**
+
+| Image | Placed in | Identification basis | Status |
+|---|---|---|---|
+| Mwata Kazembe XI, Muonga Kapakata (1904–1919) | Office of the Mwata → Historical continuity; Gallery | **Verified** — the photograph's printed caption matches the Kingdom lineage record (`kings` id 11). | identity sourced; rights needs-confirmation |
+| A Mwata Kazembe with the staff of office (B&W) | Office of the Mwata → Historical continuity; Gallery | Visibly a Mwata Kazembe with staff; which officeholder unconfirmed. | needs-confirmation |
+| Royal ceremony at Kazembe, colonial era | Office of the Mwata → Historical continuity; Gallery | Union Jack bunting + colonial officer → colonial era (consistent with c. 1961); exact event/year unconfirmed. | needs-confirmation |
+| The Mwata Kazembe in the beaded ceremonial crown | Office of the Mwata; Gallery | Central beaded-crown royal figure at a Kazembe gathering. | needs-confirmation |
+| The Mwata Kazembe in white ceremonial dress | Office of the Mwata; Gallery | Royal beadwork + fly-whisk at a ceremony. | needs-confirmation |
+| Royal procession on the Muselo litter, Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe district signboard + Mutomboko monument visible. | needs-confirmation (year) |
+| Ceremony crowd at Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe monument visible. | needs-confirmation (year) |
+| Royal women in Lunda-Kazembe ceremonial dress | People of the Kingdom; Gallery | Women in the Kingdom's red-white-blue ceremonial colours. | needs-confirmation |
+
+**Held back (not placed live)** — listed in `image-candidates-needing-approval.md`: a watermarked
+"© Andy Luku Jr. Photography" image, an "Explore Zambia with Prosper" branded infographic, an
+unidentifiable two-man photo, two unconfirmed building shots, and five near-duplicate crowd/litter
+frames.
+
+**Why the direction was preserved:** the additions went into *existing* sections (Office of the
+Mwata, the Mutomboko gallery, the People spotlight, the unified Gallery). No new top-level page was
+created, the homepage layout was not restructured, and the modest "Historical continuity" group is a
+small captioned figure set — not a chronological database. Public captions state only what is
+verifiable; uncertainty lives in the data layer and these docs.
+
 ---
 
 *Update this file as items are verified and resolved. See `content-verification-needed.md` for the
