@@ -72,5 +72,47 @@ This document records what the **2026-06-03 completion pass** found and changed.
 
 ---
 
+## Supporting Media Sourcing
+
+**Added 2026-06-03 (second pass).** This pass treated media as *supporting enrichment*, not a new
+product direction. The site remains an official institutional Kingdom website — not an archive,
+museum, or video-gallery site.
+
+**Media added (live):**
+- A lightweight supporting-media data layer: `src/kazembe-supporting-media.js`.
+- A compact **"Public Records & Media"** block inside the existing Mutomboko ceremony section,
+  rendered from that data layer. It contains **one** public video (lazy, click-to-load, responsive)
+  plus three **Selected public references** (links only). It sits *below* the existing photo gallery
+  and does not dominate the page or the homepage.
+- The previously hard-coded, eager-loading YouTube `<iframe>` was replaced with a **click-to-load
+  facade**: no third-party embed loads until the user clicks play, so hidden pages never pull
+  external scripts. The embed is responsive (16:9) and carries a "Watch on YouTube" source link.
+
+**Sources used (already catalogued in the project, re-verified as links):**
+- Zambia Tourism Agency — Umutomboko overview
+- Lusaka Times / ZANIS — 2017 picture report
+- Ministry of Tourism, Zambia — 2025 notice
+- The embedded YouTube video (ID `nvYT2Y-D1yU`) carried over from the existing site.
+
+**Items NOT added due to rights/availability uncertainty:**
+- No new image files were added. The container network is restricted (`host_not_allowed`), so no new
+  media could be fetched or verified live. Candidate media is listed in
+  `docs/image-candidates-needing-approval.md` rather than placed on the live site.
+- No additional YouTube/Facebook videos were embedded — fabricating unverified video IDs is not
+  acceptable, and embed permission/availability could not be checked offline.
+
+**Items needing official confirmation:**
+- The carried-over YouTube video's **channel attribution and suitability** (`verificationStatus:
+  "needs-confirmation"` in the data layer). Confirm with the Royal Protocol Office before launch.
+
+**Why the site direction was preserved:**
+- The media block is a single compact subsection within an existing page, not a new top-level page.
+- The Archive register (added in the first pass) was left **modest and unchanged** — not expanded.
+- No homepage restructuring, no year-by-year blocks, no archive-first navigation, and no new gallery
+  filters were added (the gallery was already clean; overloading it was explicitly avoided).
+- Chronology stays lightweight: references are a short curated list, not a chronological database.
+
+---
+
 *Update this file as items are verified and resolved. See `content-verification-needed.md` for the
 running list of items awaiting official confirmation from the Kingdom.*

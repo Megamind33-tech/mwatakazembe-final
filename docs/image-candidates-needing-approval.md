@@ -50,6 +50,20 @@ copyrighted images unless usage is allowed). Each candidate must be cleared befo
 
 ---
 
+---
+
+## Video / embed candidates (rights or availability review needed)
+
+These could enrich the Mutomboko "Public Records & Media" block but were **not embedded** because
+their channel attribution, embed permission, or availability could not be verified offline
+(restricted network). Do not embed until reviewed.
+
+| Candidate | Where it would help | Concern |
+|---|---|---|
+| Carried-over YouTube embed `nvYT2Y-D1yU` (already live) | Mutomboko ceremony section | Channel attribution and suitability unconfirmed — verify with the Royal Protocol Office, then update `verificationStatus` in `src/kazembe-supporting-media.js`. |
+| Additional public YouTube Umutomboko coverage (official Zambian broadcasters / ZNBC, news channels) | Mutomboko public records | Must confirm the specific video is public, embedding is enabled, and the channel is appropriate before adding a verified embed URL. Do not guess video IDs. |
+| Facebook / social ceremony videos | Mutomboko public records | Do not download or copy thumbnails. Embed only if the platform's official embed is permitted and the page is public-facing. Listed as candidate only. |
+
 ## Preferred path
 
 The most reliable route for these is **official supply from the Office of the Mwata / Royal Protocol

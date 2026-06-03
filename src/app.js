@@ -32,6 +32,7 @@ import {
   royalFamilyOffices
 } from "./clans-data.js";
 import { creditCaption, getCreditById } from "./image-credits.js";
+import { supportingReferences, supportingVideos } from "./kazembe-supporting-media.js";
 import { initInteractions } from "./interactions.js";
 import { homePageHtml } from "./render-home.js";
 import { enrichKings } from "./ruler-profiles.js";
@@ -483,6 +484,61 @@ function renderKingdom() {
   `;
 }
 
+function mutombokoMediaBlock() {
+  const videos = supportingVideos("mutomboko");
+  const refs = supportingReferences("mutomboko");
+  if (!videos.length && !refs.length) return "";
+
+  const videoHtml = videos
+    .map(
+      (v) => `
+      <figure class="media-video">
+        <div class="video-embed" data-embed="${esc(v.embedUrl)}" data-title="${esc(v.title)}">
+          <button class="video-embed-play" type="button" aria-label="Load and play: ${esc(v.title)}">
+            <span class="video-embed-icon" aria-hidden="true">▶</span>
+            <span class="video-embed-label">Play video</span>
+          </button>
+        </div>
+        <figcaption class="media-caption">
+          <span>${esc(v.caption)}</span>
+          ${v.sourceUrl ? `<a class="link-arrow" href="${esc(v.sourceUrl)}" target="_blank" rel="noreferrer">Watch on ${esc(v.sourceName || "source platform")}</a>` : ""}
+        </figcaption>
+      </figure>
+    `
+    )
+    .join("");
+
+  const refHtml = refs.length
+    ? `
+      <div class="media-refs">
+        <h4 class="media-refs-title">Selected public references</h4>
+        <ul class="media-ref-list">
+          ${refs
+            .map(
+              (r) => `
+            <li>
+              <a href="${esc(r.sourceUrl)}" target="_blank" rel="noreferrer"><strong>${esc(r.title)}</strong></a>
+              <span class="media-ref-source">${esc(r.sourceName)}</span>
+              <p>${esc(r.caption)}</p>
+            </li>
+          `
+            )
+            .join("")}
+        </ul>
+      </div>
+    `
+    : "";
+
+  return `
+    <div class="media-records" id="mutomboko-records">
+      <h3 class="media-records-title">Public Records &amp; Media</h3>
+      <p class="media-records-deck">Selected public video and references documenting the Umutomboko ceremony at Mwansabombwe. Media is embedded or linked from its source platform, not hosted by the Kingdom.</p>
+      ${videoHtml}
+      ${refHtml}
+    </div>
+  `;
+}
+
 function renderMutomboko() {
   const program = ceremonySteps
     .map(
@@ -541,14 +597,7 @@ function renderMutomboko() {
       <section class="subsection" id="mutomboko-gallery">
         ${sectionHead("Media Gallery", "Photo and Video Gallery")}
         <div class="gallery-grid premium-gallery swipe-track" data-swipe="gallery">${gallery}</div>
-        
-        <div class="video-container-wrap" style="margin-top: 3rem;">
-          <h3 class="subsection-title" style="margin-bottom: 1rem; font-family: var(--font-serif); font-size: 1.35rem; color: var(--royal-blue-mid); font-weight: 600;">Official Umutomboko Video Record</h3>
-          <div class="video-responsive" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border: 1px solid var(--border); background: #000;">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="https://www.youtube.com/embed/nvYT2Y-D1yU" title="Umutomboko Ceremony Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
-          <p style="font-size: 0.82rem; color: var(--stone); margin-top: 0.6rem; text-align: center; font-style: italic;">Documentary record of the Umutomboko ceremony at Mwansabombwe.</p>
-        </div>
+        ${mutombokoMediaBlock()}
       </section>
       <section class="subsection" id="mutomboko-visitor">
         ${sectionHead("Visitor Information", "Visitor Guidance")}
@@ -1581,6 +1630,23 @@ function bindNavigation() {
   });
 }
 
+function bindVideoEmbeds() {
+  // Click-to-load (lazy) facade: third-party video iframes are only injected on
+  // user intent, so hidden pages never load external embeds.
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest(".video-embed-play");
+    if (!trigger) return;
+    const wrap = trigger.closest(".video-embed");
+    if (!wrap) return;
+    const src = wrap.dataset.embed;
+    const title = wrap.dataset.title || "Embedded video";
+    if (!src) return;
+    const autoplaySrc = src + (src.includes("?") ? "&" : "?") + "autoplay=1";
+    wrap.innerHTML = `<iframe src="${esc(autoplaySrc)}" title="${esc(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    wrap.classList.add("is-loaded");
+  });
+}
+
 function bindBackToTop() {
   const btn = document.getElementById("back-to-top");
   if (!btn) return;
@@ -1627,6 +1693,7 @@ function init() {
   bindCartEvents();
   bindDonationsEvents();
   bindMembershipEvents();
+  bindVideoEmbeds();
   bindBackToTop();
   resolvePageFromHash();
   initInteractions();
