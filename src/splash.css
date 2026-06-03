@@ -20,36 +20,20 @@
   pointer-events: none;
 }
 
-/* Coat of arms above flag */
+/* Coat of arms — splash centrepiece */
 #splash-coa {
-  width: 64px;
-  height: 64px;
+  width: min(140px, 40vw);
+  height: auto;
   object-fit: contain;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(-12px) scale(0.96);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.45));
 }
 
 #splash-coa.splash-visible {
-  opacity: 0.92;
-  transform: translateY(0);
-}
-
-/* Waving flag (clean image with gentle sway) */
-#splash-flag {
-  display: block;
-  width: min(320px, 80vw);
-  height: auto;
-  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
-  transform-origin: center;
-  animation: splash-flag-wave 4.5s ease-in-out infinite;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-@keyframes splash-flag-wave {
-  0%, 100% { transform: perspective(900px) rotateY(-5.5deg) skewY(0.5deg); }
-  50%      { transform: perspective(900px) rotateY(5.5deg) skewY(-0.5deg); }
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* Text messages */
@@ -107,7 +91,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   #splash { transition: none; }
-  #splash-coa { transition: none; opacity: 0.92; transform: none; }
+  #splash-coa { transition: none; opacity: 1; transform: none; }
   .splash-msg { transition: none; opacity: 1; transform: none; }
-  #splash-flag { animation: none; transform: none; }
 }
