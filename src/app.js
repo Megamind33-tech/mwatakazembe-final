@@ -1412,8 +1412,32 @@ function bindMembershipEvents() {
   });
 }
 
+const HOME_ANCHORS = new Set([
+  "official-notices",
+  "kingdom-story",
+  "mwata-lineage",
+  "mutomboko-journey",
+  "people-kingdom",
+  "clans-people",
+  "royal-news",
+  "home-gallery",
+  "visit-support",
+  "kingdom-glance",
+  "office-mwata",
+  "home-governance",
+  "kingdom-agencies",
+  "development-public",
+  "living-kingdom",
+  "projects-progress",
+  "royal-spotlight",
+  "kingdom-stats"
+]);
+
 function pageFromHash(hash) {
   if (!hash || hash === "home") return "home";
+  // Explicit home-section anchors win over the broad prefix checks below
+  // (e.g. #kingdom-glance is a home section, not the Kingdom page).
+  if (HOME_ANCHORS.has(hash)) return "home";
   if (hash.startsWith("clans") || hash === "royal-family") return "clans";
   if (hash === "council" || hash === "chiefs" || hash === "agencies" || hash === "protocol" || hash.startsWith("gov"))
     return "governance";
@@ -1427,28 +1451,7 @@ function pageFromHash(hash) {
   if (hash === "store") return "store";
   if (hash === "donations") return "donations";
   if (hash === "membership") return "membership";
-  
-  const homeAnchors = new Set([
-    "official-notices",
-    "kingdom-story",
-    "mwata-lineage",
-    "mutomboko-journey",
-    "people-kingdom",
-    "clans-people",
-    "royal-news",
-    "home-gallery",
-    "visit-support",
-    "kingdom-glance",
-    "office-mwata",
-    "home-governance",
-    "kingdom-agencies",
-    "development-public",
-    "living-kingdom",
-    "projects-progress",
-    "royal-spotlight",
-    "kingdom-stats"
-  ]);
-  if (homeAnchors.has(hash)) return "home";
+
   const top = hash.split("-")[0];
   return navigation.some((n) => n.id === top) ? top : "home";
 }
