@@ -1559,8 +1559,7 @@ h3 {
 }
 
 .glance-flag .figure-media {
-  background: var(--royal-blue);
-  padding: 0.75rem;
+  background: var(--white);
 }
 
 .glance-map {
@@ -1573,9 +1572,8 @@ h3 {
 }
 
 .identity-figure .figure-media {
-  background: var(--royal-blue);
+  background: var(--white);
   border: 1px solid var(--border);
-  padding: 0.85rem;
 }
 
 .identity-figure .figure-media img {
