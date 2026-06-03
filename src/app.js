@@ -60,6 +60,20 @@ function readMore(href, label = "Read more") {
   return `<a class="link-arrow" href="${esc(href)}">${esc(label)}</a>`;
 }
 
+function creditFigureCard(id) {
+  const item = getCreditById(id);
+  if (!item) return "";
+  return `
+    <figure class="credited-figure media-figure">
+      <div class="figure-media has-hover-credit">
+        <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(id)}">
+        <span class="hover-credit">${esc(item.creditLine)}</span>
+      </div>
+      <figcaption class="figure-credit"><span class="image-credit"><strong>${esc(item.title)}</strong></span></figcaption>
+    </figure>
+  `;
+}
+
 function renderUtilityBar() {
   const links = utilityLinks.map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`).join("");
   const social = socialLinks
@@ -214,6 +228,10 @@ function renderMwata() {
             <ul>${mwataProfile.biography.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
           </div>
         </div>
+        <div class="media-figure-grid">
+          ${creditFigureCard("mwata-white-ceremonial-dress")}
+          ${creditFigureCard("mwata-beaded-crown")}
+        </div>
       </section>
       <section class="subsection accordion-block" id="mwata-household">
         <button class="accordion-trigger" type="button" aria-expanded="false">Royal Household</button>
@@ -226,6 +244,15 @@ function renderMwata() {
             <thead><tr><th>Title</th><th>Name</th><th>Reign</th><th>Record</th></tr></thead>
             <tbody>${past}</tbody>
           </table>
+        </div>
+      </section>
+      <section class="subsection" id="mwata-continuity">
+        ${sectionHead("Historical continuity", "Past Mwatas and Royal Occasions")}
+        <p class="section-deck">Selected historical photographs connected to the office of the Mwata Kazembe. Where a photograph is firmly identified, the officeholder and dates are named; remaining identifications are held pending official confirmation.</p>
+        <div class="media-figure-grid media-figure-grid-3">
+          ${creditFigureCard("archive-mwata-xi-kapakata")}
+          ${creditFigureCard("archive-mwata-staff-of-office")}
+          ${creditFigureCard("archive-royal-ceremony-colonial")}
         </div>
       </section>
       <section class="subsection accordion-block" id="mwata-palace">

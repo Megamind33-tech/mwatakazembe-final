@@ -64,6 +64,23 @@ their channel attribution, embed permission, or availability could not be verifi
 | Additional public YouTube Umutomboko coverage (official Zambian broadcasters / ZNBC, news channels) | Mutomboko public records | Must confirm the specific video is public, embedding is enabled, and the channel is appropriate before adding a verified embed URL. Do not guess video IDs. |
 | Facebook / social ceremony videos | Mutomboko public records | Do not download or copy thumbnails. Embed only if the platform's official embed is permitted and the page is public-facing. Listed as candidate only. |
 
+## Supplied images held back (2026-06-03 batch)
+
+A batch of images was supplied for the Kingdom website. Eight were placed live (see
+`kazembe-site-audit.md` → Supplied Media Batch). The following were **deliberately NOT placed live**:
+
+| File (upload) | What it shows | Why held back |
+|---|---|---|
+| `…3142029d` | The Mwata on horseback in white ceremonial robes | Bears a visible third-party watermark **"© ANDY LUKU JR. PHOTOGRAPHY"**. Needs the photographer's written permission before any use. |
+| `…a92d2da7` | "Luba → Lunda → Kazembe/Bemba/Luvale" family-tree infographic | Carries third-party branding **"Explore Zambia with Prosper"**; also a generic educational graphic. Not appropriate for the official institutional site without permission and a Kingdom-made version. |
+| `…db33a9cb` | Two men in suits/hat embracing | Could not be confidently identified; risk of misattribution. Needs identification before use. |
+| `…27c8d23d` | A two-storey building / compound | Possibly the royal residence/guesthouse at Mwansabombwe, but unconfirmed. Needs confirmation it is a Kingdom building before captioning. |
+| `…fd3a3229` | Compound with royal women seated under a tree | Same building as above plus royal women; building identity unconfirmed. |
+| `…0996b4e0`, `…6f0a948d`, `…10efe568`, `…a462ec67`, `…c83af38f` | Near-duplicate Umutomboko crowd / litter scenes at Mwansabombwe | Redundant with the two crowd/procession images already placed live. Available as alternates if higher-resolution or better-composed frames are wanted. |
+
+For all of the above, original photographer/source and reuse rights should be confirmed with the
+Royal Protocol Office before any are added.
+
 ## Preferred path
 
 The most reliable route for these is **official supply from the Office of the Mwata / Royal Protocol

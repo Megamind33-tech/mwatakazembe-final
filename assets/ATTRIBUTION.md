@@ -53,6 +53,24 @@ All public images are registered in `src/image-credits.js` and stored under `ass
   - Author: Rex Parry
   - License: CC BY 2.5
 
+## Supplied for the project — source/rights to be confirmed (2026-06-03 batch)
+
+The following were supplied for the Kingdom website and placed live with honest "source to be
+confirmed" notes and an internal `verificationStatus: "needs-confirmation"` in `src/image-credits.js`.
+Confirm original photographer and reuse rights with the Royal Protocol Office before public launch.
+
+- `assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg` — Mwata Kazembe XI, Muonga Kapakata (1904–1919). Identity verified by the photograph's printed caption matching the lineage record; reproduced from a published lineage source (rights to confirm).
+- `assets/images/kazembe/archive/mwata-staff-of-office-historical.jpg` — a historical Mwata Kazembe with the staff of office (officeholder to confirm).
+- `assets/images/kazembe/archive/royal-ceremony-colonial-era.jpg` — colonial-era royal ceremony at Kazembe (event/year to confirm).
+- `assets/images/kazembe/mwata/mwata-beaded-crown.jpg` — the Mwata Kazembe in the beaded ceremonial crown.
+- `assets/images/kazembe/mwata/mwata-white-ceremonial-dress.jpg` — the Mwata Kazembe in white ceremonial dress.
+- `assets/images/kazembe/mutomboko/muselo-procession-mwansabombwe.jpg` — royal Muselo-litter procession at Mwansabombwe.
+- `assets/images/kazembe/mutomboko/ceremony-crowd-mwansabombwe.jpg` — ceremony crowd at Mwansabombwe.
+- `assets/images/kazembe/people/royal-women-regalia.jpg` — royal women in Lunda-Kazembe ceremonial dress.
+
+Images held back for rights/identification (not placed live) are listed in
+`docs/image-candidates-needing-approval.md`.
+
 ## Permission required before public launch
 
 - `assets/images/kazembe/hero/home-portrait.jpg`

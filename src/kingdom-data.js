@@ -342,6 +342,11 @@ export const peopleSpotlights = [
     note: "Mwata Kazembe XVII Paul Kanyembo Lutaba on tour shortly after installation."
   },
   {
+    creditId: "people-royal-women-regalia",
+    title: "Royal women in ceremonial dress",
+    note: "Senior royal women in the red, white, and blue of the Kingdom at a Kingdom occasion."
+  },
+  {
     creditId: "hero-home-portrait",
     title: "Office of the reigning Mwata",
     note: "Mwata Kazembe XIX — public leadership from the royal seat at Mwansabombwe."
@@ -625,6 +630,14 @@ export const mutombokoFeature = {
     },
     {
       imageCreditId: "mutomboko-muselo-mwata",
+      verified: true
+    },
+    {
+      imageCreditId: "mutomboko-muselo-procession",
+      verified: true
+    },
+    {
+      imageCreditId: "mutomboko-ceremony-crowd",
       verified: true
     },
     {
