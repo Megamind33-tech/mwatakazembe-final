@@ -288,19 +288,15 @@ function initScrollReveal() {
     { threshold: 0.06, rootMargin: "0px 0px -30px 0px" }
   );
 
+  // Card grids are handled by initStaggerReveal() (GSAP, per-card). Here we
+  // only reveal section heads and larger structural blocks.
   const selectors = [
     ".section:not(.royal-hero) .section-head",
     ".section:not(.royal-hero) .facts-strip",
-    ".section:not(.royal-hero) .authority-grid",
-    ".section:not(.royal-hero) .comm-grid",
-    ".section:not(.royal-hero) .pillar-grid",
-    ".section:not(.royal-hero) .gov-institution-grid",
-    ".section:not(.royal-hero) .agency-grid",
     ".section:not(.royal-hero) .story-layout",
     ".section:not(.royal-hero) .lineage-shell",
     ".section:not(.royal-hero) .journey-shell",
     ".section:not(.royal-hero) .glance-map",
-    ".section:not(.royal-hero) .gallery-grid",
     ".section:not(.royal-hero) .clan-registry-wrap",
     ".official-notice-strip",
     ".news-ticker",
@@ -313,6 +309,112 @@ function initScrollReveal() {
     if (inView) return;
     el.classList.add("reveal-block");
     observer.observe(el);
+  });
+}
+
+const STAGGER_SELECTORS = [
+  ".authority-grid",
+  ".comm-grid",
+  ".pillar-grid",
+  ".gov-institution-grid",
+  ".agency-grid",
+  ".people-grid",
+  ".clan-roles-grid",
+  ".gallery-grid",
+  ".figures-grid",
+];
+
+// Buganda-style staggered card reveals: each card in a grid fades and rises in
+// sequence as the grid scrolls into view. GSAP only — without it (or under
+// reduced motion) cards remain fully visible.
+function initStaggerReveal() {
+  if (!motionEnabled()) return;
+  const active = $(".page.active") || document;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        gsap.to(Array.from(entry.target.children), {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: { amount: 0.5 },
+          ease: "power2.out",
+          clearProps: "transform,opacity,visibility",
+        });
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  STAGGER_SELECTORS.flatMap((s) => $$(s, active)).forEach((grid) => {
+    if (grid.dataset.staggerBound === "true") return;
+    const cards = Array.from(grid.children);
+    if (!cards.length) return;
+    grid.dataset.staggerBound = "true";
+    const rect = grid.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      gsap.from(cards, {
+        autoAlpha: 0,
+        y: 18,
+        duration: 0.5,
+        stagger: { amount: 0.5 },
+        ease: "power2.out",
+        clearProps: "transform,opacity,visibility",
+      });
+      return;
+    }
+    gsap.set(cards, { autoAlpha: 0, y: 18 });
+    observer.observe(grid);
+  });
+}
+
+// Buganda-style "Facts & Figures" counters: numbers count up from zero when
+// the figures grid scrolls into view.
+function initCountUp() {
+  const duration = 1800;
+  const easeOutQuad = (t) => t * (2 - t);
+
+  $$("[data-count-up]").forEach((group) => {
+    if (group.dataset.countBound === "true") return;
+    group.dataset.countBound = "true";
+    const values = $$(".figure-value[data-count]", group);
+    if (!values.length) return;
+
+    const format = (el, n) => (el.dataset.noComma === "true" ? String(n) : n.toLocaleString());
+
+    const run = () => {
+      values.forEach((el) => {
+        const target = Number(el.dataset.count || "0");
+        if (reduceMotion.matches) {
+          el.textContent = format(el, target);
+          return;
+        }
+        const start = performance.now();
+        const step = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = format(el, Math.floor(easeOutQuad(progress) * target));
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = format(el, target);
+        };
+        requestAnimationFrame(step);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          run();
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(group);
   });
 }
 
@@ -344,6 +446,8 @@ let bound = false;
 export function initInteractions() {
   if (bound) {
     initScrollReveal();
+    initStaggerReveal();
+    initCountUp();
     initImageHoverCredits();
     initHeroMotion();
     bindLineageRail();
@@ -357,6 +461,8 @@ export function initInteractions() {
   bindHistoryChapters();
   bindTimelineDetail();
   initScrollReveal();
+  initStaggerReveal();
+  initCountUp();
   initHeroMotion();
   initImageHoverCredits();
   initHomeSectionNav();
