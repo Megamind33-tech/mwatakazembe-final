@@ -489,6 +489,17 @@ export const governanceStructure = [
   }
 ];
 
+// Placeholder seats for the Council of Chiefs leadership chart. These are
+// intentionally unnamed — replace each "To be confirmed" entry with the
+// actual Senior Chief, their title, and their chiefdom/area as supplied by
+// the Royal Protocol Office. Add or remove seats to match the real council.
+export const seniorChiefSeats = [
+  { id: "seat-1", title: "Senior Chief", area: "To be confirmed", pending: true },
+  { id: "seat-2", title: "Senior Chief", area: "To be confirmed", pending: true },
+  { id: "seat-3", title: "Senior Chief", area: "To be confirmed", pending: true },
+  { id: "seat-4", title: "Senior Chief", area: "To be confirmed", pending: true }
+];
+
 export const latestCommunications = [
   {
     id: "ceremony-1",

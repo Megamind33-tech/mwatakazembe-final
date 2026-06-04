@@ -5,6 +5,7 @@ import {
   governanceInstitutions,
   governanceSections,
   governanceStructure,
+  seniorChiefSeats,
   historyChapters,
   kingdomAgencies,
   kingdomSections,
@@ -340,6 +341,54 @@ function renderClans() {
   `;
 }
 
+function councilChartHtml() {
+  const byTier = (t) => governanceStructure.filter((n) => n.tier === t);
+  const node = (n, extraClass = "") => `
+    <article class="chart-node node-${esc(n.id)} ${extraClass}" data-chart-node>
+      <span class="chart-node-tier">Tier ${esc(String(n.tier))}</span>
+      <h3>${esc(n.title)}</h3>
+      <p>${esc(n.description)}</p>
+    </article>
+  `;
+
+  const root = byTier(1).map((n) => node(n, "node-root")).join("");
+  const branch = byTier(2).map((n) => node(n, "node-branch")).join("");
+  const support = byTier(3).map((n) => node(n)).join("");
+
+  const seats = seniorChiefSeats
+    .map(
+      (s) => `
+      <article class="chart-seat ${s.pending ? "is-pending" : ""}" data-chart-seat id="seat-${esc(s.id)}">
+        <span class="chart-seat-marker" aria-hidden="true"></span>
+        <h4>${esc(s.title)}</h4>
+        <p>${esc(s.area)}</p>
+      </article>
+    `
+    )
+    .join("");
+
+  const rail = `<div class="chart-rail" data-chart-rail aria-hidden="true"></div>`;
+
+  return `
+    <section class="subsection council-chart-section" id="council-chart">
+      ${sectionHead("Leadership Structure", "The Council of Chiefs", "How traditional authority flows from the Mwata through the Royal Council and Senior Chiefs to the institutions that serve the Kingdom.")}
+      <div class="council-chart" data-council-chart>
+        <div class="chart-level chart-level-root">${root}</div>
+        ${rail}
+        <div class="chart-level chart-level-branch">${branch}</div>
+        ${rail}
+        <div class="chart-seats-wrap">
+          <p class="chart-seats-label">Senior Chiefs — seats of the Council</p>
+          <div class="chart-seats">${seats}</div>
+          ${pendingNote("Seats shown are placeholders. Names and chiefdoms to be confirmed with the Royal Protocol Office.")}
+        </div>
+        ${rail}
+        <div class="chart-level chart-level-support">${support}</div>
+      </div>
+    </section>
+  `;
+}
+
 function renderGovernance() {
   const govAnchor = (id) => (["council", "chiefs", "protocol"].includes(id) ? id : `gov-${id}`);
   const institutions = governanceInstitutions
@@ -389,6 +438,7 @@ function renderGovernance() {
       <section class="subsection" id="council">
         ${sectionHead("Deliberation", "Royal Council")}
       </section>
+      ${councilChartHtml()}
       <div class="gov-institution-grid">${institutions}</div>
       <section class="subsection" id="agencies">
         ${sectionHead("Kingdom desks", "Kingdom Agencies")}
@@ -1539,6 +1589,7 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
   animateReveal();
   if (pageId === "home") initInteractions();
+  if (pageId === "governance") initCouncilChart();
 }
 
 function resolvePageFromHash() {
@@ -1694,6 +1745,45 @@ function animateReveal() {
   });
 }
 
+const councilMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function playCouncilChart(chart) {
+  if (chart.dataset.animated === "true") return;
+  chart.dataset.animated = "true";
+  if (!window.gsap || councilMotionQuery.matches) return; // chart is visible by default
+
+  const q = (sel) => Array.from(chart.querySelectorAll(sel));
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  tl.from(chart.querySelectorAll(".node-root"), { autoAlpha: 0, y: 18, scale: 0.96, duration: 0.6, clearProps: "transform,opacity,visibility" })
+    .from(q("[data-chart-rail]"), { scaleY: 0, transformOrigin: "top center", duration: 0.4, stagger: 0.12, clearProps: "transform" }, "-=0.2")
+    .from(chart.querySelectorAll(".node-branch"), { autoAlpha: 0, y: 22, duration: 0.5, stagger: 0.12, clearProps: "transform,opacity,visibility" }, "-=0.45")
+    .from(q("[data-chart-seat]"), { autoAlpha: 0, y: 16, duration: 0.42, stagger: 0.08, clearProps: "transform,opacity,visibility" }, "-=0.2")
+    .from(chart.querySelectorAll(".chart-level-support .chart-node"), { autoAlpha: 0, y: 22, duration: 0.5, stagger: 0.09, clearProps: "transform,opacity,visibility" }, "-=0.1");
+}
+
+function initCouncilChart() {
+  const chart = document.querySelector("[data-council-chart]");
+  if (!chart || chart.dataset.observed === "true") return;
+  chart.dataset.observed = "true";
+
+  if (!window.gsap || councilMotionQuery.matches) {
+    chart.dataset.animated = "true";
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        playCouncilChart(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.18 }
+  );
+  observer.observe(chart);
+}
+
 function init() {
   renderUtilityBar();
   renderNav();
@@ -1721,6 +1811,7 @@ function init() {
   bindBackToTop();
   resolvePageFromHash();
   initInteractions();
+  initCouncilChart();
 }
 
 init();
