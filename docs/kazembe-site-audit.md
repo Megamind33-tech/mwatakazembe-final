@@ -125,7 +125,7 @@ public captions.
 | Image | Placed in | Identification basis | Status |
 |---|---|---|---|
 | Mwata Kazembe XI, Muonga Kapakata (1904–1919) | Office of the Mwata → Historical continuity; Gallery | **Verified** — the photograph's printed caption matches the Kingdom lineage record (`kings` id 11). | identity sourced; rights needs-confirmation |
-| A Mwata Kazembe with the staff of office (B&W) | Office of the Mwata → Historical continuity; Gallery | Visibly a Mwata Kazembe with staff; which officeholder unconfirmed. | needs-confirmation |
+| The Mwata Kazembe with the staff of office (B&W) | Office of the Mwata → Historical continuity; Gallery | Visibly the Mwata Kazembe with staff; which officeholder unconfirmed. | needs-confirmation |
 | Royal ceremony at Kazembe, colonial era | Office of the Mwata → Historical continuity; Gallery | Union Jack bunting + colonial officer → colonial era (consistent with c. 1961); exact event/year unconfirmed. | needs-confirmation |
 | His Royal Highness the Mwata Kazembe at a traditional ceremony | Office of the Mwata; Gallery | The Mwata in royal regalia at a Kingdom ceremony. | needs-confirmation |
 | His Royal Highness the Mwata Kazembe during the Mutomboko ceremony | Office of the Mwata; Mutomboko gallery; Gallery | White attire is worn during Mutomboko (confirmed by the Kingdom). | needs-confirmation (year) |

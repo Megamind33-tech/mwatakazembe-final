@@ -396,11 +396,11 @@ export function homePageHtml() {
     <section class="section section-lineage" id="mwata-lineage">
       <div class="container">
         ${sectionHead("Continuity of Kingship", "The Mwata Kazembe Line")}
-        <p class="section-deck">Nineteen recorded rulers from Mwata Kazembe I to XIX — select a Mwata for reign dates, historical role, and source notes.</p>
+        <p class="section-deck">Nineteen recorded rulers from Mwata Kazembe I to XIX — select a ruler for reign dates, historical role, and source notes.</p>
         <div class="lineage-shell">
           <div class="lineage-rail swipe-track" data-swipe="lineage" role="tablist" aria-label="Mwata Kazembe rulers">${lineageRailHtml()}</div>
           <aside class="lineage-detail" id="lineage-detail" aria-live="polite">
-            <p class="lineage-detail-placeholder">Select a Mwata to open the ruler profile.</p>
+            <p class="lineage-detail-placeholder">Select a ruler to open the profile.</p>
           </aside>
         </div>
         <p class="section-cta">

@@ -188,7 +188,7 @@
 **Page:** Office of the Mwata (Historical continuity + ceremonial portraits), Mutomboko gallery, People, Gallery
 **Claim:** Eight supplied images were placed live (see `kazembe-site-audit.md` → Supplied Media Batch)
 **Issue:** Most carry `verificationStatus: "needs-confirmation"` in `image-credits.js` for either the specific person/year or the original photographer/rights. The exception is the Mwata Kazembe XI portrait, whose identity is verified by its printed caption matching the lineage record (rights still to confirm).
-**Safe to publish now?** Public captions state only what is visually verifiable (location, regalia, "a Mwata Kazembe"); no uncertain detail is presented as fact.
+**Safe to publish now?** Public captions state only what is visually verifiable (location, regalia, "the Mwata Kazembe"); no uncertain detail is presented as fact.
 **Verification needed:**
 - Original photographer / reuse rights for each supplied image
 - Specific officeholder for the B&W staff-of-office portrait
