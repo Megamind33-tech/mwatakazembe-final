@@ -129,7 +129,7 @@ public captions.
 | Royal ceremony at Kazembe, colonial era | Office of the Mwata → Historical continuity; Gallery | Union Jack bunting + colonial officer → colonial era (consistent with c. 1961); exact event/year unconfirmed. | needs-confirmation |
 | His Royal Highness the Mwata Kazembe at a traditional ceremony | Office of the Mwata; Gallery | The Mwata in royal regalia at a Kingdom ceremony. | needs-confirmation |
 | His Royal Highness the Mwata Kazembe during the Mutomboko ceremony | Office of the Mwata; Mutomboko gallery; Gallery | White attire is worn during Mutomboko (confirmed by the Kingdom). | needs-confirmation (year) |
-| Royal procession on the Muselo litter, Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe district signboard + Mutomboko monument visible. | needs-confirmation (year) |
+| Late Sub-Chief Chipushi carried on the Muselo litter, Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe district signboard visible; funeral procession. | needs-confirmation (year) |
 | Funeral of the late Sub-Chief Chipushi at Mwansabombwe | Mutomboko gallery; Gallery | Funeral proceedings at Mwansabombwe. | needs-confirmation (year) |
 | Lunda-Kazembe chiefs in ceremonial dress | People of the Kingdom; Gallery | Chiefs in the Kingdom's red-white-blue ceremonial colours. | needs-confirmation |
 

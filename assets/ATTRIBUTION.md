@@ -64,7 +64,7 @@ Confirm original photographer and reuse rights with the Royal Protocol Office be
 - `assets/images/kazembe/archive/royal-ceremony-colonial-era.jpg` — colonial-era royal ceremony at Kazembe (event/year to confirm).
 - `assets/images/kazembe/mwata/mwata-beaded-crown.jpg` — the Mwata Kazembe in the beaded ceremonial crown.
 - `assets/images/kazembe/mwata/mwata-white-ceremonial-dress.jpg` — the Mwata Kazembe in white ceremonial dress.
-- `assets/images/kazembe/mutomboko/muselo-procession-mwansabombwe.jpg` — royal Muselo-litter procession at Mwansabombwe.
+- `assets/images/kazembe/mutomboko/muselo-procession-mwansabombwe.jpg` — late Sub-Chief Chipushi carried on the Muselo litter at Mwansabombwe.
 - `assets/images/kazembe/mutomboko/ceremony-crowd-mwansabombwe.jpg` — funeral of the late Sub-Chief Chipushi at Mwansabombwe.
 - `assets/images/kazembe/people/royal-women-regalia.jpg` — Lunda-Kazembe chiefs in ceremonial dress.
 
