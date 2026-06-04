@@ -65,7 +65,7 @@ Confirm original photographer and reuse rights with the Royal Protocol Office be
 - `assets/images/kazembe/mwata/mwata-beaded-crown.jpg` — the Mwata Kazembe in the beaded ceremonial crown.
 - `assets/images/kazembe/mwata/mwata-white-ceremonial-dress.jpg` — the Mwata Kazembe in white ceremonial dress.
 - `assets/images/kazembe/mutomboko/muselo-procession-mwansabombwe.jpg` — royal Muselo-litter procession at Mwansabombwe.
-- `assets/images/kazembe/mutomboko/ceremony-crowd-mwansabombwe.jpg` — ceremony crowd at Mwansabombwe.
+- `assets/images/kazembe/mutomboko/ceremony-crowd-mwansabombwe.jpg` — funeral of the late Sub-Chief Chipushi at Mwansabombwe.
 - `assets/images/kazembe/people/royal-women-regalia.jpg` — Lunda-Kazembe chiefs in ceremonial dress.
 
 Images held back for rights/identification (not placed live) are listed in
