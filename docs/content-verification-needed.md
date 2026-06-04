@@ -65,7 +65,7 @@
 ## 6. Mwata Kazembe XIX Full Biography
 
 **Page:** The Mwata page  
-**Claim:** Name (Paul Mpemba Kanyembo Kapale Mpalume), reign from 1998, Mwata Kazembe XIX  
+**Claim:** Name (Paul Mpemba Kanyembo Kapale Mpalumena), reign from 1998, Mwata Kazembe XIX  
 **Issue:** Detailed personal biography beyond reign, ceremony role, and lineage position has not been officially supplied  
 **Safe to publish now?** Yes — name and reign are well-sourced (chalochatu.org lineage reference, Zambia Tourism Agency, UNZA dissertation)  
 **Verification needed:** Full official biography from Office of the Mwata  
