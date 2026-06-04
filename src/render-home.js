@@ -7,6 +7,7 @@ import {
   homeLeadershipCards,
   kingdomAgencies,
   kingdomGlance,
+  kingdomFigures,
   kings,
   latestCommunications,
   mutombokoFeature,
@@ -93,6 +94,22 @@ export function homePageHtml() {
 
   const glance = kingdomGlance
     .map((f) => `<div class="fact-cell"><span class="fact-label">${esc(f.label)}</span><strong>${esc(f.value)}</strong></div>`)
+    .join("");
+
+  const figures = kingdomFigures
+    .map(
+      (f) => `
+      <li class="figure-cell">
+        <div class="figure-number">
+          ${f.prefix ? `<span class="figure-affix">${esc(f.prefix)}</span>` : ""}
+          <span class="figure-value" data-count="${esc(String(f.value))}"${f.noComma ? " data-no-comma=\"true\"" : ""}>0</span>
+          ${f.suffix ? `<span class="figure-affix">${esc(f.suffix)}</span>` : ""}
+        </div>
+        <span class="figure-label">${esc(f.label)}</span>
+        ${f.note ? `<span class="figure-note">${esc(f.note)}</span>` : ""}
+      </li>
+    `
+    )
     .join("");
 
   const news = latestCommunications
@@ -330,6 +347,13 @@ export function homePageHtml() {
             ${creditCaption("places-kingdom-map-2007")}
           </figure>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-figures" id="kingdom-figures">
+      <div class="container">
+        ${sectionHead("Facts & Figures", "The Kingdom in Numbers")}
+        <ul class="figures-grid" data-count-up>${figures}</ul>
       </div>
     </section>
 

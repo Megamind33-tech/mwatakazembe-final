@@ -378,6 +378,18 @@ export const kingdomGlance = [
   }
 ];
 
+// Numeric facts for the animated "Facts & Figures" counters. Every figure is
+// drawn from records already in the site (founding c. 1740 of Mwata Kazembe I,
+// nineteen recorded Mwatas, the six-stage Umutomboko). "Years on record" is
+// computed from the founding year so it never goes stale.
+const KINGDOM_FOUNDED = 1740;
+export const kingdomFigures = [
+  { value: KINGDOM_FOUNDED, prefix: "c.", noComma: true, label: "Dynasty Founded", note: "Mwata Kazembe I, Ng'anga Bilonda" },
+  { value: 19, label: "Recorded Mwatas", note: "Lineage I–XIX on record" },
+  { value: 6, label: "Umutomboko Stages", note: "Two-day state ceremony" },
+  { value: new Date().getFullYear() - KINGDOM_FOUNDED, suffix: "+", label: "Years on Record", note: "Continuity at Mwansabombwe" }
+];
+
 export const governanceInstitutions = [
   {
     id: "mwata",
