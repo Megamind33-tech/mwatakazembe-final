@@ -131,7 +131,7 @@ public captions.
 | His Royal Highness the Mwata Kazembe during the Mutomboko ceremony | Office of the Mwata; Mutomboko gallery; Gallery | White attire is worn during Mutomboko (confirmed by the Kingdom). | needs-confirmation (year) |
 | Royal procession on the Muselo litter, Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe district signboard + Mutomboko monument visible. | needs-confirmation (year) |
 | Ceremony crowd at Mwansabombwe | Mutomboko gallery; Gallery | Mwansabombwe monument visible. | needs-confirmation (year) |
-| Royal women in Lunda-Kazembe ceremonial dress | People of the Kingdom; Gallery | Women in the Kingdom's red-white-blue ceremonial colours. | needs-confirmation |
+| Lunda-Kazembe chiefs in ceremonial dress | People of the Kingdom; Gallery | Chiefs in the Kingdom's red-white-blue ceremonial colours. | needs-confirmation |
 
 **Held back (not placed live)** — listed in `image-candidates-needing-approval.md`: a watermarked
 "© Andy Luku Jr. Photography" image, an "Explore Zambia with Prosper" branded infographic, an
