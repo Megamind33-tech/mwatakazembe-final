@@ -343,8 +343,8 @@ export const peopleSpotlights = [
   },
   {
     creditId: "people-royal-women-regalia",
-    title: "Royal women in ceremonial dress",
-    note: "Senior royal women in the red, white, and blue of the Kingdom at a Kingdom occasion."
+    title: "Lunda-Kazembe chiefs in ceremonial dress",
+    note: "Senior Lunda-Kazembe chiefs in the red, white, and blue of the Kingdom at a Kingdom occasion."
   },
   {
     creditId: "hero-home-portrait",
