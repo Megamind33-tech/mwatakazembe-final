@@ -193,7 +193,7 @@ export const rulerProfiles = {
     historicalRole:
       "Reigning Mwata Kazembe XIX; presides over Umutomboko, regional Lunda diplomatic contexts, and public leadership from Mwansabombwe.",
     keyEvents: [
-      "Listed as Paul Mpemba Kanyembo Kapale Mpelumena from 1998 onward in public lineage references.",
+      "Listed as Paul Mpemba Kanyembo Kapale Mpalumena from 1998 onward in public lineage references.",
       "Documented at Umutomboko in press and Commons ceremony photography (2017)."
     ],
     governance:

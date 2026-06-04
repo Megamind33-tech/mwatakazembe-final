@@ -167,7 +167,7 @@ export const homeLeadershipCards = [
     title: "His Royal Highness Mwata Kazembe",
     role: "Office of the Mwata",
     description:
-      "Paul Mpemba Kanyembo Kapale Mpelumena, Mwata Kazembe XIX, holds the royal seat at Mwansabombwe as the centre of authority, ceremony, and public leadership.",
+      "Paul Mpemba Kanyembo Kapale Mpalumena, Mwata Kazembe XIX, holds the royal seat at Mwansabombwe as the centre of authority, ceremony, and public leadership.",
     imageCreditId: "hero-home-portrait",
     href: "#mwata"
   },
@@ -203,7 +203,7 @@ export const royalSpotlight = [
     id: "mwata",
     role: "Office of the Mwata",
     name: "Mwata Kazembe XIX",
-    person: "Paul Mpemba Kanyembo Kapale Mpelumena",
+    person: "Paul Mpemba Kanyembo Kapale Mpalumena",
     summary: "Reigning Mwata from 1998; presides over Umutomboko and kingdom public leadership.",
     imageCreditId: "hero-home-portrait",
     href: "#mwata",
@@ -281,7 +281,7 @@ export const leadershipCards = [
     title: "His Royal Highness Mwata Kazembe",
     role: "Office of the Mwata",
     description:
-      "Paul Mpemba Kanyembo Kapale Mpelumena, Mwata Kazembe XIX, holds the royal seat at Mwansabombwe as the centre of authority, ceremony, and public leadership.",
+      "Paul Mpemba Kanyembo Kapale Mpalumena, Mwata Kazembe XIX, holds the royal seat at Mwansabombwe as the centre of authority, ceremony, and public leadership.",
     image: siteMeta.heroImage,
     href: "#mwata"
   },
@@ -807,7 +807,7 @@ export const kingdomAgencies = [
 export const agencies = kingdomAgencies.map((a) => ({ name: a.title, status: a.pending ? "pending" : "active" }));
 
 export const mwataProfile = {
-  name: "Paul Mpemba Kanyembo Kapale Mpelumena",
+  name: "Paul Mpemba Kanyembo Kapale Mpalumena",
   title: "Mwata Kazembe XIX",
   reign: "1998–present",
   image: siteMeta.heroImage,
