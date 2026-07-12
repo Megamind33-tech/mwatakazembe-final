@@ -108,3 +108,4 @@ The following images in `assets/generated/` were created with GPT Images for res
 ## Vendored frontend library
 
 - `src/vendor/gsap.min.js` — GSAP 3.12.5 for dignified scroll and section motion
+- `src/vendor/ScrollTrigger.min.js` — GSAP ScrollTrigger 3.12.5 plugin for scroll-driven parallax and reveals

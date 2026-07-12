@@ -102,6 +102,8 @@
       var splash = document.getElementById("splash");
       if (splash) {
         splash.classList.add("splash-hidden");
+        // Let the app know the viewport is visible (hero entrance waits for this)
+        window.dispatchEvent(new Event("splash:dismissed"));
         // Remove from DOM after transition ends
         setTimeout(function () {
           if (splash.parentNode) splash.parentNode.removeChild(splash);
