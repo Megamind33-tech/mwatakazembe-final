@@ -3634,3 +3634,24 @@ body.lightbox-open {
   }
 }
 
+
+/* Motion layer (GSAP) — word masks for rising headlines, hero clipping for
+   parallax. Without JS these have no visual effect. */
+.motion-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* keep descenders (g, y, p) inside the mask */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.motion-word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Parallaxed hero backgrounds are scaled up; clip the overflow */
+.page-hero {
+  overflow: hidden;
+}

@@ -290,8 +290,8 @@ function initScrollReveal() {
 
   // Card grids are handled by initStaggerReveal() (GSAP, per-card). Here we
   // only reveal section heads and larger structural blocks.
+  // Section heads are owned by motion.js (GSAP ScrollTrigger reveals).
   const selectors = [
-    ".section:not(.royal-hero) .section-head",
     ".section:not(.royal-hero) .facts-strip",
     ".section:not(.royal-hero) .story-layout",
     ".section:not(.royal-hero) .lineage-shell",
@@ -418,17 +418,6 @@ function initCountUp() {
   });
 }
 
-function initHeroMotion() {
-  const hero = $(".royal-hero-split");
-  if (!hero || reduceMotion.matches || !motionEnabled()) return;
-  const content = $$(".hero-content > *", hero);
-  gsap.fromTo(
-    content,
-    { autoAlpha: 0, y: 16 },
-    { autoAlpha: 1, y: 0, duration: 0.75, stagger: 0.08, ease: "power2.out", clearProps: "transform,opacity,visibility" }
-  );
-}
-
 function initImageHoverCredits() {
   $$(".figure-media img, .gallery-item img, .card-media img, .hero-media img").forEach((img) => {
     const creditId = img.dataset.creditId;
@@ -449,7 +438,6 @@ export function initInteractions() {
     initStaggerReveal();
     initCountUp();
     initImageHoverCredits();
-    initHeroMotion();
     bindLineageRail();
     return;
   }
@@ -463,7 +451,6 @@ export function initInteractions() {
   initScrollReveal();
   initStaggerReveal();
   initCountUp();
-  initHeroMotion();
   initImageHoverCredits();
   initHomeSectionNav();
 }

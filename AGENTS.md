@@ -32,7 +32,9 @@ Open `http://localhost:8080/` in a browser.
 | `src/data.js` | Verified rulers, ceremony steps, routes, sources, calendar |
 | `src/styles.css` | Institutional design system |
 | `src/mobile-editorial.js` | Mobile swipe track hints |
-| `src/vendor/gsap.min.js` | Subtle page reveal animations only |
+| `src/motion.js` | GSAP motion layer: page transitions, hero entrances, parallax, scroll reveals |
+| `src/vendor/gsap.min.js` | GSAP 3.12.5 core |
+| `src/vendor/ScrollTrigger.min.js` | GSAP ScrollTrigger plugin (scroll-driven motion) |
 
 ### Gotchas
 

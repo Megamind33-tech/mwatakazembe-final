@@ -35,6 +35,7 @@ import {
 import { creditCaption, getCreditById } from "./image-credits.js";
 import { supportingReferences, supportingVideos } from "./kazembe-supporting-media.js";
 import { initInteractions } from "./interactions.js";
+import { initPageMotion } from "./motion.js";
 import { homePageHtml } from "./render-home.js";
 import { enrichKings } from "./ruler-profiles.js";
 import { esc, pendingNote, sectionHead, sourceCitation } from "./ui-helpers.js";
@@ -1586,8 +1587,17 @@ function showPage(pageId) {
   });
   document.body.dataset.page = pageId;
   closeMobileDrawer();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  animateReveal();
+  // Instant jump: the page cross-fade in initPageMotion covers the swap, and
+  // scroll-triggered reveals must be created from the top of the new page.
+  // Both the inline override and behavior:"instant" are needed to beat the
+  // global `scroll-behavior: smooth` — a smooth scroll left in flight gets
+  // cancelled by ScrollTrigger.refresh(), stranding the page mid-scroll.
+  const rootStyle = document.documentElement.style;
+  const prevScrollBehavior = rootStyle.scrollBehavior;
+  rootStyle.scrollBehavior = "auto";
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  rootStyle.scrollBehavior = prevScrollBehavior;
+  initPageMotion(pageId);
   if (pageId === "home") initInteractions();
   if (pageId === "governance") initCouncilChart();
 }
@@ -1730,18 +1740,6 @@ function bindBackToTop() {
   }, { passive: true });
   btn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
-function animateReveal() {
-  if (!window.gsap) return;
-  gsap.from(".page.active .royal-hero .hero-content > *", {
-    opacity: 0,
-    y: 20,
-    duration: 0.75,
-    stagger: 0.09,
-    ease: "power2.out",
-    clearProps: "opacity,transform"
   });
 }
 
