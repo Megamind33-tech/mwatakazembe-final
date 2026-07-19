@@ -116,9 +116,9 @@ export const supportNav = {
 };
 
 export const heroCtas = [
-  { label: "The Lunda-Kazembe Story", href: "#kingdom-story", primary: true },
-  { label: "Clans & People", href: "#clans-people" },
-  { label: "Umutomboko Ceremony", href: "#mutomboko-journey" }
+  { label: "The Office of the Mwata", href: "#mwata", primary: true },
+  { label: "Heritage & History", href: "#kingdom" },
+  { label: "Umutomboko Ceremony", href: "#mutomboko" }
 ];
 
 export const homeLeadershipCards = [
@@ -1014,8 +1014,8 @@ export const archiveRecords = [
     title: "Umutomboko 2017 — photographic record",
     type: "Photographs — ceremony",
     date: "2017",
-    note: "Ceremony photography from the 2017 Umutomboko, consolidated in the Gallery with full source credit.",
-    url: "#home-gallery",
+    note: "Ceremony photography from the 2017 Umutomboko, presented in the Umutomboko gallery with full source credit.",
+    url: "#mutomboko-gallery",
     available: true
   },
   {

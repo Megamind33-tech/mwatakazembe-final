@@ -787,7 +787,7 @@ function renderNewsroom() {
       </section>
       <section class="subsection" id="gallery">
         ${sectionHead("Media", "Gallery")}
-        <p class="section-deck">Credited images from ceremony, archive, and press sources. <a href="#home-gallery" data-nav="home">View homepage gallery</a>.</p>
+        <p class="section-deck">Credited images from ceremony, archive, and press sources. <a href="#mutomboko-gallery">View the Umutomboko gallery</a>.</p>
       </section>
     </div>
   `;
@@ -1538,23 +1538,12 @@ function bindMembershipEvents() {
 
 const HOME_ANCHORS = new Set([
   "official-notices",
-  "kingdom-story",
-  "mwata-lineage",
-  "mutomboko-journey",
-  "people-kingdom",
-  "clans-people",
-  "royal-news",
-  "home-gallery",
-  "visit-support",
   "kingdom-glance",
-  "office-mwata",
-  "home-governance",
-  "kingdom-agencies",
-  "development-public",
-  "living-kingdom",
-  "projects-progress",
-  "royal-spotlight",
-  "kingdom-stats"
+  "kingdom-figures",
+  "kingdom-pathways",
+  "mutomboko-feature",
+  "royal-news",
+  "support-kingdom"
 ]);
 
 function pageFromHash(hash) {
