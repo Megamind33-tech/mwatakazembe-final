@@ -20,6 +20,7 @@ import {
   royalMap,
   siteMeta,
   socialLinks,
+  supportNav,
   symbolsOfAuthority,
   utilityLinks,
   ceremonySteps,
@@ -90,45 +91,45 @@ function renderUtilityBar() {
 }
 
 function renderNav() {
-  const desktop = navigation
-    .map((item) => {
-      const children = item.children
-        ? `<div class="nav-dropdown">${item.children
-            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
-            .join("")}</div>`
-        : "";
-      return `
-        <div class="nav-item">
+  const desktopItem = (item, extraClass = "") => {
+    const children = item.children
+      ? `<div class="nav-dropdown">${item.children
+          .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+          .join("")}</div>`
+      : "";
+    return `
+        <div class="nav-item ${extraClass}">
           <a href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
           ${children}
         </div>
       `;
-    })
-    .join("");
+  };
+  const desktop =
+    navigation.map((item) => desktopItem(item)).join("") +
+    desktopItem(supportNav, "nav-item-support");
   $("#primary-nav").innerHTML = desktop;
 
-  const mobile = navigation
-    .map((item) => {
-      const sub = item.children
-        ? `<div class="mobile-sub">${item.children
-            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
-            .join("")}</div>`
-        : "";
-      return `
-        <div class="mobile-nav-group">
+  const mobileItem = (item, extraClass = "") => {
+    const sub = item.children
+      ? `<div class="mobile-sub">${item.children
+          .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+          .join("")}</div>`
+      : "";
+    return `
+        <div class="mobile-nav-group ${extraClass}">
           <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
           ${sub}
         </div>
       `;
-    })
-    .join("");
+  };
+  const mobile =
+    navigation.map((item) => mobileItem(item)).join("") +
+    mobileItem(supportNav, "mobile-nav-group-support");
   $("#mobile-nav").innerHTML = mobile;
 }
 
 function renderFooter() {
-  const cols = navigation
-    .map(
-      (item) => `
+  const footerCol = (item) => `
       <div class="footer-col">
         <h3><a href="${esc(item.href)}">${esc(item.label)}</a></h3>
         ${
@@ -137,9 +138,8 @@ function renderFooter() {
             : ""
         }
       </div>
-    `
-    )
-    .join("");
+    `;
+  const cols = navigation.map(footerCol).join("") + footerCol(supportNav);
   $("#site-footer").innerHTML = `
     <div class="footer-inner">
       <div class="footer-brand">

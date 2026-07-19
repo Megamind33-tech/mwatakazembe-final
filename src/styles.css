@@ -292,6 +292,32 @@ h3 {
   color: var(--ceremonial-red);
 }
 
+/* Support the Kingdom — engagement layer, held apart from the institutional nav */
+.nav-item-support {
+  margin-left: 0.35rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(244, 240, 230, 0.28);
+}
+
+.nav-item-support > a {
+  color: var(--white);
+  border: 1px solid rgba(244, 240, 230, 0.5);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+}
+
+.nav-item-support > a.is-active,
+.nav-item-support:hover > a {
+  background: var(--ceremonial-red);
+  border-color: var(--ceremonial-red);
+  color: var(--white);
+}
+
+.nav-item-support .nav-dropdown {
+  left: auto;
+  right: 0;
+}
+
 .menu-toggle {
   display: none;
   margin-left: auto;
@@ -401,6 +427,18 @@ h3 {
 
 .mobile-nav-group {
   margin-bottom: 0.5rem;
+}
+
+/* Support the Kingdom — separated engagement cluster in the mobile drawer */
+.mobile-nav-group-support {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--ceremonial-red);
+}
+
+.mobile-nav-group-support .mobile-nav-top {
+  color: var(--ceremonial-red);
+  border-bottom-color: transparent;
 }
 
 /* Pages */
