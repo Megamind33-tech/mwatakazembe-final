@@ -5,6 +5,10 @@
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+// Scrub-based parallax recomputes on every scroll frame; skip it on small
+// screens (phones/tablets) where it is the main source of scroll jank. The
+// once-off reveals below stay on — they fire a single timeline and are cheap.
+const smallScreen = window.matchMedia("(max-width: 700px)");
 
 const CLEAR = "transform,opacity,visibility";
 
@@ -236,7 +240,7 @@ function runPageMotion(page) {
   animatePageIn(page);
   if (!animateHomeHero(page)) animatePageHero(page);
   if (scrollMotionEnabled()) {
-    initParallax(page);
+    if (!smallScreen.matches) initParallax(page);
     initSectionHeadReveals(page);
     initBlockReveals(page);
     refreshWhenScrollSettles();

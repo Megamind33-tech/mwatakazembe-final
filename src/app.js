@@ -20,11 +20,13 @@ import {
   royalMap,
   siteMeta,
   socialLinks,
+  supportNav,
   symbolsOfAuthority,
   utilityLinks,
   ceremonySteps,
   museumItems,
-  storeProducts
+  storeProducts,
+  externalMediaSources
 } from "./kingdom-data.js";
 import {
   clansIntroduction,
@@ -32,7 +34,7 @@ import {
   clanRegistryNote,
   royalFamilyOffices
 } from "./clans-data.js";
-import { creditCaption, getCreditById } from "./image-credits.js";
+import { creditCaption, getCreditById, galleryCategories, imageCredits } from "./image-credits.js";
 import { supportingReferences, supportingVideos } from "./kazembe-supporting-media.js";
 import { initInteractions } from "./interactions.js";
 import { initPageMotion } from "./motion.js";
@@ -76,6 +78,56 @@ function creditFigureCard(id) {
   `;
 }
 
+// Canonical Kingdom gallery — the single home for the full credited image
+// collection (filters + grid + external media sources). Lives on the
+// Heritage & Culture page; the lightbox is bound globally in interactions.js.
+function heritageGalleryHtml() {
+  const filters = galleryCategories
+    .map((c) => `<button type="button" class="gallery-filter ${c.id === "all" ? "active" : ""}" data-filter="${esc(c.id)}">${esc(c.label)}</button>`)
+    .join("");
+
+  const items = imageCredits
+    .map(
+      (item) => `
+      <button type="button" class="gallery-item" data-category="${esc(item.category)}" data-lightbox="${esc(item.id)}" aria-label="Open ${esc(item.title)}">
+        <div class="gallery-item-media has-hover-credit">
+          <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(item.id)}">
+          <span class="hover-credit">${esc(item.creditLine)}</span>
+        </div>
+        <span class="gallery-item-title">${esc(item.title)}</span>
+        <span class="gallery-item-type">${esc(item.imageType || "documentary")}</span>
+      </button>
+    `
+    )
+    .join("");
+
+  const mediaSources = externalMediaSources
+    .map(
+      (s) => `
+      <li class="media-source-item">
+        <a href="${esc(s.url)}" target="_blank" rel="noreferrer"><strong>${esc(s.title)}</strong></a>
+        <span>${esc(s.publisher)}</span>
+        <p>${esc(s.note)}</p>
+      </li>
+    `
+    )
+    .join("");
+
+  return `
+    <section class="subsection section-gallery" id="kingdom-gallery">
+      ${sectionHead("Visual Record", "Gallery & Sources")}
+      <p class="section-deck">The kingdom's credited image collection — identity, ceremony, people, places, and archive — from official and press sources. Select any image for full caption, credit, and usage.</p>
+      <div class="filter-row" id="gallery-filters">${filters}</div>
+      <div class="gallery-grid premium-gallery" id="gallery-grid">${items}</div>
+      <div class="media-sources-panel">
+        <h3>Further verified media sources</h3>
+        <p class="section-deck">Ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
+        <ul class="media-sources-list">${mediaSources}</ul>
+      </div>
+    </section>
+  `;
+}
+
 function renderUtilityBar() {
   const links = utilityLinks.map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`).join("");
   const social = socialLinks
@@ -90,45 +142,52 @@ function renderUtilityBar() {
 }
 
 function renderNav() {
-  const desktop = navigation
-    .map((item) => {
-      const children = item.children
-        ? `<div class="nav-dropdown">${item.children
-            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
-            .join("")}</div>`
-        : "";
-      return `
-        <div class="nav-item">
+  const desktopItem = (item, extraClass = "") => {
+    const children = item.children
+      ? `<div class="nav-dropdown">${item.children
+          .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+          .join("")}</div>`
+      : "";
+    return `
+        <div class="nav-item ${extraClass}">
           <a href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
           ${children}
         </div>
       `;
-    })
-    .join("");
+  };
+  const desktop =
+    navigation.map((item) => desktopItem(item)).join("") +
+    desktopItem(supportNav, "nav-item-support");
   $("#primary-nav").innerHTML = desktop;
 
-  const mobile = navigation
-    .map((item) => {
-      const sub = item.children
-        ? `<div class="mobile-sub">${item.children
-            .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
-            .join("")}</div>`
-        : "";
-      return `
-        <div class="mobile-nav-group">
-          <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+  const mobileItem = (item, extraClass = "") => {
+    const hasChildren = item.children && item.children.length;
+    const sub = hasChildren
+      ? `<div class="mobile-sub" id="msub-${esc(item.id)}" hidden>${item.children
+          .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
+          .join("")}</div>`
+      : "";
+    const toggle = hasChildren
+      ? `<button class="mobile-sub-toggle" type="button" aria-expanded="false" aria-controls="msub-${esc(item.id)}" aria-label="Show ${esc(item.label)} sections"></button>`
+      : "";
+    return `
+        <div class="mobile-nav-group ${extraClass}">
+          <div class="mobile-nav-row">
+            <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+            ${toggle}
+          </div>
           ${sub}
         </div>
       `;
-    })
-    .join("");
+  };
+  const mobile =
+    navigation.map((item) => mobileItem(item)).join("") +
+    mobileItem(supportNav, "mobile-nav-group-support");
   $("#mobile-nav").innerHTML = mobile;
 }
 
 function renderFooter() {
-  const cols = navigation
-    .map(
-      (item) => `
+  const footerCol = (item) => `
       <div class="footer-col">
         <h3><a href="${esc(item.href)}">${esc(item.label)}</a></h3>
         ${
@@ -137,9 +196,8 @@ function renderFooter() {
             : ""
         }
       </div>
-    `
-    )
-    .join("");
+    `;
+  const cols = navigation.map(footerCol).join("") + footerCol(supportNav);
   $("#site-footer").innerHTML = `
     <div class="footer-inner">
       <div class="footer-brand">
@@ -391,7 +449,10 @@ function councilChartHtml() {
 }
 
 function renderGovernance() {
-  const govAnchor = (id) => (["council", "chiefs", "protocol"].includes(id) ? id : `gov-${id}`);
+  // "chiefs" and "protocol" institution cards are direct nav targets, so keep
+  // their bare ids. Everything else is namespaced to avoid colliding with the
+  // #council intro section and the gov-court accordion (governanceSections).
+  const govAnchor = (id) => (["chiefs", "protocol"].includes(id) ? id : `inst-${id}`);
   const institutions = governanceInstitutions
     .map(
       (g) => `
@@ -522,12 +583,21 @@ function renderKingdom() {
   $("#page-kingdom").innerHTML = `
     <div class="page-hero page-hero-compact">
       <div class="container page-hero-content">
-        <p class="eyebrow">The Kingdom</p>
-        <h1>History as State Formation</h1>
-        <p>Migration, trade, diplomacy, settlement, and the continuity of Lunda-Kazembe rule on the Luapula.</p>
+        <p class="eyebrow">Heritage & Culture</p>
+        <h1>Heritage & Culture of the Kazembe Kingdom</h1>
+        <p>State formation on the Luapula, the Mwata Kazembe line, the Umutomboko ceremony, the royal museum, and the visual record.</p>
       </div>
     </div>
     <div class="container page-body">
+      <section class="subsection heritage-hub" id="heritage-hub" aria-label="Heritage sections">
+        <div class="heritage-hub-grid">
+          <a class="heritage-hub-link" href="#kingdom-chapters">History &amp; State Formation</a>
+          <a class="heritage-hub-link" href="#kingdom-timeline">The Ruler Line</a>
+          <a class="heritage-hub-link" href="#mutomboko">Umutomboko Ceremony</a>
+          <a class="heritage-hub-link" href="#museum">Royal Museum</a>
+          <a class="heritage-hub-link" href="#kingdom-gallery">Gallery</a>
+        </div>
+      </section>
       <section class="subsection" id="kingdom-chapters">
         ${sectionHead("State formation", "The Lunda-Kazembe Story")}
         <div class="history-grid">${chapters}</div>
@@ -555,6 +625,7 @@ function renderKingdom() {
           ${creditCaption("places-kingdom-map-2007")}
         </figure>
       </section>
+      ${heritageGalleryHtml()}
     </div>
   `;
 }
@@ -782,12 +853,8 @@ function renderNewsroom() {
       </section>
       <section class="subsection" id="archive">
         ${sectionHead("Records", "Kingdom Archive")}
-        <p class="section-deck">Historical records, ceremony photography, and documents held or referenced by the Kingdom. Records not yet available are marked as pending official material.</p>
+        <p class="section-deck">Historical records, ceremony photography, and documents held or referenced by the Kingdom. Records not yet available are marked as pending official material. The full credited image collection is presented in the <a href="#kingdom-gallery">Heritage &amp; Culture gallery</a>.</p>
         <div class="archive-grid">${archives}</div>
-      </section>
-      <section class="subsection" id="gallery">
-        ${sectionHead("Media", "Gallery")}
-        <p class="section-deck">Credited images from ceremony, archive, and press sources. <a href="#home-gallery" data-nav="home">View homepage gallery</a>.</p>
       </section>
     </div>
   `;
@@ -872,8 +939,8 @@ function renderStore() {
       <section class="subsection">
         <div class="store-header-bar">
           <div>
-            <h2 style="font-family: var(--font-serif); margin: 0; color: var(--royal-blue-mid); font-size: 1.5rem;">Heritage Catalog</h2>
-            <p style="font-size: 0.88rem; color: var(--stone); margin: 0.25rem 0 0 0;">All proceeds support historical preservation and Mwansabombwe community projects.</p>
+            <h2 class="store-header-title">Heritage Catalog</h2>
+            <p class="store-header-note">All proceeds support historical preservation and Mwansabombwe community projects.</p>
           </div>
           <button type="button" class="cart-toggle-btn" id="cart-toggle-btn">
             <span>🛒 View Cart</span>
@@ -968,7 +1035,6 @@ function updateCartUI() {
             <button type="button" class="cart-qty-btn btn-qty-minus" data-id="${esc(item.product.id)}">-</button>
             <span class="cart-item-qty-val">${item.qty}</span>
             <button type="button" class="cart-qty-btn btn-qty-plus" data-id="${esc(item.product.id)}">+</button>
-            <span style="flex-grow: 1;"></span>
             <button type="button" class="cart-item-remove" data-id="${esc(item.product.id)}">Remove</button>
           </div>
         </div>
@@ -1050,44 +1116,37 @@ function bindCartEvents() {
       const totalAmount = cart.reduce((sum, item) => sum + item.product.price * item.qty, 0);
       
       const modal = document.createElement("div");
-      modal.style.position = "fixed";
-      modal.style.inset = "0";
-      modal.style.background = "rgba(18, 18, 18, 0.6)";
-      modal.style.zIndex = "1000";
-      modal.style.display = "flex";
-      modal.style.alignItems = "center";
-      modal.style.justifyContent = "center";
-      modal.style.padding = "1.5rem";
-      
+      modal.className = "kingdom-modal";
+
       modal.innerHTML = `
-        <div style="background: var(--white); border: 2px solid var(--royal-blue); padding: 2.5rem; max-width: 440px; text-align: center; box-shadow: var(--shadow); position: relative;">
-          <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">👑</span>
-          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--royal-blue-mid); margin: 0 0 1rem 0;">Simulated Secure Checkout</h3>
-          <p style="font-size: 0.9rem; color: var(--stone); line-height: 1.5; margin-bottom: 1.5rem;">
+        <div class="kingdom-modal-card">
+          <span class="kingdom-modal-icon">👑</span>
+          <h3>Simulated Secure Checkout</h3>
+          <p>
             You are placing a simulated order of <strong>$${totalAmount.toFixed(2)}</strong>. All proceeds from the Kingdom Store support cultural archives and youth projects in Mwansabombwe.
           </p>
-          <div style="display: flex; gap: 1rem; justify-content: center;">
-            <button type="button" id="modal-cancel" class="btn-add-cart" style="padding: 0.6rem 1.2rem;">Cancel</button>
-            <button type="button" id="modal-confirm" class="btn-checkout" style="padding: 0.6rem 1.2rem; width: auto; background: var(--ceremonial-red);">Confirm Order</button>
+          <div class="kingdom-modal-actions">
+            <button type="button" id="modal-cancel" class="btn-add-cart btn-compact">Cancel</button>
+            <button type="button" id="modal-confirm" class="btn-checkout btn-compact">Confirm Order</button>
           </div>
         </div>
       `;
-      
+
       document.body.appendChild(modal);
-      
+
       modal.querySelector("#modal-cancel").addEventListener("click", () => {
         modal.remove();
       });
-      
+
       modal.querySelector("#modal-confirm").addEventListener("click", () => {
         modal.innerHTML = `
-          <div style="background: var(--white); border: 2px solid var(--royal-blue); padding: 2.5rem; max-width: 440px; text-align: center; box-shadow: var(--shadow);">
-            <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">✨</span>
-            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--royal-blue-mid); margin: 0 0 1rem 0;">Order Successful!</h3>
-            <p style="font-size: 0.9rem; color: var(--stone); line-height: 1.5; margin-bottom: 1.5rem;">
+          <div class="kingdom-modal-card">
+            <span class="kingdom-modal-icon">✨</span>
+            <h3>Order Successful!</h3>
+            <p>
               Thank you for supporting the Mwata Kazembe Kingdom. Your order has been registered in our simulated database.
             </p>
-            <button type="button" id="modal-close" class="btn-checkout" style="padding: 0.6rem 1.2rem; width: 100%; background: var(--royal-blue);">Back to Store</button>
+            <button type="button" id="modal-close" class="btn-checkout btn-royal">Back to Store</button>
           </div>
         `;
         
@@ -1150,7 +1209,7 @@ function renderDonations() {
         </div>
 
         <div class="donation-form-panel">
-          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--royal-blue-mid); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Contribution Details</h3>
+          <h3 class="form-panel-title">Contribution Details</h3>
           <form id="donation-checkout-form">
             <div class="form-group">
               <label for="donor-name">Full Name</label>
@@ -1164,8 +1223,8 @@ function renderDonations() {
               <label for="donor-card">Card Details (Simulated)</label>
               <input type="text" id="donor-card" class="form-control" required placeholder="4111 2222 3333 4444" pattern="[0-9\\s]{13,19}">
             </div>
-            <div style="margin-top: 1.5rem;">
-              <button type="submit" class="btn-checkout" style="background: var(--ceremonial-red); width: 100%;">
+            <div class="form-actions">
+              <button type="submit" class="btn-checkout">
                 Submit Secure Contribution of <span id="donation-submit-amt">$100.00</span>
               </button>
             </div>
@@ -1218,26 +1277,19 @@ function bindDonationsEvents() {
     const donorEmail = $("#donor-email")?.value;
     
     const modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.inset = "0";
-    modal.style.background = "rgba(18, 18, 18, 0.6)";
-    modal.style.zIndex = "1000";
-    modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-    modal.style.padding = "1.5rem";
-    
+    modal.className = "kingdom-modal";
+
     modal.innerHTML = `
-      <div style="background: var(--white); border: 2px solid var(--royal-blue); padding: 2.5rem; max-width: 440px; text-align: center; box-shadow: var(--shadow);">
-        <span style="font-size: 2.5rem; display: block; margin-bottom: 1rem;">🤝</span>
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--royal-blue-mid); margin: 0 0 1rem 0;">Thank You, Guardian!</h3>
-        <p style="font-size: 0.9rem; color: var(--stone); line-height: 1.5; margin-bottom: 1.5rem;">
+      <div class="kingdom-modal-card">
+        <span class="kingdom-modal-icon">🤝</span>
+        <h3>Thank You, Guardian!</h3>
+        <p>
           Dear <strong>${esc(donorName)}</strong>, your simulated contribution of <strong>$${activeDonationAmount.toFixed(2)}</strong> was processed successfully.
         </p>
-        <p style="font-size: 0.8rem; color: var(--stone); line-height: 1.4; margin-bottom: 1.5rem; font-style: italic;">
+        <p class="is-fine">
           A simulated receipt has been dispatched to <strong>${esc(donorEmail)}</strong>. Your support is instrumental in maintaining the historical legacy of the Luapula-Lunda.
         </p>
-        <button type="button" id="donation-modal-close" class="btn-checkout" style="padding: 0.6rem 1.2rem; width: 100%; background: var(--royal-blue);">Close</button>
+        <button type="button" id="donation-modal-close" class="btn-checkout btn-royal">Close</button>
       </div>
     `;
     
@@ -1267,7 +1319,7 @@ function renderMembership() {
     <div class="container page-body">
       <div class="membership-layout">
         <div class="membership-form-wrap">
-          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--royal-blue-mid); margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">Registry Enrolment</h3>
+          <h3 class="form-panel-title">Registry Enrolment</h3>
           <form id="membership-reg-form">
             <div class="form-group">
               <label for="member-fullname">Full Name (to appear on certificate)</label>
@@ -1283,25 +1335,25 @@ function renderMembership() {
             </div>
             <div class="form-group">
               <label for="member-tier">Membership Category</label>
-              <select id="member-tier" class="form-control" required style="background: var(--white);">
+              <select id="member-tier" class="form-control" required>
                 <option value="Standard Supporter">Standard Supporter</option>
                 <option value="Cultural Custodian">Cultural Custodian</option>
                 <option value="Archival Contributor">Archival Contributor</option>
                 <option value="Honorary Elder">Honorary Elder</option>
               </select>
             </div>
-            <div style="margin-top: 1.5rem;">
-              <button type="submit" class="btn-checkout" style="background: var(--royal-blue); width: 100%;">Enrol and Generate Certificate</button>
+            <div class="form-actions">
+              <button type="submit" class="btn-checkout btn-royal">Enrol and Generate Certificate</button>
             </div>
           </form>
         </div>
-        
+
         <div class="certificate-preview-panel">
-          <h3 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--stone); text-align: center; margin-bottom: 1.5rem; width: 100%;">Digital Enrolment Scroll</h3>
-          <div id="certificate-target" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-            <div style="text-align: center; color: var(--stone); padding: 3rem 1.5rem; border: 2px dashed var(--border); width: 100%; max-width: 580px; box-sizing: border-box; background: var(--surface);">
-              <p style="font-size: 1rem; margin-bottom: 0.5rem; font-family: var(--font-serif);">No active enrolment found.</p>
-              <p style="font-size: 0.85rem; margin: 0;">Complete the registry form to instantly generate and print your parchment-style Certificate of Support.</p>
+          <h3 class="form-panel-title is-centered">Digital Enrolment Scroll</h3>
+          <div id="certificate-target" class="cert-target">
+            <div class="cert-empty">
+              <p class="cert-empty-title">No active enrolment found.</p>
+              <p class="cert-empty-sub">Complete the registry form to instantly generate and print your parchment-style Certificate of Support.</p>
             </div>
           </div>
         </div>
@@ -1341,7 +1393,7 @@ function bindMembershipEvents() {
         <span class="cert-statement">This official scroll hereby recognizes that</span>
         <span class="cert-name" id="cert-display-name">${esc(name)}</span>
         <span class="cert-statement">has been formally registered in the Royal Archives as a</span>
-        <strong style="display: block; font-size: 1.25rem; text-transform: uppercase; color: #4a3418; margin: 0.5rem 0; letter-spacing: 0.05em;">${esc(tier)}</strong>
+        <strong class="cert-tier">${esc(tier)}</strong>
         <p class="cert-desc">
           In recognition of their dedicated commitment to the preservation of Lunda-Kazembe history, the protection of sacred cultural regalia, and the support of education and community development across the Luapula valley.
         </p>
@@ -1538,23 +1590,12 @@ function bindMembershipEvents() {
 
 const HOME_ANCHORS = new Set([
   "official-notices",
-  "kingdom-story",
-  "mwata-lineage",
-  "mutomboko-journey",
-  "people-kingdom",
-  "clans-people",
-  "royal-news",
-  "home-gallery",
-  "visit-support",
   "kingdom-glance",
-  "office-mwata",
-  "home-governance",
-  "kingdom-agencies",
-  "development-public",
-  "living-kingdom",
-  "projects-progress",
-  "royal-spotlight",
-  "kingdom-stats"
+  "kingdom-figures",
+  "kingdom-pathways",
+  "mutomboko-feature",
+  "royal-news",
+  "support-kingdom"
 ]);
 
 function pageFromHash(hash) {
@@ -1673,6 +1714,16 @@ function bindNewsFilters() {
 
 function bindNavigation() {
   document.addEventListener("click", (e) => {
+    // Mobile drawer: chevron toggles a section's sub-links without navigating.
+    const subToggle = e.target.closest(".mobile-sub-toggle");
+    if (subToggle) {
+      const expanded = subToggle.getAttribute("aria-expanded") === "true";
+      subToggle.setAttribute("aria-expanded", String(!expanded));
+      const panel = document.getElementById(subToggle.getAttribute("aria-controls"));
+      if (panel) panel.hidden = expanded;
+      return;
+    }
+
     const nav = e.target.closest("[data-nav]");
     if (nav) {
       e.preventDefault();

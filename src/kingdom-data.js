@@ -34,31 +34,15 @@ export const socialLinks = [
 
 export const navigation = [
   {
-    id: "home",
-    label: "Home",
-    href: "#home"
-  },
-  {
     id: "mwata",
     label: "The Mwata",
     href: "#mwata",
     children: [
       { label: "Office of the Mwata", href: "#mwata-office" },
       { label: "Royal Household", href: "#mwata-household" },
-      { label: "Past Mwatas", href: "#mwata-past" },
+      { label: "Symbols of Authority", href: "#mwata-symbols" },
       { label: "Palace and Royal Court", href: "#mwata-palace" },
-      { label: "Symbols of Authority", href: "#mwata-symbols" }
-    ]
-  },
-  {
-    id: "clans",
-    label: "Clans & People",
-    href: "#clans",
-    children: [
-      { label: "Clan Register", href: "#clans-register" },
-      { label: "Clan Roles", href: "#clans-roles" },
-      { label: "Royal Family", href: "#royal-family" },
-      { label: "Verify a Record", href: "#clans-verify" }
+      { label: "Past Mwatas", href: "#mwata-past" }
     ]
   },
   {
@@ -68,36 +52,23 @@ export const navigation = [
     children: [
       { label: "Royal Council", href: "#council" },
       { label: "Senior Chiefs", href: "#chiefs" },
+      { label: "Clans & People", href: "#clans" },
       { label: "Traditional Court", href: "#gov-court" },
-      { label: "Administration", href: "#gov-admin" },
+      { label: "Administration & Agencies", href: "#agencies" },
       { label: "Land and Community Affairs", href: "#gov-land" },
       { label: "Protocol", href: "#protocol" }
     ]
   },
   {
     id: "kingdom",
-    label: "The Kingdom",
+    label: "Heritage & Culture",
     href: "#kingdom",
     children: [
-      { label: "Origin and Migration", href: "#kingdom-origin" },
-      { label: "Wars and Resistance", href: "#kingdom-wars" },
-      { label: "Trade and Diplomacy", href: "#kingdom-trade" },
-      { label: "Luapula and Lake Mweru", href: "#kingdom-geography" },
-      { label: "Early Mwatas", href: "#early-mwatas" },
-      { label: "Full Ruler Line", href: "#kingdom-timeline" }
-    ]
-  },
-  {
-    id: "mutomboko",
-    label: "Mutomboko",
-    href: "#mutomboko",
-    children: [
-      { label: "Meaning of Mutomboko", href: "#mutomboko-meaning" },
-      { label: "Ceremony Program", href: "#mutomboko-program" },
-      { label: "Past Ceremonies", href: "#mutomboko-past" },
-      { label: "Photo and Video Gallery", href: "#mutomboko-gallery" },
-      { label: "Visitor Information", href: "#mutomboko-visitor" },
-      { label: "Protocol and Dress Guidance", href: "#mutomboko-protocol" }
+      { label: "History & State Formation", href: "#kingdom-chapters" },
+      { label: "The Ruler Line", href: "#kingdom-timeline" },
+      { label: "Umutomboko Ceremony", href: "#mutomboko" },
+      { label: "Royal Museum", href: "#museum" },
+      { label: "Gallery", href: "#kingdom-gallery" }
     ]
   },
   {
@@ -105,13 +76,14 @@ export const navigation = [
     label: "Development",
     href: "#development",
     children: [
-      { label: "Agriculture", href: "#dev-agriculture" },
-      { label: "Fisheries", href: "#dev-fisheries" },
-      { label: "Tourism", href: "#dev-tourism" },
-      { label: "Youth and Skills", href: "#dev-youth" },
-      { label: "Business and Investment", href: "#dev-business" },
-      { label: "Culture and Creative Economy", href: "#dev-culture" },
-      { label: "Community Projects", href: "#dev-community" }
+      { label: "Agriculture & Food Security", href: "#dev-agriculture" },
+      { label: "Fisheries & Lake Mweru", href: "#dev-fisheries" },
+      { label: "Tourism & Cultural Economy", href: "#dev-tourism" },
+      { label: "Youth Participation", href: "#dev-youth" },
+      { label: "Land & Community Order", href: "#dev-land" },
+      { label: "Business, Trade & Investment", href: "#dev-business" },
+      { label: "Heritage Protection", href: "#dev-heritage" },
+      { label: "Education & Skills", href: "#dev-education" }
     ]
   },
   {
@@ -119,11 +91,7 @@ export const navigation = [
     label: "Newsroom",
     href: "#newsroom",
     children: [
-      { label: "Official Statements", href: "#news-statements" },
-      { label: "Latest News", href: "#news-latest" },
-      { label: "Speeches", href: "#news-speeches" },
-      { label: "Events", href: "#news-events" },
-      { label: "Gallery", href: "#gallery" },
+      { label: "Statements & News", href: "#news-grid" },
       { label: "Publications", href: "#publications" },
       { label: "Archive", href: "#archive" }
     ]
@@ -132,33 +100,26 @@ export const navigation = [
     id: "contact",
     label: "Contact",
     href: "#contact"
-  },
-  {
-    id: "museum",
-    label: "Museum",
-    href: "#museum"
-  },
-  {
-    id: "store",
-    label: "Store",
-    href: "#store"
-  },
-  {
-    id: "donations",
-    label: "Support",
-    href: "#donations"
-  },
-  {
-    id: "membership",
-    label: "Membership",
-    href: "#membership"
   }
 ];
 
+// Engagement / transactional layer — held apart from the institutional crest nav.
+// Rendered as a distinct "Support the Kingdom" cluster in the header and footer.
+export const supportNav = {
+  id: "donations",
+  label: "Support the Kingdom",
+  href: "#donations",
+  children: [
+    { label: "Support / Donate", href: "#donations" },
+    { label: "Membership & Registry", href: "#membership" },
+    { label: "Heritage Store", href: "#store" }
+  ]
+};
+
 export const heroCtas = [
-  { label: "The Lunda-Kazembe Story", href: "#kingdom-story", primary: true },
-  { label: "Clans & People", href: "#clans-people" },
-  { label: "Umutomboko Ceremony", href: "#mutomboko-journey" }
+  { label: "The Office of the Mwata", href: "#mwata", primary: true },
+  { label: "Heritage & History", href: "#kingdom" },
+  { label: "Umutomboko Ceremony", href: "#mutomboko" }
 ];
 
 export const homeLeadershipCards = [
@@ -910,11 +871,6 @@ export const kingdomSections = [
     title: "Clans and People",
     body:
       "Luba-Lunda identity and clan structures bind communities to the royal seat. The verified clan register is published on the Clans & People section."
-  },
-  {
-    id: "kingdom-timeline",
-    title: "Timeline of Power",
-    body: "Nineteen recorded Mwata Kazembe rulers from founding memory to the present officeholder — uncertain entries remain visibly marked."
   }
 ];
 
@@ -964,7 +920,7 @@ export const newsItems = [
     date: calendar.confirmed2025,
     excerpt: "The 2025 Umutomboko was held at Mwansabombwe on the dates recorded in the Ministry of Tourism notice. Photographic and press coverage is consolidated in the Gallery and verified media sources.",
     placeholder: false,
-    href: "#gallery",
+    href: "#kingdom-gallery",
     verification: "sourced"
   },
   {
@@ -1054,8 +1010,8 @@ export const archiveRecords = [
     title: "Umutomboko 2017 — photographic record",
     type: "Photographs — ceremony",
     date: "2017",
-    note: "Ceremony photography from the 2017 Umutomboko, consolidated in the Gallery with full source credit.",
-    url: "#home-gallery",
+    note: "Ceremony photography from the 2017 Umutomboko, presented in the Umutomboko gallery with full source credit.",
+    url: "#mutomboko-gallery",
     available: true
   },
   {

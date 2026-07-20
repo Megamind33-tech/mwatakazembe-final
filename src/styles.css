@@ -102,6 +102,23 @@ h3 {
   top: 1rem;
 }
 
+/* Consistent keyboard focus ring for every interactive element */
+:focus-visible {
+  outline: 2px solid var(--ceremonial-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* On dark / royal-blue grounds a red ring is low-contrast — use a light one */
+.site-header :focus-visible,
+.utility-bar :focus-visible,
+.site-footer :focus-visible,
+.visit-cta-panel :focus-visible,
+.royal-hero :focus-visible,
+.kingdom-modal :focus-visible {
+  outline-color: var(--white);
+}
+
 /* Utility bar — ceremonial red: social / contact links */
 .utility-bar {
   background: var(--ceremonial-red);
@@ -292,6 +309,32 @@ h3 {
   color: var(--ceremonial-red);
 }
 
+/* Support the Kingdom — engagement layer, held apart from the institutional nav */
+.nav-item-support {
+  margin-left: 0.35rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid rgba(244, 240, 230, 0.28);
+}
+
+.nav-item-support > a {
+  color: var(--white);
+  border: 1px solid rgba(244, 240, 230, 0.5);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+}
+
+.nav-item-support > a.is-active,
+.nav-item-support:hover > a {
+  background: var(--ceremonial-red);
+  border-color: var(--ceremonial-red);
+  color: var(--white);
+}
+
+.nav-item-support .nav-dropdown {
+  left: auto;
+  right: 0;
+}
+
 .menu-toggle {
   display: none;
   margin-left: auto;
@@ -380,20 +423,65 @@ h3 {
   padding: 3.25rem clamp(16px, 4vw, 24px) 1.5rem;
 }
 
+.mobile-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
 .mobile-nav-top {
   display: block;
+  flex: 1 1 auto;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 0.65rem 0;
+  padding: 0.7rem 0;
   color: var(--royal-blue);
   text-decoration: none;
-  border-bottom: 1px solid var(--border);
+}
+
+/* Collapsible sub-menu toggle — a CSS chevron that flips when expanded */
+.mobile-sub-toggle {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--royal-blue);
+}
+
+.mobile-sub-toggle::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-top: -3px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s var(--ease), margin-top 0.2s var(--ease);
+}
+
+.mobile-sub-toggle[aria-expanded="true"]::before {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.mobile-sub {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.mobile-sub[hidden] {
+  display: none;
 }
 
 .mobile-sub a {
   display: block;
-  padding: 0.4rem 0 0.4rem 0.75rem;
+  padding: 0.5rem 0 0.5rem 0.75rem;
   font-size: 0.9rem;
   color: var(--stone);
   text-decoration: none;
@@ -401,6 +489,25 @@ h3 {
 
 .mobile-nav-group {
   margin-bottom: 0.5rem;
+}
+
+/* Support the Kingdom — separated engagement cluster in the mobile drawer */
+.mobile-nav-group-support {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--ceremonial-red);
+}
+
+.mobile-nav-group-support .mobile-nav-top {
+  color: var(--ceremonial-red);
+}
+
+.mobile-nav-group-support .mobile-nav-row {
+  border-bottom-color: transparent;
+}
+
+.mobile-nav-group-support .mobile-sub-toggle {
+  color: var(--ceremonial-red);
 }
 
 /* Pages */
@@ -1862,6 +1969,139 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   font-size: 0.9rem;
 }
 
+/* Heritage & Culture hub — quick links to the section's sub-areas */
+.heritage-hub {
+  padding-bottom: 0;
+}
+
+.heritage-hub-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.heritage-hub-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--royal-blue-mid);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.heritage-hub-link:hover,
+.heritage-hub-link:focus-visible {
+  background: var(--royal-blue);
+  border-color: var(--royal-blue);
+  color: var(--white);
+}
+
+/* Homepage gateway — pathway cards (one per primary section) */
+.pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.pathway-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--royal-blue);
+  padding: 1.6rem 1.5rem 1.4rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-top-color 0.25s var(--ease);
+}
+
+.pathway-card:hover,
+.pathway-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(12, 31, 61, 0.12);
+  border-top-color: var(--ceremonial-red);
+}
+
+.pathway-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ceremonial-red);
+  margin-bottom: 0.5rem;
+}
+
+.pathway-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--royal-blue-mid);
+}
+
+.pathway-card p {
+  margin: 0 0 1.1rem;
+  color: var(--stone);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.pathway-go {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--royal-blue);
+  letter-spacing: 0.01em;
+}
+
+.pathway-card:hover .pathway-go {
+  color: var(--ceremonial-red);
+}
+
+/* Homepage gateway — single Umutomboko feature */
+.feature-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.feature-media {
+  margin: 0;
+}
+
+.feature-media .figure-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.feature-body {
+  min-width: 0;
+}
+
+.feature-note {
+  font-size: 0.95rem;
+  color: var(--stone);
+  margin: 0 0 1.25rem;
+}
+
+@media (max-width: 760px) {
+  .feature-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
 .timeline-layout {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -2881,6 +3121,7 @@ body.lightbox-open {
   font-size: 0.75rem;
   text-decoration: underline;
   padding: 0;
+  margin-left: auto;
 }
 
 .cart-item-remove:hover {
@@ -2920,6 +3161,148 @@ body.lightbox-open {
 
 .btn-checkout:hover {
   background: var(--oxblood);
+}
+
+/* Shared button modifiers (order matters: these follow .btn-checkout so they win) */
+.btn-royal {
+  background: var(--royal-blue);
+}
+
+.btn-royal:hover {
+  background: var(--royal-blue-mid);
+}
+
+.btn-compact {
+  width: auto;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Store catalog header */
+.store-header-title {
+  font-family: var(--font-serif);
+  margin: 0;
+  color: var(--royal-blue-mid);
+  font-size: 1.5rem;
+}
+
+.store-header-note {
+  font-size: 0.88rem;
+  color: var(--stone);
+  margin: 0.25rem 0 0;
+}
+
+/* Shared form panel heading (donations, membership) */
+.form-panel-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--royal-blue-mid);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.form-panel-title.is-centered {
+  color: var(--stone);
+  text-align: center;
+  width: 100%;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+/* Simulated transaction modals (store checkout, order success, donation) */
+.kingdom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.kingdom-modal-card {
+  background: var(--white);
+  border: 2px solid var(--royal-blue);
+  padding: 2.5rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.kingdom-modal-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.kingdom-modal-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--royal-blue-mid);
+  margin: 0 0 1rem;
+}
+
+.kingdom-modal-card p {
+  font-size: 0.9rem;
+  color: var(--stone);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.kingdom-modal-card p.is-fine {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.kingdom-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Certificate preview (membership) */
+.cert-target {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-empty {
+  text-align: center;
+  color: var(--stone);
+  padding: 3rem 1.5rem;
+  border: 2px dashed var(--border);
+  width: 100%;
+  max-width: 580px;
+  box-sizing: border-box;
+  background: var(--surface);
+}
+
+.cert-empty-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+}
+
+.cert-empty-sub {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.cert-tier {
+  display: block;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #4a3418;
+  margin: 0.5rem 0;
+  letter-spacing: 0.05em;
 }
 
 
@@ -3090,10 +3473,11 @@ body.lightbox-open {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   width: 100%;
+  background: var(--white);
+  color: var(--ink);
 }
 
 .form-control:focus {
-  outline: none;
   border-color: var(--royal-blue);
 }
 

@@ -90,8 +90,8 @@ function bindLightbox() {
 }
 
 function bindGalleryFilters() {
-  const grid = $("#home-gallery-grid");
-  const filters = $("#home-gallery-filters");
+  const grid = $("#gallery-grid");
+  const filters = $("#gallery-filters");
   if (!grid || !filters) return;
   const cards = $$(".gallery-item", grid);
 
