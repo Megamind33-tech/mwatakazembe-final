@@ -487,20 +487,20 @@ export const baluunda = {
   note:
     "The court is listed in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
-    { seat: 1, name: "Mwine Mpanda", role: "Mpanda Mano" },
-    { seat: 2, name: "Kalandala", role: "Ears of the Mwata — spokesperson of the Baluunda" },
+    { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
+    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata — spokesperson of the Baluunda" },
     {
       seat: 3,
-      name: "Kasengula",
+      name: "Kapa Kasengula",
       role: "Traditional Judge",
       clan: "Abena Nama",
       emblem: "Animals",
       image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`
     },
-    { seat: 4, name: "Kazembe Nalukonzi", role: "Mulinda Chipembwe" },
+    { seat: 4, name: "Kapa Kazembe Nalukonzi", role: "Mulinda Chipembwe" },
     {
       seat: 5,
-      name: "Chibumbu Ilunga",
+      name: "Kapa Chibumbu Ilunga",
       role: "Prince — Umwana wa Mfumu",
       clan: "Abena Luo",
       emblem: "Red frog",
@@ -508,18 +508,18 @@ export const baluunda = {
     },
     {
       seat: 6,
-      name: "Shikadyata",
+      name: "Kapa Shikadyata",
       role: "Nephew of the Mwata — Information",
       clan: "Abena Nsofu",
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-shikadyata.jpg`
     },
-    { seat: 7, name: "Lubibila", role: "Nephew of the Mwata — Informant" },
-    { seat: 8, name: "Mwine Ng'unga", role: "Chief Servant" },
-    { seat: 9, name: "Mwilu Kafunda", role: "Teacher of the Law" },
+    { seat: 7, name: "Kapa Lubibila", role: "Nephew of the Mwata — Informant" },
+    { seat: 8, name: "Kapa Mwine Ng'unga", role: "Chief Servant" },
+    { seat: 9, name: "Kapa Mwilu Kafunda", role: "Teacher of the Law" },
     {
       seat: 10,
-      name: "Kambele",
+      name: "Kapa Kambele",
       role: "Member of the Court",
       clan: "Abena Kunda",
       emblem: "Frog",
@@ -527,25 +527,25 @@ export const baluunda = {
     },
     {
       seat: 11,
-      name: "Chilembi Mwewa",
+      name: "Kapa Chilembi Mwewa",
       role: "Traditional Judge",
       clan: "Abena Nsofu",
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`
     },
-    { seat: 12, name: "Kabeya", role: "Mwana wa Mfumu Kasombola — represents Bana Mwana Mwata" },
-    { seat: 13, name: "Kasumpa", role: "Recording Secretary — Traditional Court" },
+    { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola — represents Bana Mwana Mwata" },
+    { seat: 13, name: "Kapa Kasumpa", role: "Recording Secretary — Traditional Court" },
     {
       seat: 14,
-      name: "Kipepa Mbuya",
+      name: "Kapa Kipepa Mbuya",
       role: "Judge",
       clan: "Abena Mpende",
       emblem: "Fish",
       image: `${BALUUNDA_IMG}/kapa-kipepa-mbuya.jpg`
     },
-    { seat: 15, name: "Ntondo", role: "Mwana wa Mfumu Ntondo" },
-    { seat: 16, name: "Koni", role: "Judge" },
-    { seat: 17, name: "Prince Kazanga Mbayo", role: "Mwana wa Mfumu — Kazembe Mutoto" }
+    { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
+    { seat: 16, name: "Kapa Koni", role: "Judge" },
+    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu — Kazembe Mutoto" }
   ]
 };
 

@@ -452,6 +452,7 @@ function councilChartHtml() {
 function baluundaSectionHtml() {
   const initials = (name) =>
     name
+      .replace(/^Kapa\s+/i, "")
       .split(/\s+/)
       .filter(Boolean)
       .map((w) => w[0])
