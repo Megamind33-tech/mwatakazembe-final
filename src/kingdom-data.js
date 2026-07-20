@@ -420,6 +420,12 @@ export const governanceStructure = [
     description: "Supreme traditional authority, ceremonial head of state, and public symbol of the Kingdom."
   },
   {
+    id: "baluunda",
+    title: "Baluunda — Judicial Council",
+    tier: 2,
+    description: "The High Court of the Kingdom — the Kapa judges who hear and rule on the matters brought before the throne."
+  },
+  {
     id: "council",
     title: "Royal Council",
     tier: 2,

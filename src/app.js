@@ -411,7 +411,18 @@ function councilChartHtml() {
     </article>
   `;
 
-  const root = byTier(1).map((n) => node(n, "node-root")).join("");
+  const portrait = getCreditById("hero-home-portrait");
+  const root = `
+    <article class="chart-node node-root chart-apex" data-chart-node>
+      <div class="chart-apex-portrait">
+        <img src="${esc(portrait?.src || mwataProfile.image)}" alt="His Royal Highness ${esc(mwataProfile.title)}, ${esc(mwataProfile.name)}" loading="lazy">
+      </div>
+      <span class="chart-node-tier">Supreme Authority</span>
+      <h3>${esc(mwataProfile.title)}</h3>
+      <p class="chart-apex-name">${esc(mwataProfile.name)}</p>
+      <p>The apex of the Kingdom. The Baluunda, the Royal Council, the Senior Chiefs, and every office of state derive their authority from the throne and serve it.</p>
+    </article>
+  `;
   const branch = byTier(2).map((n) => node(n, "node-branch")).join("");
   const support = byTier(3).map((n) => node(n)).join("");
 
@@ -431,7 +442,7 @@ function councilChartHtml() {
 
   return `
     <section class="subsection council-chart-section" id="council-chart">
-      ${sectionHead("Leadership Structure", "The Council of Chiefs", "How traditional authority flows from the Mwata through the Royal Council and Senior Chiefs to the institutions that serve the Kingdom.")}
+      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex — through the Baluunda judiciary, the Royal Council, and the Senior Chiefs — down to the offices that serve the people.")}
       <div class="council-chart" data-council-chart>
         <div class="chart-level chart-level-root">${root}</div>
         ${rail}
@@ -549,12 +560,12 @@ function renderGovernance() {
       </div>
     </div>
     <div class="container page-body">
+      ${councilChartHtml()}
       ${baluundaSectionHtml()}
       <section class="subsection" id="council">
-        ${sectionHead("Deliberation", "Royal Council")}
+        ${sectionHead("Deliberation", "The Royal Council and Institutions")}
+        <div class="gov-institution-grid">${institutions}</div>
       </section>
-      ${councilChartHtml()}
-      <div class="gov-institution-grid">${institutions}</div>
       <section class="subsection" id="agencies">
         ${sectionHead("Kingdom desks", "Kingdom Agencies")}
         <div class="agency-grid">${agencyCards}</div>
