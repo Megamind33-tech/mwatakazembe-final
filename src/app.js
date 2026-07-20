@@ -450,46 +450,52 @@ function councilChartHtml() {
 }
 
 function baluundaSectionHtml() {
-  const present = baluunda.members
-    .map(
-      (m) => `
-      <article class="baluunda-card">
-        <div class="baluunda-media">
-          <img src="${esc(m.image)}" alt="${esc(m.name)}, ${esc(m.role)}, Muluunda of the Kazembe High Court" loading="lazy">
-          <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
-        </div>
+  const initials = (name) =>
+    name
+      .replace(/^Kapa\s+/i, "")
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((w) => w[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
+  const cards = baluunda.members
+    .map((m) => {
+      const media = m.image
+        ? `<div class="baluunda-media">
+             <img src="${esc(m.image)}" alt="${esc(m.name)}, ${esc(m.role)}, Muluunda of the Kazembe High Court" loading="lazy">
+             <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
+           </div>`
+        : `<div class="baluunda-media baluunda-media-pending">
+             <span class="baluunda-monogram" aria-hidden="true">${esc(initials(m.name))}</span>
+             <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
+           </div>`;
+      const clan = m.clan
+        ? `<p class="baluunda-clan"><span class="baluunda-clan-name">${esc(m.clan)}</span>${
+            m.emblem ? `<span class="baluunda-emblem">${esc(m.emblem)}</span>` : ""
+          }</p>`
+        : "";
+      return `
+      <article class="baluunda-card ${m.image ? "" : "is-pending"}">
+        ${media}
         <div class="baluunda-body">
           <h3>${esc(m.name)}</h3>
           <p class="baluunda-role">${esc(m.role)}</p>
-          <p class="baluunda-clan"><span class="baluunda-clan-name">${esc(m.clan)}</span><span class="baluunda-emblem">${esc(m.emblem)}</span></p>
-        </div>
-      </article>
-    `
-    )
-    .join("");
-
-  const filled = baluunda.members.filter((m) => m.present).length;
-  const vacantCount = Math.max(0, baluunda.totalSeats - filled);
-  const vacant = Array.from({ length: vacantCount }, (_, i) => {
-    const seat = filled + i + 1;
-    return `
-      <article class="baluunda-card is-vacant" aria-label="Vacant Baluunda seat ${seat}">
-        <div class="baluunda-media baluunda-media-vacant"><span aria-hidden="true">◇</span></div>
-        <div class="baluunda-body">
-          <h3>Seat ${seat}</h3>
-          <p class="baluunda-role">Vacant — awaiting installation</p>
+          ${clan}
         </div>
       </article>
     `;
-  }).join("");
+    })
+    .join("");
 
   return `
     <section class="subsection baluunda-section" id="baluunda">
       ${sectionHead("The High Court of the Kingdom", "The Baluunda — Judicial Council")}
       <p class="section-deck">${esc(baluunda.intro)}</p>
       <p class="section-deck">${esc(baluunda.inheritance)}</p>
-      <div class="baluunda-grid">${present}${vacant}</div>
-      <p class="editorial-note">${esc(baluunda.vacantNote)}</p>
+      <div class="baluunda-grid">${cards}</div>
+      <p class="editorial-note">${esc(baluunda.note)}</p>
     </section>
   `;
 }

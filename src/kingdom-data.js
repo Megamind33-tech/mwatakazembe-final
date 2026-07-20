@@ -474,75 +474,79 @@ export const seniorChiefSeats = [
   { id: "seat-4", title: "Senior Chief", area: "To be confirmed", pending: true }
 ];
 
-// The Baluunda — the judicial council (High Court) of the Kingdom. Twelve
-// hereditary seats, held within their founding clans and inherited through the
-// maternal line (grandchildren of the clan). Six are currently installed; the
-// remaining six await successors. Members are ordered by ceremonial precedence.
+// The Baluunda — the judicial council (High Court) of the Kingdom. Hereditary
+// seats, held within their founding clans and inherited through the maternal
+// line (grandchildren of the clan). Listed in order of seat; portraits are
+// shown where a current officeholder has been photographed.
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
-  totalSeats: 12,
   intro:
-    "The Mwata Kazembe presides over two councils. The first is the Baluunda — the judicial council of the Kingdom. Its twelve members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
+    "The Mwata Kazembe presides over two councils. The first is the Baluunda — the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
+  note:
+    "The court is listed in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
+    { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
+    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata — spokesperson of the Baluunda" },
     {
-      seat: 1,
+      seat: 3,
+      name: "Kapa Kasengula",
+      role: "Traditional Judge",
+      clan: "Abena Nama",
+      emblem: "Animals",
+      image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`
+    },
+    { seat: 4, name: "Kapa Kazembe Nalukonzi", role: "Mulinda Chipembwe" },
+    {
+      seat: 5,
       name: "Kapa Chibumbu Ilunga",
       role: "Prince — Umwana wa Mfumu",
       clan: "Abena Luo",
       emblem: "Red frog",
-      image: `${BALUUNDA_IMG}/kapa-chibumbu-ilunga.jpg`,
-      present: true
-    },
-    {
-      seat: 2,
-      name: "Kapa Shikadyata",
-      role: "Nephew of the Mwata — Intelligence and Operations, the eyes and ears of the Mwata",
-      clan: "Abena Nsofu",
-      emblem: "Elephant",
-      image: `${BALUUNDA_IMG}/kapa-shikadyata.jpg`,
-      present: true
-    },
-    {
-      seat: 3,
-      name: "Kapa Kipepa Mbuya",
-      role: "Warrior and Advisor to the Mwata",
-      clan: "Abena Mpende",
-      emblem: "Fish",
-      image: `${BALUUNDA_IMG}/kapa-kipepa-mbuya.jpg`,
-      present: true
-    },
-    {
-      seat: 4,
-      name: "Kapa Kasengula",
-      role: "General — First Infantry Division",
-      clan: "Abena Nama",
-      emblem: "Animals",
-      image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`,
-      present: true
-    },
-    {
-      seat: 5,
-      name: "Kapa Chilembi",
-      role: "Commander",
-      clan: "Abena Nsofu",
-      emblem: "Elephant",
-      image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`,
-      present: true
+      image: `${BALUUNDA_IMG}/kapa-chibumbu-ilunga.jpg`
     },
     {
       seat: 6,
+      name: "Kapa Shikadyata",
+      role: "Nephew of the Mwata — Information",
+      clan: "Abena Nsofu",
+      emblem: "Elephant",
+      image: `${BALUUNDA_IMG}/kapa-shikadyata.jpg`
+    },
+    { seat: 7, name: "Kapa Lubibila", role: "Nephew of the Mwata — Informant" },
+    { seat: 8, name: "Kapa Mwine Ng'unga", role: "Chief Servant" },
+    { seat: 9, name: "Kapa Mwilu Kafunda", role: "Teacher of the Law" },
+    {
+      seat: 10,
       name: "Kapa Kambele",
-      role: "Warrior",
+      role: "Member of the Court",
       clan: "Abena Kunda",
       emblem: "Frog",
-      image: `${BALUUNDA_IMG}/kapa-kambele.jpg`,
-      present: true
-    }
-  ],
-  vacantNote:
-    "Six of the twelve Baluunda seats are presently vacant. Their previous holders have passed on, and successors are yet to be installed — by custom, from the maternal grandchildren of each founding clan."
+      image: `${BALUUNDA_IMG}/kapa-kambele.jpg`
+    },
+    {
+      seat: 11,
+      name: "Kapa Chilembi Mwewa",
+      role: "Traditional Judge",
+      clan: "Abena Nsofu",
+      emblem: "Elephant",
+      image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`
+    },
+    { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola — represents Bana Mwana Mwata" },
+    { seat: 13, name: "Kapa Kasumpa", role: "Recording Secretary — Traditional Court" },
+    {
+      seat: 14,
+      name: "Kapa Kipepa Mbuya",
+      role: "Judge",
+      clan: "Abena Mpende",
+      emblem: "Fish",
+      image: `${BALUUNDA_IMG}/kapa-kipepa-mbuya.jpg`
+    },
+    { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
+    { seat: 16, name: "Kapa Koni", role: "Judge" },
+    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu — Kazembe Mutoto" }
+  ]
 };
 
 export const latestCommunications = [
