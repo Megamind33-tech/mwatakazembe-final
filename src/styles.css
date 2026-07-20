@@ -3052,6 +3052,7 @@ body.lightbox-open {
   font-size: 0.75rem;
   text-decoration: underline;
   padding: 0;
+  margin-left: auto;
 }
 
 .cart-item-remove:hover {
@@ -3091,6 +3092,148 @@ body.lightbox-open {
 
 .btn-checkout:hover {
   background: var(--oxblood);
+}
+
+/* Shared button modifiers (order matters: these follow .btn-checkout so they win) */
+.btn-royal {
+  background: var(--royal-blue);
+}
+
+.btn-royal:hover {
+  background: var(--royal-blue-mid);
+}
+
+.btn-compact {
+  width: auto;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Store catalog header */
+.store-header-title {
+  font-family: var(--font-serif);
+  margin: 0;
+  color: var(--royal-blue-mid);
+  font-size: 1.5rem;
+}
+
+.store-header-note {
+  font-size: 0.88rem;
+  color: var(--stone);
+  margin: 0.25rem 0 0;
+}
+
+/* Shared form panel heading (donations, membership) */
+.form-panel-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--royal-blue-mid);
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.form-panel-title.is-centered {
+  color: var(--stone);
+  text-align: center;
+  width: 100%;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+}
+
+/* Simulated transaction modals (store checkout, order success, donation) */
+.kingdom-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 18, 0.6);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.kingdom-modal-card {
+  background: var(--white);
+  border: 2px solid var(--royal-blue);
+  padding: 2.5rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.kingdom-modal-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.kingdom-modal-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--royal-blue-mid);
+  margin: 0 0 1rem;
+}
+
+.kingdom-modal-card p {
+  font-size: 0.9rem;
+  color: var(--stone);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.kingdom-modal-card p.is-fine {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.kingdom-modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Certificate preview (membership) */
+.cert-target {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-empty {
+  text-align: center;
+  color: var(--stone);
+  padding: 3rem 1.5rem;
+  border: 2px dashed var(--border);
+  width: 100%;
+  max-width: 580px;
+  box-sizing: border-box;
+  background: var(--surface);
+}
+
+.cert-empty-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+}
+
+.cert-empty-sub {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.cert-tier {
+  display: block;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #4a3418;
+  margin: 0.5rem 0;
+  letter-spacing: 0.05em;
 }
 
 
@@ -3261,6 +3404,8 @@ body.lightbox-open {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   width: 100%;
+  background: var(--white);
+  color: var(--ink);
 }
 
 .form-control:focus {
