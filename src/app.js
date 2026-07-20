@@ -161,14 +161,21 @@ function renderNav() {
   $("#primary-nav").innerHTML = desktop;
 
   const mobileItem = (item, extraClass = "") => {
-    const sub = item.children
-      ? `<div class="mobile-sub">${item.children
+    const hasChildren = item.children && item.children.length;
+    const sub = hasChildren
+      ? `<div class="mobile-sub" id="msub-${esc(item.id)}" hidden>${item.children
           .map((c) => `<a href="${esc(c.href)}">${esc(c.label)}</a>`)
           .join("")}</div>`
       : "";
+    const toggle = hasChildren
+      ? `<button class="mobile-sub-toggle" type="button" aria-expanded="false" aria-controls="msub-${esc(item.id)}" aria-label="Show ${esc(item.label)} sections"></button>`
+      : "";
     return `
         <div class="mobile-nav-group ${extraClass}">
-          <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+          <div class="mobile-nav-row">
+            <a class="mobile-nav-top" href="${esc(item.href)}" data-nav="${esc(item.id)}">${esc(item.label)}</a>
+            ${toggle}
+          </div>
           ${sub}
         </div>
       `;
@@ -1704,6 +1711,16 @@ function bindNewsFilters() {
 
 function bindNavigation() {
   document.addEventListener("click", (e) => {
+    // Mobile drawer: chevron toggles a section's sub-links without navigating.
+    const subToggle = e.target.closest(".mobile-sub-toggle");
+    if (subToggle) {
+      const expanded = subToggle.getAttribute("aria-expanded") === "true";
+      subToggle.setAttribute("aria-expanded", String(!expanded));
+      const panel = document.getElementById(subToggle.getAttribute("aria-controls"));
+      if (panel) panel.hidden = expanded;
+      return;
+    }
+
     const nav = e.target.closest("[data-nav]");
     if (nav) {
       e.preventDefault();
