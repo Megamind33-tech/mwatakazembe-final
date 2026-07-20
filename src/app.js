@@ -1,5 +1,6 @@
 import {
   archiveRecords,
+  baluunda,
   calendar,
   developmentPillars,
   governanceInstitutions,
@@ -448,6 +449,51 @@ function councilChartHtml() {
   `;
 }
 
+function baluundaSectionHtml() {
+  const present = baluunda.members
+    .map(
+      (m) => `
+      <article class="baluunda-card">
+        <div class="baluunda-media">
+          <img src="${esc(m.image)}" alt="${esc(m.name)}, ${esc(m.role)}, Muluunda of the Kazembe High Court" loading="lazy">
+          <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
+        </div>
+        <div class="baluunda-body">
+          <h3>${esc(m.name)}</h3>
+          <p class="baluunda-role">${esc(m.role)}</p>
+          <p class="baluunda-clan"><span class="baluunda-clan-name">${esc(m.clan)}</span><span class="baluunda-emblem">${esc(m.emblem)}</span></p>
+        </div>
+      </article>
+    `
+    )
+    .join("");
+
+  const filled = baluunda.members.filter((m) => m.present).length;
+  const vacantCount = Math.max(0, baluunda.totalSeats - filled);
+  const vacant = Array.from({ length: vacantCount }, (_, i) => {
+    const seat = filled + i + 1;
+    return `
+      <article class="baluunda-card is-vacant" aria-label="Vacant Baluunda seat ${seat}">
+        <div class="baluunda-media baluunda-media-vacant"><span aria-hidden="true">◇</span></div>
+        <div class="baluunda-body">
+          <h3>Seat ${seat}</h3>
+          <p class="baluunda-role">Vacant — awaiting installation</p>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  return `
+    <section class="subsection baluunda-section" id="baluunda">
+      ${sectionHead("The High Court of the Kingdom", "The Baluunda — Judicial Council")}
+      <p class="section-deck">${esc(baluunda.intro)}</p>
+      <p class="section-deck">${esc(baluunda.inheritance)}</p>
+      <div class="baluunda-grid">${present}${vacant}</div>
+      <p class="editorial-note">${esc(baluunda.vacantNote)}</p>
+    </section>
+  `;
+}
+
 function renderGovernance() {
   // "chiefs" and "protocol" institution cards are direct nav targets, so keep
   // their bare ids. Everything else is namespaced to avoid colliding with the
@@ -493,10 +539,11 @@ function renderGovernance() {
       <div class="container page-hero-content">
         <p class="eyebrow">Governance</p>
         <h1>Royal Governance and Administration</h1>
-        <p>How the Kingdom is organized — council, chiefs, court, land, protocol, and public communication.</p>
+        <p>The Mwata presides over two councils — the Baluunda judiciary and the Council of Chiefs — alongside the court, land, protocol, and public administration of the Kingdom.</p>
       </div>
     </div>
     <div class="container page-body">
+      ${baluundaSectionHtml()}
       <section class="subsection" id="council">
         ${sectionHead("Deliberation", "Royal Council")}
       </section>
@@ -1604,7 +1651,7 @@ function pageFromHash(hash) {
   // (e.g. #kingdom-glance is a home section, not the Kingdom page).
   if (HOME_ANCHORS.has(hash)) return "home";
   if (hash.startsWith("clans") || hash === "royal-family") return "clans";
-  if (hash === "council" || hash === "chiefs" || hash === "agencies" || hash === "protocol" || hash.startsWith("gov"))
+  if (hash === "council" || hash === "chiefs" || hash === "agencies" || hash === "protocol" || hash === "baluunda" || hash.startsWith("gov"))
     return "governance";
   if (hash.startsWith("mwata") && hash !== "mwata-lineage") return "mwata";
   if (hash.startsWith("kingdom") || hash === "early-mwatas") return "kingdom";

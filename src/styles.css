@@ -2001,6 +2001,128 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   color: var(--white);
 }
 
+/* Baluunda — Judicial Council portrait cards */
+.baluunda-section .section-deck {
+  max-width: 70ch;
+}
+
+.baluunda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.baluunda-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.baluunda-media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+.baluunda-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.baluunda-seat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--royal-blue);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+}
+
+.baluunda-body {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+}
+
+.baluunda-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--royal-blue-mid);
+  margin: 0;
+}
+
+.baluunda-role {
+  font-size: 0.88rem;
+  color: var(--stone);
+  margin: 0;
+  line-height: 1.45;
+  flex-grow: 1;
+}
+
+.baluunda-clan {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.baluunda-clan-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.baluunda-emblem {
+  font-size: 0.72rem;
+  color: var(--stone);
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+}
+
+.baluunda-card.is-vacant {
+  background: var(--surface);
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.baluunda-media-vacant {
+  display: grid;
+  place-items: center;
+  color: var(--bronze);
+  font-size: 2rem;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--ivory),
+    var(--ivory) 10px,
+    var(--surface) 10px,
+    var(--surface) 20px
+  );
+}
+
+.baluunda-card.is-vacant .baluunda-body h3 {
+  color: var(--stone);
+}
+
 /* Homepage gateway — pathway cards (one per primary section) */
 .pathway-grid {
   display: grid;
