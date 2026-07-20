@@ -194,7 +194,6 @@ export function homePageHtml() {
     <section class="section section-pathways" id="kingdom-pathways">
       <div class="container">
         ${sectionHead("Explore the Kingdom", "Where would you like to go?")}
-        <p class="section-deck">Six sections carry the official record of the Mwata Kazembe Kingdom. Each opens its own page — the full account lives there.</p>
         <div class="pathway-grid">${pathways}</div>
       </div>
     </section>
