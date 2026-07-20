@@ -76,13 +76,14 @@ export const navigation = [
     label: "Development",
     href: "#development",
     children: [
-      { label: "Agriculture", href: "#dev-agriculture" },
-      { label: "Fisheries", href: "#dev-fisheries" },
-      { label: "Tourism", href: "#dev-tourism" },
-      { label: "Youth and Skills", href: "#dev-youth" },
-      { label: "Business and Investment", href: "#dev-business" },
-      { label: "Culture and Creative Economy", href: "#dev-culture" },
-      { label: "Community Projects", href: "#dev-community" }
+      { label: "Agriculture & Food Security", href: "#dev-agriculture" },
+      { label: "Fisheries & Lake Mweru", href: "#dev-fisheries" },
+      { label: "Tourism & Cultural Economy", href: "#dev-tourism" },
+      { label: "Youth Participation", href: "#dev-youth" },
+      { label: "Land & Community Order", href: "#dev-land" },
+      { label: "Business, Trade & Investment", href: "#dev-business" },
+      { label: "Heritage Protection", href: "#dev-heritage" },
+      { label: "Education & Skills", href: "#dev-education" }
     ]
   },
   {
@@ -870,11 +871,6 @@ export const kingdomSections = [
     title: "Clans and People",
     body:
       "Luba-Lunda identity and clan structures bind communities to the royal seat. The verified clan register is published on the Clans & People section."
-  },
-  {
-    id: "kingdom-timeline",
-    title: "Timeline of Power",
-    body: "Nineteen recorded Mwata Kazembe rulers from founding memory to the present officeholder — uncertain entries remain visibly marked."
   }
 ];
 

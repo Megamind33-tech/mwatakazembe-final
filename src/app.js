@@ -449,7 +449,10 @@ function councilChartHtml() {
 }
 
 function renderGovernance() {
-  const govAnchor = (id) => (["council", "chiefs", "protocol"].includes(id) ? id : `gov-${id}`);
+  // "chiefs" and "protocol" institution cards are direct nav targets, so keep
+  // their bare ids. Everything else is namespaced to avoid colliding with the
+  // #council intro section and the gov-court accordion (governanceSections).
+  const govAnchor = (id) => (["chiefs", "protocol"].includes(id) ? id : `inst-${id}`);
   const institutions = governanceInstitutions
     .map(
       (g) => `

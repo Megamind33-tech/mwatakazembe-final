@@ -102,6 +102,23 @@ h3 {
   top: 1rem;
 }
 
+/* Consistent keyboard focus ring for every interactive element */
+:focus-visible {
+  outline: 2px solid var(--ceremonial-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* On dark / royal-blue grounds a red ring is low-contrast — use a light one */
+.site-header :focus-visible,
+.utility-bar :focus-visible,
+.site-footer :focus-visible,
+.visit-cta-panel :focus-visible,
+.royal-hero :focus-visible,
+.kingdom-modal :focus-visible {
+  outline-color: var(--white);
+}
+
 /* Utility bar — ceremonial red: social / contact links */
 .utility-bar {
   background: var(--ceremonial-red);
@@ -3461,7 +3478,6 @@ body.lightbox-open {
 }
 
 .form-control:focus {
-  outline: none;
   border-color: var(--royal-blue);
 }
 
