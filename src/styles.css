@@ -1900,6 +1900,38 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   font-size: 0.9rem;
 }
 
+/* Heritage & Culture hub — quick links to the section's sub-areas */
+.heritage-hub {
+  padding-bottom: 0;
+}
+
+.heritage-hub-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.heritage-hub-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--royal-blue-mid);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.heritage-hub-link:hover,
+.heritage-hub-link:focus-visible {
+  background: var(--royal-blue);
+  border-color: var(--royal-blue);
+  color: var(--white);
+}
+
 /* Homepage gateway — pathway cards (one per primary section) */
 .pathway-grid {
   display: grid;

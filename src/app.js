@@ -25,7 +25,8 @@ import {
   utilityLinks,
   ceremonySteps,
   museumItems,
-  storeProducts
+  storeProducts,
+  externalMediaSources
 } from "./kingdom-data.js";
 import {
   clansIntroduction,
@@ -33,7 +34,7 @@ import {
   clanRegistryNote,
   royalFamilyOffices
 } from "./clans-data.js";
-import { creditCaption, getCreditById } from "./image-credits.js";
+import { creditCaption, getCreditById, galleryCategories, imageCredits } from "./image-credits.js";
 import { supportingReferences, supportingVideos } from "./kazembe-supporting-media.js";
 import { initInteractions } from "./interactions.js";
 import { initPageMotion } from "./motion.js";
@@ -74,6 +75,56 @@ function creditFigureCard(id) {
       </div>
       <figcaption class="figure-credit"><span class="image-credit"><strong>${esc(item.title)}</strong></span></figcaption>
     </figure>
+  `;
+}
+
+// Canonical Kingdom gallery — the single home for the full credited image
+// collection (filters + grid + external media sources). Lives on the
+// Heritage & Culture page; the lightbox is bound globally in interactions.js.
+function heritageGalleryHtml() {
+  const filters = galleryCategories
+    .map((c) => `<button type="button" class="gallery-filter ${c.id === "all" ? "active" : ""}" data-filter="${esc(c.id)}">${esc(c.label)}</button>`)
+    .join("");
+
+  const items = imageCredits
+    .map(
+      (item) => `
+      <button type="button" class="gallery-item" data-category="${esc(item.category)}" data-lightbox="${esc(item.id)}" aria-label="Open ${esc(item.title)}">
+        <div class="gallery-item-media has-hover-credit">
+          <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(item.id)}">
+          <span class="hover-credit">${esc(item.creditLine)}</span>
+        </div>
+        <span class="gallery-item-title">${esc(item.title)}</span>
+        <span class="gallery-item-type">${esc(item.imageType || "documentary")}</span>
+      </button>
+    `
+    )
+    .join("");
+
+  const mediaSources = externalMediaSources
+    .map(
+      (s) => `
+      <li class="media-source-item">
+        <a href="${esc(s.url)}" target="_blank" rel="noreferrer"><strong>${esc(s.title)}</strong></a>
+        <span>${esc(s.publisher)}</span>
+        <p>${esc(s.note)}</p>
+      </li>
+    `
+    )
+    .join("");
+
+  return `
+    <section class="subsection section-gallery" id="kingdom-gallery">
+      ${sectionHead("Visual Record", "Gallery & Sources")}
+      <p class="section-deck">The kingdom's credited image collection — identity, ceremony, people, places, and archive — from official and press sources. Select any image for full caption, credit, and usage.</p>
+      <div class="filter-row" id="gallery-filters">${filters}</div>
+      <div class="gallery-grid premium-gallery" id="gallery-grid">${items}</div>
+      <div class="media-sources-panel">
+        <h3>Further verified media sources</h3>
+        <p class="section-deck">Ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
+        <ul class="media-sources-list">${mediaSources}</ul>
+      </div>
+    </section>
   `;
 }
 
@@ -522,12 +573,21 @@ function renderKingdom() {
   $("#page-kingdom").innerHTML = `
     <div class="page-hero page-hero-compact">
       <div class="container page-hero-content">
-        <p class="eyebrow">The Kingdom</p>
-        <h1>History as State Formation</h1>
-        <p>Migration, trade, diplomacy, settlement, and the continuity of Lunda-Kazembe rule on the Luapula.</p>
+        <p class="eyebrow">Heritage & Culture</p>
+        <h1>Heritage & Culture of the Kazembe Kingdom</h1>
+        <p>State formation on the Luapula, the Mwata Kazembe line, the Umutomboko ceremony, the royal museum, and the visual record.</p>
       </div>
     </div>
     <div class="container page-body">
+      <section class="subsection heritage-hub" id="heritage-hub" aria-label="Heritage sections">
+        <div class="heritage-hub-grid">
+          <a class="heritage-hub-link" href="#kingdom-chapters">History &amp; State Formation</a>
+          <a class="heritage-hub-link" href="#kingdom-timeline">The Ruler Line</a>
+          <a class="heritage-hub-link" href="#mutomboko">Umutomboko Ceremony</a>
+          <a class="heritage-hub-link" href="#museum">Royal Museum</a>
+          <a class="heritage-hub-link" href="#kingdom-gallery">Gallery</a>
+        </div>
+      </section>
       <section class="subsection" id="kingdom-chapters">
         ${sectionHead("State formation", "The Lunda-Kazembe Story")}
         <div class="history-grid">${chapters}</div>
@@ -555,6 +615,7 @@ function renderKingdom() {
           ${creditCaption("places-kingdom-map-2007")}
         </figure>
       </section>
+      ${heritageGalleryHtml()}
     </div>
   `;
 }
@@ -782,12 +843,8 @@ function renderNewsroom() {
       </section>
       <section class="subsection" id="archive">
         ${sectionHead("Records", "Kingdom Archive")}
-        <p class="section-deck">Historical records, ceremony photography, and documents held or referenced by the Kingdom. Records not yet available are marked as pending official material.</p>
+        <p class="section-deck">Historical records, ceremony photography, and documents held or referenced by the Kingdom. Records not yet available are marked as pending official material. The full credited image collection is presented in the <a href="#kingdom-gallery">Heritage &amp; Culture gallery</a>.</p>
         <div class="archive-grid">${archives}</div>
-      </section>
-      <section class="subsection" id="gallery">
-        ${sectionHead("Media", "Gallery")}
-        <p class="section-deck">Credited images from ceremony, archive, and press sources. <a href="#mutomboko-gallery">View the Umutomboko gallery</a>.</p>
       </section>
     </div>
   `;

@@ -68,7 +68,7 @@ export const navigation = [
       { label: "The Ruler Line", href: "#kingdom-timeline" },
       { label: "Umutomboko Ceremony", href: "#mutomboko" },
       { label: "Royal Museum", href: "#museum" },
-      { label: "Gallery", href: "#gallery" }
+      { label: "Gallery", href: "#kingdom-gallery" }
     ]
   },
   {
@@ -924,7 +924,7 @@ export const newsItems = [
     date: calendar.confirmed2025,
     excerpt: "The 2025 Umutomboko was held at Mwansabombwe on the dates recorded in the Ministry of Tourism notice. Photographic and press coverage is consolidated in the Gallery and verified media sources.",
     placeholder: false,
-    href: "#gallery",
+    href: "#kingdom-gallery",
     verification: "sourced"
   },
   {
