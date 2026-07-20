@@ -2099,28 +2099,20 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   padding: 0.15rem 0.55rem;
 }
 
-.baluunda-card.is-vacant {
-  background: var(--surface);
-  border-style: dashed;
-  box-shadow: none;
-}
-
-.baluunda-media-vacant {
+/* Named seats whose officeholder is not yet photographed — a dignified
+   monogram stands in for the portrait (not a "vacant" placeholder). */
+.baluunda-media-pending {
   display: grid;
   place-items: center;
-  color: var(--bronze);
-  font-size: 2rem;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--ivory),
-    var(--ivory) 10px,
-    var(--surface) 10px,
-    var(--surface) 20px
-  );
+  background: linear-gradient(160deg, var(--royal-blue), var(--royal-blue-mid));
 }
 
-.baluunda-card.is-vacant .baluunda-body h3 {
-  color: var(--stone);
+.baluunda-monogram {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(244, 240, 230, 0.92);
 }
 
 /* Homepage gateway — pathway cards (one per primary section) */
