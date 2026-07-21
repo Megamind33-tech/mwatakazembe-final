@@ -3963,9 +3963,14 @@ body.lightbox-open {
   margin: 0.2rem 0 0.7rem !important;
 }
 
-/* Branch: Royal Council + Senior Chiefs */
+/* Branch (tier 2): the Royal Council — the principal office under the Mwata */
 .chart-node.node-branch {
   border-top-color: var(--ceremonial-red);
+}
+
+/* Tier 3: Baluunda and Senior Chiefs — under the Royal Council */
+.chart-node.node-tier3 {
+  border-top-color: #c9a24b;
 }
 
 /* Vertical connector rails between levels */
