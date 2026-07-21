@@ -423,41 +423,47 @@ export const governanceStructure = [
     id: "council",
     title: "Royal Council",
     tier: 2,
-    description: "Senior advisers and councilors who deliberate on kingdom policy, succession memory, and public order.",
+    description: "The principal council under the Mwata — senior advisers and councilors who deliberate on kingdom policy, succession memory, and public order.",
     placeholder: true
+  },
+  {
+    id: "baluunda",
+    title: "Baluunda — Judicial Council",
+    tier: 3,
+    description: "The High Court of the Kingdom — the Kapa judges who hear and rule on the matters brought before the throne."
   },
   {
     id: "chiefs",
     title: "Senior Chiefs",
-    tier: 2,
-    description: "Regional traditional leaders who represent communities and uphold royal directives across the kingdom.",
+    tier: 3,
+    description: "Children of the Mwata — regional traditional leaders who represent communities and uphold royal directives across the kingdom.",
     placeholder: true
   },
   {
     id: "court",
     title: "Traditional Court",
-    tier: 3,
+    tier: 4,
     description: "Customary adjudication, dispute resolution, and protocol for land, lineage, and community matters.",
     placeholder: true
   },
   {
     id: "headmen",
     title: "Headmen and Community Structures",
-    tier: 3,
+    tier: 4,
     description: "Local authority linking villages to the royal seat through tribute, representation, and ceremony.",
     placeholder: true
   },
   {
     id: "protocol",
     title: "Protocol and Communication Office",
-    tier: 3,
+    tier: 4,
     description: "Official statements, public notices, media coordination, and ceremonial protocol.",
     placeholder: true
   },
   {
     id: "development",
     title: "Development Committees",
-    tier: 3,
+    tier: 4,
     description: "Kingdom-facing programmes in agriculture, fisheries, tourism, youth, and community investment.",
     placeholder: true
   }

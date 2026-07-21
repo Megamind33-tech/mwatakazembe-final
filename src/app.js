@@ -411,9 +411,21 @@ function councilChartHtml() {
     </article>
   `;
 
-  const root = byTier(1).map((n) => node(n, "node-root")).join("");
+  const portrait = getCreditById("hero-home-portrait");
+  const root = `
+    <article class="chart-node node-root chart-apex" data-chart-node>
+      <div class="chart-apex-portrait">
+        <img src="${esc(portrait?.src || mwataProfile.image)}" alt="His Royal Highness ${esc(mwataProfile.title)}, ${esc(mwataProfile.name)}" loading="lazy">
+      </div>
+      <span class="chart-node-tier">Supreme Authority</span>
+      <h3>${esc(mwataProfile.title)}</h3>
+      <p class="chart-apex-name">${esc(mwataProfile.name)}</p>
+      <p>The apex of the Kingdom. The Royal Council, the Baluunda, the Senior Chiefs, and every office of state derive their authority from the throne and serve it.</p>
+    </article>
+  `;
   const branch = byTier(2).map((n) => node(n, "node-branch")).join("");
-  const support = byTier(3).map((n) => node(n)).join("");
+  const tier3 = byTier(3).map((n) => node(n, "node-tier3")).join("");
+  const support = byTier(4).map((n) => node(n)).join("");
 
   const seats = seniorChiefSeats
     .map(
@@ -431,12 +443,13 @@ function councilChartHtml() {
 
   return `
     <section class="subsection council-chart-section" id="council-chart">
-      ${sectionHead("Leadership Structure", "The Council of Chiefs", "How traditional authority flows from the Mwata through the Royal Council and Senior Chiefs to the institutions that serve the Kingdom.")}
+      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex, to the Royal Council, and from the Council to the Baluunda judiciary and the Senior Chiefs, down to the offices that serve the people.")}
       <div class="council-chart" data-council-chart>
         <div class="chart-level chart-level-root">${root}</div>
         ${rail}
         <div class="chart-level chart-level-branch">${branch}</div>
         ${rail}
+        <div class="chart-level chart-level-tier3">${tier3}</div>
         <div class="chart-seats-wrap">
           <p class="chart-seats-label">Senior Chiefs — seats of the Council</p>
           <div class="chart-seats">${seats}</div>
@@ -549,12 +562,12 @@ function renderGovernance() {
       </div>
     </div>
     <div class="container page-body">
+      ${councilChartHtml()}
       ${baluundaSectionHtml()}
       <section class="subsection" id="council">
-        ${sectionHead("Deliberation", "Royal Council")}
+        ${sectionHead("Deliberation", "The Royal Council and Institutions")}
+        <div class="gov-institution-grid">${institutions}</div>
       </section>
-      ${councilChartHtml()}
-      <div class="gov-institution-grid">${institutions}</div>
       <section class="subsection" id="agencies">
         ${sectionHead("Kingdom desks", "Kingdom Agencies")}
         <div class="agency-grid">${agencyCards}</div>
@@ -1859,6 +1872,7 @@ function playCouncilChart(chart) {
   tl.from(chart.querySelectorAll(".node-root"), { autoAlpha: 0, y: 18, scale: 0.96, duration: 0.6, clearProps: "transform,opacity,visibility" })
     .from(q("[data-chart-rail]"), { scaleY: 0, transformOrigin: "top center", duration: 0.4, stagger: 0.12, clearProps: "transform" }, "-=0.2")
     .from(chart.querySelectorAll(".node-branch"), { autoAlpha: 0, y: 22, duration: 0.5, stagger: 0.12, clearProps: "transform,opacity,visibility" }, "-=0.45")
+    .from(chart.querySelectorAll(".chart-level-tier3 .chart-node"), { autoAlpha: 0, y: 22, duration: 0.5, stagger: 0.12, clearProps: "transform,opacity,visibility" }, "-=0.25")
     .from(q("[data-chart-seat]"), { autoAlpha: 0, y: 16, duration: 0.42, stagger: 0.08, clearProps: "transform,opacity,visibility" }, "-=0.2")
     .from(chart.querySelectorAll(".chart-level-support .chart-node"), { autoAlpha: 0, y: 22, duration: 0.5, stagger: 0.09, clearProps: "transform,opacity,visibility" }, "-=0.1");
 }
