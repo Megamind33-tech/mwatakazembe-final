@@ -956,6 +956,32 @@ export const kingdomSections = [
   }
 ];
 
+// Built heritage of Mwansabombwe — the reforms of Mwata Kazembe XIV, Shadreck
+// Chinyanta Nankula (r. 1941-1950): street naming, a permanent two-storey
+// palace, and administration buildings raised in pa brick in 1941.
+const BUILT_IMG = "assets/images/kazembe/heritage/built-heritage";
+export const builtHeritage = {
+  intro: [
+    "Mwata Kazembe XIV, Shadreck Chinyanta Nankula (reigned 1941–1950), reshaped the royal capital at Mwansabombwe. In 1941 he had the Kingdom's administration buildings raised in pa brick, introduced the naming of streets, and built a permanent two-storey palace — ending the long custom by which every new Mwata built a new palace of his own.",
+    "The traditional homes and old administration buildings below survive from that period and the village that grew around the royal seat."
+  ],
+  monument: {
+    src: `${BUILT_IMG}/monument-nankula.jpg`,
+    caption:
+      "Monument at Mwansabombwe to Mwata Kazembe XIV, Shadreck Chinyanta Nankula (1941–1950) — the reign that brought the two-storey palace, street naming, and the brick administration buildings."
+  },
+  items: [
+    { src: `${BUILT_IMG}/admin-flag-building.jpg`, group: "Old administration", caption: "An old administration building at Mwansabombwe, flying the Kingdom flag." },
+    { src: `${BUILT_IMG}/admin-police-station.jpg`, group: "Old administration", caption: "The old Mwansabombwe police station — a public building of the era." },
+    { src: `${BUILT_IMG}/admin-compound.jpg`, group: "Old administration", caption: "The old administration compound, still in public use." },
+    { src: `${BUILT_IMG}/home-thatched-village.jpg`, group: "Traditional homes", caption: "Thatched Lunda homes in the royal village." },
+    { src: `${BUILT_IMG}/home-homestead-palms.jpg`, group: "Traditional homes", caption: "A traditional homestead among the palms." },
+    { src: `${BUILT_IMG}/home-round-compound.jpg`, group: "Traditional homes", caption: "A round thatched home in a family compound." },
+    { src: `${BUILT_IMG}/home-named-street.jpg`, group: "Traditional homes", caption: "Traditional homes along one of the named streets." },
+    { src: `${BUILT_IMG}/home-granary-street.jpg`, group: "Traditional homes", caption: "A homestead with reed granary beside a lit street." }
+  ]
+};
+
 export const newsCategories = [
   "all",
   "Official Statements",

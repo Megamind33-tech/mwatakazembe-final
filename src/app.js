@@ -1,6 +1,7 @@
 import {
   archiveRecords,
   baluunda,
+  builtHeritage,
   calendar,
   developmentPillars,
   governanceInstitutions,
@@ -577,6 +578,42 @@ function renderGovernance() {
   `;
 }
 
+function builtHeritageHtml() {
+  const intro = builtHeritage.intro.map((p) => `<p class="section-deck">${esc(p)}</p>`).join("");
+  const monument = builtHeritage.monument
+    ? `
+      <figure class="built-monument">
+        <div class="built-monument-media">
+          <img src="${esc(builtHeritage.monument.src)}" alt="${esc(builtHeritage.monument.caption)}" loading="lazy">
+        </div>
+        <figcaption>${esc(builtHeritage.monument.caption)}</figcaption>
+      </figure>
+    `
+    : "";
+  const items = builtHeritage.items
+    .map(
+      (it) => `
+      <figure class="built-card">
+        <div class="built-card-media">
+          <img src="${esc(it.src)}" alt="${esc(it.caption)}" loading="lazy">
+          <span class="built-card-group">${esc(it.group)}</span>
+        </div>
+        <figcaption>${esc(it.caption)}</figcaption>
+      </figure>
+    `
+    )
+    .join("");
+
+  return `
+    <section class="subsection built-heritage-section" id="kingdom-built-heritage">
+      ${sectionHead("Built Heritage", "Traditional Homes and Old Administration")}
+      ${intro}
+      ${monument}
+      <div class="built-grid">${items}</div>
+    </section>
+  `;
+}
+
 function renderKingdom() {
   const chapters = historyChapters
     .map(
@@ -660,6 +697,7 @@ function renderKingdom() {
           <a class="heritage-hub-link" href="#kingdom-chapters">History &amp; State Formation</a>
           <a class="heritage-hub-link" href="#kingdom-timeline">The Ruler Line</a>
           <a class="heritage-hub-link" href="#mutomboko">Umutomboko Ceremony</a>
+          <a class="heritage-hub-link" href="#kingdom-built-heritage">Built Heritage</a>
           <a class="heritage-hub-link" href="#museum">Royal Museum</a>
           <a class="heritage-hub-link" href="#kingdom-gallery">Gallery</a>
         </div>
@@ -691,6 +729,7 @@ function renderKingdom() {
           ${creditCaption("places-kingdom-map-2007")}
         </figure>
       </section>
+      ${builtHeritageHtml()}
       ${heritageGalleryHtml()}
     </div>
   `;
