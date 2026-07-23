@@ -2115,6 +2115,89 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   color: rgba(244, 240, 230, 0.92);
 }
 
+/* Built heritage — Nankula-era homes and old administration buildings */
+.built-monument {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) 1fr;
+  gap: clamp(1.25rem, 4vw, 2rem);
+  align-items: center;
+  margin: 1.75rem 0 0;
+}
+
+.built-monument-media {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.built-monument-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.built-monument figcaption {
+  font-size: 0.95rem;
+  color: var(--stone);
+  line-height: 1.6;
+}
+
+.built-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.built-card {
+  margin: 0;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.built-card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ivory);
+}
+
+.built-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.built-card-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--royal-blue);
+  color: var(--white);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+}
+
+.built-card figcaption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.88rem;
+  color: var(--stone);
+  line-height: 1.5;
+}
+
+@media (max-width: 680px) {
+  .built-monument {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Homepage gateway — pathway cards (one per primary section) */
 .pathway-grid {
   display: grid;
