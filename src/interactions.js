@@ -145,7 +145,7 @@ const lineageImages = {
   11: { src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg", credit: "Mwata Kazembe XI, Muonga Kapakata (1904–1919)" },
   12: { src: "assets/images/kazembe/archive/mwata-xii-chinyanta-kasasa-1919-1936.jpg", credit: "Mwata Kazembe XII, Chinyanta 'Kamima' Kasasa (1919–1936)" },
   13: { src: "assets/images/kazembe/archive/mwata-xiii-chinkonkole-1936-1941.jpg", credit: "Mwata Kazembe XIII, Kanyembo Chibumbu 'Chinkonkole' (1936–1941)" },
-  14: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
+  14: { src: "assets/images/kazembe/archive/mwata-xiv-shadreck-nankula-statue.jpg", credit: "Statue of Mwata Kazembe XIV, Shadreck Chinyanta Nankula (1941–1950)" },
   15: { src: "assets/images/kazembe/archive/mwata-xv-brown-ngombe-1950-1957.jpg", credit: "Mwata Kazembe XV, Brown Ngombe (1950–1957)" },
   16: { src: "assets/images/kazembe/archive/mwata-xvi-kanyembo-kapema-1957-1961.jpg", credit: "Mwata Kazembe XVI, Kanyembo Kapema (1957–1961)" },
   17: { src: "assets/images/kazembe/archive/mwata-xvii-1961.jpg", credit: "Mwata Kazembe XVII, Paul Kanyembo Lutaba (1961)" },

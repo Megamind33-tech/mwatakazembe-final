@@ -190,6 +190,22 @@ export const imageCredits = [
     creditLine: "Mwata Kazembe XIII, Kanyembo Chibumbu 'Chinkonkole' (1936–1941)"
   },
   {
+    id: "archive-mwata-xiv-shadreck-statue",
+    fileName: "mwata-xiv-shadreck-nankula-statue.jpg",
+    src: "assets/images/kazembe/archive/mwata-xiv-shadreck-nankula-statue.jpg",
+    title: "Mwata Kazembe XIV, Shadreck Chinyanta Nankula",
+    description: "Commemorative statue of Mwata Kazembe XIV, Shadreck Chinyanta Nankula (reigned 1941 to 1950), the first modernising Mwata, who reorganised the Lunda National Association and encouraged schools, clinics, roads, and the writing of Ifikolwe Fyandi na Bantu Bandi.",
+    sourceName: "Royal Archives, Office of the Mwata Kazembe",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-23",
+    licenseOrUsageNote: "Supplied by the Office of the Mwata Kazembe.",
+    altText: "Commemorative statue of Mwata Kazembe XIV, Shadreck Chinyanta Nankula, in a suit holding the royal staff of office.",
+    sectionUsedIn: "Mwata Lineage, Archive",
+    category: "archive",
+    creditLine: "Statue of Mwata Kazembe XIV, Shadreck Chinyanta Nankula (1941–1950)"
+  },
+  {
     id: "archive-mwata-xvi-kanyembo-kapema",
     fileName: "mwata-xvi-kanyembo-kapema-1957-1961.jpg",
     src: "assets/images/kazembe/archive/mwata-xvi-kanyembo-kapema-1957-1961.jpg",
