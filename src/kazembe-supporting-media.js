@@ -21,7 +21,7 @@ export const kazembeSupportingMedia = [
     id: "mutomboko-public-video-01",
     type: "video",
     platform: "youtube",
-    title: "Umutomboko Ceremony — public video record",
+    title: "Umutomboko Ceremony, public video record",
     year: null,
     section: "mutomboko",
     sourceName: "YouTube",
@@ -37,7 +37,7 @@ export const kazembeSupportingMedia = [
   {
     id: "mutomboko-ref-zta",
     type: "reference",
-    title: "Umutomboko Ceremony — official overview",
+    title: "Umutomboko Ceremony, official overview",
     year: null,
     section: "mutomboko",
     sourceName: "Zambia Tourism Agency",
@@ -50,7 +50,7 @@ export const kazembeSupportingMedia = [
   {
     id: "mutomboko-ref-lusakatimes-2017",
     type: "reference",
-    title: "Umutomboko 2017 — picture report",
+    title: "Umutomboko 2017, picture report",
     year: 2017,
     section: "mutomboko",
     sourceName: "Lusaka Times / ZANIS",

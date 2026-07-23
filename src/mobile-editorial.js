@@ -8,7 +8,7 @@ function markSwipeTracks() {
     if (mq.matches && !track.dataset.swipeReady) {
       track.dataset.swipeReady = "true";
       track.setAttribute("role", "region");
-      track.setAttribute("aria-label", `${track.dataset.swipe || "content"} — swipe horizontally`);
+      track.setAttribute("aria-label", `${track.dataset.swipe || "content"}, swipe horizontally`);
     }
   });
 }

@@ -10,12 +10,12 @@ export const imageCredits = [
     src: "assets/images/kazembe/identity/flag.png",
     title: "Flag of the Mwata Kazembe Kingdom",
     description:
-      "The official flag of the Kingdom of Kazembe — a royal-blue field bearing the crossed ceremonial axe (imbafi) and sword (mpoko), the feathered amapango crown, and the royal litter, above a red-white-red band.",
+      "The official flag of the Kingdom of Kazembe. It is a royal-blue field bearing the crossed ceremonial axe (imbafi) and sword (mpoko), the feathered amapango crown, and the royal litter, above a red-white-red band.",
     sourceName: "Office of the Mwata / Kingdom identity assets",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-06-03",
-    licenseOrUsageNote: "Official Kingdom emblem — symbol design used as the identity mark of the Mwata Kazembe Kingdom.",
+    licenseOrUsageNote: "Official Kingdom emblem, the symbol design used as the identity mark of the Mwata Kazembe Kingdom.",
     altText:
       "Flag of the Mwata Kazembe Kingdom: a crossed axe and sword beneath a feathered crown on a royal-blue field, above a red-white-red band.",
     sectionUsedIn: "Kingdom at a Glance, Office of the Mwata, Gallery",
@@ -34,7 +34,7 @@ export const imageCredits = [
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-06-03",
-    licenseOrUsageNote: "Official Kingdom emblem — primary identity mark of the Mwata Kazembe Kingdom.",
+    licenseOrUsageNote: "Official Kingdom emblem, the primary identity mark of the Mwata Kazembe Kingdom.",
     altText: "Coat of arms of the Mwata Kazembe Kingdom.",
     sectionUsedIn: "Header, Footer, Splash, Gallery",
     category: "identity",
@@ -51,7 +51,7 @@ export const imageCredits = [
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-22",
-    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX in royal regalia.",
     sectionUsedIn: "Royal Hero, The Mwata, People of the Kingdom",
     category: "mwata",
@@ -70,7 +70,7 @@ export const imageCredits = [
     photographerOrCredit: "Charles Banda / ZANIS (2017 report); file on Commons: ChaloNiZambia",
     dateAccessed: "2026-05-23",
     licenseOrUsageNote:
-      "CC BY-SA 4.0 on Commons file — verify identity and ZANIS reuse with publisher before republication beyond fair reference.",
+      "CC BY-SA 4.0 on the Commons file. Verify identity and ZANIS reuse with the publisher before republication beyond fair reference.",
     altText: "Chieftainess Lukwesa in ceremonial dress performing the Umutomboko dance before spectators at Mwansabombwe.",
     sectionUsedIn: "People of the Kingdom, Gallery",
     category: "people",
@@ -135,7 +135,7 @@ export const imageCredits = [
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-22",
-    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX, reigning traditional authority at Mwansabombwe.",
     sectionUsedIn: "The Living Kingdom, Governance",
     category: "mwata",
@@ -151,7 +151,7 @@ export const imageCredits = [
     sourceUrl: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
     photographerOrCredit: "Charles Banda / ZANIS",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "ZANIS report photo — verify reuse rights.",
+    licenseOrUsageNote: "ZANIS report photo. Verify reuse rights.",
     altText: "Women gather on the muddy banks of the Ng'ona River with bowls of offerings during Umutomboko.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
@@ -167,7 +167,7 @@ export const imageCredits = [
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX throws blessings during a ceremony at the Ng'ona River.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
@@ -183,7 +183,7 @@ export const imageCredits = [
     sourceUrl: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
     photographerOrCredit: "Charles Banda / ZANIS",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "ZANIS report photo — verify reuse rights.",
+    licenseOrUsageNote: "ZANIS report photo. Verify reuse rights.",
     altText: "Mwata Kazembe XIX is carried on the Muselo litter through a huge crowd.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
@@ -199,7 +199,7 @@ export const imageCredits = [
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "All rights reserved — image supplied by the Office of the Mwata Kazembe.",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText: "Mwata Kazembe XIX holding a fly-whisk while seated in the Muselo.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
@@ -215,7 +215,7 @@ export const imageCredits = [
     sourceUrl: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
     photographerOrCredit: "Charles Banda / ZANIS",
     dateAccessed: "2026-05-23",
-    licenseOrUsageNote: "ZANIS report photo — verify reuse rights.",
+    licenseOrUsageNote: "ZANIS report photo. Verify reuse rights.",
     altText: "Mwata Kazembe XIX in white clothing and royal beads walks in procession.",
     sectionUsedIn: "Mutomboko Ceremony, Gallery",
     category: "ceremony",
@@ -235,11 +235,11 @@ export const imageCredits = [
     licenseOrUsageNote:
       "Historical photograph reproduced from a published lineage source; original photographer and reuse rights to be confirmed before public launch.",
     altText: "Portrait of His Royal Highness Mwata Kazembe XI, Muonga Kapakata (1904–1919).",
-    sectionUsedIn: "Office of the Mwata — Historical continuity, Gallery",
+    sectionUsedIn: "Office of the Mwata, Historical continuity, Gallery",
     category: "archive",
     imageType: "historical photograph",
     verificationStatus: "needs-confirmation",
-    creditLine: "Historical photograph — published lineage source (rights to be confirmed)"
+    creditLine: "Historical photograph, published lineage source (rights to be confirmed)"
   },
   {
     id: "archive-mwata-staff-of-office",
@@ -254,11 +254,11 @@ export const imageCredits = [
     dateAccessed: "2026-06-03",
     licenseOrUsageNote: "Historical photograph supplied for the project; original source and rights to be confirmed.",
     altText: "Historical photograph of the Mwata Kazembe bearing the royal staff of office.",
-    sectionUsedIn: "Office of the Mwata — Historical continuity, Gallery",
+    sectionUsedIn: "Office of the Mwata, Historical continuity, Gallery",
     category: "archive",
     imageType: "historical photograph",
     verificationStatus: "needs-confirmation",
-    creditLine: "Historical photograph — source to be confirmed"
+    creditLine: "Historical photograph, source to be confirmed"
   },
   {
     id: "archive-royal-ceremony-colonial",
@@ -266,18 +266,18 @@ export const imageCredits = [
     src: "assets/images/kazembe/archive/royal-ceremony-colonial-era.jpg",
     title: "Royal ceremony at Kazembe, colonial era",
     description:
-      "Historical photograph of a royal ceremony at Kazembe during the colonial period — His Royal Highness the Mwata Kazembe in royal regalia with members of the court and a colonial officer in dress uniform, before a large gathering. The exact event and year are to be confirmed (consistent with the c. 1961 era).",
+      "Historical photograph of a royal ceremony at Kazembe during the colonial period. His Royal Highness the Mwata Kazembe appears in royal regalia with members of the court and a colonial officer in dress uniform, before a large gathering. The exact event and year are to be confirmed (consistent with the c. 1961 era).",
     sourceName: "Historical archive (supplied for the Kingdom website)",
     sourceUrl: "",
     photographerOrCredit: "Historical photograph",
     dateAccessed: "2026-06-03",
     licenseOrUsageNote: "Historical photograph supplied for the project; original source, date, and rights to be confirmed.",
     altText: "Black-and-white photograph of a Kazembe royal ceremony with a colonial officer and Union Jack bunting.",
-    sectionUsedIn: "Office of the Mwata — Historical continuity, Gallery",
+    sectionUsedIn: "Office of the Mwata, Historical continuity, Gallery",
     category: "archive",
     imageType: "historical photograph",
     verificationStatus: "needs-confirmation",
-    creditLine: "Historical photograph — event and date to be confirmed"
+    creditLine: "Historical photograph, event and date to be confirmed"
   },
   {
     id: "mwata-beaded-crown",
@@ -285,18 +285,18 @@ export const imageCredits = [
     src: "assets/images/kazembe/mwata/mwata-beaded-crown.jpg",
     title: "A past Mwata Kazembe at a traditional ceremony",
     description:
-      "A past Mwata Kazembe at a traditional Kingdom ceremony, among senior members of the royal court. This is a previous holder of the office — not the reigning Mwata Kazembe.",
+      "A past Mwata Kazembe at a traditional Kingdom ceremony, among senior members of the royal court. This is a previous holder of the office, not the reigning Mwata Kazembe.",
     sourceName: "Supplied for the Kingdom website",
     sourceUrl: "",
     photographerOrCredit: "Source to be confirmed",
     dateAccessed: "2026-06-03",
     licenseOrUsageNote: "Image supplied for the project; original photographer and rights to be confirmed.",
     altText: "A past Mwata Kazembe in royal regalia at a traditional ceremony.",
-    sectionUsedIn: "Office of the Mwata — Historical continuity, Gallery",
+    sectionUsedIn: "Office of the Mwata, Historical continuity, Gallery",
     category: "archive",
     imageType: "historical photograph",
     verificationStatus: "needs-confirmation",
-    creditLine: "Supplied for the Kingdom website — source to be confirmed"
+    creditLine: "Supplied for the Kingdom website, source to be confirmed"
   },
   {
     id: "mwata-white-ceremonial-dress",
@@ -315,7 +315,7 @@ export const imageCredits = [
     category: "ceremony",
     imageType: "documentary",
     verificationStatus: "needs-confirmation",
-    creditLine: "Supplied for the Kingdom website — source to be confirmed"
+    creditLine: "Supplied for the Kingdom website, source to be confirmed"
   },
   {
     id: "mutomboko-muselo-procession",
@@ -334,7 +334,7 @@ export const imageCredits = [
     category: "ceremony",
     imageType: "documentary",
     verificationStatus: "needs-confirmation",
-    creditLine: "Supplied for the Kingdom website — source to be confirmed"
+    creditLine: "Supplied for the Kingdom website, source to be confirmed"
   },
   {
     id: "mutomboko-ceremony-crowd",
@@ -353,7 +353,7 @@ export const imageCredits = [
     category: "ceremony",
     imageType: "documentary",
     verificationStatus: "needs-confirmation",
-    creditLine: "Supplied for the Kingdom website — source to be confirmed"
+    creditLine: "Supplied for the Kingdom website, source to be confirmed"
   },
   {
     id: "people-royal-women-regalia",
@@ -372,7 +372,7 @@ export const imageCredits = [
     category: "people",
     imageType: "documentary",
     verificationStatus: "needs-confirmation",
-    creditLine: "Supplied for the Kingdom website — source to be confirmed"
+    creditLine: "Supplied for the Kingdom website, source to be confirmed"
   }
 ];
 
