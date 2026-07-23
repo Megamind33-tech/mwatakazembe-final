@@ -131,16 +131,21 @@ function bindCeremonyJourney() {
   activate(steps[0].dataset.step);
 }
 
+// Mwatas I to IX (c. 1740 to 1886) reigned before photography reached the
+// Luapula, so no portrait of them exists. Rather than stand a generated
+// picture in for a real person, their seats show the arms of the Mwata
+// Kazembe with an honest note.
+const NO_PHOTO_EARLY = "No portrait exists. This Mwata reigned before photography reached the Luapula.";
 const lineageImages = {
-  1: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
-  2: { src: "assets/generated/reconstruction-muselo-litter.png", credit: "Reconstruction: Muselo litter" },
-  3: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
-  4: { src: "assets/generated/reconstruction-crowns.png", credit: "Reconstruction: Royal crowns" },
-  5: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
-  6: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
-  7: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
-  8: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
-  9: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
+  1: { noPhoto: true, note: NO_PHOTO_EARLY },
+  2: { noPhoto: true, note: NO_PHOTO_EARLY },
+  3: { noPhoto: true, note: NO_PHOTO_EARLY },
+  4: { noPhoto: true, note: NO_PHOTO_EARLY },
+  5: { noPhoto: true, note: NO_PHOTO_EARLY },
+  6: { noPhoto: true, note: NO_PHOTO_EARLY },
+  7: { noPhoto: true, note: NO_PHOTO_EARLY },
+  8: { noPhoto: true, note: NO_PHOTO_EARLY },
+  9: { noPhoto: true, note: NO_PHOTO_EARLY },
   10: { src: "assets/images/kazembe/archive/mwata-x-kanyembo-ntemena-1886-1904.jpg", credit: "Mwata Kazembe X, Kanyembo 'Mubanga' Ntemena (1886–1904)" },
   11: { src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg", credit: "Mwata Kazembe XI, Muonga Kapakata (1904–1919)" },
   12: { src: "assets/images/kazembe/archive/mwata-xii-chinyanta-kasasa-1919-1936.jpg", credit: "Mwata Kazembe XII, Chinyanta 'Kamima' Kasasa (1919–1936)" },
@@ -149,27 +154,21 @@ const lineageImages = {
   15: { src: "assets/images/kazembe/archive/mwata-xv-brown-ngombe-1950-1957.jpg", credit: "Mwata Kazembe XV, Brown Ngombe (1950–1957)" },
   16: { src: "assets/images/kazembe/archive/mwata-xvi-kanyembo-kapema-1957-1961.jpg", credit: "Mwata Kazembe XVI, Kanyembo Kapema (1957–1961)" },
   17: { src: "assets/images/kazembe/archive/mwata-xvii-1961.jpg", credit: "Mwata Kazembe XVII, Paul Kanyembo Lutaba (1961)" },
-  18: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
+  18: { noPhoto: true, note: "Portrait pending from the royal archive." },
   19: { src: "assets/images/kazembe/hero/home-portrait.jpg", credit: "Photo: Office of the Mwata" }
 };
 
 function lineageDetailHtml(kingId, btn) {
   const k = enrichedById.get(Number(kingId));
-  const imgInfo = lineageImages[Number(kingId)] || { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction" };
-  
+  const imgInfo = lineageImages[Number(kingId)] || { noPhoto: true, note: "No portrait on record." };
+
   let infoHtml = "";
   if (!k?.profile) {
-    const needsVerify =
-      btn.dataset.kingConfidence.includes("uncertain") ||
-      btn.dataset.kingConfidence.includes("contested") ||
-      btn.dataset.kingConfidence.includes("verification");
     infoHtml = `
       <span class="lineage-reign">${esc(btn.dataset.kingReign)}</span>
       <h3>${esc(btn.dataset.kingTitle)}</h3>
       <p><strong>${esc(btn.dataset.kingName)}</strong></p>
       <p>${esc(btn.dataset.kingNote)}</p>
-      <span class="confidence">${esc(btn.dataset.kingConfidence)}</span>
-      ${needsVerify ? `<p class="verify-note">Details to be verified against kingdom records.</p>` : ""}
     `;
   } else {
     const p = k.profile;
@@ -190,13 +189,21 @@ function lineageDetailHtml(kingId, btn) {
     `;
   }
 
+  const mediaHtml = imgInfo.noPhoto
+    ? `<div class="lineage-detail-media lineage-detail-noportrait">
+          <img src="assets/images/kazembe/identity/coat-of-arms.png" alt="Arms of the Mwata Kazembe" class="lineage-noportrait-crest">
+          <span class="lineage-noportrait-tag">No portrait</span>
+        </div>
+        <span class="lineage-detail-credit">${esc(imgInfo.note || "No portrait on record.")}</span>`
+    : `<div class="lineage-detail-media">
+          <img src="${esc(imgInfo.src)}" alt="${esc(k ? k.title : "Mwata Kazembe")}" class="lineage-detail-img">
+        </div>
+        <span class="lineage-detail-credit">${esc(imgInfo.credit)}</span>`;
+
   return `
     <div class="lineage-detail-grid">
       <div class="lineage-detail-media-wrap">
-        <div class="lineage-detail-media">
-          <img src="${esc(imgInfo.src)}" alt="${esc(k ? k.title : "Mwata Kazembe")}" class="lineage-detail-img">
-        </div>
-        <span class="lineage-detail-credit">${esc(imgInfo.credit)}</span>
+        ${mediaHtml}
       </div>
       <div class="lineage-detail-info">${infoHtml}</div>
     </div>

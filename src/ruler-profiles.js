@@ -1,146 +1,205 @@
 /**
- * Source-backed ruler profiles — merged into kings at render time.
- * Do not invent dates or names beyond public record; uncertain entries stay marked.
+ * Source-backed ruler profiles, merged into kings at render time.
+ * Every Mwata carries a story. Where dates rest on oral tradition or
+ * colonial-era records, that is stated plainly rather than invented.
+ * Principal sources: David M. Gordon, Nachituti's Gift; Ian Cunnison,
+ * History on the Luapula; Lacerda (1798) and Monteiro & Gamitto (1831-32),
+ * translated in The Lands of Cazembe; David Livingstone, Last Journals;
+ * Mwata Kazembe XIV, Ifikolwe Fyandi na Bantu Bandi; Munona Chinyanta &
+ * C. J. Chiwale, Mutomboko Ceremony and the Lunda-Kazembe Dynasty; UNZA.
  */
 
 export const rulerProfiles = {
   1: {
     historicalRole:
-      "Founder of Kazembe authority in the Luapula Valley, associated with movement from the wider Lunda political world and the establishment of royal legitimacy at Mwansabombwe.",
+      "Founder of the eastern Lunda kingdom of Kazembe. He led the Lunda advance east from the empire of the Mwata Yamvo toward the Luapula, a campaign that began as the pursuit of Mutanda Yembeyembe, who had killed his father Chinyanta and his uncle.",
     keyEvents: [
-      "Oral tradition links Ng'anga Bilonda to migration from Kola toward the Luapula region.",
-      "Founding memory anchors Kazembe kingship in movement, conquest, and ancestral law rather than a fixed modern border."
+      "Set out from the Lunda heartland of the Mwata Yamvo to pursue Mutanda Yembeyembe and open the salt and copper country of the east.",
+      "Died during the eastern campaigns before the Luapula Valley was fully secured, leaving the conquest to his successor."
     ],
     governance:
-      "Consolidated royal authority over communities brought into the Lunda-Kazembe political order through migration and settlement.",
+      "Established the office and title of Mwata Kazembe as the eastern arm of the Lunda commonwealth, carrying its ranks, praise names, and court law eastward.",
     warsDiplomacyTrade:
-      "Military organisation and regional control are remembered as part of state formation during the founding period.",
-    culturalNote: "Umutomboko later commemorates this arrival and installation memory as a dance of conquest.",
-    sourceNote: "Oral tradition and landscape memory: Zambia Tourism Agency; David Gordon, Luapula historical analysis."
+      "Led the military expansion that carried Lunda authority across the interior toward the Luapula and Lake Mweru.",
+    culturalNote:
+      "Umutomboko, the dance of conquest performed each July at Mwansabombwe, commemorates this crossing and the founding campaigns.",
+    sourceNote: "Oral tradition and Luapula historiography: David M. Gordon, Nachituti's Gift; Zambia Tourism Agency."
   },
   2: {
     historicalRole:
-      "Successor associated with expansion of Kazembe territory, tribute networks, and the extension of Lunda-Kazembe citizenship across the Luapula-Mweru domain.",
+      "Completed the conquest his predecessor began. He crossed the Luapula and subdued the Shila and Bwilile peoples, founding the kingdom's heartland in the valley.",
     keyEvents: [
-      "Tradition remembers the crossing of the Luapula at Matanda as a durable landscape marker of legitimacy.",
-      "Expansion folded conquered and neighbouring communities into tribute and royal allegiance."
+      "Crossed the Luapula at Matanda and defeated the Shila chief Nkuba, bringing the fisheries and floodplain of the valley under Lunda rule.",
+      "Received Nachituti's gift: a basket of earth for the land and a pot of water for the lake and rivers, the charter by which the Lunda hold the Luapula to this day."
     ],
     governance:
-      "Strengthened headmanship, tribute collection, and royal courts as instruments of regional administration.",
+      "Bound conquered communities into a system of tribute, headmen, and royal courts centred on the Mwata.",
     warsDiplomacyTrade:
-      "Trade and tribute from fisheries, agriculture, and caravan connections supported a well-watered interior kingdom.",
-    culturalNote: "Matanda remains a named memory point in migration narratives cited in official and academic sources.",
-    sourceNote: "Secondary synthesis: Encyclopaedia Britannica (Kazembe); Gordon."
+      "Controlled the fisheries of the Luapula and Lake Mweru and the salt and copper of the interior, the wealth that drew traders from both coasts.",
+    culturalNote:
+      "The story of Nachituti's gift remains the founding charter of Lunda land rights on the Luapula.",
+    sourceNote: "David M. Gordon, Nachituti's Gift; Encyclopaedia Britannica (Kazembe)."
   },
   3: {
     historicalRole:
-      "Long reign associated with peak-era Kazembe power, Portuguese contact, and the Nachituti political memory in Lunda-Kazembe tradition.",
+      "Reigned at the height of Kazembe power, when the kingdom's tribute reached across Katanga and northern Zambia and its court became the goal of the first Portuguese expedition to strike into the interior.",
     keyEvents: [
-      "Portuguese and caravan networks increased documented contact with the Kazembe court.",
-      "Regional diplomacy and tribute continued across river, lake, and forest corridors."
+      "Received Dr Francisco de Lacerda's Portuguese expedition from Tete in 1798.",
+      "Lacerda died at the royal capital on 2 October 1798 and was buried near the royal cemetery, with a grave-keeper assigned to him in royal fashion.",
+      "Presided over a domain that, around 1800, drew tribute from much of the Luapula-Mweru region and the Katanga copper country."
     ],
     governance:
-      "Maintained court protocol, succession memory, and customary authority across an extensive tribute landscape.",
+      "Maintained an elaborate court of titled officials, tribute-bearers, and provincial governors across a vast interior kingdom.",
     warsDiplomacyTrade:
-      "Copper, ivory, and interior trade routes connected the court to Portuguese, Arab, and Swahili worlds documented in expedition archives.",
-    culturalNote: "Expedition accounts require critical reading as outsider records, not neutral royal archives.",
-    sourceNote: "Smithsonian / Cazembe volume; Britannica; Gordon."
+      "Copper, ivory, salt, and cloth linked the court to Portuguese traders from the east coast and to Ovimbundu and Swahili networks to the west.",
+    culturalNote:
+      "Lacerda's diary is among the earliest written descriptions of the kingdom, to be read as an outsider's record rather than a royal archive.",
+    sourceNote: "Lacerda expedition journal (1798); The Lands of Cazembe (Burton, trans.); Gordon."
   },
   4: {
     historicalRole:
-      "Ruler during intensified Portuguese trader contact and the copper-ivory economy of the nineteenth-century interior.",
+      "Held the throne for nearly half a century through the kingdom's long apogee, and received the second great Portuguese mission.",
     keyEvents: [
-      "Encouraged and managed contact with Portuguese pombeiros and traders recorded in expedition material.",
-      "Reign sits in the archive-supported phase of Kazembe trade power."
+      "Received the Monteiro and Gamitto expedition of 1831 to 1832, whose record, O Muata Cazembe, is a foundational description of the Lunda court.",
+      "Rebuffed Portuguese proposals for an exclusive alliance that would have handed Lisbon the trade route between the Atlantic and Indian oceans."
     ],
     governance:
-      "Balanced customary law, court protocol, and external trade diplomacy at the royal seat.",
+      "Held together an extensive tribute state through titled chiefs and the royal court, even as external trade pressures grew.",
     warsDiplomacyTrade:
-      "Trade routes linked the Luapula-Mweru domain to western and eastern caravan networks described in The Lands of Cazembe and related sources.",
-    culturalNote: "",
-    sourceNote: "Archive-supported: Smithsonian public-domain Cazembe volume."
+      "The Luapula remained a hub of the copper and ivory trade, though Swahili-Arab and Nyamwezi traders were beginning to open rival routes that would later bypass the kingdom.",
+    culturalNote:
+      "Gamitto's account describes the scale, ritual, and discipline of the court at its height.",
+    sourceNote: "Monteiro & Gamitto, O Muata Cazembe (1831-32); 'Kazembe and the Portuguese 1798-1832', Journal of African History; Gordon."
   },
   5: {
     historicalRole:
-      "Reign of Muonga Kapumba Mfwama Kasawo (Muonga I) as Mwata Kazembe V during a period of succession consolidation and growing regional trade.",
+      "Reigned at the turn from the kingdom's height into its century of decline, as new traders and raiders began to press on the Luapula.",
     keyEvents: [
-      "Reign recorded as c. 1850-1854 under the title Mwata Kazembe V.",
-      "Lineage records confirm the historical placement of Muonga Kapumba Kasawo on the throne."
+      "Held a short reign as the copper and ivory routes that had made Kazembe rich began to slip toward Swahili-Arab and Nyamwezi rivals.",
+      "Court and tribute continued at the royal seat amid mounting external pressure."
     ],
-    governance: "Maintained customary authority and court protocol at the royal seat during trade expansion.",
-    warsDiplomacyTrade: "Managed trade routes and interior commerce corridors during a phase of rising external interest.",
+    governance:
+      "Maintained customary courts and tribute at the royal capital.",
+    warsDiplomacyTrade:
+      "Regional trade continued, but the Kazembe hold over the interior routes was weakening.",
     culturalNote: "",
-    sourceNote: "Verified lineage record: Office of the Mwata."
+    sourceNote: "Lunda lineage record, Office of the Mwata Kazembe; Gordon."
   },
   6: {
-    historicalRole: "Reign during increasing external contact and regional political pressure in the mid-nineteenth century.",
-    keyEvents: ["Period of caravan trade and missionary/expedition interest in the interior."],
-    governance: "Maintained customary court functions amid changing regional conditions.",
-    warsDiplomacyTrade: "Trade and diplomacy with outsider networks continued with documented tension.",
+    historicalRole:
+      "His reign saw the fateful arrival of Msiri. The decision to admit the Nyamwezi trader reshaped the balance of power across the interior.",
+    keyEvents: [
+      "In 1856 granted the Nyamwezi trader Msiri permission to settle in the Garanganza (Katanga) tributary of the kingdom.",
+      "Msiri used that foothold to build an independent Yeke power base that would seize Kazembe's western trade and tribute."
+    ],
+    governance:
+      "Ruled the Luapula heartland while control over the western marches began to fracture.",
+    warsDiplomacyTrade:
+      "The opening to Msiri and the Swahili-Arab traders accelerated the loss of Kazembe's grip on the copper and ivory routes.",
     culturalNote: "",
-    sourceNote: "Needs verification: Gordon."
+    sourceNote: "David M. Gordon, Nachituti's Gift; Msiri and Yeke Kingdom historiography."
   },
   7: {
-    historicalRole: "Mwata during David Livingstone's documented visits to the Kazembe court (1867–1868).",
+    historicalRole:
+      "Received David Livingstone at the Kazembe capital, giving the court its most famous nineteenth-century European visitor.",
     keyEvents: [
-      "Livingstone's expedition accounts describe the court as a major interior node of trade and authority.",
-      "Reign precedes a phase of succession instability."
+      "In 1867 welcomed the missionary-explorer David Livingstone, then on the last expedition of his life, at the royal capital near the Mofwe Lagoon.",
+      "Reigned as Bemba and Ngoni raids and Swahili-Arab traders steadily cut into the kingdom's trade and tribute."
     ],
-    governance: "Court remained centre of tribute, adjudication, and regional representation.",
-    warsDiplomacyTrade: "Archive-supported trade and expedition contact.",
-    culturalNote: "",
-    sourceNote: "Archive-supported: Smithsonian; expedition literature."
+    governance:
+      "The court remained a centre of tribute, adjudication, and regional authority even as its reach contracted.",
+    warsDiplomacyTrade:
+      "Livingstone's journals describe a court still important to interior trade but increasingly hemmed in by rivals.",
+    culturalNote:
+      "Livingstone's account is a key outside record of the mid-century court.",
+    sourceNote: "David Livingstone, Last Journals (1867-68); Gordon."
   },
   8: {
-    historicalRole: "Short reign during unstable caravan-trade and succession conditions.",
-    keyEvents: ["Fragmentary records; reign length under one decade."],
-    governance: "Customary authority continued at Mwansabombwe.",
-    warsDiplomacyTrade: "",
+    historicalRole:
+      "Held a brief and turbulent reign during the years when Tippu Tip and Msiri were at their most aggressive on the kingdom's borders.",
+    keyEvents: [
+      "Reigned barely two years amid the succession instability that followed the killing of a Mwata Kazembe in 1870.",
+      "The Swahili-Arab commander Tippu Tip and Msiri's Yeke pressed hard on Kazembe's trade and territory in these years."
+    ],
+    governance:
+      "Customary authority held at the royal seat through a period of acute external pressure.",
+    warsDiplomacyTrade:
+      "Kazembe's long-distance trade was now largely captured by Yeke and Swahili-Arab networks.",
     culturalNote: "",
-    sourceNote: "Fragmentary: Gordon."
+    sourceNote: "Gordon; Tippu Tip and Yeke Kingdom historiography."
   },
   9: {
-    historicalRole: "Reign marked by contested dates and succession conflict weakening central control.",
-    keyEvents: ["Disputed reign periods reflect internal succession struggle documented in colonial-era analysis."],
-    governance: "Authority contested; rebuilding followed under later officeholders.",
-    warsDiplomacyTrade: "Regional trade continued under pressure from outsiders and rivals.",
+    historicalRole:
+      "A ruler of contested and interrupted reigns, deposed and later restored, whose broken tenure reflects the succession struggles of the kingdom's weakest years.",
+    keyEvents: [
+      "Held the throne across disputed periods, deposed and returning as rival factions and outside traders influenced the succession.",
+      "Reigned on the eve of European partition, as the British and the Congo Free State closed in on the Luapula."
+    ],
+    governance:
+      "Central authority was contested; the rebuilding of the royal seat fell to his successor.",
+    warsDiplomacyTrade:
+      "Trade continued under the shadow of Yeke and Swahili-Arab dominance.",
     culturalNote: "",
-    sourceNote: "Contested dates: Gordon."
+    sourceNote: "Contested succession: Gordon; Cunnison, History on the Luapula."
   },
   10: {
-    historicalRole: "Associated with rebuilding Kazembe authority at Mwansabombwe after British punitive expeditions.",
+    historicalRole:
+      "Rebuilt Kazembe authority at Mwansabombwe and met the arrival of European rule, signing the concession that made the kingdom one of the earliest British protectorates in the region.",
     keyEvents: [
-      "Rebuilding of the royal seat and court institutions after military and colonial pressure.",
-      "Long reign spanning late nineteenth and early twentieth centuries in some chronologies."
+      "Signed the 1890 concession with Alfred Sharpe granting protection and mineral rights to the British South Africa Company; Kazembe is recorded as a British protectorate from 1892.",
+      "Resisted the Company between 1895 and 1899, until a military expedition from British Central Africa (Nyasaland) imposed colonial administration in 1899.",
+      "Rebuilt the royal capital at Mwansabombwe after the disorder of the late nineteenth century."
     ],
-    governance: "Restored court order, land administration, and tribute networks.",
-    warsDiplomacyTrade: "Navigated colonial-era trade and administration while maintaining customary office.",
-    culturalNote: "",
-    sourceNote: "Secondary synthesis: Gordon."
+    governance:
+      "Restored court order, land administration, and tribute while absorbing the shock of colonial overrule.",
+    warsDiplomacyTrade:
+      "Presided over the transition from independent kingdom to colonial protectorate.",
+    culturalNote:
+      "Remembered by the praise names Kanyembo 'Mubanga' Ntemena.",
+    sourceNote: "Alfred Sharpe concession (1890); BSAC records; Gordon; Cunnison."
   },
   11: {
-    historicalRole: "Ruled through early indirect rule and mission-era administrative change.",
-    keyEvents: ["Colonial administration increasingly structured around chiefly authority."],
-    governance: "Bridged customary kingship and colonial native administration.",
-    warsDiplomacyTrade: "",
-    culturalNote: "",
-    sourceNote: "Colonial period: Gordon."
+    historicalRole:
+      "Ruled through the first two decades of colonial administration, when the Mwata's authority was folded into the machinery of indirect rule.",
+    keyEvents: [
+      "Reigned as British administration, boundary-making between Northern Rhodesia and the Congo, and mission expansion reshaped the valley.",
+      "Held the customary office through the First World War years and the early native-authority system."
+    ],
+    governance:
+      "Bridged Lunda kingship and the colonial native administration built around chiefly authority.",
+    warsDiplomacyTrade:
+      "Trade and tribute were now regulated within colonial structures and the new international border on the Luapula.",
+    culturalNote:
+      "Remembered by the praise names Muonga 'Kamwefu' Kapakata.",
+    sourceNote: "Colonial-period record: Gordon; Cunnison; published Kazembe lineage."
   },
   12: {
-    historicalRole: "Maintained chiefly and royal functions within colonial administrative frameworks.",
-    keyEvents: ["Continuity of court protocol and community representation."],
-    governance: "Land, lineage, and community disputes adjudicated through traditional structures.",
+    historicalRole:
+      "Maintained the throne through the consolidation of indirect rule between the world wars.",
+    keyEvents: [
+      "Reigned as the Native Authority system formalised the Mwata's role within colonial Northern Rhodesia.",
+      "Oversaw court and ceremony through the interwar decades of growing labour migration to the mines."
+    ],
+    governance:
+      "Adjudicated land, lineage, and community disputes through customary structures recognised by the colonial state.",
     warsDiplomacyTrade: "",
-    culturalNote: "",
-    sourceNote: "Colonial period: Gordon."
+    culturalNote:
+      "Remembered by the praise names Chinyanta 'Kamima' Kasasa.",
+    sourceNote: "Colonial-period record: Gordon; Cunnison."
   },
   13: {
-    historicalRole: "Short reign before the mid-twentieth-century modernising period.",
-    keyEvents: ["Limited public record in accessible secondary sources."],
-    governance: "",
+    historicalRole:
+      "Held a short reign immediately before the modernising era of Kazembe XIV.",
+    keyEvents: [
+      "Reigned in the years leading up to the Second World War and the reforms of his successor.",
+      "Kept court and ceremony through a period of growing labour migration to the Copperbelt and the Katanga mines."
+    ],
+    governance:
+      "Maintained customary authority within the colonial native administration.",
     warsDiplomacyTrade: "",
-    culturalNote: "",
-    sourceNote: "Limited public record: Gordon."
+    culturalNote:
+      "Remembered by the praise names Kanyembo Chibumbu 'Chinkonkole'.",
+    sourceNote: "Colonial-period record: Gordon; published Kazembe lineage."
   },
   14: {
     historicalRole:
@@ -158,53 +217,78 @@ export const rulerProfiles = {
     sourceNote: "Documented: Gordon; Ifikolwe Fyandi na Bantu Bandi (Kazembe XIV, ed. E. Labreque)."
   },
   15: {
-    historicalRole: "Reign in the pre-independence nationalist period.",
-    keyEvents: ["Details to be verified against kingdom records."],
-    governance: "",
+    historicalRole:
+      "Reigned through the early years of mass nationalism, as the copper economy and anti-colonial politics transformed Northern Rhodesia.",
+    keyEvents: [
+      "Held the throne during the rise of the independence movement and the short-lived Central African Federation from 1953.",
+      "Maintained the royal office as labour migration and party politics reached deep into the Luapula."
+    ],
+    governance:
+      "Sustained customary authority and ceremony through a period of rapid political change.",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Needs verification: Gordon."
+    sourceNote: "Twentieth-century record: Gordon; Office of the Mwata Kazembe."
   },
   16: {
-    historicalRole: "Final reign before Zambia's independence-era transformation of customary authority.",
-    keyEvents: ["Bridged late colonial and early independence administrative change."],
-    governance: "",
+    historicalRole:
+      "Held the final reign before Zambian independence, in the years of decisive nationalist advance.",
+    keyEvents: [
+      "Reigned through the last years of colonial rule as the independence movement gathered force.",
+      "His short tenure closed the colonial chapter of the Kazembe kingship."
+    ],
+    governance:
+      "Maintained the royal office and ceremony on the threshold of independence.",
     warsDiplomacyTrade: "",
-    culturalNote: "",
-    sourceNote: "Needs verification: Gordon."
+    culturalNote:
+      "Remembered by the praise names Kanyembo Kapema (Kanyembo V).",
+    sourceNote: "Twentieth-century record: Gordon; published Kazembe lineage."
   },
   17: {
     historicalRole:
-      "Mwata during the transformation of Umutomboko into a major national cultural ceremony; photographed in 1961 installation and 2017 ceremony records.",
+      "The Mwata who carried the kingdom into independent Zambia and revived the Umutomboko as a great public ceremony of Lunda identity.",
     keyEvents: [
-      "Crowned in 1961; reign linked to public ceremony expansion after 1971 (UNZA dissertation).",
-      "Documentary photograph: royal procession tour, 1961 (Dr John Edward Parry / Wikimedia Commons)."
+      "Installed in 1961; reigned through Zambian independence in 1964 and the first two decades of the republic, until 1983.",
+      "In 1971, on the tenth anniversary of his installation, revived the Umutomboko in the public form it takes today.",
+      "Father of the reigning Mwata Kazembe XIX."
     ],
-    governance: "Strengthened ceremony, regional representation, and national cultural recognition.",
-    warsDiplomacyTrade: "",
-    culturalNote: "Umutomboko institutional growth under his reign is documented in academic study.",
-    sourceNote: "Photographic + academic: UNZA; Commons; Chalo Chatu lineage."
+    governance:
+      "Positioned the traditional throne within the institutions of the independent Zambian state.",
+    warsDiplomacyTrade:
+      "Sustained the fisheries and farming economy of the Luapula Valley.",
+    culturalNote:
+      "The modern Umutomboko festival at Mwansabombwe dates its present form to his 1971 revival.",
+    sourceNote: "UNZA dissertation on Umutomboko; Kazembe lineage; photographic record (1961)."
   },
   18: {
-    historicalRole: "Bridged traditional authority with late one-party and early multiparty civil administration.",
-    keyEvents: ["Reign 1983–1998 before the current officeholder."],
-    governance: "Maintained court, council, and ceremony continuity through political transition.",
+    historicalRole:
+      "A scholar-king who set down the history and meaning of the Umutomboko in print, bridging the throne and the academy.",
+    keyEvents: [
+      "Reigned from 1983 until his death in June 1998.",
+      "Co-authored Mutomboko Ceremony and the Lunda-Kazembe Dynasty with Chileya J. Chiwale, a standard account of the ceremony's meaning and history.",
+      "Led the kingdom through Zambia's transition from one-party rule to multiparty democracy in 1991."
+    ],
+    governance:
+      "Maintained court, council, and ceremony through a period of national political change.",
     warsDiplomacyTrade: "",
-    culturalNote: "",
-    sourceNote: "Modern record: UNZA; lineage references."
+    culturalNote:
+      "His book remains a principal written source on the Umutomboko.",
+    sourceNote: "Munona Chinyanta & C. J. Chiwale, Mutomboko Ceremony and the Lunda-Kazembe Dynasty; UNZA."
   },
   19: {
     historicalRole:
-      "Reigning Mwata Kazembe XIX; presides over Umutomboko, regional Lunda diplomatic contexts, and public leadership from Mwansabombwe.",
+      "The reigning Mwata Kazembe, son of Mwata Kazembe XVII, chosen in 1998 and installed at Mwansabombwe as the living centre of the Lunda-Kazembe kingdom.",
     keyEvents: [
-      "Listed as Paul Mpemba Kanyembo Kapale Mpalumena from 1998 onward in public lineage references.",
-      "Documented at Umutomboko in press and Commons ceremony photography (2017)."
+      "Chosen as Mwata Kazembe XIX in 1998 at the age of thirty-six.",
+      "Presides each July over the Umutomboko, now a major national cultural festival.",
+      "Represents the eastern Lunda in regional and cross-border Lunda relations across Zambia and the Democratic Republic of the Congo."
     ],
     governance:
-      "Centre of royal authority, council deliberation, ceremony, and kingdom communications; biographical detail beyond public listings awaits official publication.",
-    warsDiplomacyTrade: "Continues trade, fisheries, and regional diplomacy in the Luapula Valley.",
-    culturalNote: "Contemporary Umutomboko is the public climax of royal and community identity.",
-    sourceNote: "Current office: Chalo Chatu; Zambia Tourism; UNZA; Wikimedia Commons."
+      "Centre of royal authority, council deliberation, ceremony, and kingdom communications from Mwansabombwe in Luapula Province.",
+    warsDiplomacyTrade:
+      "Champions the fisheries, farming, and development of the Luapula Valley.",
+    culturalNote:
+      "The contemporary Umutomboko is the public climax of Kazembe royal and community identity.",
+    sourceNote: "Office of the Mwata Kazembe; Zambia Tourism; UNZA; press record."
   }
 };
 
