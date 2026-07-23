@@ -148,7 +148,7 @@ const lineageImages = {
   14: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
   15: { src: "assets/generated/reconstruction-muselo-litter.png", credit: "Reconstruction: Muselo litter" },
   16: { src: "assets/generated/reconstruction-crowns.png", credit: "Reconstruction: Royal crowns" },
-  17: { src: "assets/images/kazembe/archive/mwata-xvii-1961.jpg", credit: "Photo: Dr John Edward Parry / Commons" },
+  17: { src: "assets/images/kazembe/archive/mwata-xvii-1961.jpg", credit: "Mwata Kazembe XVII, Paul Kanyembo Lutaba (1961)" },
   18: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
   19: { src: "assets/images/kazembe/hero/home-portrait.jpg", credit: "Photo: Office of the Mwata" }
 };

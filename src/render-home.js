@@ -2,6 +2,7 @@ import {
   calendar,
   kingdomGlance,
   kingdomFigures,
+  kings,
   latestCommunications,
   mutombokoFeature,
   newsItems,
@@ -11,7 +12,37 @@ import {
   heroCtas
 } from "./kingdom-data.js";
 import { creditCaption, getCreditById } from "./image-credits.js";
+import { enrichKings } from "./ruler-profiles.js";
 import { esc, sectionHead } from "./ui-helpers.js";
+
+const enrichedKings = enrichKings(kings);
+
+// Full ruler line for the homepage: every Mwata from I to the reigning XIX.
+function lineageRailHtml() {
+  return enrichedKings
+    .map((k) => {
+      const uncertain =
+        k.confidence.includes("uncertain") ||
+        k.confidence.includes("contested") ||
+        k.confidence.includes("verification");
+      return `
+      <button type="button" class="lineage-rail-item ${k.id === 19 ? "is-current" : ""} ${uncertain ? "is-uncertain" : ""}"
+        data-king-id="${k.id}"
+        data-king-title="${esc(k.title)}"
+        data-king-name="${esc(k.name)}"
+        data-king-reign="${esc(k.reign)}"
+        data-king-note="${esc(k.note)}"
+        data-king-confidence="${esc(k.confidence)}"
+        data-king-sources="${esc((k.sources || []).join(","))}">
+        <span class="lineage-rail-num">${String(k.id).padStart(2, "0")}</span>
+        <span class="lineage-rail-title">${esc(k.title)}</span>
+        <span class="lineage-rail-name">${esc(k.name)}</span>
+        <span class="lineage-rail-reign">${esc(k.reign)}</span>
+      </button>
+    `;
+    })
+    .join("");
+}
 
 function readMore(href, label = "Read more") {
   return `<a class="link-arrow" href="${esc(href)}">${esc(label)}</a>`;
@@ -195,6 +226,23 @@ export function homePageHtml() {
       <div class="container">
         ${sectionHead("Explore the Kingdom", "Where would you like to go?")}
         <div class="pathway-grid">${pathways}</div>
+      </div>
+    </section>
+
+    <section class="section section-lineage" id="mwata-lineage">
+      <div class="container">
+        ${sectionHead("Continuity of Kingship", "Past Mwatas, from the Founder to the Reigning Mwata")}
+        <p class="section-deck">Nineteen recorded rulers from Mwata Kazembe I to Mwata Kazembe XIX. Select a ruler to see the reign dates, historical role, and source notes.</p>
+        <div class="lineage-shell">
+          <div class="lineage-rail swipe-track" data-swipe="lineage" role="tablist" aria-label="Mwata Kazembe rulers">${lineageRailHtml()}</div>
+          <aside class="lineage-detail" id="lineage-detail" aria-live="polite">
+            <p class="lineage-detail-placeholder">Select a ruler to open the profile.</p>
+          </aside>
+        </div>
+        <p class="section-cta">
+          <a class="btn btn-ghost" href="#early-mwatas" data-nav="kingdom">Early Mwata profiles</a>
+          <a class="btn btn-ghost" href="#kingdom-timeline" data-nav="kingdom">Full kingdom timeline</a>
+        </p>
       </div>
     </section>
 
