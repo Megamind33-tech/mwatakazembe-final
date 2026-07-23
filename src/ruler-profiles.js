@@ -16,7 +16,7 @@ export const rulerProfiles = {
     warsDiplomacyTrade:
       "Military organisation and regional control are remembered as part of state formation during the founding period.",
     culturalNote: "Umutomboko later commemorates this arrival and installation memory as a dance of conquest.",
-    sourceNote: "Oral tradition and landscape memory — Zambia Tourism Agency; David Gordon, Luapula historical analysis."
+    sourceNote: "Oral tradition and landscape memory: Zambia Tourism Agency; David Gordon, Luapula historical analysis."
   },
   2: {
     historicalRole:
@@ -30,7 +30,7 @@ export const rulerProfiles = {
     warsDiplomacyTrade:
       "Trade and tribute from fisheries, agriculture, and caravan connections supported a well-watered interior kingdom.",
     culturalNote: "Matanda remains a named memory point in migration narratives cited in official and academic sources.",
-    sourceNote: "Secondary synthesis — Encyclopaedia Britannica (Kazembe); Gordon."
+    sourceNote: "Secondary synthesis: Encyclopaedia Britannica (Kazembe); Gordon."
   },
   3: {
     historicalRole:
@@ -58,7 +58,7 @@ export const rulerProfiles = {
     warsDiplomacyTrade:
       "Trade routes linked the Luapula-Mweru domain to western and eastern caravan networks described in The Lands of Cazembe and related sources.",
     culturalNote: "",
-    sourceNote: "Archive-supported — Smithsonian public-domain Cazembe volume."
+    sourceNote: "Archive-supported: Smithsonian public-domain Cazembe volume."
   },
   5: {
     historicalRole:
@@ -70,7 +70,7 @@ export const rulerProfiles = {
     governance: "Maintained customary authority and court protocol at the royal seat during trade expansion.",
     warsDiplomacyTrade: "Managed trade routes and interior commerce corridors during a phase of rising external interest.",
     culturalNote: "",
-    sourceNote: "Verified lineage record — Office of the Mwata."
+    sourceNote: "Verified lineage record: Office of the Mwata."
   },
   6: {
     historicalRole: "Reign during increasing external contact and regional political pressure in the mid-nineteenth century.",
@@ -78,7 +78,7 @@ export const rulerProfiles = {
     governance: "Maintained customary court functions amid changing regional conditions.",
     warsDiplomacyTrade: "Trade and diplomacy with outsider networks continued with documented tension.",
     culturalNote: "",
-    sourceNote: "Needs verification — Gordon."
+    sourceNote: "Needs verification: Gordon."
   },
   7: {
     historicalRole: "Mwata during David Livingstone's documented visits to the Kazembe court (1867–1868).",
@@ -89,7 +89,7 @@ export const rulerProfiles = {
     governance: "Court remained centre of tribute, adjudication, and regional representation.",
     warsDiplomacyTrade: "Archive-supported trade and expedition contact.",
     culturalNote: "",
-    sourceNote: "Archive-supported — Smithsonian; expedition literature."
+    sourceNote: "Archive-supported: Smithsonian; expedition literature."
   },
   8: {
     historicalRole: "Short reign during unstable caravan-trade and succession conditions.",
@@ -97,7 +97,7 @@ export const rulerProfiles = {
     governance: "Customary authority continued at Mwansabombwe.",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Fragmentary — Gordon."
+    sourceNote: "Fragmentary: Gordon."
   },
   9: {
     historicalRole: "Reign marked by contested dates and succession conflict weakening central control.",
@@ -105,7 +105,7 @@ export const rulerProfiles = {
     governance: "Authority contested; rebuilding followed under later officeholders.",
     warsDiplomacyTrade: "Regional trade continued under pressure from outsiders and rivals.",
     culturalNote: "",
-    sourceNote: "Contested dates — Gordon."
+    sourceNote: "Contested dates: Gordon."
   },
   10: {
     historicalRole: "Associated with rebuilding Kazembe authority at Mwansabombwe after British punitive expeditions.",
@@ -116,7 +116,7 @@ export const rulerProfiles = {
     governance: "Restored court order, land administration, and tribute networks.",
     warsDiplomacyTrade: "Navigated colonial-era trade and administration while maintaining customary office.",
     culturalNote: "",
-    sourceNote: "Secondary synthesis — Gordon."
+    sourceNote: "Secondary synthesis: Gordon."
   },
   11: {
     historicalRole: "Ruled through early indirect rule and mission-era administrative change.",
@@ -124,7 +124,7 @@ export const rulerProfiles = {
     governance: "Bridged customary kingship and colonial native administration.",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Colonial period — Gordon."
+    sourceNote: "Colonial period: Gordon."
   },
   12: {
     historicalRole: "Maintained chiefly and royal functions within colonial administrative frameworks.",
@@ -132,7 +132,7 @@ export const rulerProfiles = {
     governance: "Land, lineage, and community disputes adjudicated through traditional structures.",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Colonial period — Gordon."
+    sourceNote: "Colonial period: Gordon."
   },
   13: {
     historicalRole: "Short reign before the mid-twentieth-century modernising period.",
@@ -140,7 +140,7 @@ export const rulerProfiles = {
     governance: "",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Limited public record — Gordon."
+    sourceNote: "Limited public record: Gordon."
   },
   14: {
     historicalRole: "Modernising ruler associated with palace building, Lunda associations, and Ifikolwe Fyandi.",
@@ -151,7 +151,7 @@ export const rulerProfiles = {
     governance: "Expanded royal visibility and liaison with civil administration.",
     warsDiplomacyTrade: "",
     culturalNote: "Palace and association-building period in twentieth-century Kazembe memory.",
-    sourceNote: "Documented — Gordon."
+    sourceNote: "Documented: Gordon."
   },
   15: {
     historicalRole: "Reign in the pre-independence nationalist period.",
@@ -159,7 +159,7 @@ export const rulerProfiles = {
     governance: "",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Needs verification — Gordon."
+    sourceNote: "Needs verification: Gordon."
   },
   16: {
     historicalRole: "Final reign before Zambia's independence-era transformation of customary authority.",
@@ -167,7 +167,7 @@ export const rulerProfiles = {
     governance: "",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Needs verification — Gordon."
+    sourceNote: "Needs verification: Gordon."
   },
   17: {
     historicalRole:
@@ -179,7 +179,7 @@ export const rulerProfiles = {
     governance: "Strengthened ceremony, regional representation, and national cultural recognition.",
     warsDiplomacyTrade: "",
     culturalNote: "Umutomboko institutional growth under his reign is documented in academic study.",
-    sourceNote: "Photographic + academic — UNZA; Commons; Chalo Chatu lineage."
+    sourceNote: "Photographic + academic: UNZA; Commons; Chalo Chatu lineage."
   },
   18: {
     historicalRole: "Bridged traditional authority with late one-party and early multiparty civil administration.",
@@ -187,7 +187,7 @@ export const rulerProfiles = {
     governance: "Maintained court, council, and ceremony continuity through political transition.",
     warsDiplomacyTrade: "",
     culturalNote: "",
-    sourceNote: "Modern record — UNZA; lineage references."
+    sourceNote: "Modern record: UNZA; lineage references."
   },
   19: {
     historicalRole:
@@ -200,7 +200,7 @@ export const rulerProfiles = {
       "Centre of royal authority, council deliberation, ceremony, and kingdom communications; biographical detail beyond public listings awaits official publication.",
     warsDiplomacyTrade: "Continues trade, fisheries, and regional diplomacy in the Luapula Valley.",
     culturalNote: "Contemporary Umutomboko is the public climax of royal and community identity.",
-    sourceNote: "Current office — Chalo Chatu; Zambia Tourism; UNZA; Wikimedia Commons."
+    sourceNote: "Current office: Chalo Chatu; Zambia Tourism; UNZA; Wikimedia Commons."
   }
 };
 

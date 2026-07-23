@@ -118,12 +118,12 @@ function heritageGalleryHtml() {
   return `
     <section class="subsection section-gallery" id="kingdom-gallery">
       ${sectionHead("Visual Record", "Gallery & Sources")}
-      <p class="section-deck">The kingdom's credited image collection — identity, ceremony, people, places, and archive — from official and press sources. Select any image for full caption, credit, and usage.</p>
+      <p class="section-deck">The kingdom's credited image collection covers identity, ceremony, people, places, and archive, drawn from official and press sources. Select any image for its full caption, credit, and usage.</p>
       <div class="filter-row" id="gallery-filters">${filters}</div>
       <div class="gallery-grid premium-gallery" id="gallery-grid">${items}</div>
       <div class="media-sources-panel">
         <h3>Further verified media sources</h3>
-        <p class="section-deck">Ceremony and kingdom photography from official and press sources — use with publisher permission where required.</p>
+        <p class="section-deck">Ceremony and kingdom photography from official and press sources. Use with publisher permission where required.</p>
         <ul class="media-sources-list">${mediaSources}</ul>
       </div>
     </section>
@@ -284,7 +284,7 @@ function renderMwata() {
             ${creditCaption("hero-home-portrait")}
           </figure>
           <div>
-            <h3>${esc(mwataProfile.title)} — ${esc(mwataProfile.name)}</h3>
+            <h3>${esc(mwataProfile.title)}, ${esc(mwataProfile.name)}</h3>
             <p><strong>Reign:</strong> ${esc(mwataProfile.reign)}</p>
             <p>${esc(mwataProfile.role)}</p>
             <ul>${mwataProfile.biography.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>
@@ -306,7 +306,7 @@ function renderMwata() {
       </section>
       <section class="subsection" id="mwata-continuity">
         ${sectionHead("Historical continuity", "Past Mwatas and Royal Occasions")}
-        <p class="section-deck">These photographs record earlier holders of the office of the Mwata Kazembe and past royal occasions — distinct from the reigning Mwata shown above. Where a photograph is firmly identified, the officeholder and dates are named; other identifications are held pending official confirmation.</p>
+        <p class="section-deck">These photographs record earlier holders of the office of the Mwata Kazembe and past royal occasions. They are distinct from the reigning Mwata shown above. Where a photograph is firmly identified, the officeholder and dates are named; other identifications are held pending official confirmation.</p>
         <div class="media-figure-grid">
           ${creditFigureCard("archive-mwata-xi-kapakata")}
           ${creditFigureCard("archive-mwata-staff-of-office")}
@@ -325,7 +325,7 @@ function renderMwata() {
             <img src="${esc(getCreditById("identity-flag")?.src || "assets/images/kazembe/identity/flag.png")}" alt="${esc(getCreditById("identity-flag")?.altText || "Flag of the Mwata Kazembe Kingdom")}" loading="lazy" data-credit-id="identity-flag">
             <span class="hover-credit">${esc(getCreditById("identity-flag")?.creditLine || "")}</span>
           </div>
-          <figcaption class="figure-credit"><span class="image-credit">The flag of the Kingdom gathers the symbols of authority into a single emblem — the crossed ceremonial axe and sword, the feathered amapango crown, and the royal litter, set on a royal-blue field above a red-white-red band.</span></figcaption>
+          <figcaption class="figure-credit"><span class="image-credit">The flag of the Kingdom gathers the symbols of authority into a single emblem: the crossed ceremonial axe and sword, the feathered amapango crown, and the royal litter, set on a royal-blue field above a red-white-red band.</span></figcaption>
         </figure>
         <div class="symbol-grid">${symbols}</div>
       </section>
@@ -452,7 +452,7 @@ function councilChartHtml() {
         ${rail}
         <div class="chart-level chart-level-tier3">${tier3}</div>
         <div class="chart-seats-wrap">
-          <p class="chart-seats-label">Senior Chiefs — seats of the Council</p>
+          <p class="chart-seats-label">Senior Chiefs, seats of the Council</p>
           <div class="chart-seats">${seats}</div>
           ${pendingNote("Seats shown are placeholders. Names and chiefdoms to be confirmed with the Royal Protocol Office.")}
         </div>
@@ -505,7 +505,7 @@ function baluundaSectionHtml() {
 
   return `
     <section class="subsection baluunda-section" id="baluunda">
-      ${sectionHead("The High Court of the Kingdom", "The Baluunda — Judicial Council")}
+      ${sectionHead("The High Court of the Kingdom", "The Baluunda Judicial Council")}
       <p class="section-deck">${esc(baluunda.intro)}</p>
       <p class="section-deck">${esc(baluunda.inheritance)}</p>
       <div class="baluunda-grid">${cards}</div>
@@ -559,7 +559,7 @@ function renderGovernance() {
       <div class="container page-hero-content">
         <p class="eyebrow">Governance</p>
         <h1>Royal Governance and Administration</h1>
-        <p>The Mwata presides over two councils — the Baluunda judiciary and the Council of Chiefs — alongside the court, land, protocol, and public administration of the Kingdom.</p>
+        <p>The Mwata presides over two councils, the Baluunda judiciary and the Council of Chiefs, alongside the court, land, protocol, and public administration of the Kingdom.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -641,11 +641,11 @@ function renderKingdom() {
   function rulerProfilePanel(k) {
     const p = k.profile;
     if (!p) {
-      return `<h3>${esc(k.title)} — ${esc(k.name)}</h3><p><strong>Reign:</strong> ${esc(k.reign)}</p><p>${esc(k.note)}</p><span class="confidence">${esc(k.confidence)}</span>`;
+      return `<h3>${esc(k.title)}, ${esc(k.name)}</h3><p><strong>Reign:</strong> ${esc(k.reign)}</p><p>${esc(k.note)}</p><span class="confidence">${esc(k.confidence)}</span>`;
     }
     const events = (p.keyEvents || []).map((e) => `<li>${esc(e)}</li>`).join("");
     return `
-      <h3>${esc(k.title)} — ${esc(k.name)}</h3>
+      <h3>${esc(k.title)}, ${esc(k.name)}</h3>
       <p><strong>Reign:</strong> ${esc(k.reign)}</p>
       <p><strong>Historical role:</strong> ${esc(p.historicalRole)}</p>
       ${events ? `<ul class="profile-events">${events}</ul>` : ""}
@@ -675,7 +675,7 @@ function renderKingdom() {
       <article class="timeline-entry ${k.id === 19 ? "is-current" : ""}" data-king-id="${k.id}" role="button" tabindex="0">
         <span class="timeline-reign">${esc(k.reign)}</span>
         <h3>${esc(k.title)}</h3>
-        <p><strong>${esc(k.name)}</strong> — ${esc(k.note)}</p>
+        <p><strong>${esc(k.name)}</strong>. ${esc(k.note)}</p>
         <span class="confidence">${esc(k.confidence)}</span>
         <div class="timeline-detail-source hidden">${rulerProfilePanel(k)}</div>
       </article>
@@ -796,7 +796,7 @@ function renderMutomboko() {
       (step) => `
       <article class="ceremony-step">
         <span class="step-day">${esc(step.day)}</span>
-        <h3>${esc(step.label)} — ${esc(step.title)}</h3>
+        <h3>${esc(step.label)}: ${esc(step.title)}</h3>
         <p class="step-location">${esc(step.location)}</p>
         <p>${esc(step.summary)}</p>
       </article>
@@ -827,7 +827,7 @@ function renderMutomboko() {
       <div class="page-hero-bg" style="background-image:url('${esc(siteMeta.ceremonyImage)}')"></div>
       <div class="container page-hero-content">
         <p class="eyebrow">State Ceremony</p>
-        <h1>Umutomboko — Dance of Conquest</h1>
+        <h1>Umutomboko, the Dance of Conquest</h1>
         <p>Ceremonial power, identity, and unity at Mwansabombwe.</p>
       </div>
     </div>
@@ -1007,7 +1007,7 @@ function renderMuseum() {
     <div class="container page-body">
       <section class="subsection">
         ${sectionHead("Royal Collection", "Sacred Regalia & Artifacts")}
-        <p class="donations-deck">The Royal Museum presents the ceremonial and material heritage of the Lunda-Kazembe state — regalia, instruments, processional objects, and archival sources that carry the memory of authority, migration, and identity across three centuries of continuity.</p>
+        <p class="donations-deck">The Royal Museum presents the ceremonial and material heritage of the Lunda-Kazembe state: its regalia, instruments, processional objects, and archival sources carry the memory of authority, migration, and identity across three centuries of continuity.</p>
         <div class="museum-grid">
           ${museumItems.map(item => `
             <article class="museum-item">

@@ -158,7 +158,7 @@ export function homePageHtml() {
 
     <div class="news-ticker news-ticker-static" aria-label="Ceremony update">
       <span class="ticker-label">Notice</span>
-      <div class="ticker-track" id="news-ticker-track">${tickerItems || `<span>Umutomboko — ${esc(calendar.nextExpected)}</span>`}</div>
+      <div class="ticker-track" id="news-ticker-track">${tickerItems || `<span>Umutomboko: ${esc(calendar.nextExpected)}</span>`}</div>
     </div>
 
     <section class="section section-glance" id="kingdom-glance">
@@ -171,7 +171,7 @@ export function homePageHtml() {
               <img src="${esc(flagCredit?.src || "assets/images/kazembe/identity/flag.png")}" alt="${esc(flagCredit?.altText || "Flag of the Mwata Kazembe Kingdom")}" loading="lazy" data-credit-id="identity-flag">
               <span class="hover-credit">${esc(flagCredit?.creditLine || "")}</span>
             </div>
-            <figcaption class="figure-credit"><span class="image-credit">Flag of the Mwata Kazembe Kingdom — the crossed axe and sword, feathered crown, and royal litter of the Lunda-Kazembe state.</span></figcaption>
+            <figcaption class="figure-credit"><span class="image-credit">The flag of the Mwata Kazembe Kingdom. It carries the crossed axe and sword, the feathered crown, and the royal litter of the Lunda-Kazembe state.</span></figcaption>
           </figure>
           <figure class="credited-figure glance-map">
             <div class="figure-media has-hover-credit">
@@ -207,7 +207,7 @@ export function homePageHtml() {
           </div>
         </figure>
         <div class="feature-body">
-          ${sectionHead("State Ceremony", "Umutomboko — the Dance of Conquest")}
+          ${sectionHead("State Ceremony", "Umutomboko, the Dance of Conquest")}
           <p class="section-deck">${esc(mutombokoFeature.meaning)}</p>
           <p class="feature-note"><strong>Next ceremony:</strong> Expected ${esc(calendar.nextExpected)} at ${esc(calendar.location)}.</p>
           <p class="section-cta"><a class="btn btn-primary" href="#mutomboko">Ceremony &amp; visitor protocol</a></p>
@@ -226,7 +226,7 @@ export function homePageHtml() {
     <section class="section section-support" id="support-kingdom">
       <div class="container visit-cta-panel">
         ${sectionHead("Get Involved", "Support the Kingdom")}
-        <p class="section-deck">Partner with the Kingdom in cultural preservation, heritage archives, and community development — or plan a visit for the Umutomboko ceremony.</p>
+        <p class="section-deck">Partner with the Kingdom in cultural preservation, heritage archives, and community development, or plan a visit for the Umutomboko ceremony.</p>
         <div class="visit-actions">
           <a class="btn btn-primary" href="#donations" data-nav="donations">Support / Donate</a>
           <a class="btn btn-ghost" href="#membership" data-nav="membership">Membership &amp; registry</a>

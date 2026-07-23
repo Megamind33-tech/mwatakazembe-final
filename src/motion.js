@@ -180,46 +180,43 @@ function initParallax(page) {
 }
 
 // Section heads announce themselves: eyebrow slides in, title and deck rise.
+// Plays immediately on page-enter (no scroll trigger) and animates only the
+// transform, so a head is never left invisible if anything misfires.
 function initSectionHeadReveals(page) {
-  $$(".section-head", page).forEach((head) => {
+  $$(".section-head", page).forEach((head, i) => {
     const eyebrow = $(".eyebrow", head);
     const title = $("h2", head);
     const deck = $(".section-deck", head);
     const parts = [eyebrow, title, deck].filter(Boolean);
     if (!parts.length) return;
 
+    onCleanup(() => gsap.set(parts, { clearProps: "transform" }));
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: head, start: "top 86%", once: true },
-      defaults: { ease: "power3.out" },
+      delay: Math.min(i * 0.05, 0.35),
+      defaults: { ease: "power3.out", clearProps: "transform" },
     });
-    if (eyebrow) tl.from(eyebrow, { x: -18, autoAlpha: 0, duration: 0.5, clearProps: CLEAR }, 0);
-    if (title) tl.from(title, { y: 26, autoAlpha: 0, duration: 0.65, clearProps: CLEAR }, 0.08);
-    if (deck) tl.from(deck, { y: 18, autoAlpha: 0, duration: 0.6, clearProps: CLEAR }, 0.2);
-    onCleanup(() => gsap.set(parts, { clearProps: CLEAR }));
+    if (eyebrow) tl.from(eyebrow, { x: -18, duration: 0.5 }, 0);
+    if (title) tl.from(title, { y: 24, duration: 0.6 }, 0.06);
+    if (deck) tl.from(deck, { y: 16, duration: 0.55 }, 0.16);
   });
 }
 
-// Sub-page content blocks cascade in as they enter the viewport. Home page
-// blocks are handled by interactions.js, so this only targets .page-body.
+// Sub-page content blocks rise in on page-enter. Home page blocks are handled
+// by interactions.js, so this only targets .page-body. The reveal animates
+// the transform only and is not gated behind a scroll trigger, so a section
+// can never be left blank if a trigger fails to fire or refresh.
 function initBlockReveals(page) {
   const blocks = $$(".page-body > *", page).filter((el) => el.offsetParent !== null || el.offsetHeight > 0);
   if (!blocks.length) return;
 
-  gsap.set(blocks, { autoAlpha: 0, y: 26 });
-  onCleanup(() => gsap.set(blocks, { clearProps: CLEAR }));
+  onCleanup(() => gsap.set(blocks, { clearProps: "transform" }));
 
-  ScrollTrigger.batch(blocks, {
-    start: "top 88%",
-    once: true,
-    onEnter: (items) =>
-      gsap.to(items, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.65,
-        stagger: 0.09,
-        ease: "power2.out",
-        clearProps: CLEAR,
-      }),
+  gsap.from(blocks, {
+    y: 20,
+    duration: 0.5,
+    stagger: 0.05,
+    ease: "power2.out",
+    clearProps: "transform",
   });
 }
 

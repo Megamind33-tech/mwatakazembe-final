@@ -1,7 +1,7 @@
 import { calendar, ceremonySteps, kings, routes, sources } from "./data.js";
 
 export const siteMeta = {
-  title: "Mwata Kazembe Kingdom — Official Digital Home",
+  title: "Mwata Kazembe Kingdom | Official Digital Home",
   tagline: "THE OFFICIAL DIGITAL HOME OF THE MWATA KAZEMBE KINGDOM",
   headline: "The Royal Seat of the Mwata Kazembe",
   subheadline:
@@ -15,7 +15,7 @@ export const siteMeta = {
   contact: {
     royalOffice: { label: "Office of the Mwata", value: "Mwansabombwe, Luapula Province", email: null, pending: true },
     media: { label: "Media and Communications", value: "Royal Protocol and Communications Office", email: null, pending: true },
-    events: { label: "Ceremony and Events", value: "Ceremony Committee — Umutomboko coordination", email: null, pending: true },
+    events: { label: "Ceremony and Events", value: "Ceremony Committee, Umutomboko coordination", email: null, pending: true },
     visitors: { label: "Visitor Affairs", value: "Visitor guidance published under Umutomboko", email: null, pending: true }
   }
 };
@@ -27,9 +27,9 @@ export const utilityLinks = [
 ];
 
 export const socialLinks = [
-  { label: "Facebook", href: "#contact", status: "Kingdom of Kazembe — official channel" },
-  { label: "YouTube", href: "#contact", status: "Kingdom of Kazembe — official channel" },
-  { label: "X / Twitter", href: "#contact", status: "Kingdom of Kazembe — official channel" }
+  { label: "Facebook", href: "#contact", status: "Kingdom of Kazembe, official channel" },
+  { label: "YouTube", href: "#contact", status: "Kingdom of Kazembe, official channel" },
+  { label: "X / Twitter", href: "#contact", status: "Kingdom of Kazembe, official channel" }
 ];
 
 export const navigation = [
@@ -50,7 +50,7 @@ export const navigation = [
     label: "Governance",
     href: "#governance",
     children: [
-      { label: "Baluunda — Judicial Council", href: "#baluunda" },
+      { label: "Baluunda Judicial Council", href: "#baluunda" },
       { label: "Royal Council", href: "#council" },
       { label: "Senior Chiefs", href: "#chiefs" },
       { label: "Clans & People", href: "#clans" },
@@ -147,7 +147,7 @@ export const homeLeadershipCards = [
     title: "Umutomboko Ceremony",
     role: "State Ceremony of Conquest",
     description:
-      "Umutomboko commemorates Lunda arrival, royal installation, and the dance of conquest — a public affirmation of identity and unity.",
+      "Umutomboko commemorates Lunda arrival, royal installation, and the dance of conquest, a public affirmation of identity and unity.",
     imageCreditId: "mutomboko-dance-2017-01",
     href: "#mutomboko-journey"
   }
@@ -196,7 +196,7 @@ export const royalSpotlight = [
 
 export const externalMediaSources = [
   {
-    title: "Umutomboko 2017 — Lusaka Times picture report",
+    title: "Umutomboko 2017, Lusaka Times picture report",
     publisher: "Lusaka Times / ZANIS",
     url: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
     note: "Charles Banda photographs including Chieftainess Lukwesa, Princess Kanyanta, Prince Kanyembo, and Mwata Kazembe at the ceremony."
@@ -214,10 +214,10 @@ export const externalMediaSources = [
     note: "Government notice for the 2025 ceremony dates."
   },
   {
-    title: "Mutomboko — War dance of the Luba-Lunda Empire",
+    title: "Mutomboko, War Dance of the Luba-Lunda Empire",
     publisher: "Smithsonian Photo Contest",
     url: "https://photocontest.smithsonianmag.com/photocontest/detail/mutomboko-war-dance-of-the-luba-lunda-empire/",
-    note: "Ulf Krone, July 2016, Mwansabombwe — contact photographer for reuse beyond linking."
+    note: "Ulf Krone, July 2016, Mwansabombwe. Contact the photographer for reuse beyond linking."
   }
 ];
 
@@ -270,7 +270,7 @@ export const leadershipCards = [
     title: "Mutomboko Ceremony",
     role: "State Ceremony of Conquest",
     description:
-      "Umutomboko commemorates Lunda arrival, royal installation, and the dance of conquest — a public affirmation of identity and unity.",
+      "Umutomboko commemorates Lunda arrival, royal installation, and the dance of conquest, a public affirmation of identity and unity.",
     image: siteMeta.ceremonyImage,
     href: "#mutomboko"
   },
@@ -296,7 +296,7 @@ export const peopleSpotlights = [
   {
     creditId: "mutomboko-dance-2017-01",
     title: "Mwata Kazembe at Umutomboko, 2017",
-    note: "Mwata Kazembe XIX performing the royal dance in the main arena — documented at the 2017 ceremony."
+    note: "Mwata Kazembe XIX performing the royal dance in the main arena, documented at the 2017 ceremony."
   },
   {
     creditId: "archive-mwata-xvii-1961",
@@ -311,7 +311,7 @@ export const peopleSpotlights = [
   {
     creditId: "hero-home-portrait",
     title: "Office of the reigning Mwata",
-    note: "Mwata Kazembe XIX — public leadership from the royal seat at Mwansabombwe."
+    note: "Mwata Kazembe XIX, in public leadership from the royal seat at Mwansabombwe."
   }
 ];
 
@@ -423,20 +423,20 @@ export const governanceStructure = [
     id: "council",
     title: "Royal Council",
     tier: 2,
-    description: "The principal council under the Mwata — senior advisers and councilors who deliberate on kingdom policy, succession memory, and public order.",
+    description: "The principal council under the Mwata, whose senior advisers and councilors deliberate on kingdom policy, succession memory, and public order.",
     placeholder: true
   },
   {
     id: "baluunda",
-    title: "Baluunda — Judicial Council",
+    title: "Baluunda Judicial Council",
     tier: 3,
-    description: "The High Court of the Kingdom — the Kapa judges who hear and rule on the matters brought before the throne."
+    description: "The High Court of the Kingdom, whose Kapa judges hear and rule on the matters brought before the throne."
   },
   {
     id: "chiefs",
     title: "Senior Chiefs",
     tier: 3,
-    description: "Children of the Mwata — regional traditional leaders who represent communities and uphold royal directives across the kingdom.",
+    description: "Children of the Mwata, the regional traditional leaders who represent communities and uphold royal directives across the kingdom.",
     placeholder: true
   },
   {
@@ -487,14 +487,14 @@ export const seniorChiefSeats = [
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
   intro:
-    "The Mwata Kazembe presides over two councils. The first is the Baluunda — the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
+    "The Mwata Kazembe presides over two councils. The first is the Baluunda, the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
   note:
     "The court is listed in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
-    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata — spokesperson of the Baluunda" },
+    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of the Baluunda" },
     {
       seat: 3,
       name: "Kapa Kasengula",
@@ -507,7 +507,7 @@ export const baluunda = {
     {
       seat: 5,
       name: "Kapa Chibumbu Ilunga",
-      role: "Prince — Umwana wa Mfumu",
+      role: "Prince, Umwana wa Mfumu",
       clan: "Abena Luo",
       emblem: "Red frog",
       image: `${BALUUNDA_IMG}/kapa-chibumbu-ilunga.jpg`
@@ -515,12 +515,12 @@ export const baluunda = {
     {
       seat: 6,
       name: "Kapa Shikadyata",
-      role: "Nephew of the Mwata — Information",
+      role: "Nephew of the Mwata (Information)",
       clan: "Abena Nsofu",
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-shikadyata.jpg`
     },
-    { seat: 7, name: "Kapa Lubibila", role: "Nephew of the Mwata — Informant" },
+    { seat: 7, name: "Kapa Lubibila", role: "Nephew of the Mwata, Informant" },
     { seat: 8, name: "Kapa Mwine Ng'unga", role: "Chief Servant" },
     { seat: 9, name: "Kapa Mwilu Kafunda", role: "Teacher of the Law" },
     {
@@ -539,8 +539,8 @@ export const baluunda = {
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`
     },
-    { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola — represents Bana Mwana Mwata" },
-    { seat: 13, name: "Kapa Kasumpa", role: "Recording Secretary — Traditional Court" },
+    { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola, representing Bana Mwana Mwata" },
+    { seat: 13, name: "Kapa Kasumpa", role: "Recording Secretary, Traditional Court" },
     {
       seat: 14,
       name: "Kapa Kipepa Mbuya",
@@ -551,7 +551,7 @@ export const baluunda = {
     },
     { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
     { seat: 16, name: "Kapa Koni", role: "Judge" },
-    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu — Kazembe Mutoto" }
+    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" }
   ]
 };
 
@@ -559,7 +559,7 @@ export const latestCommunications = [
   {
     id: "ceremony-1",
     category: "Ceremony Updates",
-    title: `Umutomboko — ${calendar.nextExpected}`,
+    title: `Umutomboko: ${calendar.nextExpected}`,
     date: calendar.annualPattern,
     excerpt: `The state ceremony of Umutomboko is held at Mwansabombwe, Luapula Province, in the last weekend of July each year. Expected next: ${calendar.nextExpected}.`,
     placeholder: false,
@@ -569,7 +569,7 @@ export const latestCommunications = [
   {
     id: "notice-contact",
     category: "Public Notices",
-    title: "Royal Office — Mwansabombwe",
+    title: "Royal Office, Mwansabombwe",
     date: "Royal Office",
     excerpt: "The Office of the Mwata Kazembe is located at Mwansabombwe, Luapula Province. Direct inquiries are coordinated through the Royal Protocol Office.",
     placeholder: true,
@@ -578,7 +578,7 @@ export const latestCommunications = [
   {
     id: "stmt-pending",
     category: "Official Statements",
-    title: "Official Statements — Kingdom of Kazembe",
+    title: "Official Statements, Kingdom of Kazembe",
     date: "Royal Office",
     excerpt: "Official statements from the Office of the Mwata Kazembe are published in the Newsroom as issued by the Royal Protocol Office.",
     placeholder: true,
@@ -589,11 +589,11 @@ export const latestCommunications = [
 export const officialNoticeStrip = [
   {
     label: "Umutomboko",
-    text: `Expected: ${calendar.nextExpected} — confirm with the Royal Protocol Office before travel`,
+    text: `Expected: ${calendar.nextExpected} . Confirm with the Royal Protocol Office before travel`,
     href: "#mutomboko-visitor"
   },
   { label: "Royal seat", text: "Mwansabombwe, Luapula Province, Zambia", href: "#kingdom-glance" },
-  { label: "Contact", text: "Official channels — Royal Office", href: "#contact" }
+  { label: "Contact", text: "Official channels, Royal Office", href: "#contact" }
 ];
 
 export const developmentPillars = [
@@ -641,7 +641,7 @@ export const developmentPillars = [
   {
     id: "dev-heritage",
     title: "Heritage Protection",
-    summary: "Ceremony, regalia, and historical memory are governed as living heritage — not museum storage.",
+    summary: "Ceremony, regalia, and historical memory are governed as living heritage, not as museum storage.",
     href: "#kingdom"
   },
   {
@@ -656,7 +656,7 @@ export const developmentPillars = [
 export const mutombokoFeature = {
   title: "Mutomboko: Dance of Conquest",
   meaning:
-    "Umutomboko is publicly described as a dance of conquest — commemorating Lunda-Luba arrival from Kola, royal installation, and the continuity of Kazembe authority at Mwansabombwe.",
+    "Umutomboko is publicly described as a dance of conquest that commemorates Lunda-Luba arrival from Kola, royal installation, and the continuity of Kazembe authority at Mwansabombwe.",
   why:
     "The ceremony unites ancestry, water offerings, palace emergence, royal procession, and public dance into a state ritual of identity, not a spectacle alone.",
   stages: ceremonySteps.map((step) => ({
@@ -729,7 +729,7 @@ export const historyChapters = [
     id: "migration",
     title: "Migration toward Luapula",
     summary:
-      "Oral tradition records Ng'anga Bilonda's movement from Kola toward the Luapula Valley, with the Matanda crossing as a durable landscape memory — treated as memory, not a GPS route.",
+      "Oral tradition records Ng'anga Bilonda's movement from Kola toward the Luapula Valley, with the Matanda crossing as a durable landscape memory. It is treated as memory, not as a GPS route.",
     marker: "Migration"
   },
   {
@@ -771,7 +771,7 @@ export const historyChapters = [
     id: "present",
     title: "Present-Day Continuity",
     summary:
-      "Mwata Kazembe XIX presides over Mutomboko, cross-border Lunda diplomacy, and public leadership — the kingdom active in governance, communication, and development.",
+      "Mwata Kazembe XIX presides over Mutomboko, cross-border Lunda diplomacy, and public leadership, keeping the kingdom active in governance, communication, and development.",
     marker: "1998–present"
   }
 ];
@@ -780,7 +780,7 @@ export const warsDiplomacy = [
   {
     title: "Military Strength and State Formation",
     summary:
-      "Kazembe power grew through organised authority and regional control — wars understood here as history of defence, consolidation, and statehood, not glorification of violence."
+      "Kazembe power grew through organised authority and regional control. Wars are understood here as a history of defence, consolidation, and statehood, not a glorification of violence."
   },
   {
     title: "Strategic Migration",
@@ -800,7 +800,7 @@ export const warsDiplomacy = [
   },
   {
     title: "Triumph through Cultural Continuity",
-    summary: "Mutomboko and royal regalia affirm conquest as identity — cultural continuity as political triumph."
+    summary: "Mutomboko and royal regalia affirm conquest as identity, and cultural continuity as political triumph."
   }
 ];
 
@@ -812,7 +812,7 @@ export const royalMap = {
     { name: "Mwansabombwe", role: "Royal seat and ceremony grounds" },
     { name: "Luapula River", role: "Water corridor and fisheries" },
     { name: "Lake Mweru", role: "Lake economy and regional connection" },
-    { name: "Kola", role: "Migration memory — Lunda world origin" },
+    { name: "Kola", role: "Migration memory, the Lunda world origin" },
     { name: "Matanda", role: "Crossing memory in migration tradition" }
   ],
   routes: routes.map((r) => ({ title: r.title, period: r.period, summary: r.summary }))
@@ -936,7 +936,7 @@ export const kingdomSections = [
   {
     id: "kingdom-wars",
     title: "Wars and Triumphs",
-    body: "Military history is presented as state formation, defence, and survival — see the dedicated section on the homepage and full timeline for context."
+    body: "Military history is presented as state formation, defence, and survival. See the dedicated section on the homepage and the full timeline for context."
   },
   {
     id: "kingdom-trade",
@@ -962,17 +962,17 @@ export const kingdomSections = [
 const BUILT_IMG = "assets/images/kazembe/heritage/built-heritage";
 export const builtHeritage = {
   intro: [
-    "Mwata Kazembe XIV, Shadreck Chinyanta Nankula (reigned 1941–1950), reshaped the royal capital at Mwansabombwe. In 1941 he had the Kingdom's administration buildings raised in pa brick, introduced the naming of streets, and built a permanent two-storey palace — ending the long custom by which every new Mwata built a new palace of his own.",
+    "Mwata Kazembe XIV, Shadreck Chinyanta Nankula (reigned 1941–1950), reshaped the royal capital at Mwansabombwe. In 1941 he had the Kingdom's administration buildings raised in pa brick, introduced the naming of streets, and built a permanent two-storey palace, ending the long custom by which every new Mwata built a new palace of his own.",
     "The traditional homes and old administration buildings below survive from that period and the village that grew around the royal seat."
   ],
   monument: {
     src: `${BUILT_IMG}/monument-nankula.jpg`,
     caption:
-      "Monument at Mwansabombwe to Mwata Kazembe XIV, Shadreck Chinyanta Nankula (1941–1950) — the reign that brought the two-storey palace, street naming, and the brick administration buildings."
+      "Monument at Mwansabombwe to Mwata Kazembe XIV, Shadreck Chinyanta Nankula (1941–1950), the reign that brought the two-storey palace, street naming, and the brick administration buildings."
   },
   items: [
     { src: `${BUILT_IMG}/admin-flag-building.jpg`, group: "Old administration", caption: "An old administration building at Mwansabombwe, flying the Kingdom flag." },
-    { src: `${BUILT_IMG}/admin-police-station.jpg`, group: "Old administration", caption: "The old Mwansabombwe police station — a public building of the era." },
+    { src: `${BUILT_IMG}/admin-police-station.jpg`, group: "Old administration", caption: "The old Mwansabombwe police station, a public building of the era." },
     { src: `${BUILT_IMG}/admin-compound.jpg`, group: "Old administration", caption: "The old administration compound, still in public use." },
     { src: `${BUILT_IMG}/home-thatched-village.jpg`, group: "Traditional homes", caption: "Thatched Lunda homes in the royal village." },
     { src: `${BUILT_IMG}/home-homestead-palms.jpg`, group: "Traditional homes", caption: "A traditional homestead among the palms." },
@@ -1004,7 +1004,7 @@ export const newsItems = [
   {
     id: "ceremony-annual",
     category: "Events",
-    title: "Umutomboko — the State Ceremony of Conquest",
+    title: "Umutomboko, the State Ceremony of Conquest",
     date: calendar.annualPattern,
     excerpt: `Umutomboko is held at ${calendar.location} on the last weekend of July, commemorating Lunda arrival from Kola, royal installation, and the continuity of Kazembe authority.`,
     placeholder: false,
@@ -1014,7 +1014,7 @@ export const newsItems = [
   {
     id: "ceremony-1",
     category: "Events",
-    title: `Umutomboko — Expected ${calendar.nextExpected}`,
+    title: `Umutomboko, expected ${calendar.nextExpected}`,
     date: calendar.annualPattern,
     excerpt: `Following the annual pattern, the next Umutomboko is expected on ${calendar.nextExpected} at Mwansabombwe. Confirm final dates through the Royal Protocol Office before travel.`,
     placeholder: false,
@@ -1034,7 +1034,7 @@ export const newsItems = [
   {
     id: "notice-contact",
     category: "Public Notices",
-    title: "Official correspondence — Royal Protocol Office",
+    title: "Official correspondence, Royal Protocol Office",
     date: "Royal Office",
     excerpt: "Cultural inquiries, media accreditation, heritage records, and official correspondence are coordinated through the Royal Protocol Office at Mwansabombwe, Luapula Province.",
     placeholder: false,
@@ -1044,7 +1044,7 @@ export const newsItems = [
   {
     id: "notice-clans",
     category: "Public Notices",
-    title: "Clan register — submissions and corrections",
+    title: "Clan register: submissions and corrections",
     date: "Royal Office",
     excerpt: "The clan register is maintained under the authority of the Office of the Mwata Kazembe. Submissions and corrections are directed to the Royal Protocol Office.",
     placeholder: false,
@@ -1064,7 +1064,7 @@ export const newsItems = [
   {
     id: "stmt-pending",
     category: "Official Statements",
-    title: "Official Statements — Kingdom of Kazembe",
+    title: "Official Statements, Kingdom of Kazembe",
     date: "Royal Office",
     excerpt: "Official statements from the Office of the Mwata Kazembe are published in the Newsroom as issued by the Royal Protocol Office.",
     placeholder: true,
@@ -1078,7 +1078,7 @@ export const publications = [
     title: "The Lands of Cazembe (1873)",
     type: "Historical reference",
     url: "assets/archive/the-lands-of-cazembe-1873.pdf",
-    note: "Public-domain expedition volume — read critically as outsider account."
+    note: "Public-domain expedition volume. Read critically as an outsider account."
   },
   {
     title: "Royal Gazette and Official Publications",
@@ -1098,7 +1098,7 @@ export const archiveRecords = [
   {
     id: "arc-cazembe-1873",
     title: "The Lands of Cazembe (1873)",
-    type: "Document — expedition volume",
+    type: "Expedition volume (document)",
     date: "1873",
     note: "Public-domain Royal Geographical Society volume gathering Portuguese expedition material connected to Cazembe. Read critically as an outsider account.",
     url: "assets/archive/the-lands-of-cazembe-1873.pdf",
@@ -1107,7 +1107,7 @@ export const archiveRecords = [
   {
     id: "arc-mwata-xvii-1961",
     title: "Mwata Kazembe XVII on tour, 1961",
-    type: "Photograph — documentary",
+    type: "Documentary photograph",
     date: "1961",
     note: "Mwata Kazembe XVII Paul Kanyembo Lutaba carried in an open palanquin shortly after installation. Held on Wikimedia Commons.",
     creditId: "archive-mwata-xvii-1961",
@@ -1115,8 +1115,8 @@ export const archiveRecords = [
   },
   {
     id: "arc-umutomboko-2017",
-    title: "Umutomboko 2017 — photographic record",
-    type: "Photographs — ceremony",
+    title: "Umutomboko 2017 photographic record",
+    type: "Ceremony photographs",
     date: "2017",
     note: "Ceremony photography from the 2017 Umutomboko, presented in the Umutomboko gallery with full source credit.",
     url: "#mutomboko-gallery",
@@ -1125,7 +1125,7 @@ export const archiveRecords = [
   {
     id: "arc-speeches",
     title: "Royal speeches and addresses",
-    type: "Records — speeches",
+    type: "Speech records",
     date: "Pending",
     note: "Archive entry pending official material from the Royal Protocol Office.",
     available: false
@@ -1133,7 +1133,7 @@ export const archiveRecords = [
   {
     id: "arc-gazette",
     title: "Royal Gazette and official statements",
-    type: "Records — official documents",
+    type: "Official document records",
     date: "Pending",
     note: "Archive entry pending official material from the Royal Protocol Office.",
     available: false

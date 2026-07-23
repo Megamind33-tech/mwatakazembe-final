@@ -29,7 +29,7 @@ export function sourceCitation(ids = []) {
     .filter(Boolean)
     .map(
       (s) =>
-        `<li><a href="${esc(s.url)}" target="_blank" rel="noreferrer">${esc(s.label)}</a> — ${esc(s.note)}</li>`
+        `<li><a href="${esc(s.url)}" target="_blank" rel="noreferrer">${esc(s.label)}</a>, ${esc(s.note)}</li>`
     )
     .join("");
   if (!items) return "";
