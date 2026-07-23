@@ -146,7 +146,7 @@ const lineageImages = {
   12: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
   13: { src: "assets/generated/reconstruction-weapons.png", credit: "Reconstruction: Lunda weapons" },
   14: { src: "assets/generated/reconstruction-amapango-ulupemba.png", credit: "Reconstruction: Amapango headdress" },
-  15: { src: "assets/generated/reconstruction-muselo-litter.png", credit: "Reconstruction: Muselo litter" },
+  15: { src: "assets/images/kazembe/archive/mwata-xv-brown-ngombe-1950-1957.jpg", credit: "Mwata Kazembe XV, Brown Ngombe (1950–1957)" },
   16: { src: "assets/generated/reconstruction-crowns.png", credit: "Reconstruction: Royal crowns" },
   17: { src: "assets/images/kazembe/archive/mwata-xvii-1961.jpg", credit: "Mwata Kazembe XVII, Paul Kanyembo Lutaba (1961)" },
   18: { src: "assets/generated/reconstruction-umondo-drum.png", credit: "Reconstruction: Umondo drum" },
