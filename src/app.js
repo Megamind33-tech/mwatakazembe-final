@@ -309,6 +309,7 @@ function renderMwata() {
         <p class="section-deck">These photographs record earlier holders of the office of the Mwata Kazembe and past royal occasions. They are distinct from the reigning Mwata shown above. Where a photograph is firmly identified, the officeholder and dates are named; other identifications are held pending official confirmation.</p>
         <div class="media-figure-grid">
           ${creditFigureCard("archive-mwata-xi-kapakata")}
+          ${creditFigureCard("archive-mwata-xv-brown-ngombe")}
           ${creditFigureCard("archive-mwata-xvii-1961")}
           ${creditFigureCard("archive-mwata-xvii-ceremony")}
           ${creditFigureCard("archive-mwata-staff-of-office")}

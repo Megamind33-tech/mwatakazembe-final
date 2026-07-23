@@ -126,6 +126,22 @@ export const imageCredits = [
     creditLine: "Mwata Kazembe XVII, Paul Kanyembo Lutaba"
   },
   {
+    id: "archive-mwata-xv-brown-ngombe",
+    fileName: "mwata-xv-brown-ngombe-1950-1957.jpg",
+    src: "assets/images/kazembe/archive/mwata-xv-brown-ngombe-1950-1957.jpg",
+    title: "Mwata Kazembe XV, Brown Ngombe",
+    description: "Mwata Kazembe XV, Brown Ngombe (reigned 1950 to 1957), photographed in ceremonial dress holding the royal staff of office, with attendants of the court behind him.",
+    sourceName: "Royal Archives, Office of the Mwata Kazembe",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-23",
+    licenseOrUsageNote: "Supplied by the Office of the Mwata Kazembe.",
+    altText: "Mwata Kazembe XV, Brown Ngombe, in ceremonial dress and beaded headband, holding the royal staff of office.",
+    sectionUsedIn: "Mwata Lineage, Archive",
+    category: "archive",
+    creditLine: "Mwata Kazembe XV, Brown Ngombe (1950–1957)"
+  },
+  {
     id: "places-kingdom-map-2007",
     fileName: "kingdom-map-2007.jpg",
     src: "assets/images/kazembe/places/kingdom-map-2007.jpg",
