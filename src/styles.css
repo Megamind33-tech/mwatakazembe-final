@@ -4278,3 +4278,129 @@ body.lightbox-open {
 .page-hero {
   overflow: hidden;
 }
+
+/* =====================================================================
+   Refined institutional pass
+   A distinctive, consistent treatment so sections stop reading as
+   identical white boxes: a ceremonial marker on section heads, and
+   cards with subtle depth, serif titles, and a short accent rule.
+   Appended last so it cleanly refines the earlier definitions.
+   ===================================================================== */
+
+/* Section heads — a short red→gold ceremonial rule leads the eyebrow */
+.section-head .eyebrow,
+.built-heritage-section .eyebrow,
+.baluunda-section .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: 0.16em;
+  color: var(--bronze);
+}
+
+.section-head .eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: linear-gradient(90deg, var(--ceremonial-red), var(--bronze));
+}
+
+.section-head h2 {
+  text-wrap: balance;
+  letter-spacing: -0.01em;
+}
+
+/* The repeated institutional card family — gentle depth and a serif
+   title underlined by a short ceremonial-red rule. */
+.gov-institution-card,
+.agency-card,
+.clan-role-card,
+.contact-card,
+.publication-card,
+.royal-family-card,
+.symbol-card,
+.pillar-card {
+  background: linear-gradient(180deg, var(--white) 0%, var(--surface) 100%);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 1px 2px rgba(12, 31, 61, 0.04);
+}
+
+.gov-institution-card h3,
+.agency-card h3,
+.clan-role-card h3,
+.contact-card h3,
+.publication-card h3,
+.royal-family-card h3,
+.symbol-card h3,
+.pillar-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--royal-blue-mid);
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.55rem;
+  position: relative;
+}
+
+.gov-institution-card h3::after,
+.agency-card h3::after,
+.clan-role-card h3::after,
+.contact-card h3::after,
+.publication-card h3::after,
+.royal-family-card h3::after,
+.symbol-card h3::after,
+.pillar-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34px;
+  height: 2px;
+  background: var(--ceremonial-red);
+}
+
+.gov-institution-card p,
+.agency-card p,
+.clan-role-card p,
+.contact-card p,
+.publication-card p,
+.royal-family-card p,
+.pillar-card p {
+  color: var(--stone);
+  line-height: 1.55;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gov-institution-card:hover,
+  .agency-card:hover,
+  .clan-role-card:hover,
+  .contact-card:hover,
+  .publication-card:hover,
+  .royal-family-card:hover,
+  .symbol-card:hover,
+  .pillar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(12, 31, 61, 0.12);
+    border-color: color-mix(in srgb, var(--royal-blue) 22%, var(--border));
+  }
+}
+
+/* Softer section rhythm on sub-pages — a tapered rule instead of a hard
+   full-width border between subsections. */
+.subsection {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 2.75rem;
+}
+
+.subsection + .subsection {
+  padding-top: 2.75rem;
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(90deg, transparent, var(--border) 12%, var(--border) 88%, transparent);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: top center;
+}
