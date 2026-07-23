@@ -310,6 +310,7 @@ function renderMwata() {
         <div class="media-figure-grid">
           ${creditFigureCard("archive-mwata-xi-kapakata")}
           ${creditFigureCard("archive-mwata-xvii-1961")}
+          ${creditFigureCard("archive-mwata-xvii-ceremony")}
           ${creditFigureCard("archive-mwata-staff-of-office")}
           ${creditFigureCard("archive-royal-ceremony-colonial")}
           ${creditFigureCard("mwata-beaded-crown")}
@@ -1699,6 +1700,7 @@ const HOME_ANCHORS = new Set([
   "kingdom-glance",
   "kingdom-figures",
   "kingdom-pathways",
+  "mwata-lineage",
   "mutomboko-feature",
   "royal-news",
   "support-kingdom"
