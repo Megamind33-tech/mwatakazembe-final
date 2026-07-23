@@ -312,6 +312,7 @@ function renderMwata() {
           ${creditFigureCard("archive-mwata-xi-kapakata")}
           ${creditFigureCard("archive-mwata-xii-chinyanta-kasasa")}
           ${creditFigureCard("archive-mwata-xiii-chinkonkole")}
+          ${creditFigureCard("archive-mwata-xiv-shadreck-statue")}
           ${creditFigureCard("archive-mwata-xv-brown-ngombe")}
           ${creditFigureCard("archive-mwata-xvi-kanyembo-kapema")}
           ${creditFigureCard("archive-mwata-xvii-1961")}

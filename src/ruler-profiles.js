@@ -143,15 +143,19 @@ export const rulerProfiles = {
     sourceNote: "Limited public record: Gordon."
   },
   14: {
-    historicalRole: "Modernising ruler associated with palace building, Lunda associations, and Ifikolwe Fyandi.",
+    historicalRole:
+      "The first modernising Mwata. Educated and employed in Elizabethville, he spoke fluent French and English and brought that outlook to the throne in the 1940s.",
     keyEvents: [
-      "Documented reign in the nationalist era before Zambian independence.",
-      "Institutional modernisation of royal office and public presence."
+      "Galvanised the LNA, renaming it the Lunda National Association and appointing members with an energy for change and development.",
+      "Encouraged the building of schools, clinics, and roads in Mwansabombwe and the expansion of missions such as Mbereshi.",
+      "Wrote an account of the chieftainship, edited by the White Father missionary Edouard Labreque and published in Chibemba as Ifikolwe Fyandi na Bantu Bandi (My Ancestors and My People)."
     ],
-    governance: "Expanded royal visibility and liaison with civil administration.",
+    governance:
+      "Reorganised the Lunda National Association as an engine of development and expanded the royal office's liaison with civil administration.",
     warsDiplomacyTrade: "",
-    culturalNote: "Palace and association-building period in twentieth-century Kazembe memory.",
-    sourceNote: "Documented: Gordon."
+    culturalNote:
+      "Remembered as the modernising Mwata: brick administration buildings, street naming, a permanent two-storey palace, and the written record of Lunda ancestry.",
+    sourceNote: "Documented: Gordon; Ifikolwe Fyandi na Bantu Bandi (Kazembe XIV, ed. E. Labreque)."
   },
   15: {
     historicalRole: "Reign in the pre-independence nationalist period.",
