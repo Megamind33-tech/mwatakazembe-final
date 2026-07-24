@@ -610,6 +610,18 @@ export const baluunda = {
       name: "Kapa Kasao",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kasao.jpg`
+    },
+    {
+      seat: 27,
+      name: "Kapa Chinyanta",
+      role: "Umwana wa Mfumu",
+      image: `${BALUUNDA_IMG}/kapa-chinyanta.jpg`
+    },
+    {
+      seat: 28,
+      name: "Kapa Mondo",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-mondo.jpg`
     }
   ]
 };
