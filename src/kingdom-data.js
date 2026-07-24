@@ -676,6 +676,38 @@ export const bashafumu = {
   ]
 };
 
+// The Mwata's Cabinet: the senior advisory body of the Kingdom. It is chaired
+// by the Iyina Mwana Kashiba, and it is this cabinet that selects the Heir to
+// the throne, at times by the casting of votes.
+export const mwataCabinet = {
+  intro:
+    "The Mwata's Cabinet is the senior advisory body of the Kingdom. It is this cabinet that selects the Heir to the throne, at times by the casting of votes.",
+  chair: {
+    name: "Iyina Mwana Kashiba",
+    role: "Prime Minister and Chairman of the Chiefs, representing the Mwata"
+  },
+  members: [
+    "Mwine Mpanda",
+    "Kalondala Mwanamwilombe",
+    "Kasumpa",
+    "Kabeya",
+    "Koni",
+    "Kama Mpumba",
+    "Kasengula",
+    "Kashinga",
+    "Chinawezi",
+    "Chipepa",
+    "Chibwili",
+    "Chilembi",
+    "Mwelwa Kamonga",
+    "Musanda",
+    "Lubabila",
+    "Likonde",
+    "Kazembe Nalukonzi",
+    "Shikalyata Kabwita"
+  ]
+};
+
 export const latestCommunications = [
   {
     id: "ceremony-1",

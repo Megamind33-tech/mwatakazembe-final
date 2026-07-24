@@ -2681,6 +2681,45 @@ body.lightbox-open {
   line-height: 1.2;
 }
 
+.cabinet-chair {
+  margin: 1.25rem 0 0.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--royal-blue-mid, #1c3d6e);
+  background: var(--parchment);
+}
+
+.cabinet-chair-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.35rem;
+}
+
+.cabinet-chair h3 {
+  margin: 0 0 0.2rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--royal-blue-mid, #1c3d6e);
+}
+
+.cabinet-chair p {
+  margin: 0;
+  color: var(--ink);
+}
+
+.cabinet-members-label {
+  margin: 1.4rem 0 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
 .bashafumu-roster {
   list-style: none;
   margin: 1.25rem 0 0 0;

@@ -12,6 +12,7 @@ import {
   subChiefs,
   historyChapters,
   kingdomAgencies,
+  mwataCabinet,
   kingdomSections,
   kings,
   latestCommunications,
@@ -565,6 +566,24 @@ function subChiefsSectionHtml() {
   `;
 }
 
+function mwataCabinetSectionHtml() {
+  const c = mwataCabinet.chair;
+  const items = mwataCabinet.members.map((n) => `<li>${esc(n)}</li>`).join("");
+  return `
+    <section class="subsection cabinet-section" id="mwata-cabinet">
+      ${sectionHead("The Mwata's Council", "The Mwata's Cabinet")}
+      <p class="section-deck">${esc(mwataCabinet.intro)}</p>
+      <article class="cabinet-chair">
+        <span class="cabinet-chair-label">Chair</span>
+        <h3>${esc(c.name)}</h3>
+        <p>${esc(c.role)}</p>
+      </article>
+      <p class="cabinet-members-label">Members of the Cabinet</p>
+      <ul class="bashafumu-roster">${items}</ul>
+    </section>
+  `;
+}
+
 function bashafumuSectionHtml() {
   const items = bashafumu.members.map((n) => `<li>${esc(n)}</li>`).join("");
   return `
@@ -626,6 +645,7 @@ function renderGovernance() {
     </div>
     <div class="container page-body">
       ${councilChartHtml()}
+      ${mwataCabinetSectionHtml()}
       ${baluundaSectionHtml()}
       ${subChiefsSectionHtml()}
       ${bashafumuSectionHtml()}
