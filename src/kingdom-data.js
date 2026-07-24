@@ -580,6 +580,36 @@ export const baluunda = {
       name: "Sub Chief Swaba",
       role: "Sub Chief",
       image: `${BALUUNDA_IMG}/sub-chief-swaba.jpg`
+    },
+    {
+      seat: 22,
+      name: "Kapa Kapena",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-kapena.jpg`
+    },
+    {
+      seat: 23,
+      name: "Kapa Chilalo",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-chilalo.jpg`
+    },
+    {
+      seat: 24,
+      name: "Kapa Mpuya",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-mpuya.jpg`
+    },
+    {
+      seat: 25,
+      name: "Kapa Musanda",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-musanda.jpg`
+    },
+    {
+      seat: 26,
+      name: "Kapa Kasao",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-kasao.jpg`
     }
   ]
 };
