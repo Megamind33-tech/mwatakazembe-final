@@ -566,9 +566,36 @@ function subChiefsSectionHtml() {
   `;
 }
 
+// A roster card matching the Baluunda / Sub Chiefs style. Shows a portrait
+// when one is supplied, otherwise a monogram placeholder.
+function rosterCard(name, role, image) {
+  const initials = name
+    .replace(/^(Kapa|Sub Chief|Senior Chief)\s+/i, "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+  const media = image
+    ? `<div class="baluunda-media"><img src="${esc(image)}" alt="${esc(name)}" loading="lazy"></div>`
+    : `<div class="baluunda-media baluunda-media-pending"><span class="baluunda-monogram" aria-hidden="true">${esc(initials)}</span></div>`;
+  return `
+      <article class="baluunda-card ${image ? "" : "is-pending"}">
+        ${media}
+        <div class="baluunda-body">
+          <h3>${esc(name)}</h3>
+          ${role ? `<p class="baluunda-role">${esc(role)}</p>` : ""}
+        </div>
+      </article>
+    `;
+}
+
 function mwataCabinetSectionHtml() {
   const c = mwataCabinet.chair;
-  const items = mwataCabinet.members.map((n) => `<li>${esc(n)}</li>`).join("");
+  const cards = mwataCabinet.members
+    .map((n) => rosterCard(n, "Member of the Cabinet"))
+    .join("");
   return `
     <section class="subsection cabinet-section" id="mwata-cabinet">
       ${sectionHead("The Mwata's Council", "The Mwata's Cabinet")}
@@ -579,7 +606,7 @@ function mwataCabinetSectionHtml() {
         <p>${esc(c.role)}</p>
       </article>
       <p class="cabinet-members-label">Members of the Cabinet</p>
-      <ul class="bashafumu-roster">${items}</ul>
+      <div class="baluunda-grid">${cards}</div>
     </section>
   `;
 }
@@ -611,12 +638,12 @@ function spiritualSystemSectionHtml() {
 }
 
 function bashafumuSectionHtml() {
-  const items = bashafumu.members.map((n) => `<li>${esc(n)}</li>`).join("");
+  const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu")).join("");
   return `
     <section class="subsection bashafumu-section" id="bashafumu">
       ${sectionHead("Traditional Office", "The Bashafumu")}
       <p class="section-deck">${esc(bashafumu.intro)}</p>
-      <ul class="bashafumu-roster">${items}</ul>
+      <div class="baluunda-grid">${cards}</div>
     </section>
   `;
 }
