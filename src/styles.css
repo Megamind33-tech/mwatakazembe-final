@@ -2681,6 +2681,65 @@ body.lightbox-open {
   line-height: 1.2;
 }
 
+.priest-grid {
+  margin: 1.25rem 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.priest-card {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--royal-blue-mid, #1c3d6e);
+  background: var(--parchment);
+}
+
+.priest-card h3 {
+  margin: 0 0 0.15rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--royal-blue-mid, #1c3d6e);
+}
+
+.priest-role {
+  margin: 0 0 0.55rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.priest-card p:last-child {
+  margin: 0;
+}
+
+.headmen-list {
+  list-style: none;
+  margin: 0.6rem 0 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.4rem 1.5rem;
+}
+
+.headmen-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.headmen-list li strong {
+  font-family: var(--font-serif);
+  color: var(--ink);
+}
+
+.headmen-list li span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--stone);
+}
+
 .cabinet-chair {
   margin: 1.25rem 0 0.5rem 0;
   padding: 1.1rem 1.25rem;

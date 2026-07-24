@@ -708,6 +708,42 @@ export const mwataCabinet = {
   ]
 };
 
+// The spiritual system of the Kingdom. The Mwata Kazembe is the Chief Priest;
+// these officers serve as High Priests attached to the Throne, carrying the
+// duties of ancestry, burial, and the shrines. Roles as given by the Office
+// of the Mwata.
+export const spiritualSystem = {
+  intro:
+    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed.",
+  highPriests: [
+    {
+      name: "Munkanso Kashikayi",
+      role: "Undertaker of the Mwata",
+      note: "Ensures the Mwata transitions to the Land of the Ancestors through the right traditions. He serves under Kanyembo."
+    },
+    {
+      name: "Chikumbi",
+      role: "Keeper of the royal afterlife",
+      note: "Cares for the afterlife of all the Mwatas and guards the Lunde ancestral grounds from being violated, physically and spiritually."
+    },
+    {
+      name: "Shanyemba",
+      role: "Mwana wa Mfumu",
+      note: ""
+    },
+    {
+      name: "Makwe Toka",
+      role: "Guardian of the Mpembwe Shrine",
+      note: "Of the Abena Fula clan, entrusted to protect the Mpembwe Shrine, a place of great significance in Lunda tradition, where the great ancestors of health, agriculture, and rain are communicated with."
+    }
+  ],
+  headmen: [
+    { name: "Mwana Mwenshi", role: "Senior Headman, under Kambwaili" },
+    { name: "Kampampi", role: "Traditional Councillor" },
+    { name: "Swaba", role: "Traditional Councillor" }
+  ]
+};
+
 export const latestCommunications = [
   {
     id: "ceremony-1",

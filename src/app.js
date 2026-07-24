@@ -13,6 +13,7 @@ import {
   historyChapters,
   kingdomAgencies,
   mwataCabinet,
+  spiritualSystem,
   kingdomSections,
   kings,
   latestCommunications,
@@ -584,6 +585,32 @@ function mwataCabinetSectionHtml() {
   `;
 }
 
+function spiritualSystemSectionHtml() {
+  const priests = spiritualSystem.highPriests
+    .map(
+      (m) => `
+      <article class="priest-card">
+        <h3>${esc(m.name)}</h3>
+        <p class="priest-role">${esc(m.role)}</p>
+        ${m.note ? `<p>${esc(m.note)}</p>` : ""}
+      </article>
+    `
+    )
+    .join("");
+  const headmen = spiritualSystem.headmen
+    .map((m) => `<li><strong>${esc(m.name)}</strong><span>${esc(m.role)}</span></li>`)
+    .join("");
+  return `
+    <section class="subsection spiritual-section" id="spiritual-system">
+      ${sectionHead("Faith and the Ancestors", "The Spiritual System of the Kingdom")}
+      <p class="section-deck">${esc(spiritualSystem.intro)}</p>
+      <div class="priest-grid">${priests}</div>
+      <p class="cabinet-members-label">Senior Headmen and Traditional Councillors</p>
+      <ul class="headmen-list">${headmen}</ul>
+    </section>
+  `;
+}
+
 function bashafumuSectionHtml() {
   const items = bashafumu.members.map((n) => `<li>${esc(n)}</li>`).join("");
   return `
@@ -649,6 +676,7 @@ function renderGovernance() {
       ${baluundaSectionHtml()}
       ${subChiefsSectionHtml()}
       ${bashafumuSectionHtml()}
+      ${spiritualSystemSectionHtml()}
       <section class="subsection" id="council">
         ${sectionHead("Deliberation", "The Royal Council and Institutions")}
         <div class="gov-institution-grid">${institutions}</div>
