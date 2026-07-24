@@ -1,6 +1,7 @@
 import {
   archiveRecords,
   baluunda,
+  bashafumu,
   builtHeritage,
   calendar,
   developmentPillars,
@@ -564,6 +565,17 @@ function subChiefsSectionHtml() {
   `;
 }
 
+function bashafumuSectionHtml() {
+  const items = bashafumu.members.map((n) => `<li>${esc(n)}</li>`).join("");
+  return `
+    <section class="subsection bashafumu-section" id="bashafumu">
+      ${sectionHead("Traditional Office", "The Bashafumu")}
+      <p class="section-deck">${esc(bashafumu.intro)}</p>
+      <ul class="bashafumu-roster">${items}</ul>
+    </section>
+  `;
+}
+
 function renderGovernance() {
   // "chiefs" and "protocol" institution cards are direct nav targets, so keep
   // their bare ids. Everything else is namespaced to avoid colliding with the
@@ -616,6 +628,7 @@ function renderGovernance() {
       ${councilChartHtml()}
       ${baluundaSectionHtml()}
       ${subChiefsSectionHtml()}
+      ${bashafumuSectionHtml()}
       <section class="subsection" id="council">
         ${sectionHead("Deliberation", "The Royal Council and Institutions")}
         <div class="gov-institution-grid">${institutions}</div>

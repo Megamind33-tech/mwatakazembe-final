@@ -2681,6 +2681,34 @@ body.lightbox-open {
   line-height: 1.2;
 }
 
+.bashafumu-roster {
+  list-style: none;
+  margin: 1.25rem 0 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem 1.5rem;
+}
+
+.bashafumu-roster li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-serif);
+  color: var(--ink);
+}
+
+.bashafumu-roster li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--royal-blue-mid, #1c3d6e);
+}
+
 .lineage-detail-noportrait {
   display: flex;
   flex-direction: column;

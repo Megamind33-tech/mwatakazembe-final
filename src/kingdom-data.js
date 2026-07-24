@@ -644,6 +644,38 @@ export const subChiefs = {
   ]
 };
 
+// The Bashafumu: titled holders of traditional office under the Mwata Kazembe
+// across the villages and lands of the Kingdom. Listed by name as supplied by
+// the Office of the Mwata.
+export const bashafumu = {
+  intro:
+    "The Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom.",
+  members: [
+    "Salanga",
+    "Chisha Munkashi",
+    "Mutondolo",
+    "Kapemba",
+    "Munkombwe",
+    "Muyembe pa Chisenga",
+    "Kasumpa",
+    "Sapwa wabufi Kanda",
+    "Kapwasa",
+    "Chitimuba",
+    "Nsonga",
+    "Mukupa",
+    "Chilomba",
+    "Mukungu Mbele",
+    "Muteba",
+    "Kalilo",
+    "Mulinde",
+    "Kabolwe",
+    "Muswa Bantu",
+    "Kaluba",
+    "Kayumba",
+    "Mbayo Makobo"
+  ]
+};
+
 export const latestCommunications = [
   {
     id: "ceremony-1",
