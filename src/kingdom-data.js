@@ -503,7 +503,12 @@ export const baluunda = {
       emblem: "Animals",
       image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`
     },
-    { seat: 4, name: "Kapa Kazembe Nalukonzi", role: "Mulinda Chipembwe" },
+    {
+      seat: 4,
+      name: "Kapa Kazembe Nalukonzi",
+      role: "Mulinda Chipembwe",
+      image: `${BALUUNDA_IMG}/kapa-kazembe-nalukonzi.jpg`
+    },
     {
       seat: 5,
       name: "Kapa Chibumbu Ilunga",
@@ -551,7 +556,31 @@ export const baluunda = {
     },
     { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
     { seat: 16, name: "Kapa Koni", role: "Judge" },
-    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" }
+    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" },
+    {
+      seat: 18,
+      name: "Kapa Chanshi",
+      role: "Palace Secretary",
+      image: `${BALUUNDA_IMG}/kapa-chanshi.jpg`
+    },
+    {
+      seat: 19,
+      name: "Kapa Namukamba",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-namukamba.jpg`
+    },
+    {
+      seat: 20,
+      name: "Kapa Kang'omba",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-kangomba.jpg`
+    },
+    {
+      seat: 21,
+      name: "Sub Chief Swaba",
+      role: "Sub Chief",
+      image: `${BALUUNDA_IMG}/sub-chief-swaba.jpg`
+    }
   ]
 };
 
