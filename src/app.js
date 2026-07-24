@@ -6,12 +6,12 @@ import {
   calendar,
   developmentPillars,
   governanceInstitutions,
-  governanceSections,
   governanceStructure,
   seniorChiefSeats,
   subChiefs,
   historyChapters,
   kingdomAgencies,
+  kingdomAgenciesIntro,
   mwataCabinet,
   spiritualSystem,
   kingdomSections,
@@ -416,8 +416,11 @@ function renderClans() {
 
 function councilChartHtml() {
   const byTier = (t) => governanceStructure.filter((n) => n.tier === t);
+  // The chart is where the Royal Council, Senior Chiefs, Traditional Court, and
+  // Headmen are stated, so its nodes carry the gov-* anchors the navigation and
+  // the home leadership cards link to.
   const node = (n, extraClass = "") => `
-    <article class="chart-node node-${esc(n.id)} ${extraClass}" data-chart-node>
+    <article class="chart-node node-${esc(n.id)} ${extraClass}" id="gov-${esc(n.id)}" data-chart-node>
       <span class="chart-node-tier">Tier ${esc(String(n.tier))}</span>
       <h3>${esc(n.title)}</h3>
       <p>${esc(n.description)}</p>
@@ -529,6 +532,7 @@ function baluundaSectionHtml() {
 function subChiefsSectionHtml() {
   const initials = (name) =>
     name
+      .replace(/^Kapa\s+/i, "")
       .split(/\s+/)
       .filter(Boolean)
       .map((w) => w[0])
@@ -540,7 +544,7 @@ function subChiefsSectionHtml() {
     .map((m) => {
       const media = m.image
         ? `<div class="baluunda-media">
-             <img src="${esc(m.image)}" alt="Sub Chief ${esc(m.name)}" loading="lazy">
+             <img src="${esc(m.image)}" alt="${esc(m.name)}, Sub Chief of the Kazembe Kingdom" loading="lazy">
            </div>`
         : `<div class="baluunda-media baluunda-media-pending">
              <span class="baluunda-monogram" aria-hidden="true">${esc(initials(m.name))}</span>
@@ -564,6 +568,39 @@ function subChiefsSectionHtml() {
       <div class="baluunda-grid">${cards}</div>
     </section>
   `;
+}
+
+// Several officeholders hold more than one seat — Kapa Kasumpa sits in the
+// Baluunda and is also named among the Bashafumu and the Cabinet, for
+// instance. The portrait is filed once, under the Baluunda or Sub Chiefs, so
+// every later mention of the same person looks it up here rather than falling
+// back to a name-only card.
+const rosterKey = (name) =>
+  name
+    .replace(/^(Kapa|Sub Chief|Senior Chief|Kazembe)\s+/i, "")
+    .toLowerCase()
+    .replace(/[^a-z\s]/g, "")
+    .trim();
+
+const portraitIndex = (() => {
+  const byName = new Map();
+  const byFirstWord = new Map();
+  [...baluunda.members, ...subChiefs.members]
+    .filter((m) => m.image)
+    .forEach((m) => {
+      const key = rosterKey(m.name);
+      if (!byName.has(key)) byName.set(key, m.image);
+      const first = key.split(/\s+/)[0];
+      // Only single-holder first names are usable: "Mwine" belongs to two
+      // seats, so it must never resolve to one of them.
+      byFirstWord.set(first, byFirstWord.has(first) ? null : m.image);
+    });
+  return { byName, byFirstWord };
+})();
+
+function portraitFor(name) {
+  const key = rosterKey(name);
+  return portraitIndex.byName.get(key) || portraitIndex.byFirstWord.get(key) || undefined;
 }
 
 // A roster card matching the Baluunda / Sub Chiefs style. Shows a portrait
@@ -594,7 +631,7 @@ function rosterCard(name, role, image) {
 function mwataCabinetSectionHtml() {
   const c = mwataCabinet.chair;
   const cards = mwataCabinet.members
-    .map((n) => rosterCard(n, "Member of the Cabinet"))
+    .map((n) => rosterCard(n, "Member of the Cabinet", portraitFor(n)))
     .join("");
   return `
     <section class="subsection cabinet-section" id="mwata-cabinet">
@@ -638,7 +675,7 @@ function spiritualSystemSectionHtml() {
 }
 
 function bashafumuSectionHtml() {
-  const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu")).join("");
+  const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu", portraitFor(n))).join("");
   return `
     <section class="subsection bashafumu-section" id="bashafumu">
       ${sectionHead("Traditional Office", "The Bashafumu")}
@@ -649,10 +686,9 @@ function bashafumuSectionHtml() {
 }
 
 function renderGovernance() {
-  // "chiefs" and "protocol" institution cards are direct nav targets, so keep
-  // their bare ids. Everything else is namespaced to avoid colliding with the
-  // #council intro section and the gov-court accordion (governanceSections).
-  const govAnchor = (id) => (["chiefs", "protocol"].includes(id) ? id : `inst-${id}`);
+  // Institution cards carry gov-* anchors, matching the chart nodes above and
+  // keeping them clear of the #gov-offices section that wraps them.
+  const govAnchor = (id) => `gov-${id}`;
   const institutions = governanceInstitutions
     .map(
       (g) => `
@@ -677,17 +713,6 @@ function renderGovernance() {
     )
     .join("");
 
-  const blocks = governanceSections
-    .map(
-      (s) => `
-      <section class="subsection accordion-block" id="${esc(s.id)}">
-        <button class="accordion-trigger" type="button" aria-expanded="false">${esc(s.title)}</button>
-        <div class="accordion-panel"><p>${esc(s.body)}</p></div>
-      </section>
-    `
-    )
-    .join("");
-
   $("#page-governance").innerHTML = `
     <div class="page-hero page-hero-compact page-hero-governance">
       <div class="container page-hero-content">
@@ -703,15 +728,14 @@ function renderGovernance() {
       ${subChiefsSectionHtml()}
       ${bashafumuSectionHtml()}
       ${spiritualSystemSectionHtml()}
-      <section class="subsection" id="council">
-        ${sectionHead("Deliberation", "The Royal Council and Institutions")}
+      <section class="subsection" id="gov-offices">
+        ${sectionHead("The royal seat", "Offices of the Royal Seat")}
         <div class="gov-institution-grid">${institutions}</div>
       </section>
       <section class="subsection" id="agencies">
-        ${sectionHead("Kingdom desks", "Kingdom Agencies")}
+        ${sectionHead("Kingdom desks", "Kingdom Agencies", kingdomAgenciesIntro)}
         <div class="agency-grid">${agencyCards}</div>
       </section>
-      ${blocks}
     </div>
   `;
 }
@@ -1887,13 +1911,24 @@ function showPage(pageId) {
   if (pageId === "governance") initCouncilChart();
 }
 
+// Anchors kept alive after the repeated governance accordion was removed, so
+// older links and bookmarks still land on the section that now carries the
+// subject.
+const ANCHOR_ALIASES = {
+  chiefs: "gov-chiefs",
+  council: "gov-council",
+  "gov-admin": "agencies",
+  "gov-protocol": "protocol",
+  "gov-development": "agencies"
+};
+
 function resolvePageFromHash() {
   const hash = (location.hash || "#home").slice(1);
   const pageId = pageFromHash(hash);
   showPage(pageId);
   if (hash && hash !== pageId) {
     requestAnimationFrame(() => {
-      const el = document.getElementById(hash);
+      const el = document.getElementById(hash) || document.getElementById(ANCHOR_ALIASES[hash] || "");
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }

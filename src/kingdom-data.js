@@ -51,8 +51,8 @@ export const navigation = [
     href: "#governance",
     children: [
       { label: "Baluunda Judicial Council", href: "#baluunda" },
-      { label: "Royal Council", href: "#council" },
-      { label: "Senior Chiefs", href: "#chiefs" },
+      { label: "Royal Council", href: "#gov-council" },
+      { label: "Senior Chiefs", href: "#gov-chiefs" },
       { label: "Clans & People", href: "#clans" },
       { label: "Traditional Court", href: "#gov-court" },
       { label: "Administration & Agencies", href: "#agencies" },
@@ -280,7 +280,7 @@ export const leadershipCards = [
     role: "Public Affairs and Development",
     description:
       "Administrative offices coordinate protocol, communications, development committees, and official engagement with the public.",
-    href: "#gov-admin",
+    href: "#agencies",
     placeholder: true
   }
 ];
@@ -352,6 +352,10 @@ export const kingdomFigures = [
   { value: new Date().getFullYear() - KINGDOM_FOUNDED, suffix: "+", label: "Years on Record", note: "Continuity at Mwansabombwe" }
 ];
 
+// Offices of the royal seat that the governance chart above does not already
+// name. The Royal Council, Senior Chiefs, Traditional Court, and Headmen are
+// stated once, in the chart itself; Protocol, Ceremony, Development, and
+// Heritage are stated once, in the Kingdom Agencies section.
 export const governanceInstitutions = [
   {
     id: "mwata",
@@ -366,49 +370,9 @@ export const governanceInstitutions = [
       "Palace officers, regalia custodians, Ichota protocol, and domestic arrangements for the reigning Mwata and senior royal family."
   },
   {
-    id: "council",
-    title: "Royal Council",
-    function:
-      "Deliberates policy, succession memory, land disputes referred upward, and coordination with civil administration.",
-    pending: true
-  },
-  {
-    id: "chiefs",
-    title: "Senior Chiefs",
-    function: "Regional traditional leaders representing communities, tribute corridors, and ceremony duty across Luapula.",
-    pending: true
-  },
-  {
-    id: "court",
-    title: "Traditional Court",
-    function: "Customary adjudication for lineage, marriage, land, and community order under established court protocol."
-  },
-  {
-    id: "headmen",
-    title: "Headmen and Village Structures",
-    function: "Village-level authority linking households to chiefs and the royal seat for tax, ceremony, and dispute referral."
-  },
-  {
-    id: "protocol",
-    title: "Protocol and Communications Office",
-    function: "Royal notices, press protocol, dignitary visits, and official tone for public communications.",
-    pending: true
-  },
-  {
-    id: "ceremony",
-    title: "Ceremony Committee",
-    function: "Umutomboko planning, procession order, arena protocol, and visitor briefings."
-  },
-  {
-    id: "development",
-    title: "Development and Investment Desk",
-    function: "Agriculture, fisheries, tourism, youth programmes, and investment inquiries under council oversight.",
-    pending: true
-  },
-  {
-    id: "heritage",
-    title: "Heritage and Culture Office",
-    function: "Archives, oral history verification, schools outreach, and museum liaison."
+    id: "land",
+    title: "Land and Community Affairs",
+    function: "Land, settlement, and community representation governed through traditional authority structures linked to the royal seat."
   }
 ];
 
@@ -423,7 +387,8 @@ export const governanceStructure = [
     id: "council",
     title: "Royal Council",
     tier: 2,
-    description: "The principal council under the Mwata, whose senior advisers and councilors deliberate on kingdom policy, succession memory, and public order.",
+    description:
+      "The principal council under the Mwata. Its senior advisers and councilors deliberate on kingdom policy, succession memory, land disputes referred upward, public order, and coordination with civil administration.",
     placeholder: true
   },
   {
@@ -436,35 +401,32 @@ export const governanceStructure = [
     id: "chiefs",
     title: "Senior Chiefs",
     tier: 3,
-    description: "Children of the Mwata, the regional traditional leaders who represent communities and uphold royal directives across the kingdom.",
+    description:
+      "Children of the Mwata: the regional traditional leaders who represent communities, carry tribute corridors and ceremony duty across Luapula, and uphold royal directives.",
     placeholder: true
   },
   {
     id: "court",
     title: "Traditional Court",
     tier: 4,
-    description: "Customary adjudication, dispute resolution, and protocol for land, lineage, and community matters.",
+    description:
+      "Customary adjudication for lineage, marriage, land, and community order, with dispute resolution under established court protocol.",
     placeholder: true
   },
   {
     id: "headmen",
-    title: "Headmen and Community Structures",
+    title: "Headmen and Village Structures",
     tier: 4,
-    description: "Local authority linking villages to the royal seat through tribute, representation, and ceremony.",
+    description:
+      "Village-level authority linking households to the chiefs and the royal seat through tribute, representation, ceremony, and dispute referral.",
     placeholder: true
   },
   {
-    id: "protocol",
-    title: "Protocol and Communication Office",
+    id: "desks",
+    title: "Administration and Agencies",
     tier: 4,
-    description: "Official statements, public notices, media coordination, and ceremonial protocol.",
-    placeholder: true
-  },
-  {
-    id: "development",
-    title: "Development Committees",
-    tier: 4,
-    description: "Kingdom-facing programmes in agriculture, fisheries, tourism, youth, and community investment.",
+    description:
+      "The working desks of the Kingdom: protocol and communications, ceremony, heritage, tourism, youth, and development. Each is listed in the Kingdom Agencies section below.",
     placeholder: true
   }
 ];
@@ -630,15 +592,15 @@ export const subChiefs = {
   intro:
     "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They are distinct from the Baluunda and do not sit in the High Court.",
   members: [
-    { name: "Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
-    { name: "Chibwili" },
-    { name: "Chipunka" },
-    { name: "Kapesa" },
-    { name: "Kapala" },
-    { name: "Kapena", image: `${SUBCHIEF_IMG}/kapena.jpg` },
-    { name: "Kanyemba" },
-    { name: "Nkakoloto" },
-    { name: "Swaba", image: `${SUBCHIEF_IMG}/swaba.jpg` }
+    { name: "Kapa Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
+    { name: "Kapa Chibwili" },
+    { name: "Kapa Chipunka" },
+    { name: "Kapa Kapesa" },
+    { name: "Kapa Kapala" },
+    { name: "Kapa Kapena", image: `${SUBCHIEF_IMG}/kapena.jpg` },
+    { name: "Kapa Kanyemba" },
+    { name: "Kapa Nkakoloto" },
+    { name: "Kapa Swaba", image: `${SUBCHIEF_IMG}/swaba.jpg` }
   ]
 };
 
@@ -649,28 +611,28 @@ export const bashafumu = {
   intro:
     "The Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom.",
   members: [
-    "Salanga",
-    "Chisha Munkashi",
-    "Mutondolo",
-    "Kapemba",
-    "Munkombwe",
-    "Muyembe pa Chisenga",
-    "Kasumpa",
-    "Sapwa wabufi Kanda",
-    "Kapwasa",
-    "Chitimuba",
-    "Nsonga",
-    "Mukupa",
-    "Chilomba",
-    "Mukungu Mbele",
-    "Muteba",
-    "Kalilo",
-    "Mulinde",
-    "Kabolwe",
-    "Muswa Bantu",
-    "Kaluba",
-    "Kayumba",
-    "Mbayo Makobo"
+    "Kapa Salanga",
+    "Kapa Chisha Munkashi",
+    "Kapa Mutondolo",
+    "Kapa Kapemba",
+    "Kapa Munkombwe",
+    "Kapa Muyembe pa Chisenga",
+    "Kapa Kasumpa",
+    "Kapa Sapwa wabufi Kanda",
+    "Kapa Kapwasa",
+    "Kapa Chitimuba",
+    "Kapa Nsonga",
+    "Kapa Mukupa",
+    "Kapa Chilomba",
+    "Kapa Mukungu Mbele",
+    "Kapa Muteba",
+    "Kapa Kalilo",
+    "Kapa Mulinde",
+    "Kapa Kabolwe",
+    "Kapa Muswa Bantu",
+    "Kapa Kaluba",
+    "Kapa Kayumba",
+    "Kapa Mbayo Makobo"
   ]
 };
 
@@ -736,9 +698,9 @@ export const spiritualSystem = {
     }
   ],
   headmen: [
-    { name: "Mwana Mwenshi", role: "Senior Headman, under Senior Chief Kambwili" },
-    { name: "Kampampi", role: "Traditional Councillor" },
-    { name: "Swaba", role: "Traditional Councillor" }
+    { name: "Kapa Mwana Mwenshi", role: "Senior Headman, under Senior Chief Kambwili" },
+    { name: "Kapa Kampampi", role: "Traditional Councillor" },
+    { name: "Kapa Swaba", role: "Traditional Councillor" }
   ]
 };
 
@@ -1023,7 +985,7 @@ export const kingdomAgencies = [
     pending: false
   },
   {
-    id: "protocol-comms",
+    id: "protocol",
     title: "Protocol and Communications Office",
     function:
       "Issues royal notices, manages press accreditation, and maintains official tone for statements, speeches, and public affairs.",
@@ -1079,40 +1041,13 @@ export const mwataProfile = {
   ]
 };
 
-export const governanceSections = [
-  {
-    id: "gov-council",
-    title: "Royal Council",
-    body:
-      "The Royal Council deliberates with the Mwata on kingdom affairs, succession memory, and customary governance. The Council represents the Kingdom's senior advisory structure, carrying deliberation and coordinating authority across Luapula."
-  },
-  {
-    id: "gov-chiefs",
-    title: "Senior Chiefs",
-    body:
-      "Senior chiefs extend royal authority across Luapula through land order, tribute memory, and representation at court. Each chief carries governance duties within designated corridors aligned to the royal seat at Mwansabombwe."
-  },
-  {
-    id: "gov-court",
-    title: "Traditional Court",
-    body: "The traditional court adjudicates customary matters, land disputes, and community order under established protocol."
-  },
-  {
-    id: "gov-admin",
-    title: "Administration",
-    body: "Kingdom administration coordinates public services, records, and liaison with civil government where applicable."
-  },
-  {
-    id: "gov-land",
-    title: "Land and Community Affairs",
-    body: "Land, settlement, and community representation are governed through traditional authority structures linked to the royal seat."
-  },
-  {
-    id: "gov-protocol",
-    title: "Protocol and Public Affairs",
-    body: "Official communications, media relations, and ceremonial protocol are issued through the protocol and public affairs office."
-  }
-];
+// The former governance accordion (Royal Council, Senior Chiefs, Traditional
+// Court, Administration, Land and Community Affairs, Protocol and Public
+// Affairs) restated the governance chart, the institution cards, and the
+// Kingdom Agencies further up the same page. It has been removed; each subject
+// is now stated once, and the administration line below heads the agencies.
+export const kingdomAgenciesIntro =
+  "Kingdom administration coordinates public services, records, and liaison with civil government where applicable.";
 
 export const kingdomSections = [
   {
