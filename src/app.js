@@ -8,6 +8,7 @@ import {
   governanceSections,
   governanceStructure,
   seniorChiefSeats,
+  subChiefs,
   historyChapters,
   kingdomAgencies,
   kingdomSections,
@@ -483,15 +484,16 @@ function baluundaSectionHtml() {
       .toUpperCase();
 
   const cards = baluunda.members
-    .map((m) => {
+    .map((m, i) => {
+      const seatNo = i + 1;
       const media = m.image
         ? `<div class="baluunda-media">
              <img src="${esc(m.image)}" alt="${esc(m.name)}, ${esc(m.role)}, Muluunda of the Kazembe High Court" loading="lazy">
-             <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
+             <span class="baluunda-seat">Seat ${seatNo}</span>
            </div>`
         : `<div class="baluunda-media baluunda-media-pending">
              <span class="baluunda-monogram" aria-hidden="true">${esc(initials(m.name))}</span>
-             <span class="baluunda-seat">Seat ${esc(String(m.seat))}</span>
+             <span class="baluunda-seat">Seat ${seatNo}</span>
            </div>`;
       const clan = m.clan
         ? `<p class="baluunda-clan"><span class="baluunda-clan-name">${esc(m.clan)}</span>${
@@ -518,6 +520,46 @@ function baluundaSectionHtml() {
       <p class="section-deck">${esc(baluunda.inheritance)}</p>
       <div class="baluunda-grid">${cards}</div>
       <p class="editorial-note">${esc(baluunda.note)}</p>
+    </section>
+  `;
+}
+
+function subChiefsSectionHtml() {
+  const initials = (name) =>
+    name
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((w) => w[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
+  const cards = subChiefs.members
+    .map((m) => {
+      const media = m.image
+        ? `<div class="baluunda-media">
+             <img src="${esc(m.image)}" alt="Sub Chief ${esc(m.name)}" loading="lazy">
+           </div>`
+        : `<div class="baluunda-media baluunda-media-pending">
+             <span class="baluunda-monogram" aria-hidden="true">${esc(initials(m.name))}</span>
+           </div>`;
+      return `
+      <article class="baluunda-card ${m.image ? "" : "is-pending"}">
+        ${media}
+        <div class="baluunda-body">
+          <h3>${esc(m.name)}</h3>
+          <p class="baluunda-role">Sub Chief</p>
+        </div>
+      </article>
+    `;
+    })
+    .join("");
+
+  return `
+    <section class="subsection subchiefs-section" id="sub-chiefs">
+      ${sectionHead("Territorial Authority", "The Sub Chiefs")}
+      <p class="section-deck">${esc(subChiefs.intro)}</p>
+      <div class="baluunda-grid">${cards}</div>
     </section>
   `;
 }
@@ -573,6 +615,7 @@ function renderGovernance() {
     <div class="container page-body">
       ${councilChartHtml()}
       ${baluundaSectionHtml()}
+      ${subChiefsSectionHtml()}
       <section class="subsection" id="council">
         ${sectionHead("Deliberation", "The Royal Council and Institutions")}
         <div class="gov-institution-grid">${institutions}</div>

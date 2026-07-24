@@ -504,12 +504,6 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`
     },
     {
-      seat: 4,
-      name: "Kapa Kazembe Nalukonzi",
-      role: "Mulinda Chipembwe",
-      image: `${BALUUNDA_IMG}/kapa-kazembe-nalukonzi.jpg`
-    },
-    {
       seat: 5,
       name: "Kapa Chibumbu Ilunga",
       role: "Prince, Umwana wa Mfumu",
@@ -545,7 +539,12 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`
     },
     { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola, representing Bana Mwana Mwata" },
-    { seat: 13, name: "Kapa Kasumpa", role: "Recording Secretary, Traditional Court" },
+    {
+      seat: 13,
+      name: "Kapa Kasumpa",
+      role: "Recording Secretary, Traditional Court",
+      image: `${BALUUNDA_IMG}/kapa-kasumpa.jpg`
+    },
     {
       seat: 14,
       name: "Kapa Kipepa Mbuya",
@@ -579,18 +578,6 @@ export const baluunda = {
       name: "Kapa Kang'omba",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kangomba.jpg`
-    },
-    {
-      seat: 21,
-      name: "Sub Chief Swaba",
-      role: "Sub Chief",
-      image: `${BALUUNDA_IMG}/sub-chief-swaba.jpg`
-    },
-    {
-      seat: 22,
-      name: "Kapa Kapena",
-      role: "Member of the Court",
-      image: `${BALUUNDA_IMG}/kapa-kapena.jpg`
     },
     {
       seat: 23,
@@ -634,6 +621,26 @@ export const baluunda = {
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kampampi.jpg`
     }
+  ]
+};
+
+// The Sub Chiefs hold territorial authority under the Mwata Kazembe across the
+// chiefdom. They are a distinct office from the Baluunda and do not sit in the
+// High Court. Portraits are shown where an officeholder has been photographed.
+const SUBCHIEF_IMG = "assets/images/kazembe/governance/subchiefs";
+export const subChiefs = {
+  intro:
+    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They are distinct from the Baluunda and do not sit in the High Court.",
+  members: [
+    { name: "Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
+    { name: "Chibwili" },
+    { name: "Chipunka" },
+    { name: "Kapesa" },
+    { name: "Kapala" },
+    { name: "Kapena", image: `${SUBCHIEF_IMG}/kapena.jpg` },
+    { name: "Kanyemba" },
+    { name: "Nkakoloto" },
+    { name: "Swaba", image: `${SUBCHIEF_IMG}/swaba.jpg` }
   ]
 };
 
