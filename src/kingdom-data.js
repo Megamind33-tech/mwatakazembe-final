@@ -469,15 +469,13 @@ export const governanceStructure = [
   }
 ];
 
-// Placeholder seats for the Council of Chiefs leadership chart. These are
-// intentionally unnamed — replace each "To be confirmed" entry with the
-// actual Senior Chief, their title, and their chiefdom/area as supplied by
-// the Royal Protocol Office. Add or remove seats to match the real council.
+// The Senior Chiefs of the Kingdom, children of the Mwata, who sit below the
+// Royal Council. Their headmen carry duties for the Mwata and serve the throne
+// directly.
 export const seniorChiefSeats = [
-  { id: "seat-1", title: "Senior Chief", area: "To be confirmed", pending: true },
-  { id: "seat-2", title: "Senior Chief", area: "To be confirmed", pending: true },
-  { id: "seat-3", title: "Senior Chief", area: "To be confirmed", pending: true },
-  { id: "seat-4", title: "Senior Chief", area: "To be confirmed", pending: true }
+  { id: "kanyembo", title: "Senior Chief Kanyembo", area: "Child of the Mwata" },
+  { id: "kambwili", title: "Senior Chief Kambwili", area: "Child of the Mwata" },
+  { id: "lukwesa", title: "Senior Chief Lukwesa", area: "Child of the Mwata" }
 ];
 
 // The Baluunda — the judicial council (High Court) of the Kingdom. Hereditary
@@ -714,12 +712,12 @@ export const mwataCabinet = {
 // of the Mwata.
 export const spiritualSystem = {
   intro:
-    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed.",
+    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed. These officers are headmen of the Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet they serve the Mwata directly.",
   highPriests: [
     {
       name: "Munkanso Kashikayi",
       role: "Undertaker of the Mwata",
-      note: "Ensures the Mwata transitions to the Land of the Ancestors through the right traditions. He serves under Kanyembo."
+      note: "Ensures the Mwata transitions to the Land of the Ancestors through the right traditions. He serves under Senior Chief Kanyembo."
     },
     {
       name: "Chikumbi",
@@ -738,7 +736,7 @@ export const spiritualSystem = {
     }
   ],
   headmen: [
-    { name: "Mwana Mwenshi", role: "Senior Headman, under Kambwaili" },
+    { name: "Mwana Mwenshi", role: "Senior Headman, under Senior Chief Kambwili" },
     { name: "Kampampi", role: "Traditional Councillor" },
     { name: "Swaba", role: "Traditional Councillor" }
   ]

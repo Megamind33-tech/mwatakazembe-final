@@ -464,9 +464,8 @@ function councilChartHtml() {
         ${rail}
         <div class="chart-level chart-level-tier3">${tier3}</div>
         <div class="chart-seats-wrap">
-          <p class="chart-seats-label">Senior Chiefs, seats of the Council</p>
+          <p class="chart-seats-label">Senior Chiefs, children of the Mwata</p>
           <div class="chart-seats">${seats}</div>
-          ${pendingNote("Seats shown are placeholders. Names and chiefdoms to be confirmed with the Royal Protocol Office.")}
         </div>
         ${rail}
         <div class="chart-level chart-level-support">${support}</div>
