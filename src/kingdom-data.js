@@ -555,7 +555,12 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-kipepa-mbuya.jpg`
     },
     { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
-    { seat: 16, name: "Kapa Koni", role: "Judge" },
+    {
+      seat: 16,
+      name: "Kapa Koni",
+      role: "Judge",
+      image: `${BALUUNDA_IMG}/kapa-koni.jpg`
+    },
     { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" },
     {
       seat: 18,
@@ -622,6 +627,12 @@ export const baluunda = {
       name: "Kapa Mondo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mondo.jpg`
+    },
+    {
+      seat: 29,
+      name: "Kapa Kampampi",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-kampampi.jpg`
     }
   ]
 };
