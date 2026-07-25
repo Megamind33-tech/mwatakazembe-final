@@ -689,14 +689,20 @@ function captionedPlate(creditId, caption) {
 
 function impembweSectionHtml() {
   const body = impembwe.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
-  const figures = impembwe.figures.map((f) => captionedPlate(f.creditId, f.caption)).join("");
+  const plates = impembwe.figureGroups
+    .map(
+      (g) => `
+      <p class="cabinet-members-label">${esc(g.label)}</p>
+      <div class="media-figure-grid">${g.figures.map((f) => captionedPlate(f.creditId, f.caption)).join("")}</div>
+    `
+    )
+    .join("");
   return `
     <section class="subsection impembwe-section" id="impembwe">
       ${sectionHead(impembwe.eyebrow, impembwe.title)}
       <p class="section-deck">${esc(impembwe.intro)}</p>
       <div class="impembwe-body">${body}</div>
-      <p class="cabinet-members-label">Before Impembwe is cleaned for the ceremony</p>
-      <div class="media-figure-grid">${figures}</div>
+      ${plates}
       <p class="editorial-note">${esc(impembwe.note)}</p>
       ${sourceCitation(impembwe.sourceIds)}
     </section>

@@ -448,6 +448,81 @@ export const imageCredits = [
     creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
+    id: "impembwe-ground-cleared",
+    fileName: "impembwe-ground-cleared.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-ground-cleared.jpg",
+    title: "The ground of Impembwe cleared and marked out",
+    description:
+      "The ground at Impembwe ya Keleka cleared to bare earth for the ceremony, the boundary posts whitened, the notice board set at the edge, and Ba Kashikayi standing in white along the line.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "Cleared red earth at Impembwe ya Keleka with whitened boundary posts, a notice board, and Ba Kashikayi in white robes standing at the boundary.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "impembwe-ground-and-shelter",
+    fileName: "impembwe-ground-and-shelter.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-ground-and-shelter.jpg",
+    title: "The prepared ground and the shelter at Impembwe",
+    description:
+      "The swept ground at Impembwe ya Keleka with the thatched shelter standing at its far edge and the whitened boundary posts running along the tree line.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "A wide expanse of swept red earth at Impembwe with a thatched shelter at the far edge and whitened posts along the tree line.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "impembwe-shelter",
+    fileName: "impembwe-shelter.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-shelter.jpg",
+    title: "The shelter raised at Impembwe for the rite",
+    description:
+      "The thatched shelter raised on the cleared ground at Impembwe ya Keleka, its grass walls and roof newly built for the ceremony.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText: "A newly built round thatched shelter with grass walls standing on the cleared red earth at Impembwe.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "impembwe-gathering",
+    fileName: "impembwe-gathering.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-gathering.jpg",
+    title: "The people gathered at Impembwe",
+    description:
+      "The people of the Kingdom gathered in their hundreds around the cleared ground at Impembwe ya Keleka on the day of the homage, the shelter standing among them.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "An aerial view of hundreds of people gathered around the cleared ground at Impembwe on the day of the homage, with thatched shelters among the crowd.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "ceremony",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
     id: "archive-mwata-xi-kapakata",
     fileName: "mwata-xi-muonga-kapakata-1904-1919.jpg",
     src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg",

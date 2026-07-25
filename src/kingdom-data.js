@@ -691,14 +691,47 @@ export const impembwe = {
     "Each year the trench is cleaned before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then the villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and the offering is made to the ancestral spirits.",
     "The homage at Impembwe thanks the ancestors for the sacrifice they made in that ground, and it is this act that opens Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, the Ba Kashikayi going before Him and awaiting Him at the trench; only then does the Kingdom turn to the arena and the dance of conquest."
   ],
-  figures: [
+  // Plates in the order of the year: the ground as it lies, the ground made
+  // ready, and the day itself.
+  figureGroups: [
     {
-      creditId: "impembwe-before-cleaning-01",
-      caption: "Before Impembwe is cleaned for the ceremony: the trench under dry grass and bush."
+      label: "Before Impembwe is cleaned for the ceremony",
+      figures: [
+        {
+          creditId: "impembwe-before-cleaning-01",
+          caption: "The trench under dry grass and bush, before the clearing."
+        },
+        {
+          creditId: "impembwe-before-cleaning-02",
+          caption: "The course of the trench running away through the trees."
+        }
+      ]
     },
     {
-      creditId: "impembwe-before-cleaning-02",
-      caption: "The course of the trench running away through the trees, before the annual clearing."
+      label: "The ground made ready",
+      figures: [
+        {
+          creditId: "impembwe-ground-cleared",
+          caption: "The ground cleared to bare earth, the boundary posts whitened, and the Ba Kashikayi standing at the line."
+        },
+        {
+          creditId: "impembwe-ground-and-shelter",
+          caption: "The swept ground with the shelter standing at its far edge."
+        },
+        {
+          creditId: "impembwe-shelter",
+          caption: "The shelter raised on the ground for the rite."
+        }
+      ]
+    },
+    {
+      label: "The day of the homage",
+      figures: [
+        {
+          creditId: "impembwe-gathering",
+          caption: "The people of the Kingdom gathered at Impembwe for the homage that opens Umutomboko."
+        }
+      ]
     }
   ],
   sourceIds: ["mot-impembwe-2023", "mot-mutomboko-2024", "nkwazi-mutomboko", "unza"],

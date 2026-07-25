@@ -85,6 +85,10 @@ Impembwe ya Keleka, in the Heritage & Culture page:
 
 - `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-01.jpg` — Impembwe ya Keleka under dry grass and bush, before it is cleaned for the ceremony.
 - `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-02.jpg` — the course of the trench through the trees, before the annual clearing.
+- `assets/images/kazembe/heritage/impembwe/impembwe-ground-cleared.jpg` — the ground cleared and marked out, the boundary posts whitened, Ba Kashikayi at the line.
+- `assets/images/kazembe/heritage/impembwe/impembwe-ground-and-shelter.jpg` — the swept ground with the shelter at its far edge.
+- `assets/images/kazembe/heritage/impembwe/impembwe-shelter.jpg` — the shelter raised on the ground for the rite.
+- `assets/images/kazembe/heritage/impembwe/impembwe-gathering.jpg` — the people gathered at Impembwe on the day of the homage.
 
 Utumbolo, in the Heritage & Culture page:
 
