@@ -281,7 +281,7 @@ function renderMwata() {
       <div class="container page-hero-content">
         <p class="eyebrow">The Mwata</p>
         <h1>Office of the Mwata Kazembe</h1>
-        <p>Centre of authority, continuity, ceremony, and public leadership.</p>
+        <p>The centre of our authority, our continuity, our ceremony, and our public leadership.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -824,7 +824,7 @@ function renderGovernance() {
       <div class="container page-hero-content">
         <p class="eyebrow">Governance</p>
         <h1>Royal Governance and Administration</h1>
-        <p>The Mwata presides over two councils, Baluunda judiciary and the Council of Chiefs, alongside the court, land, protocol, and public administration of the Kingdom.</p>
+        <p>Our Mwata presides over two councils, the judiciary of Baluunda and the Council of Chiefs, alongside our court, land, protocol, and public administration.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -959,8 +959,8 @@ function renderKingdom() {
     <div class="page-hero page-hero-compact">
       <div class="container page-hero-content">
         <p class="eyebrow">Heritage & Culture</p>
-        <h1>Heritage & Culture of the Kazembe Kingdom</h1>
-        <p>State formation on the Luapula, the Mwata Kazembe line, the Umutomboko ceremony, the royal museum, and the visual record.</p>
+        <h1>Our Heritage and Culture</h1>
+        <p>How we made a state on the Luapula, our line of Mwatas, our Umutomboko, our sacred places, our museum, and our visual record.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -1104,7 +1104,7 @@ function renderMutomboko() {
       <div class="container page-hero-content">
         <p class="eyebrow">State Ceremony</p>
         <h1>Umutomboko, the Dance of Conquest</h1>
-        <p>Ceremonial power, identity, and unity at Mwansabombwe.</p>
+        <p>Our ceremonial power, our identity, and our unity at Mwansabombwe.</p>
       </div>
     </div>
     <div class="container page-body">
@@ -1169,7 +1169,7 @@ function renderDevelopment() {
       <div class="container page-hero-content">
         <p class="eyebrow">Kingdom Development</p>
         <h1>Development & Public Life</h1>
-        <p>The Kingdom active in agriculture, fisheries, tourism, youth, business, and community building.</p>
+        <p>Our work in agriculture, fisheries, water, tourism, youth, business, and the building of our communities.</p>
       </div>
     </div>
     <div class="container page-body">

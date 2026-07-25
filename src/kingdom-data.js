@@ -5,9 +5,9 @@ export const siteMeta = {
   tagline: "THE OFFICIAL DIGITAL HOME OF THE MWATA KAZEMBE KINGDOM",
   headline: "The Royal Seat of the Mwata Kazembe",
   subheadline:
-    "From Mwansabombwe, the Lunda-Kazembe throne carries a history of migration, conquest, trade, governance and living culture.",
+    "From Mwansabombwe, our throne carries a history of migration, conquest, trade, governance, and living culture.",
   openingStatement:
-    "Council, senior chiefs, and the Office of the Mwata coordinate public order, land affairs, Umutomboko, and official communication from the royal seat at Mwansabombwe.",
+    "Our council, our senior chiefs, and the Office of the Mwata coordinate public order, land affairs, Umutomboko, and official communication from our royal seat at Mwansabombwe.",
   heroImage: "assets/images/kazembe/hero/home-portrait.jpg",
   ceremonyImage: "assets/images/kazembe/mutomboko/dance-2017-01.webp",
   mapImage: "assets/images/kazembe/places/kingdom-map-2007.jpg",
@@ -465,11 +465,11 @@ export const seniorChiefSeats = [
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
   intro:
-    "The Mwata Kazembe presides over two councils. The first is Baluunda, the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
+    "Our Mwata presides over two councils. The first is Baluunda, our judicial council. Its members sit as the judges of our High Court, hearing and ruling on the matters brought before the throne.",
   inheritance:
-    "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
+    "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat stays within its clan across our generations.",
   note:
-    "The court sits twenty-six seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
+    "Our court sits twenty-six seats, listed here in order of seat. We show portraits for the officeholders photographed to date; the remaining seats are named by office, and we add portraits as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
     { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of Baluunda" },
@@ -609,7 +609,7 @@ export const baluunda = {
 const SUBCHIEF_IMG = "assets/images/kazembe/governance/subchiefs";
 export const subChiefs = {
   intro:
-    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below Bashafumu, are distinct from Baluunda, and do not sit in the High Court.",
+    "Our Sub Chiefs hold territorial authority under the Mwata across the chiefdom. They rank below Bashafumu, are distinct from Baluunda, and do not sit in our High Court.",
   members: [
     { name: "Kapa Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
     { name: "Kapa Chibwili" },
@@ -628,7 +628,7 @@ export const subChiefs = {
 const HOUSEHOLD_IMG = "assets/images/kazembe/governance/household";
 export const royalHousehold = {
   intro:
-    "The officers of the Royal Household serve the Mwata at the palace itself, in the keeping of the royal seat and its business. They are distinct from Baluunda and do not sit in the High Court.",
+    "The officers of our Royal Household serve the Mwata at the palace itself, in the keeping of our royal seat and its business. They are distinct from Baluunda and do not sit in our High Court.",
   members: [
     { name: "Kapa Chanshi", role: "Palace Secretary", image: `${HOUSEHOLD_IMG}/kapa-chanshi.jpg` }
   ]
@@ -640,7 +640,7 @@ export const royalHousehold = {
 // Mwata.
 export const bashafumu = {
   intro:
-    "Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom. They rank above the Sub Chiefs.",
+    "Bashafumu are titled holders of traditional office under the Mwata across our villages and lands. They rank above our Sub Chiefs.",
   members: [
     "Kapa Salanga",
     "Kapa Chisha Munkashi",
@@ -672,7 +672,7 @@ export const bashafumu = {
 // the throne, at times by the casting of votes.
 export const mwataCabinet = {
   intro:
-    "The Mwata's Cabinet is the senior advisory body of the Kingdom. It is this cabinet that selects the Heir to the throne, at times by the casting of votes.",
+    "The Mwata's Cabinet is our senior advisory body. It is this cabinet that selects the Heir to the throne, at times by the casting of votes.",
   chair: {
     name: "Iyina Mwana Kashiba",
     role: "Prime Minister and Chairman of the Chiefs, representing the Mwata"
@@ -710,12 +710,12 @@ export const impembwe = {
   title: "Impembwe ya Keleka",
   eyebrow: "The trench that opens the ceremony",
   intro:
-    "Impembwe ya Keleka is a trench dug in the earth at Toka-toka, in the lands of the Mwata Kazembe. It was cut as a work of defence: a hidden refuge that held the Mwata and his people in time of war, and a line that kept intruders from the royal seat.",
+    "Impembwe ya Keleka is a trench dug in the earth at Toka-toka, in our lands. We cut it as a work of defence: a hidden refuge that held the Mwata and our people in time of war, and a line that kept intruders from our royal seat.",
   paragraphs: [
-    "The trench runs long, its course put at some fifty-six kilometres in the published record, and its whereabouts were held in secrecy. Only a few close to the Mwata and to the throne knew where it lay. When word came of intruders in the Kingdom, or of a threat to the life of the Mwata or to the throne itself, the Mwata withdrew to Impembwe, and the trench kept what it was dug to keep.",
-    "The ground is guarded still. Entry is not open: the Mwata, his aides, and Headman Toka with his aide are the ones who go in. The Guardian of the Mpembwe Shrine, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
-    "Each year the trench is cleaned before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then the villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and the offering is made to the ancestral spirits.",
-    "The homage at Impembwe thanks the ancestors for the sacrifice they made in that ground, and it is this act that opens Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, Ba Kashikayi going before Him and awaiting Him at the trench; only then does the Kingdom turn to the arena and the dance of conquest."
+    "The trench runs long, its course put at some fifty-six kilometres in the published record, and we held its whereabouts in secrecy. Only a few close to the Mwata and to the throne knew where it lay. When word came of intruders among us, or of a threat to the life of the Mwata or to the throne itself, the Mwata withdrew to Impembwe, and the trench kept what it was dug to keep.",
+    "We guard the ground still. Entry is not open: the Mwata, His aides, and Headman Toka with his aide are the ones who go in. Our Guardian of the Mpembwe Shrine, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
+    "Each year we clean the trench before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then our villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and we make the offering to the ancestral spirits.",
+    "At Impembwe we thank our ancestors for the sacrifice they made in that ground, and it is this act that opens our Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, Ba Kashikayi going before Him and awaiting Him at the trench; only then do we turn to the arena and the dance of conquest."
   ],
   // Plates in the order of the year: the ground as it lies, the ground made
   // ready, and the day itself.
@@ -761,7 +761,7 @@ export const impembwe = {
     }
   ],
   sourceIds: ["mot-impembwe-2023", "mot-mutomboko-2024", "nkwazi-mutomboko", "unza"],
-  note: "Recorded from the published account of the Kingdom. The Office of the Mwata holds the full oral history of Impembwe ya Keleka, and its words stand above this record."
+  note: "Recorded here from the published account. Our own oral history of Impembwe ya Keleka is held by the Office of the Mwata, and its words stand above this record."
 };
 
 // Utumbolo — the sacred places of the Umutomboko procession, as given by the
@@ -773,13 +773,13 @@ export const utumbolo = {
   title: "Utumbolo",
   eyebrow: "The sacred places of the procession",
   intro:
-    "Utumbolo are two sacred places of the Kingdom, kept along the way of the Umutomboko procession. They carry no separate names of their own. At Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
+    "Utumbolo are two of our sacred places, kept along the way of our Umutomboko procession. They carry no separate names of their own. At Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
   paragraphs: [
-    "Ba Kashikayi are the officers of the spiritual duties of the Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds, and the shrines of the Kingdom are kept. At Utumbolo the Mwata halts and gives them His word of appreciation. The Kingdom stops in the middle of its own ceremony to thank the officers who carry it.",
+    "Ba Kashikayi are the officers of the spiritual duties of our Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of our royal ancestral grounds, and our shrines are kept. At Utumbolo the Mwata halts and gives them His word of appreciation. We stop in the middle of our own ceremony to thank the officers who carry it.",
     "Of the two, one is the place of the bones. In the past the bones of dangerous animals were kept there, and human bones were kept there also. Today only the bones of animals are kept at that place.",
-    "Both Utumbolo are set apart and kept apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of the throne.",
-    "The ground is prepared before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that Utumbolo stand ready before the procession comes. The work is done by hand, and it is done every year, at the same places.",
-    "Their significance to the Kingdom is continuity of place, and the honouring of those who serve. The Mwatas change and the generations pass, but the procession halts at the same ground, before the same offices, and the same thanks are given. A stranger sees a tree inside a fence. The Kingdom sees the place where the Mwata turns to Ba Kashikayi, and the place where the bones are kept."
+    "We set both Utumbolo apart and keep them apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of our throne.",
+    "We prepare the ground before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that Utumbolo stand ready before the procession comes. We do the work by hand, and we do it every year, at the same places.",
+    "What they mean to us is continuity of place, and the honouring of those who serve. Our Mwatas change and our generations pass, but the procession halts at the same ground, before the same offices, and the same thanks are given. A stranger sees a tree inside a fence. We see the place where the Mwata turns to Ba Kashikayi, and the place where the bones are kept."
   ],
   figures: [
     {
@@ -801,7 +801,7 @@ export const utumbolo = {
 // of the Mwata.
 export const spiritualSystem = {
   intro:
-    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed. Their villages lie under the Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet the officers themselves serve the Mwata directly.",
+    "Our Mwata is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry our spiritual duties: the passage of the Mwata to the Land of the Ancestors, the care of our royal ancestral grounds at Lunde, and the shrines through which our great ancestors of health, agriculture, and rain are addressed. Their villages lie under our Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet the officers themselves serve the Mwata directly.",
   // Documentary photographs of Ba Kashikayi supplied by the Office of the
   // Mwata; captions as given by the Office.
   figures: [
@@ -891,17 +891,17 @@ export const waterProjects = {
   title: "Water and Sanitation",
   eyebrow: "Water for the royal seat",
   intro:
-    "Water works are under development in the Kingdom. An elevated steel tank stands on its tower at the royal seat, holding the supply above the village so that it runs to the standpipes and the yards below it.",
+    "We have water works under development. An elevated steel tank stands on its tower at our royal seat, holding the supply above the village so that it runs to the standpipes and the yards below it.",
   paragraphs: [
-    "Clean water close to the household is the first of the development needs of the valley. The Luapula and Lake Mweru carry the fishery and the flood soils, but water drawn from the river and the lagoon for drinking has always cost the villages in labour and in sickness. A tank on a tower changes both: the supply is held, it is above the ground, and it is reticulated to the point of use.",
-    "The Kingdom counts these works among its development priorities alongside agriculture, fisheries, and youth. The Office of the Mwata coordinates with the civil authorities and with partners on the schemes that serve Mwansabombwe and the villages around it."
+    "Clean water close to the household is the first of our development needs. The Luapula and Lake Mweru carry our fishery and our flood soils, but water drawn from the river and the lagoon for drinking has always cost our villages in labour and in sickness. A tank on a tower changes both: the supply is held, it is above the ground, and it is reticulated to the point of use.",
+    "We count these works among our development priorities alongside agriculture, fisheries, and youth. The Office of the Mwata coordinates with the civil authorities and with partners on the schemes that serve Mwansabombwe and the villages around it."
   ],
   figures: [
     { creditId: "dev-water-tank-tower", caption: "The tank on its tower at the royal seat." },
     { creditId: "dev-water-tower-road", caption: "The tower and its tanks seen from the road." },
     { creditId: "dev-water-scheme-street", caption: "The walled yard of the scheme, from the street." }
   ],
-  note: "Scheme names, the villages served, the partners, and the dates of construction are held by the Office of the Mwata and will be published here as they are supplied."
+  note: "Scheme names, the villages served, the partners, and the dates of construction are held by the Office of the Mwata, and we will publish them here as they are supplied."
 };
 
 export const developmentPillars = [
@@ -1191,7 +1191,7 @@ export const mwataProfile = {
   title: "Mwata Kazembe XIX",
   reign: "1998–present",
   image: siteMeta.heroImage,
-  role: "The Mwata is the centre of authority, continuity, ceremony, unity, and public leadership for the Kazembe Kingdom.",
+  role: "Our Mwata is the centre of our authority, our continuity, our ceremony, our unity, and our public leadership.",
   // The Kingdom states its own reign. It is not reported at second hand from
   // outside references: the Mwata was installed in 1998 and reigns today.
   biography: [
@@ -1225,13 +1225,13 @@ export const kingdomSections = [
     id: "kingdom-origin",
     eyebrow: "Foundation",
     title: "Origin and Migration",
-    deck: "From the Lunda world of Kola to the Luapula Valley.",
+    deck: "How we came from the Lunda world of Kola to the Luapula Valley.",
     paragraphs: [
-      "The Kazembe Kingdom comes out of the Lunda political world of Kola, in the country of the Mwata Yamvo, west of the Luapula. It was from that world, and under its law, that the first Mwata Kazembe went east.",
-      "The Kingdom keeps the memory of Chinyanta and Kasombola, the royal brothers drowned in the river, and of the expedition that followed. Around 1740 Ng'anga Bilonda led his people eastward from the Lunda heartland, and the movement is remembered not as a wandering but as a march with a purpose: to answer what had been done, and to take the land of the Luapula.",
-      "They crossed the Luapula at Matanda. The crossing is held in memory as the point at which the Lunda entered the valley that would become the Kingdom, and it is one of the fixed places of the Kingdom's own telling of itself. Ng'anga Bilonda took the title Mwata Kazembe, and the Kingdom he founded has kept that title through nineteen recorded Mwatas.",
-      "The valley was not empty. Authority was established over the peoples already settled there, and Lunda and Luba men were placed as chiefs over them. What followed was not the erasure of those peoples but their incorporation: they were brought under tribute, under the courts of the Mwata, and into the citizenship of the Kingdom. One mark of that settlement is the language. The conquerors did not impose their own speech on the valley. They took up the speech of their neighbours, and the Kingdom speaks it to this day.",
-      "The royal seat has moved with the reigns, and it stands now at Mwansabombwe, in Luapula Province, where the Mwata Kazembe holds his court."
+      "We come out of the Lunda political world of Kola, in the country of the Mwata Yamvo, west of the Luapula. It was from that world, and under its law, that our first Mwata Kazembe went east.",
+      "We keep the memory of Chinyanta and Kasombola, our royal brothers drowned in the river, and of the expedition that followed. Around 1740 Ng'anga Bilonda led our people eastward from the Lunda heartland, and we remember that movement not as a wandering but as a march with a purpose: to answer what had been done, and to take the land of the Luapula.",
+      "We crossed the Luapula at Matanda. That crossing is the point at which we entered the valley that became our Kingdom, and it is one of the fixed places of our own telling of ourselves. Ng'anga Bilonda took the title Mwata Kazembe, and we have kept that title through nineteen recorded Mwatas.",
+      "The valley was not empty. We established authority over the peoples already settled there, and Lunda and Luba men were placed as chiefs over them. What followed was not their erasure but their incorporation: they were brought under tribute, under the courts of the Mwata, and into our citizenship. One mark of that settlement is our language. We did not impose our own speech on the valley. We took up the speech of our neighbours, and we speak it to this day.",
+      "Our royal seat has moved with the reigns, and it stands now at Mwansabombwe, in Luapula Province, where the Mwata Kazembe holds His court."
     ],
     sourceIds: ["zta", "gordon", "britannica"]
   },
@@ -1239,14 +1239,14 @@ export const kingdomSections = [
     id: "kingdom-wars",
     eyebrow: "Statehood and defence",
     title: "Wars and Endurance",
-    deck: "Defence, consolidation, and the holding of a state that stands today.",
+    deck: "How we defended, consolidated, and hold a state that stands today.",
     paragraphs: [
-      "The wars of the Kingdom are the history of how a state was made, how it was held, and how it is held still. They are recorded here as statehood and defence, not as a glory of violence.",
-      "The first of them established the Kingdom in the valley: the conquest that followed the crossing at Matanda, and the placing of the conquered under Lunda authority. From that base the Mwatas who came after Ng'anga Bilonda pressed outward, and by the reign of the second and third Mwatas the tribute network of Kazembe reached across river, lake, and forest, gathering copper, ivory, salt, and fish, and gathering the allegiance of the chiefs who controlled them.",
-      "Kazembe grew into the strongest power of the interior in this region. Before the middle of the nineteenth century the greatest challenge to the Bemba came from the Mwata Kazembe, and the Kingdom stands as the eastern anchor of the Lunda world.",
-      "The slowdown came from inside the Kingdom's own hospitality. In 1856 Mwata Kazembe VI, Chinyanta Munona, gave the Nyamwezi trader Msiri leave to settle in the west. Msiri built his own power in Katanga, took the copper country beyond the Luapula, and put himself between the Kingdom and the Lunda heartland and the trade that had made the court rich. At the same time traders from the east opened routes that went around the Mwata, and drew his tributary chiefs into trading on their own account. The Kingdom did not fall in those years. Its reach was checked, and the tribute that had run to the court ran more slowly.",
-      "The last quarter of the century brought disputed successions, and then the partition. In 1888 the Luapula Valley was divided between the British and the Belgians, and when Belgian rule was fixed west of the river the Kingdom was held to the eastern bank, where its seat stands today. Mwata Kazembe X, Kanyembo Ntemena, rebuilt at Mwansabombwe under that pressure, and the throne came through the colonial century unbroken.",
-      "This is what the Kingdom counts. The nineteenth century slowed it; it did not end it. After the rival routes, after the partition, and after a century of administration by others, the Mwata Kazembe holds court at Mwansabombwe, the courts of the Kingdom sit, the Umutomboko is danced, and the work of the Kingdom goes on."
+      "Our wars are the history of how we made a state, how we held it, and how we hold it still. We record them as statehood and defence, not as a glory of violence.",
+      "The first of them established us in the valley: the conquest that followed the crossing at Matanda, and the placing of the conquered under Lunda authority. From that base the Mwatas who came after Ng'anga Bilonda pressed outward, and by the reign of our second and third Mwatas our tribute network reached across river, lake, and forest, gathering copper, ivory, salt, and fish, and gathering the allegiance of the chiefs who controlled them.",
+      "We grew into the strongest power of the interior in this region. Before the middle of the nineteenth century the greatest challenge to the Bemba came from the Mwata Kazembe, and we stand as the eastern anchor of the Lunda world.",
+      "The slowdown came out of our own hospitality. In 1856 Mwata Kazembe VI, Chinyanta Munona, gave the Nyamwezi trader Msiri leave to settle in the west. Msiri built his own power in Katanga, took the copper country beyond the Luapula, and put himself between us and the Lunda heartland and the trade that had made our court rich. At the same time traders from the east opened routes that went around the Mwata, and drew our tributary chiefs into trading on their own account. We did not fall in those years. Our reach was checked, and the tribute that had run to the court ran more slowly.",
+      "The last quarter of the century brought disputed successions, and then the partition. In 1888 the Luapula Valley was divided between the British and the Belgians, and when Belgian rule was fixed west of the river we were held to the eastern bank, where our seat stands today. Mwata Kazembe X, Kanyembo Ntemena, rebuilt at Mwansabombwe under that pressure, and our throne came through the colonial century unbroken.",
+      "This is what we count. The nineteenth century slowed us; it did not end us. After the rival routes, after the partition, and after a century of administration by others, our Mwata holds court at Mwansabombwe, our courts sit, our Umutomboko is danced, and our work goes on."
     ],
     sourceIds: ["gordon", "britannica", "unza"]
   },
@@ -1254,13 +1254,13 @@ export const kingdomSections = [
     id: "kingdom-trade",
     eyebrow: "The interior market",
     title: "Trade and Diplomacy",
-    deck: "Copper, ivory, and the courts that came to Kazembe.",
+    deck: "Copper, ivory, and the courts that came to us.",
     paragraphs: [
-      "For the better part of a century the court of the Mwata Kazembe was one of the great markets of the African interior. Copper from Katanga, ivory from the valley, salt, and the fisheries of Lake Mweru and the Luapula passed through the Kingdom, and the caravans of two oceans came to the court to bargain for them.",
-      "The Portuguese came first from the east. In 1798 Francisco José de Lacerda e Almeida, governor of the Rios de Sena, reached Kazembe from Tete in Mozambique. He died within weeks of his arrival, still waiting for the trade talks to begin, and his journal became the first European record of the Kingdom.",
-      "A second Portuguese expedition arrived in 1831 under Major Monteiro, with António Pires Gamitto as his second. Gamitto's account of the court, its officers, its ceremony, and its administration was published as O Muata Cazembe and remains one of the foundational descriptions of the Kingdom. Neither expedition got what it came for. Portugal wanted an alliance that would have joined its Atlantic and Indian Ocean possessions in one trading route across the continent, and the Mwatas of that era refused it. The court kept the terms of trade in its own hands.",
-      "David Livingstone reached Kazembe in 1867, in the reign of Mwata Kazembe VII, Muonga Nsemba, already weakened by illness. The expedition accounts gathered in The Lands of Cazembe, published in 1873, carry the Portuguese and British material together, and the Kingdom holds that volume in its archive as a record made by others about itself.",
-      "Diplomacy at Kazembe was not incidental to power; it was power. The court decided who traded, on what terms, and by which road. When Arab and Swahili traders opened routes that bypassed the Mwata, and when Msiri took the copper country in the west, it was that control, more than any battle, that was lost."
+      "For the better part of a century our court was one of the great markets of the African interior. Copper from Katanga, ivory from the valley, salt, and the fisheries of Lake Mweru and the Luapula passed through our hands, and the caravans of two oceans came to us to bargain for them.",
+      "The Portuguese came first from the east. In 1798 Francisco José de Lacerda e Almeida, governor of the Rios de Sena, reached us from Tete in Mozambique. He died within weeks of his arrival, still waiting for the trade talks to begin, and his journal became the first European record of our Kingdom.",
+      "A second Portuguese expedition arrived in 1831 under Major Monteiro, with António Pires Gamitto as his second. Gamitto's account of our court, its officers, its ceremony, and its administration was published as O Muata Cazembe and remains one of the foundational outside descriptions of us. Neither expedition got what it came for. Portugal wanted an alliance that would have joined its Atlantic and Indian Ocean possessions in one trading route across the continent, and our Mwatas of that era refused it. We kept the terms of trade in our own hands.",
+      "David Livingstone reached us in 1867, in the reign of Mwata Kazembe VII, Muonga Nsemba, already weakened by illness. The expedition accounts gathered in The Lands of Cazembe, published in 1873, carry the Portuguese and British material together, and we hold that volume in our archive as a record made by others about us.",
+      "Diplomacy was not incidental to our power; it was our power. Our court decided who traded, on what terms, and by which road. When Arab and Swahili traders opened routes that bypassed the Mwata, and when Msiri took the copper country in the west, it was that control, more than any battle, that we gave up."
     ],
     sourceIds: ["smithsonian", "gordon", "britannica"]
   },
@@ -1268,13 +1268,13 @@ export const kingdomSections = [
     id: "kingdom-geography",
     eyebrow: "The valley",
     title: "Luapula and Lake Mweru",
-    deck: "The river, the lake, and the country they make.",
+    deck: "The river, the lake, and the country they make for us.",
     paragraphs: [
-      "The Kingdom lies along the Luapula River, which runs north out of Lake Bangweulu to Lake Mweru, and it is the river that has shaped everything: where people settle, what they eat, what they trade, and where authority reaches.",
-      "The valley is a country of water. The Luapula floods and falls with the season and lays down soil that is worked year after year; the Mofwe lagoon and the swamps hold fish through the dry months; Lake Mweru carries the fishery that feeds the valley and supplies markets far beyond it. Cassava, millet, and maize come off the flood soils, and the fish trade of Mweru and the Luapula is the working economy of the valley to this day.",
-      "That geography made the Kingdom's politics. Tribute moved along the water. The chiefs who held fishing grounds, crossings, and lagoon shores held something the court needed, and the court held something they needed, and between the two ran the order of the Kingdom.",
-      "The river also became a border not of the Kingdom's making. In 1888 the valley was divided between the British and the Belgian spheres, and the Luapula, which had been the spine of the Kingdom, was made its western edge. The Lunda of the Kazembe are on both banks still, and the Kingdom's ties across the water are older than the line drawn through it.",
-      "The royal seat stands at Mwansabombwe, on the eastern bank in Luapula Province of Zambia, and the ceremonies of the Kingdom are held in that landscape: at the trench of Impembwe ya Keleka, at Utumbolo, at the Ng'ona River, and in the arena at Mwansabombwe."
+      "We lie along the Luapula River, which runs north out of Lake Bangweulu to Lake Mweru, and it is the river that has shaped everything: where our people settle, what they eat, what they trade, and where our authority reaches.",
+      "Our valley is a country of water. The Luapula floods and falls with the season and lays down soil we work year after year; the Mofwe lagoon and the swamps hold fish through the dry months; Lake Mweru carries the fishery that feeds the valley and supplies markets far beyond it. Cassava, millet, and maize come off the flood soils, and the fish trade of Mweru and the Luapula is our working economy to this day.",
+      "That geography made our politics. Tribute moved along the water. The chiefs who held fishing grounds, crossings, and lagoon shores held something our court needed, and our court held something they needed, and between the two ran our order.",
+      "The river also became a border not of our making. In 1888 the valley was divided between the British and the Belgian spheres, and the Luapula, which had been our spine, was made our western edge. Our Lunda are on both banks still, and our ties across the water are older than the line drawn through them.",
+      "Our royal seat stands at Mwansabombwe, on the eastern bank in Luapula Province of Zambia, and we hold our ceremonies in that landscape: at the trench of Impembwe ya Keleka, at Utumbolo, at the Ng'ona River, and in the arena at Mwansabombwe."
     ],
     sourceIds: ["britannica", "gordon", "zta"]
   },
@@ -1282,12 +1282,12 @@ export const kingdomSections = [
     id: "kingdom-clans",
     eyebrow: "The people",
     title: "Clans and People",
-    deck: "Who the people of the Kingdom are, and how they are held together.",
+    deck: "Who we are, and how we are held together.",
     paragraphs: [
-      "The people of the Kingdom are the Lunda of the Kazembe, called the Eastern Lunda, and their identity is Luba-Lunda: it comes from the Lunda political world of the west and from the Luba world beside it, and it was carried east and settled in the valley alongside the peoples already there.",
-      "The Kingdom is held together by clan. Each clan carries its own name and its own emblem, taken from the creatures and the elements of the country: the elephant, the frog, the fish, the rain. Descent and inheritance run through the mother's line, so that a title passes to the grandchildren of the founding clan through the maternal line and stays within that clan across the generations. This is not a matter of custom only. It is the mechanism by which office is filled: the seats of Baluunda, the High Court of the Kingdom, are hereditary in exactly this way.",
-      "Clan is therefore the link between a household in a village and the royal seat. A person belongs to a clan, the clan holds its seats and its offices, the officeholders answer to the Mwata, and through them the village and the throne are joined. It is also the law of marriage and the reckoning of kinship, and it governs who may be installed where.",
-      "The verified clan register of the Kingdom, with the emblems and the seats attached to each clan, is published on the Clans and People section."
+      "We are the Lunda of the Kazembe, called the Eastern Lunda, and our identity is Luba-Lunda: it comes from the Lunda political world of the west and from the Luba world beside it, and we carried it east and settled it in this valley alongside the peoples already here.",
+      "We are held together by clan. Each clan carries its own name and its own emblem, taken from the creatures and the elements of our country: the elephant, the frog, the fish, the rain. Descent and inheritance run through the mother's line, so that a title passes to the grandchildren of the founding clan through the maternal line and stays within that clan across the generations. This is not a matter of custom only. It is how we fill office: the seats of Baluunda, our High Court, are hereditary in exactly this way.",
+      "Clan is therefore the link between a household in a village and our royal seat. A person belongs to a clan, the clan holds its seats and its offices, the officeholders answer to the Mwata, and through them the village and the throne are joined. It is also our law of marriage and our reckoning of kinship, and it governs who may be installed where.",
+      "Our verified clan register, with the emblems and the seats attached to each clan, is published on the Clans and People section."
     ],
     sourceIds: ["gordon", "britannica"]
   }

@@ -14,8 +14,12 @@ The Kingdom does not ask for permission to exist. It does not explain itself apo
 ### 2. Speak from continuity
 The Kingdom of Kazembe is a living institution, not a historical relic. Every section should reflect that the royal seat at Mwansabombwe is active today — not that it was once active in the past.
 
-### 3. Speak as an institution
-Individual voices (the editor, the developer, the researcher) are invisible. The site speaks as the official digital home of the Kingdom. Avoid "we think", "we hope", "we are trying", "we believe".
+### 3. Speak as ourselves
+This is our site, not a report about us. On the public pages the Kingdom speaks in the first person: **we** and **our**, not "the Kingdom" held at arm's length. "We crossed the Luapula at Matanda." "Our court sits twenty-six seats." "We did not fall in those years."
+
+Individual voices (the editor, the developer, the researcher) stay invisible: "we" is the Kingdom, never the people building the site. Avoid the hedging first person — "we think", "we hope", "we are trying", "we believe" — which weakens the voice rather than carrying it.
+
+The Mwata is not "we". He is spoken of as He, with the third person and the capital, and the offices of the Kingdom are named as they are. Registry entries, image credits, alt text, and source notes stay descriptive; they are records, not the Kingdom speaking.
 
 ### 4. Speak with cultural respect
 The language of the site must honour the Lunda-Kazembe heritage without exoticising it. Ceremony is ceremony — not a festival or tourist attraction. The Mwata is the Mwata — not a "chief" or a "leader" in generic terms.

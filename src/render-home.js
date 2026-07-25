@@ -63,7 +63,7 @@ const pathwayCards = [
     id: "governance",
     label: "Administration",
     title: "Governance",
-    deck: "The Royal Council, senior chiefs, clans and people, the traditional court, and the administration of the Kingdom.",
+    deck: "Our Royal Council, our senior chiefs, our clans and people, our traditional court, and our administration.",
     href: "#governance"
   },
   {
@@ -274,7 +274,7 @@ export function homePageHtml() {
     <section class="section section-support" id="support-kingdom">
       <div class="container visit-cta-panel">
         ${sectionHead("Get Involved", "Support the Kingdom")}
-        <p class="section-deck">Partner with the Kingdom in cultural preservation, heritage archives, and community development, or plan a visit for the Umutomboko ceremony.</p>
+        <p class="section-deck">Partner with us in cultural preservation, heritage archives, and community development, or plan a visit for our Umutomboko ceremony.</p>
         <div class="visit-actions">
           <a class="btn btn-primary" href="#donations" data-nav="donations">Support / Donate</a>
           <a class="btn btn-ghost" href="#membership" data-nav="membership">Membership &amp; registry</a>
