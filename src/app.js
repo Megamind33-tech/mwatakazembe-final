@@ -676,6 +676,25 @@ function spiritualSystemSectionHtml() {
   const headmen = spiritualSystem.headmen
     .map((m) => rosterCard(m.name, m.role, portraitFor(m.name)))
     .join("");
+
+  // Documentary plates of the Ba Kashikayi. The registry supplies the file,
+  // alt text, and credit line; the caption is the one given by the Office.
+  const figures = (spiritualSystem.figures || [])
+    .map((f) => {
+      const item = getCreditById(f.creditId);
+      if (!item) return "";
+      return `
+      <figure class="credited-figure media-figure">
+        <div class="figure-media has-hover-credit">
+          <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(f.creditId)}">
+          <span class="hover-credit">${esc(item.creditLine)}</span>
+        </div>
+        <figcaption class="figure-credit"><span class="image-credit">${esc(f.caption)}</span></figcaption>
+      </figure>
+    `;
+    })
+    .join("");
+
   return `
     <section class="subsection spiritual-section" id="spiritual-system">
       ${sectionHead("Faith and the Ancestors", "The Spiritual System of the Kingdom")}
@@ -684,6 +703,7 @@ function spiritualSystemSectionHtml() {
       <div class="baluunda-grid baluunda-row swipe-track" data-swipe="High Priests of the Throne">${priests}</div>
       <p class="cabinet-members-label">Senior Headmen and Traditional Councillors</p>
       <div class="baluunda-grid baluunda-row swipe-track" data-swipe="Senior Headmen and Traditional Councillors">${headmen}</div>
+      ${figures ? `<p class="cabinet-members-label">The Ba Kashikayi at Mpembwe</p><div class="media-figure-grid">${figures}</div>` : ""}
     </section>
   `;
 }

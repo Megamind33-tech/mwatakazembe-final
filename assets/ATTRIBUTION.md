@@ -71,6 +71,14 @@ Confirm original photographer and reuse rights with the Royal Protocol Office be
 Images held back for rights/identification (not placed live) are listed in
 `docs/image-candidates-needing-approval.md`.
 
+## Supplied by the Office of the Mwata — the Ba Kashikayi at Mpembwe
+
+Supplied with their captions by the Office of the Mwata for the Spiritual System
+section. Credited to the Office of the Mwata Kazembe; all rights reserved.
+
+- `assets/images/kazembe/governance/spiritual/kashikayi-procession-to-mpembwe.jpg` — Ba Kashikayi heading to Mpembwe, Kapa Makwe Toka leading the way.
+- `assets/images/kazembe/governance/spiritual/kashikayi-awaiting-mwata-mpembwe-trench.jpg` — Ba Kashikayi await the Mwata as He comes to the Mpembwe Trench.
+
 ## Permission required before public launch
 
 - `assets/images/kazembe/hero/home-portrait.jpg`

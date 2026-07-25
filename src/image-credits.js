@@ -334,6 +334,44 @@ export const imageCredits = [
     creditLine: "Photo: Charles Banda / ZANIS · Source: Lusaka Times"
   },
   {
+    id: "spiritual-kashikayi-procession",
+    fileName: "kashikayi-procession-to-mpembwe.jpg",
+    src: "assets/images/kazembe/governance/spiritual/kashikayi-procession-to-mpembwe.jpg",
+    title: "Ba Kashikayi heading to Mpembwe",
+    description:
+      "The Ba Kashikayi in white robes and head coverings move through the crowd on the way to the Mpembwe Shrine, Kapa Makwe Toka leading the way.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "The Ba Kashikayi in white robes and white head coverings walking through a crowd on the way to Mpembwe, led by Kapa Makwe Toka.",
+    sectionUsedIn: "Spiritual System of the Kingdom, Gallery",
+    category: "ceremony",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "spiritual-kashikayi-mpembwe-trench",
+    fileName: "kashikayi-awaiting-mwata-mpembwe-trench.jpg",
+    src: "assets/images/kazembe/governance/spiritual/kashikayi-awaiting-mwata-mpembwe-trench.jpg",
+    title: "Ba Kashikayi await the Mwata at the Mpembwe Trench",
+    description:
+      "The Ba Kashikayi stand in white robes across the road, awaiting the Mwata as He comes to the Mpembwe Trench, with the crowd gathered along the roadside.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "Five of the Ba Kashikayi in white robes standing across a road, awaiting the Mwata at the Mpembwe Trench, with a crowd along the roadside.",
+    sectionUsedIn: "Spiritual System of the Kingdom, Gallery",
+    category: "ceremony",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
     id: "archive-mwata-xi-kapakata",
     fileName: "mwata-xi-muonga-kapakata-1904-1919.jpg",
     src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg",
