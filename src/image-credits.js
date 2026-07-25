@@ -413,16 +413,16 @@ export const imageCredits = [
     id: "utumbolo-tree-white-cloth",
     fileName: "utumbolo-tree-white-cloth.jpg",
     src: "assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg",
-    title: "Utumbolo: the sacred tree bound with white cloth",
+    title: "Utumbolo: the place of the bones",
     description:
-      "One of the Utumbolo, the sacred places kept along the way of the Umutomboko procession, its tree bound with a band of white cloth and standing within a brushwood enclosure on swept ground.",
+      "The Utumbolo where the bones are kept. Its tree is bound with a band of white cloth and stands within a brushwood enclosure on swept ground. The bones of dangerous animals were kept here, and human bones also; today only the bones of animals are kept at this place.",
     sourceName: "Office of the Mwata / Kingdom archive",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-07-25",
     licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText:
-      "A large sacred tree with a band of white cloth tied around its trunk, enclosed by a brushwood fence on swept red earth.",
+      "The Utumbolo where the bones are kept: a large tree with a band of white cloth tied around its trunk, enclosed by a brushwood fence on swept red earth.",
     sectionUsedIn: "Utumbolo, Gallery",
     category: "ceremony",
     imageType: "documentary photograph",
@@ -432,7 +432,7 @@ export const imageCredits = [
     id: "utumbolo-enclosure-prepared",
     fileName: "utumbolo-enclosure-prepared.jpg",
     src: "assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg",
-    title: "The Utumbolo enclosure prepared for the ceremony",
+    title: "An Utumbolo prepared for the procession",
     description:
       "The brushwood fence of an Utumbolo being set and the ground cleared before the procession, with white cloth already tied to the trunk and to the gatepost.",
     sourceName: "Office of the Mwata / Kingdom archive",

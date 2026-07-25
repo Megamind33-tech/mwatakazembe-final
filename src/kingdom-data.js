@@ -723,11 +723,11 @@ export const utumbolo = {
   figures: [
     {
       creditId: "utumbolo-tree-white-cloth",
-      caption: "A tree of the Utumbolo, bound with white cloth within its brushwood enclosure."
+      caption: "The place of the bones: the tree bound with white cloth within its brushwood enclosure."
     },
     {
       creditId: "utumbolo-enclosure-prepared",
-      caption: "The enclosure built and the ground cleared before the ceremony."
+      caption: "The other of the Utumbolo, its enclosure built and its ground cleared before the procession."
     }
   ],
   sourceIds: [],

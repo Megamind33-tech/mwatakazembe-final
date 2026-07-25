@@ -88,8 +88,8 @@ Impembwe ya Keleka, in the Heritage & Culture page:
 
 Utumbolo, in the Heritage & Culture page:
 
-- `assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg` — a tree of the Utumbolo bound with white cloth within its brushwood enclosure.
-- `assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg` — the enclosure built and the ground cleared before the ceremony.
+- `assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg` — the Utumbolo where the bones are kept, its tree bound with white cloth within its brushwood enclosure.
+- `assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg` — the other Utumbolo, its enclosure built and its ground cleared before the procession.
 
 ## Permission required before public launch
 
