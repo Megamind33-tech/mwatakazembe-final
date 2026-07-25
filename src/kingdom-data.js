@@ -460,7 +460,7 @@ export const seniorChiefSeats = [
 // seats, held within their founding clans and inherited through the maternal
 // line (grandchildren of the clan). Listed in order of seat; portraits are
 // shown where a current officeholder has been photographed. The court sits
-// twenty-six seats, numbered without gaps: the Sub Chiefs do not sit here.
+// twenty-seven seats, numbered without gaps: the Sub Chiefs do not sit here.
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
   intro:
@@ -468,7 +468,7 @@ export const baluunda = {
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
   note:
-    "The court sits twenty-six seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
+    "The court sits twenty-seven seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
     { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of the Baluunda" },
@@ -597,6 +597,12 @@ export const baluunda = {
       name: "Kapa Kampampi",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kampampi.jpg`
+    },
+    {
+      seat: 27,
+      name: "Kapa Mwabilolo",
+      role: "Member of the Court",
+      image: `${BALUUNDA_IMG}/kapa-mwabilolo.jpg`
     }
   ]
 };
