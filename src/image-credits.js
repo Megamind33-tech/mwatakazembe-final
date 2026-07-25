@@ -410,6 +410,44 @@ export const imageCredits = [
     creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
+    id: "utumbolo-tree-white-cloth",
+    fileName: "utumbolo-tree-white-cloth.jpg",
+    src: "assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg",
+    title: "Utumbolo: the sacred tree bound with white cloth",
+    description:
+      "One of the sacred trees of the Utumbolo at the palace gates, its trunk bound with a band of white cloth, standing within a brushwood enclosure on swept ground.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "A large sacred tree with a band of white cloth tied around its trunk, enclosed by a brushwood fence on swept red earth.",
+    sectionUsedIn: "Utumbolo, Gallery",
+    category: "ceremony",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "utumbolo-enclosure-prepared",
+    fileName: "utumbolo-enclosure-prepared.jpg",
+    src: "assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg",
+    title: "The Utumbolo enclosure prepared for the ceremony",
+    description:
+      "The brushwood fence of the Utumbolo being set and the ground cleared before Umutomboko, with white cloth already tied to the trunk and to the gatepost.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "Men setting the brushwood fence and clearing the ground around the sacred trees before the ceremony, white cloth tied to the trunk and gatepost.",
+    sectionUsedIn: "Utumbolo, Gallery",
+    category: "ceremony",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
     id: "archive-mwata-xi-kapakata",
     fileName: "mwata-xi-muonga-kapakata-1904-1919.jpg",
     src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg",

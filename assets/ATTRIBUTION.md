@@ -86,6 +86,11 @@ Impembwe ya Keleka, in the Heritage & Culture page:
 - `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-01.jpg` — Impembwe ya Keleka under dry grass and bush, before it is cleaned for the ceremony.
 - `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-02.jpg` — the course of the trench through the trees, before the annual clearing.
 
+Utumbolo, in the Heritage & Culture page:
+
+- `assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg` — a tree of the Utumbolo bound with white cloth within its brushwood enclosure.
+- `assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg` — the enclosure built and the ground cleared before the ceremony.
+
 ## Permission required before public launch
 
 - `assets/images/kazembe/hero/home-portrait.jpg`

@@ -703,6 +703,37 @@ export const impembwe = {
   note: "Recorded from the published account of the Kingdom. The Office of the Mwata holds the full oral history of Impembwe ya Keleka, and its words stand above this record."
 };
 
+// Utumbolo — the sacred trees at the gates of the palace, and what is done
+// under them. Rendered on the Heritage & Culture page. The name is the one
+// given by the Office of the Mwata; the rites described below are those the
+// published record attaches to the trees at the palace gates, and the Office's
+// own account governs over what is written here.
+export const utumbolo = {
+  title: "Utumbolo",
+  eyebrow: "The sacred trees at the gates",
+  intro:
+    "The Utumbolo are the sacred trees that stand at the gates of the palace at Mwansabombwe. They are not ornament and not shade. They are a station of the Kingdom: ground where the Mwata meets the ancestors, where hereditary office is conferred, and where Umutomboko turns from the private rites to the public ceremony.",
+  paragraphs: [
+    "Each tree is set apart and kept apart. A fence of brushwood is built close around it, a gate is left in the fence, and the ground within is swept to bare earth. A band of white cloth is bound about the trunk, and white cloth is tied at the gatepost, so that the tree is marked from every side as a place under the care of the throne.",
+    "Under these trees the Mwata is smeared with ulupemba, the white dust, by the Lunde, who keep the shrines of Chinyanta and Kasombola, the two royal brothers drowned in the early years of the Kingdom. The rite is the answer of the living Mwata to the ancestors: He comes to the gate of His own palace, and there He is marked with the white of the ancestral ground before He goes out to His people.",
+    "The trees are also the seat of the Mutentamo, the rite of installation and tribute. Here a member of the royal family or a senior councillor is installed to hereditary office; here a person outside the Lunda may be invested for gallantry; and here the subjects of the Kingdom come forward to show their loyalty and to lay their offerings. Rank in the Kingdom is not conferred in private. It is conferred at the tree, in the sight of those who must live under it.",
+    "This is why the ground is prepared before the ceremony. The fence is repaired or built again, the earth is cleared and swept, and the cloth is renewed, so that the trees stand ready before the first rite is performed. The work is done by hand, and it is done every year, in the same way, at the same place.",
+    "Their significance to the Kingdom is continuity of place. The Mwatas change and the generations pass, but the rites are performed at the same trees, at the gates of the same palace, by the same offices. A stranger sees trees inside a fence. The Kingdom sees the point at which the throne, the ancestors, and the people are brought into one place, and the moment at which the Mwata, marked with ulupemba and confirmed by the ancestors, goes out to the arena to dance the Umutomboko."
+  ],
+  figures: [
+    {
+      creditId: "utumbolo-tree-white-cloth",
+      caption: "A tree of the Utumbolo, bound with white cloth within its brushwood enclosure."
+    },
+    {
+      creditId: "utumbolo-enclosure-prepared",
+      caption: "The enclosure built and the ground cleared before the ceremony."
+    }
+  ],
+  sourceIds: ["zambiatourism-umutomboko", "luapula-umutomboko", "unza", "zta"],
+  note: "The name Utumbolo is as given by the Office of the Mwata. The rites recorded here are those the published account attaches to the trees at the palace gates; the Office's own account of the Utumbolo stands above this record."
+};
+
 // The spiritual system of the Kingdom. The Mwata Kazembe is the Chief Priest;
 // these officers serve as High Priests attached to the Throne, carrying the
 // duties of ancestry, burial, and the shrines. Roles as given by the Office

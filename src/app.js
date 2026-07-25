@@ -3,6 +3,7 @@ import {
   baluunda,
   bashafumu,
   impembwe,
+  utumbolo,
   builtHeritage,
   calendar,
   developmentPillars,
@@ -702,6 +703,21 @@ function impembweSectionHtml() {
   `;
 }
 
+function utumboloSectionHtml() {
+  const body = utumbolo.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
+  const figures = utumbolo.figures.map((f) => captionedPlate(f.creditId, f.caption)).join("");
+  return `
+    <section class="subsection utumbolo-section" id="utumbolo">
+      ${sectionHead(utumbolo.eyebrow, utumbolo.title)}
+      <p class="section-deck">${esc(utumbolo.intro)}</p>
+      <div class="impembwe-body">${body}</div>
+      <div class="media-figure-grid">${figures}</div>
+      <p class="editorial-note">${esc(utumbolo.note)}</p>
+      ${sourceCitation(utumbolo.sourceIds)}
+    </section>
+  `;
+}
+
 function spiritualSystemSectionHtml() {
   const priests = spiritualSystem.highPriests
     .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note))
@@ -915,6 +931,7 @@ function renderKingdom() {
           <a class="heritage-hub-link" href="#kingdom-timeline">The Ruler Line</a>
           <a class="heritage-hub-link" href="#mutomboko">Umutomboko Ceremony</a>
           <a class="heritage-hub-link" href="#impembwe">Impembwe ya Keleka</a>
+          <a class="heritage-hub-link" href="#utumbolo">Utumbolo</a>
           <a class="heritage-hub-link" href="#kingdom-built-heritage">Built Heritage</a>
           <a class="heritage-hub-link" href="#museum">Royal Museum</a>
           <a class="heritage-hub-link" href="#kingdom-gallery">Gallery</a>
@@ -948,6 +965,7 @@ function renderKingdom() {
         </figure>
       </section>
       ${impembweSectionHtml()}
+      ${utumboloSectionHtml()}
       ${builtHeritageHtml()}
       ${heritageGalleryHtml()}
     </div>
@@ -1947,7 +1965,7 @@ function pageFromHash(hash) {
   // caught by the Mwata rule below, so a link to a roster opens the wrong page.
   if (GOVERNANCE_ANCHORS.has(hash) || hash.startsWith("gov")) return "governance";
   if (hash.startsWith("mwata") && hash !== "mwata-lineage") return "mwata";
-  if (hash.startsWith("kingdom") || hash === "early-mwatas" || hash === "impembwe") return "kingdom";
+  if (hash.startsWith("kingdom") || hash === "early-mwatas" || hash === "impembwe" || hash === "utumbolo") return "kingdom";
   if (hash.startsWith("mutomboko")) return "mutomboko";
   if (hash.startsWith("dev") || hash === "development-public") return "development";
   if (hash.startsWith("news") || hash === "publications" || hash === "gallery" || hash === "archive") return "newsroom";
