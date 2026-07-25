@@ -95,6 +95,15 @@ Utumbolo, in the Heritage & Culture page:
 - `assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg` — Utumbolo where the bones are kept, its tree bound with white cloth within its brushwood enclosure.
 - `assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg` — the other Utumbolo, its enclosure built and its ground cleared before the procession.
 
+## Supplied by the Office of the Mwata — water projects
+
+Credited to the Office of the Mwata Kazembe; all rights reserved. Shown in the
+Water and Sanitation section of the Development page.
+
+- `assets/images/kazembe/development/water/water-tank-tower.jpg` — the tank on its tower at the royal seat.
+- `assets/images/kazembe/development/water/water-tower-from-the-road.jpg` — the tower and its tanks seen from the road.
+- `assets/images/kazembe/development/water/water-scheme-street.jpg` — the walled yard of the scheme, from the street.
+
 ## Permission required before public launch
 
 - `assets/images/kazembe/hero/home-portrait.jpg`

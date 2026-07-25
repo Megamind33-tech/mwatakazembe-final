@@ -81,6 +81,7 @@ export const navigation = [
     children: [
       { label: "Agriculture & Food Security", href: "#dev-agriculture" },
       { label: "Fisheries & Lake Mweru", href: "#dev-fisheries" },
+      { label: "Water & Sanitation", href: "#dev-water" },
       { label: "Tourism & Cultural Economy", href: "#dev-tourism" },
       { label: "Youth Participation", href: "#dev-youth" },
       { label: "Land & Community Order", href: "#dev-land" },
@@ -883,7 +884,33 @@ export const officialNoticeStrip = [
   { label: "Contact", text: "Official channels, Royal Office", href: "#contact" }
 ];
 
+// Water projects of the Kingdom. The photographs are supplied by the Office of
+// the Mwata; the works they show are recorded here as they stand. Scheme names,
+// villages served, partners, and dates come from the Office.
+export const waterProjects = {
+  title: "Water and Sanitation",
+  eyebrow: "Water for the royal seat",
+  intro:
+    "Water works are under development in the Kingdom. An elevated steel tank stands on its tower at the royal seat, holding the supply above the village so that it runs to the standpipes and the yards below it.",
+  paragraphs: [
+    "Clean water close to the household is the first of the development needs of the valley. The Luapula and Lake Mweru carry the fishery and the flood soils, but water drawn from the river and the lagoon for drinking has always cost the villages in labour and in sickness. A tank on a tower changes both: the supply is held, it is above the ground, and it is reticulated to the point of use.",
+    "The Kingdom counts these works among its development priorities alongside agriculture, fisheries, and youth. The Office of the Mwata coordinates with the civil authorities and with partners on the schemes that serve Mwansabombwe and the villages around it."
+  ],
+  figures: [
+    { creditId: "dev-water-tank-tower", caption: "The tank on its tower at the royal seat." },
+    { creditId: "dev-water-tower-road", caption: "The tower and its tanks seen from the road." },
+    { creditId: "dev-water-scheme-street", caption: "The walled yard of the scheme, from the street." }
+  ],
+  note: "Scheme names, the villages served, the partners, and the dates of construction are held by the Office of the Mwata and will be published here as they are supplied."
+};
+
 export const developmentPillars = [
+  {
+    id: "dev-water-brief",
+    title: "Water and Sanitation",
+    summary: "Elevated tanks and reticulated supply bring clean water within reach of the households of the royal seat and the villages around it.",
+    href: "#dev-water"
+  },
   {
     id: "dev-agriculture",
     title: "Agriculture and Food Security",

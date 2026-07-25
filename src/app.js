@@ -7,6 +7,7 @@ import {
   builtHeritage,
   calendar,
   developmentPillars,
+  waterProjects,
   governanceInstitutions,
   governanceStructure,
   seniorChiefSeats,
@@ -1153,6 +1154,16 @@ function renderDevelopment() {
     )
     .join("");
 
+  const water = `
+    <section class="subsection water-section" id="dev-water">
+      ${sectionHead(waterProjects.eyebrow, waterProjects.title)}
+      <p class="section-deck">${esc(waterProjects.intro)}</p>
+      <div class="impembwe-body">${waterProjects.paragraphs.map((para) => `<p>${esc(para)}</p>`).join("")}</div>
+      <div class="media-figure-grid">${waterProjects.figures.map((f) => captionedPlate(f.creditId, f.caption)).join("")}</div>
+      <p class="editorial-note">${esc(waterProjects.note)}</p>
+    </section>
+  `;
+
   $("#page-development").innerHTML = `
     <div class="page-hero page-hero-compact">
       <div class="container page-hero-content">
@@ -1163,6 +1174,7 @@ function renderDevelopment() {
     </div>
     <div class="container page-body">
       <div class="pillar-grid pillar-grid-page">${pillars}</div>
+      ${water}
     </div>
   `;
 }

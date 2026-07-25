@@ -523,6 +523,60 @@ export const imageCredits = [
     creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
+    id: "dev-water-tank-tower",
+    fileName: "water-tank-tower.jpg",
+    src: "assets/images/kazembe/development/water/water-tank-tower.jpg",
+    title: "The water tank on its tower",
+    description:
+      "The steel water tank of the Kingdom's water scheme standing on its raised steel tower, photographed during a public event held beneath it.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText: "A large panelled steel water tank raised on a steel tower, with a public event under way beneath it.",
+    sectionUsedIn: "Water and Sanitation, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "dev-water-scheme-street",
+    fileName: "water-scheme-street.jpg",
+    src: "assets/images/kazembe/development/water/water-scheme-street.jpg",
+    title: "The water tower above the street",
+    description:
+      "The water tower standing over the walled yard of the scheme, seen from the street at Mwansabombwe.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText: "A steel water tower rising above a green walled yard beside a street, with a man standing at the wall.",
+    sectionUsedIn: "Water and Sanitation, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "dev-water-tower-road",
+    fileName: "water-tower-from-the-road.jpg",
+    src: "assets/images/kazembe/development/water/water-tower-from-the-road.jpg",
+    title: "The water tower from the road",
+    description:
+      "The tower and its tanks seen from the road, with the walled yard of the scheme and the houses of the village beside it.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText: "A steel water tower with panelled tanks seen from a dirt road, beside a green wall and thatched houses.",
+    sectionUsedIn: "Water and Sanitation, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
     id: "archive-mwata-xi-kapakata",
     fileName: "mwata-xi-muonga-kapakata-1904-1919.jpg",
     src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg",
