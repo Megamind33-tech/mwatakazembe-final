@@ -112,22 +112,6 @@ export const sources = [
     note: "Ceremony report recording the homage at the trench as the act that opens Umutomboko, and the restriction of entry at Mpembwe ya Keleka."
   },
   {
-    id: "zambiatourism-umutomboko",
-    type: "official",
-    label: "Zambia Tourism",
-    title: "Umutomboko Ceremony",
-    url: "https://www.zambiatourism.com/umutomboko-ceremony-2013/",
-    note: "Account of the opening rites: the Mwata smeared with inkula at Nakabutula and with ulupemba under the trees at the western gates by the Lunde, caretakers of the shrines of Chinyanta and Kasombola, before the procession to the Ng'ona."
-  },
-  {
-    id: "luapula-umutomboko",
-    type: "official",
-    label: "Luapula Province",
-    title: "Umutomboko, Provincial tourism record",
-    url: "http://www.luapulaprovince.gov.zm/Tourism/umutomboko.html",
-    note: "Provincial record of the Mutentamo held at the tree shrine: installation to hereditary office, investiture for gallantry, and the showing of loyalty by the subjects."
-  },
-  {
     id: "nkwazi-mutomboko",
     type: "press",
     label: "Nkwazi Magazine",

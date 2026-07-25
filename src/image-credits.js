@@ -415,7 +415,7 @@ export const imageCredits = [
     src: "assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg",
     title: "Utumbolo: the sacred tree bound with white cloth",
     description:
-      "One of the sacred trees of the Utumbolo at the palace gates, its trunk bound with a band of white cloth, standing within a brushwood enclosure on swept ground.",
+      "One of the Utumbolo, the sacred places kept along the way of the Umutomboko procession, its tree bound with a band of white cloth and standing within a brushwood enclosure on swept ground.",
     sourceName: "Office of the Mwata / Kingdom archive",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
@@ -434,7 +434,7 @@ export const imageCredits = [
     src: "assets/images/kazembe/heritage/utumbolo/utumbolo-enclosure-prepared.jpg",
     title: "The Utumbolo enclosure prepared for the ceremony",
     description:
-      "The brushwood fence of the Utumbolo being set and the ground cleared before Umutomboko, with white cloth already tied to the trunk and to the gatepost.",
+      "The brushwood fence of an Utumbolo being set and the ground cleared before the procession, with white cloth already tied to the trunk and to the gatepost.",
     sourceName: "Office of the Mwata / Kingdom archive",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
