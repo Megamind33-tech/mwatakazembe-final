@@ -586,11 +586,12 @@ export const baluunda = {
 
 // The Sub Chiefs hold territorial authority under the Mwata Kazembe across the
 // chiefdom. They are a distinct office from the Baluunda and do not sit in the
-// High Court. Portraits are shown where an officeholder has been photographed.
+// High Court, and they rank below the Bashafumu, who are listed before them.
+// Portraits are shown where an officeholder has been photographed.
 const SUBCHIEF_IMG = "assets/images/kazembe/governance/subchiefs";
 export const subChiefs = {
   intro:
-    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They are distinct from the Baluunda and do not sit in the High Court.",
+    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below the Bashafumu, are distinct from the Baluunda, and do not sit in the High Court.",
   members: [
     { name: "Kapa Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
     { name: "Kapa Chibwili" },
@@ -605,11 +606,12 @@ export const subChiefs = {
 };
 
 // The Bashafumu: titled holders of traditional office under the Mwata Kazembe
-// across the villages and lands of the Kingdom. Listed by name as supplied by
-// the Office of the Mwata.
+// across the villages and lands of the Kingdom. They rank above the Sub Chiefs
+// and are listed before them. Listed by name as supplied by the Office of the
+// Mwata.
 export const bashafumu = {
   intro:
-    "The Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom.",
+    "The Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom. They rank above the Sub Chiefs.",
   members: [
     "Kapa Salanga",
     "Kapa Chisha Munkashi",
@@ -677,22 +679,22 @@ export const spiritualSystem = {
     "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed. These officers are headmen of the Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet they serve the Mwata directly.",
   highPriests: [
     {
-      name: "Munkanso Kashikayi",
+      name: "Kapa Munkanso Kashikayi",
       role: "Undertaker of the Mwata",
       note: "Ensures the Mwata transitions to the Land of the Ancestors through the right traditions. He serves under Senior Chief Kanyembo."
     },
     {
-      name: "Chikumbi",
+      name: "Kapa Chikumbi",
       role: "Keeper of the royal afterlife",
       note: "Cares for the afterlife of all the Mwatas and guards the Lunde ancestral grounds from being violated, physically and spiritually."
     },
     {
-      name: "Shanyemba",
+      name: "Kapa Shanyemba",
       role: "Mwana wa Mfumu",
       note: ""
     },
     {
-      name: "Makwe Toka",
+      name: "Kapa Makwe Toka",
       role: "Guardian of the Mpembwe Shrine",
       note: "Of the Abena Fula clan, entrusted to protect the Mpembwe Shrine, a place of great significance in Lunda tradition, where the great ancestors of health, agriculture, and rain are communicated with."
     }

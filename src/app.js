@@ -720,8 +720,8 @@ function renderGovernance() {
       ${councilChartHtml()}
       ${mwataCabinetSectionHtml()}
       ${baluundaSectionHtml()}
-      ${subChiefsSectionHtml()}
       ${bashafumuSectionHtml()}
+      ${subChiefsSectionHtml()}
       ${spiritualSystemSectionHtml()}
       <section class="subsection" id="gov-offices">
         ${sectionHead("The royal seat", "Offices of the Royal Seat")}
