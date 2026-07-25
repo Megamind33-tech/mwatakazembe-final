@@ -402,15 +402,29 @@ export const governanceStructure = [
   {
     id: "chiefs",
     title: "Senior Chiefs",
-    tier: 3,
+    tier: 4,
     description:
       "Children of the Mwata: the regional traditional leaders who represent communities, carry tribute corridors and ceremony duty across Luapula, and uphold royal directives.",
     placeholder: true
   },
   {
+    id: "bashafumu",
+    title: "The Bashafumu",
+    tier: 5,
+    description:
+      "Titled holders of traditional office under the Mwata across the villages and lands of the Kingdom. They rank above the Sub Chiefs."
+  },
+  {
+    id: "subchiefs",
+    title: "The Sub Chiefs",
+    tier: 6,
+    description:
+      "Territorial authority under the Mwata across the chiefdom. They rank below the Bashafumu, are distinct from the Baluunda, and do not sit in the High Court."
+  },
+  {
     id: "court",
     title: "Traditional Court",
-    tier: 4,
+    tier: 7,
     description:
       "Customary adjudication for lineage, marriage, land, and community order, with dispute resolution under established court protocol.",
     placeholder: true
@@ -418,7 +432,7 @@ export const governanceStructure = [
   {
     id: "headmen",
     title: "Headmen and Village Structures",
-    tier: 4,
+    tier: 7,
     description:
       "Village-level authority linking households to the chiefs and the royal seat through tribute, representation, ceremony, and dispute referral.",
     placeholder: true
@@ -426,7 +440,7 @@ export const governanceStructure = [
   {
     id: "desks",
     title: "Administration and Agencies",
-    tier: 4,
+    tier: 7,
     description:
       "The working desks of the Kingdom: protocol and communications, ceremony, heritage, tourism, youth, and development. Each is listed in the Kingdom Agencies section below.",
     placeholder: true

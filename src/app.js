@@ -461,10 +461,6 @@ function councilChartHtml() {
       <p>The apex of the Kingdom. The Royal Council, the Baluunda, the Senior Chiefs, and every office of state derive their authority from the throne and serve it.</p>
     </article>
   `;
-  const branch = byTier(2).map((n) => node(n, "node-branch")).join("");
-  const tier3 = byTier(3).map((n) => node(n, "node-tier3")).join("");
-  const support = byTier(4).map((n) => node(n)).join("");
-
   const seats = seniorChiefSeats
     .map(
       (s) => `
@@ -479,21 +475,39 @@ function councilChartHtml() {
 
   const rail = `<div class="chart-rail" data-chart-rail aria-hidden="true"></div>`;
 
+  // One tier to a line, in order of rank, so nothing appears equal to
+  // something it stands under. The three Senior Chief seats hang from the
+  // Senior Chiefs tier that names them.
+  const tiers = [...new Set(governanceStructure.map((n) => n.tier))]
+    .filter((t) => t > 1)
+    .sort((a, b) => a - b);
+
+  const levels = tiers
+    .map((t) => {
+      const rank = t === 2 ? "node-branch" : t <= 4 ? "node-tier3" : "";
+      const nodes = byTier(t).map((n) => node(n, rank)).join("");
+      const carriesChiefs = byTier(t).some((n) => n.id === "chiefs");
+      return `
+        ${rail}
+        <div class="chart-level chart-level-tier${t}">${nodes}</div>
+        ${
+          carriesChiefs
+            ? `<div class="chart-seats-wrap">
+                 <p class="chart-seats-label">Senior Chiefs, children of the Mwata</p>
+                 <div class="chart-seats">${seats}</div>
+               </div>`
+            : ""
+        }
+      `;
+    })
+    .join("");
+
   return `
     <section class="subsection council-chart-section" id="council-chart">
-      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex, to the Royal Council, and from the Council to the Baluunda judiciary and the Senior Chiefs, down to the offices that serve the people.")}
+      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex to the Royal Council, from the Council to the Baluunda judiciary, and from the judiciary down through the Senior Chiefs, the Bashafumu, and the Sub Chiefs to the offices that serve the people.")}
       <div class="council-chart" data-council-chart>
         <div class="chart-level chart-level-root">${root}</div>
-        ${rail}
-        <div class="chart-level chart-level-branch">${branch}</div>
-        ${rail}
-        <div class="chart-level chart-level-tier3">${tier3}</div>
-        <div class="chart-seats-wrap">
-          <p class="chart-seats-label">Senior Chiefs, children of the Mwata</p>
-          <div class="chart-seats">${seats}</div>
-        </div>
-        ${rail}
-        <div class="chart-level chart-level-support">${support}</div>
+        ${levels}
       </div>
     </section>
   `;
