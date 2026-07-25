@@ -94,6 +94,30 @@ export const sources = [
     title: "Generated reconstruction plates",
     url: "",
     note: "Visual reconstructions produced for missing or hard-to-license artifacts. These are not documentary photographs."
+  },
+  {
+    id: "mot-impembwe-2023",
+    type: "official",
+    label: "Ministry of Tourism",
+    title: "Mwata pays homage to ancestors at Mutomboko, 28 July 2023",
+    url: "https://www.mot.gov.zm/?p=2738",
+    note: "Government report of the homage at Toka-toka Village, naming the trench impembwe, its use against intruders, and the beer and seasonal seed carried by the villages."
+  },
+  {
+    id: "mot-mutomboko-2024",
+    type: "official",
+    label: "Ministry of Tourism",
+    title: "2024 Mutomboko Ceremony Report",
+    url: "https://www.mot.gov.zm/wp-content/uploads/2024/09/2024-MUTOMBOKO-CEREMONY-REPORT.pdf",
+    note: "Ceremony report recording the homage at the trench as the act that opens Umutomboko, and the restriction of entry at Mpembwe ya Keleka."
+  },
+  {
+    id: "nkwazi-mutomboko",
+    type: "press",
+    label: "Nkwazi Magazine",
+    title: "Mutomboko Ceremony: An Epic of the Luba-Lunda",
+    url: "https://nkwazimagazine.com/mutomboko-ceremony-an-epic-of-the-luba-lunda/",
+    note: "Feature account of the trench as a hidden refuge in time of war, its secrecy, and the visit to Mpembwe within the ceremony sequence."
   }
 ];
 

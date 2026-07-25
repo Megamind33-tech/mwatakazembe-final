@@ -671,6 +671,36 @@ export const mwataCabinet = {
   ]
 };
 
+// Impembwe ya Keleka — the trench at Toka-toka, and the rite that opens
+// Umutomboko. The account below is drawn from the published record: the
+// Ministry of Tourism reports of 2023 and 2024 and the Nkwazi Magazine feature,
+// alongside the ceremony sequence already carried in data.js. Where the Office
+// of the Mwata holds the fuller oral account, it replaces what is written here.
+export const impembwe = {
+  title: "Impembwe ya Keleka",
+  eyebrow: "The trench that opens the ceremony",
+  intro:
+    "Impembwe ya Keleka is a trench dug in the earth at Toka-toka, in the lands of the Mwata Kazembe. It was cut as a work of defence: a hidden refuge that held the Mwata and his people in time of war, and a line that kept intruders from the royal seat.",
+  paragraphs: [
+    "The trench runs long, its course put at some fifty-six kilometres in the published record, and its whereabouts were held in secrecy. Only a few close to the Mwata and to the throne knew where it lay. When word came of intruders in the Kingdom, or of a threat to the life of the Mwata or to the throne itself, the Mwata withdrew to Impembwe, and the trench kept what it was dug to keep.",
+    "The ground is guarded still. Entry is not open: the Mwata, his aides, and Headman Toka with his aide are the ones who go in. The Guardian of the Mpembwe Shrine, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
+    "Each year the trench is cleaned before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then the villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and the offering is made to the ancestral spirits.",
+    "The homage at Impembwe thanks the ancestors for the sacrifice they made in that ground, and it is this act that opens Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, the Ba Kashikayi going before Him and awaiting Him at the trench; only then does the Kingdom turn to the arena and the dance of conquest."
+  ],
+  figures: [
+    {
+      creditId: "impembwe-before-cleaning-01",
+      caption: "Before Impembwe is cleaned for the ceremony: the trench under dry grass and bush."
+    },
+    {
+      creditId: "impembwe-before-cleaning-02",
+      caption: "The course of the trench running away through the trees, before the annual clearing."
+    }
+  ],
+  sourceIds: ["mot-impembwe-2023", "mot-mutomboko-2024", "nkwazi-mutomboko", "unza"],
+  note: "Recorded from the published account of the Kingdom. The Office of the Mwata holds the full oral history of Impembwe ya Keleka, and its words stand above this record."
+};
+
 // The spiritual system of the Kingdom. The Mwata Kazembe is the Chief Priest;
 // these officers serve as High Priests attached to the Throne, carrying the
 // duties of ancestry, burial, and the shrines. Roles as given by the Office

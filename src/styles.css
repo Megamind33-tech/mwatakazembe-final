@@ -2750,6 +2750,21 @@ body.lightbox-open {
    photograph. The bespoke priest, headmen-list, and cabinet-chair blocks that
    stood here are no longer used. */
 
+/* The account of Impembwe ya Keleka — running text at reading width. */
+.impembwe-body {
+  max-width: 70ch;
+  margin-top: 1.1rem;
+}
+
+.impembwe-body p {
+  margin: 0 0 0.9rem;
+  line-height: 1.65;
+}
+
+.impembwe-body p:last-child {
+  margin-bottom: 0;
+}
+
 .cabinet-members-label {
   margin: 1.4rem 0 0 0;
   font-family: var(--font-sans);

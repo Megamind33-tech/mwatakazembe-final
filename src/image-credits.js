@@ -372,6 +372,44 @@ export const imageCredits = [
     creditLine: "Photo: Office of the Mwata Kazembe"
   },
   {
+    id: "impembwe-before-cleaning-01",
+    fileName: "impembwe-before-cleaning-01.jpg",
+    src: "assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-01.jpg",
+    title: "Impembwe ya Keleka before the ceremony",
+    description:
+      "The trench of Impembwe ya Keleka under dry grass and bush, photographed before it is cleaned for Umutomboko. The cut of the trench and its raised bank run through the frame.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "The Impembwe ya Keleka trench under dry grass and bush before it is cleaned for the ceremony, its earth bank rising on the left.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
+    id: "impembwe-before-cleaning-02",
+    fileName: "impembwe-before-cleaning-02.jpg",
+    src: "assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-02.jpg",
+    title: "The line of the trench under dry season growth",
+    description:
+      "The course of Impembwe ya Keleka running away through the trees, choked with dry grass and fallen leaves before the annual clearing.",
+    sourceName: "Office of the Mwata / Kingdom archive",
+    sourceUrl: "",
+    photographerOrCredit: "Office of the Mwata Kazembe",
+    dateAccessed: "2026-07-25",
+    licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
+    altText:
+      "The course of the Impembwe trench running away between trees, filled with dry grass and leaves before the annual clearing.",
+    sectionUsedIn: "Impembwe ya Keleka, Gallery",
+    category: "places",
+    imageType: "documentary photograph",
+    creditLine: "Photo: Office of the Mwata Kazembe"
+  },
+  {
     id: "archive-mwata-xi-kapakata",
     fileName: "mwata-xi-muonga-kapakata-1904-1919.jpg",
     src: "assets/images/kazembe/archive/mwata-xi-muonga-kapakata-1904-1919.jpg",

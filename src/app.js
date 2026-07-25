@@ -2,6 +2,7 @@ import {
   archiveRecords,
   baluunda,
   bashafumu,
+  impembwe,
   builtHeritage,
   calendar,
   developmentPillars,
@@ -669,6 +670,38 @@ function mwataCabinetSectionHtml() {
   `;
 }
 
+// A credited plate: the registry supplies file, alt text, and credit line; the
+// caption is the one given by the Office of the Mwata.
+function captionedPlate(creditId, caption) {
+  const item = getCreditById(creditId);
+  if (!item) return "";
+  return `
+      <figure class="credited-figure media-figure">
+        <div class="figure-media has-hover-credit">
+          <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(creditId)}">
+          <span class="hover-credit">${esc(item.creditLine)}</span>
+        </div>
+        <figcaption class="figure-credit"><span class="image-credit">${esc(caption)}</span></figcaption>
+      </figure>
+    `;
+}
+
+function impembweSectionHtml() {
+  const body = impembwe.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("");
+  const figures = impembwe.figures.map((f) => captionedPlate(f.creditId, f.caption)).join("");
+  return `
+    <section class="subsection impembwe-section" id="impembwe">
+      ${sectionHead(impembwe.eyebrow, impembwe.title)}
+      <p class="section-deck">${esc(impembwe.intro)}</p>
+      <div class="impembwe-body">${body}</div>
+      <p class="cabinet-members-label">Before Impembwe is cleaned for the ceremony</p>
+      <div class="media-figure-grid">${figures}</div>
+      <p class="editorial-note">${esc(impembwe.note)}</p>
+      ${sourceCitation(impembwe.sourceIds)}
+    </section>
+  `;
+}
+
 function spiritualSystemSectionHtml() {
   const priests = spiritualSystem.highPriests
     .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note))
@@ -680,19 +713,7 @@ function spiritualSystemSectionHtml() {
   // Documentary plates of the Ba Kashikayi. The registry supplies the file,
   // alt text, and credit line; the caption is the one given by the Office.
   const figures = (spiritualSystem.figures || [])
-    .map((f) => {
-      const item = getCreditById(f.creditId);
-      if (!item) return "";
-      return `
-      <figure class="credited-figure media-figure">
-        <div class="figure-media has-hover-credit">
-          <img src="${esc(item.src)}" alt="${esc(item.altText)}" loading="lazy" data-credit-id="${esc(f.creditId)}">
-          <span class="hover-credit">${esc(item.creditLine)}</span>
-        </div>
-        <figcaption class="figure-credit"><span class="image-credit">${esc(f.caption)}</span></figcaption>
-      </figure>
-    `;
-    })
+    .map((f) => captionedPlate(f.creditId, f.caption))
     .join("");
 
   return `
@@ -762,6 +783,7 @@ function renderGovernance() {
       ${bashafumuSectionHtml()}
       ${subChiefsSectionHtml()}
       ${spiritualSystemSectionHtml()}
+      ${impembweSectionHtml()}
       <section class="subsection" id="gov-offices">
         ${sectionHead("The royal seat", "Offices of the Royal Seat")}
         <div class="gov-institution-grid">${institutions}</div>
@@ -1910,7 +1932,8 @@ const GOVERNANCE_ANCHORS = new Set([
   "mwata-cabinet",
   "bashafumu",
   "sub-chiefs",
-  "spiritual-system"
+  "spiritual-system",
+  "impembwe"
 ]);
 
 function pageFromHash(hash) {
