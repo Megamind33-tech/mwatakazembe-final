@@ -2769,13 +2769,22 @@ body.lightbox-open {
   margin-bottom: 0;
 }
 
+/* Standing label over a roster or a set of plates. It names an office, so it
+   is set to be read: bold, in the institutional blue, at a size that carries. */
 .cabinet-members-label {
-  margin: 1.4rem 0 0 0;
+  margin: 1.6rem 0 0 0;
   font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--royal-blue-mid);
+}
+
+/* In the Cabinet the label sits over a centred chair and a centred roster, so
+   it stands on the same centre line. */
+.cabinet-section .cabinet-members-label {
+  text-align: center;
 }
 
 .bashafumu-roster {
