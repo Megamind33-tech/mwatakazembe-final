@@ -647,24 +647,24 @@ export const mwataCabinet = {
     role: "Prime Minister and Chairman of the Chiefs, representing the Mwata"
   },
   members: [
-    "Mwine Mpanda",
-    "Kalondala Mwanamwilombe",
-    "Kasumpa",
-    "Kabeya",
-    "Koni",
-    "Kama Mpumba",
-    "Kasengula",
-    "Kashinga",
-    "Chinawezi",
-    "Chipepa",
-    "Chibwili",
-    "Chilembi",
-    "Mwelwa Kamonga",
-    "Musanda",
-    "Lubabila",
-    "Likonde",
-    "Kazembe Nalukonzi",
-    "Shikalyata Kabwita"
+    "Kapa Mwine Mpanda",
+    "Kapa Kalondala Mwanamwilombe",
+    "Kapa Kasumpa",
+    "Kapa Kabeya",
+    "Kapa Koni",
+    "Kapa Kama Mpumba",
+    "Kapa Kasengula",
+    "Kapa Kashinga",
+    "Kapa Chinawezi",
+    "Kapa Chipepa",
+    "Kapa Chibwili",
+    "Kapa Chilembi",
+    "Kapa Mwelwa Kamonga",
+    "Kapa Musanda",
+    "Kapa Lubabila",
+    "Kapa Likonde",
+    "Kapa Kazembe Nalukonzi",
+    "Kapa Shikalyata Kabwita"
   ]
 };
 
