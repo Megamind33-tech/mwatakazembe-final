@@ -415,14 +415,14 @@ export const imageCredits = [
     src: "assets/images/kazembe/heritage/utumbolo/utumbolo-tree-white-cloth.jpg",
     title: "Utumbolo: the place of the bones",
     description:
-      "The Utumbolo where the bones are kept. Its tree is bound with a band of white cloth and stands within a brushwood enclosure on swept ground. The bones of dangerous animals were kept here, and human bones also; today only the bones of animals are kept at this place.",
+      "Utumbolo where the bones are kept. Its tree is bound with a band of white cloth and stands within a brushwood enclosure on swept ground. The bones of dangerous animals were kept here, and human bones also; today only the bones of animals are kept at this place.",
     sourceName: "Office of the Mwata / Kingdom archive",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
     dateAccessed: "2026-07-25",
     licenseOrUsageNote: "All rights reserved. Image supplied by the Office of the Mwata Kazembe.",
     altText:
-      "The Utumbolo where the bones are kept: a large tree with a band of white cloth tied around its trunk, enclosed by a brushwood fence on swept red earth.",
+      "Utumbolo where the bones are kept: a large tree with a band of white cloth tied around its trunk, enclosed by a brushwood fence on swept red earth.",
     sectionUsedIn: "Utumbolo, Gallery",
     category: "ceremony",
     imageType: "documentary photograph",

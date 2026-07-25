@@ -25,6 +25,7 @@ import {
   newsCategories,
   newsItems,
   publications,
+  royalHousehold,
   royalMap,
   siteMeta,
   socialLinks,
@@ -458,7 +459,7 @@ function councilChartHtml() {
       <span class="chart-node-tier">Supreme Authority</span>
       <h3>${esc(mwataProfile.title)}</h3>
       <p class="chart-apex-name">${esc(mwataProfile.name)}</p>
-      <p>The apex of the Kingdom. The Royal Council, the Baluunda, the Senior Chiefs, and every office of state derive their authority from the throne and serve it.</p>
+      <p>The apex of the Kingdom. The Royal Council, Baluunda, the Senior Chiefs, and every office of state derive their authority from the throne and serve it.</p>
     </article>
   `;
   const seats = seniorChiefSeats
@@ -504,7 +505,7 @@ function councilChartHtml() {
 
   return `
     <section class="subsection council-chart-section" id="council-chart">
-      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex to the Royal Council, from the Council to the Baluunda judiciary, and from the judiciary down through the Senior Chiefs, Bashafumu, and the Sub Chiefs to the offices that serve the people.")}
+      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex to the Royal Council, from the Council to the judiciary of Baluunda, and from the judiciary down through the Senior Chiefs, Bashafumu, and the Sub Chiefs to the offices that serve the people.")}
       <div class="council-chart" data-council-chart>
         <div class="chart-level chart-level-root">${root}</div>
         ${levels}
@@ -558,7 +559,7 @@ function baluundaSectionHtml() {
 
   return `
     <section class="subsection baluunda-section" id="baluunda">
-      ${sectionHead("The High Court of the Kingdom", "The Baluunda Judicial Council")}
+      ${sectionHead("The High Court of the Kingdom", "Baluunda Judicial Council")}
       <p class="section-deck">${esc(baluunda.intro)}</p>
       <p class="section-deck">${esc(baluunda.inheritance)}</p>
       <div class="baluunda-grid">${cards}</div>
@@ -610,7 +611,7 @@ function subChiefsSectionHtml() {
 
 // Several officeholders hold more than one seat — Kapa Kasumpa sits in the
 // Baluunda and is also named among Bashafumu and the Cabinet, for
-// instance. The portrait is filed once, under the Baluunda or Sub Chiefs, so
+// instance. The portrait is filed once, under Baluunda or Sub Chiefs, so
 // every later mention of the same person looks it up here rather than falling
 // back to a name-only card.
 const rosterKey = (name) =>
@@ -641,7 +642,7 @@ function portraitFor(name) {
   return portraitIndex.byName.get(key) || portraitIndex.byFirstWord.get(key) || undefined;
 }
 
-// A roster card matching the Baluunda / Sub Chiefs style. Shows a portrait
+// A roster card matching Baluunda / Sub Chiefs style. Shows a portrait
 // when one is supplied, otherwise a monogram placeholder. `note` carries the
 // longer duty text used for the officers of the spiritual system.
 function rosterCard(name, role, image, note) {
@@ -738,6 +739,19 @@ function utumboloSectionHtml() {
   `;
 }
 
+function royalHouseholdSectionHtml() {
+  const cards = royalHousehold.members
+    .map((m) => rosterCard(m.name, m.role, m.image || portraitFor(m.name)))
+    .join("");
+  return `
+    <section class="subsection household-section" id="royal-household">
+      ${sectionHead("The palace", "The Royal Household")}
+      <p class="section-deck">${esc(royalHousehold.intro)}</p>
+      <div class="baluunda-grid baluunda-row swipe-track" data-swipe="The Royal Household">${cards}</div>
+    </section>
+  `;
+}
+
 function spiritualSystemSectionHtml() {
   const priests = spiritualSystem.highPriests
     .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note))
@@ -809,13 +823,14 @@ function renderGovernance() {
       <div class="container page-hero-content">
         <p class="eyebrow">Governance</p>
         <h1>Royal Governance and Administration</h1>
-        <p>The Mwata presides over two councils, the Baluunda judiciary and the Council of Chiefs, alongside the court, land, protocol, and public administration of the Kingdom.</p>
+        <p>The Mwata presides over two councils, Baluunda judiciary and the Council of Chiefs, alongside the court, land, protocol, and public administration of the Kingdom.</p>
       </div>
     </div>
     <div class="container page-body">
       ${councilChartHtml()}
       ${mwataCabinetSectionHtml()}
       ${baluundaSectionHtml()}
+      ${royalHouseholdSectionHtml()}
       ${bashafumuSectionHtml()}
       ${subChiefsSectionHtml()}
       ${spiritualSystemSectionHtml()}
@@ -1974,7 +1989,8 @@ const GOVERNANCE_ANCHORS = new Set([
   "mwata-cabinet",
   "bashafumu",
   "sub-chiefs",
-  "spiritual-system"
+  "spiritual-system",
+  "royal-household"
 ]);
 
 function pageFromHash(hash) {

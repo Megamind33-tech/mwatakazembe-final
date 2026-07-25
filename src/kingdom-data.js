@@ -419,7 +419,7 @@ export const governanceStructure = [
     title: "The Sub Chiefs",
     tier: 6,
     description:
-      "Territorial authority under the Mwata across the chiefdom. They rank below Bashafumu, are distinct from the Baluunda, and do not sit in the High Court."
+      "Territorial authority under the Mwata across the chiefdom. They rank below Bashafumu, are distinct from Baluunda, and do not sit in the High Court."
   },
   {
     id: "court",
@@ -456,22 +456,22 @@ export const seniorChiefSeats = [
   { id: "lukwesa", title: "Senior Chief Lukwesa", area: "Child of the Mwata" }
 ];
 
-// The Baluunda — the judicial council (High Court) of the Kingdom. Hereditary
+// Baluunda — the judicial council (High Court) of the Kingdom. Hereditary
 // seats, held within their founding clans and inherited through the maternal
 // line (grandchildren of the clan). Listed in order of seat; portraits are
 // shown where a current officeholder has been photographed. The court sits
-// twenty-seven seats, numbered without gaps: the Sub Chiefs do not sit here.
+// twenty-six seats, numbered without gaps: the Sub Chiefs do not sit here.
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
   intro:
-    "The Mwata Kazembe presides over two councils. The first is the Baluunda, the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
+    "The Mwata Kazembe presides over two councils. The first is Baluunda, the judicial council of the Kingdom. Its members sit as the judges of the High Court of Kazembe, hearing and ruling on the matters brought before the throne.",
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
   note:
-    "The court sits twenty-seven seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
+    "The court sits twenty-six seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
-    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of the Baluunda" },
+    { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of Baluunda" },
     {
       seat: 3,
       name: "Kapa Kasengula",
@@ -540,66 +540,60 @@ export const baluunda = {
     { seat: 16, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" },
     {
       seat: 17,
-      name: "Kapa Chanshi",
-      role: "Palace Secretary",
-      image: `${BALUUNDA_IMG}/kapa-chanshi.jpg`
-    },
-    {
-      seat: 18,
       name: "Kapa Namukamba",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-namukamba.jpg`
     },
     {
-      seat: 19,
+      seat: 18,
       name: "Kapa Kang'omba",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kangomba.jpg`
     },
     {
-      seat: 20,
+      seat: 19,
       name: "Kapa Chilalo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-chilalo.jpg`
     },
     {
-      seat: 21,
+      seat: 20,
       name: "Kapa Mpuya",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mpuya.jpg`
     },
     {
-      seat: 22,
+      seat: 21,
       name: "Kapa Musanda",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-musanda.jpg`
     },
     {
-      seat: 23,
+      seat: 22,
       name: "Kapa Kasao",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kasao.jpg`
     },
     {
-      seat: 24,
+      seat: 23,
       name: "Kapa Chinyanta",
       role: "Umwana wa Mfumu",
       image: `${BALUUNDA_IMG}/kapa-chinyanta.jpg`
     },
     {
-      seat: 25,
+      seat: 24,
       name: "Kapa Mondo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mondo.jpg`
     },
     {
-      seat: 26,
+      seat: 25,
       name: "Kapa Kampampi",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kampampi.jpg`
     },
     {
-      seat: 27,
+      seat: 26,
       name: "Kapa Mwabilolo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mwabilolo.jpg`
@@ -608,13 +602,13 @@ export const baluunda = {
 };
 
 // The Sub Chiefs hold territorial authority under the Mwata Kazembe across the
-// chiefdom. They are a distinct office from the Baluunda and do not sit in the
+// chiefdom. They are a distinct office from Baluunda and do not sit in the
 // High Court, and they rank below Bashafumu, who are listed before them.
 // Portraits are shown where an officeholder has been photographed.
 const SUBCHIEF_IMG = "assets/images/kazembe/governance/subchiefs";
 export const subChiefs = {
   intro:
-    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below Bashafumu, are distinct from the Baluunda, and do not sit in the High Court.",
+    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below Bashafumu, are distinct from Baluunda, and do not sit in the High Court.",
   members: [
     { name: "Kapa Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
     { name: "Kapa Chibwili" },
@@ -625,6 +619,17 @@ export const subChiefs = {
     { name: "Kapa Kanyemba" },
     { name: "Kapa Nkakoloto" },
     { name: "Kapa Swaba", image: `${SUBCHIEF_IMG}/swaba.jpg` }
+  ]
+};
+
+// The Royal Household — officers of the palace itself. They serve the Mwata at
+// the royal seat and do not sit in Baluunda, the High Court.
+const HOUSEHOLD_IMG = "assets/images/kazembe/governance/household";
+export const royalHousehold = {
+  intro:
+    "The officers of the Royal Household serve the Mwata at the palace itself, in the keeping of the royal seat and its business. They are distinct from Baluunda and do not sit in the High Court.",
+  members: [
+    { name: "Kapa Chanshi", role: "Palace Secretary", image: `${HOUSEHOLD_IMG}/kapa-chanshi.jpg` }
   ]
 };
 
@@ -767,12 +772,12 @@ export const utumbolo = {
   title: "Utumbolo",
   eyebrow: "The sacred places of the procession",
   intro:
-    "The Utumbolo are two sacred places of the Kingdom, kept along the way of the Umutomboko procession. They carry no separate names of their own. At the Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
+    "Utumbolo are two sacred places of the Kingdom, kept along the way of the Umutomboko procession. They carry no separate names of their own. At Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
   paragraphs: [
-    "Ba Kashikayi are the officers of the spiritual duties of the Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds, and the shrines of the Kingdom are kept. At the Utumbolo the Mwata halts and gives them His word of appreciation. The Kingdom stops in the middle of its own ceremony to thank the officers who carry it.",
+    "Ba Kashikayi are the officers of the spiritual duties of the Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds, and the shrines of the Kingdom are kept. At Utumbolo the Mwata halts and gives them His word of appreciation. The Kingdom stops in the middle of its own ceremony to thank the officers who carry it.",
     "Of the two, one is the place of the bones. In the past the bones of dangerous animals were kept there, and human bones were kept there also. Today only the bones of animals are kept at that place.",
-    "Both of the Utumbolo are set apart and kept apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of the throne.",
-    "The ground is prepared before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that the Utumbolo stand ready before the procession comes. The work is done by hand, and it is done every year, at the same places.",
+    "Both Utumbolo are set apart and kept apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of the throne.",
+    "The ground is prepared before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that Utumbolo stand ready before the procession comes. The work is done by hand, and it is done every year, at the same places.",
     "Their significance to the Kingdom is continuity of place, and the honouring of those who serve. The Mwatas change and the generations pass, but the procession halts at the same ground, before the same offices, and the same thanks are given. A stranger sees a tree inside a fence. The Kingdom sees the place where the Mwata turns to Ba Kashikayi, and the place where the bones are kept."
   ],
   figures: [
@@ -782,7 +787,7 @@ export const utumbolo = {
     },
     {
       creditId: "utumbolo-enclosure-prepared",
-      caption: "The other of the Utumbolo, its enclosure built and its ground cleared before the procession."
+      caption: "The other Utumbolo, its enclosure built and its ground cleared before the procession."
     }
   ],
   sourceIds: [],
@@ -1240,7 +1245,7 @@ export const kingdomSections = [
       "The valley is a country of water. The Luapula floods and falls with the season and lays down soil that is worked year after year; the Mofwe lagoon and the swamps hold fish through the dry months; Lake Mweru carries the fishery that feeds the valley and supplies markets far beyond it. Cassava, millet, and maize come off the flood soils, and the fish trade of Mweru and the Luapula is the working economy of the valley to this day.",
       "That geography made the Kingdom's politics. Tribute moved along the water. The chiefs who held fishing grounds, crossings, and lagoon shores held something the court needed, and the court held something they needed, and between the two ran the order of the Kingdom.",
       "The river also became a border not of the Kingdom's making. In 1888 the valley was divided between the British and the Belgian spheres, and the Luapula, which had been the spine of the Kingdom, was made its western edge. The Lunda of the Kazembe are on both banks still, and the Kingdom's ties across the water are older than the line drawn through it.",
-      "The royal seat stands at Mwansabombwe, on the eastern bank in Luapula Province of Zambia, and the ceremonies of the Kingdom are held in that landscape: at the trench of Impembwe ya Keleka, at the Utumbolo, at the Ng'ona River, and in the arena at Mwansabombwe."
+      "The royal seat stands at Mwansabombwe, on the eastern bank in Luapula Province of Zambia, and the ceremonies of the Kingdom are held in that landscape: at the trench of Impembwe ya Keleka, at Utumbolo, at the Ng'ona River, and in the arena at Mwansabombwe."
     ],
     sourceIds: ["britannica", "gordon", "zta"]
   },
@@ -1251,7 +1256,7 @@ export const kingdomSections = [
     deck: "Who the people of the Kingdom are, and how they are held together.",
     paragraphs: [
       "The people of the Kingdom are the Lunda of the Kazembe, called the Eastern Lunda, and their identity is Luba-Lunda: it comes from the Lunda political world of the west and from the Luba world beside it, and it was carried east and settled in the valley alongside the peoples already there.",
-      "The Kingdom is held together by clan. Each clan carries its own name and its own emblem, taken from the creatures and the elements of the country: the elephant, the frog, the fish, the rain. Descent and inheritance run through the mother's line, so that a title passes to the grandchildren of the founding clan through the maternal line and stays within that clan across the generations. This is not a matter of custom only. It is the mechanism by which office is filled: the seats of the Baluunda, the High Court of the Kingdom, are hereditary in exactly this way.",
+      "The Kingdom is held together by clan. Each clan carries its own name and its own emblem, taken from the creatures and the elements of the country: the elephant, the frog, the fish, the rain. Descent and inheritance run through the mother's line, so that a title passes to the grandchildren of the founding clan through the maternal line and stays within that clan across the generations. This is not a matter of custom only. It is the mechanism by which office is filled: the seats of Baluunda, the High Court of the Kingdom, are hereditary in exactly this way.",
       "Clan is therefore the link between a household in a village and the royal seat. A person belongs to a clan, the clan holds its seats and its offices, the officeholders answer to the Mwata, and through them the village and the throne are joined. It is also the law of marriage and the reckoning of kinship, and it governs who may be installed where.",
       "The verified clan register of the Kingdom, with the emblems and the seats attached to each clan, is published on the Clans and People section."
     ],
