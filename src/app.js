@@ -681,9 +681,9 @@ function spiritualSystemSectionHtml() {
       ${sectionHead("Faith and the Ancestors", "The Spiritual System of the Kingdom")}
       <p class="section-deck">${esc(spiritualSystem.intro)}</p>
       <p class="cabinet-members-label">High Priests of the Throne</p>
-      <div class="baluunda-grid">${priests}</div>
+      <div class="baluunda-grid baluunda-row swipe-track" data-swipe="High Priests of the Throne">${priests}</div>
       <p class="cabinet-members-label">Senior Headmen and Traditional Councillors</p>
-      <div class="baluunda-grid">${headmen}</div>
+      <div class="baluunda-grid baluunda-row swipe-track" data-swipe="Senior Headmen and Traditional Councillors">${headmen}</div>
     </section>
   `;
 }

@@ -2109,6 +2109,34 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   margin-top: 0.6rem;
 }
 
+/* A small body that belongs on one line — the High Priests, the Senior Headmen
+   — stands side by side rather than wrapping. Where the line is wider than the
+   screen it becomes a swipe rail, so the officers stay shoulder to shoulder at
+   full card size instead of shrinking to fit. */
+.baluunda-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1.1rem;
+  overflow-x: auto;
+  padding-bottom: 0.6rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.baluunda-row .baluunda-card {
+  flex: 0 0 168px;
+  scroll-snap-align: start;
+}
+
+/* Once the whole line fits, it centres and stops scrolling. */
+@media (min-width: 820px) {
+  .baluunda-row {
+    overflow-x: visible;
+    justify-content: center;
+  }
+}
+
 .baluunda-clan {
   display: flex;
   flex-wrap: wrap;

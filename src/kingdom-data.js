@@ -677,7 +677,7 @@ export const mwataCabinet = {
 // of the Mwata.
 export const spiritualSystem = {
   intro:
-    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed. These officers are headmen of the Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet they serve the Mwata directly.",
+    "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed.",
   highPriests: [
     {
       name: "Kapa Munkanso Kashikayi",
