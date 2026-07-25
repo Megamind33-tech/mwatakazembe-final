@@ -1071,7 +1071,7 @@ export const historyChapters = [
     id: "resistance",
     title: "Resistance, Pressure, and Survival",
     summary:
-      "Military pressure, succession conflict, and colonial disruption tested Kazembe institutions. Authority was rebuilt at Mwansabombwe through survival and adaptation.",
+      "Military pressure, succession conflict, and colonial administration tested Kazembe institutions. Authority was held and rebuilt at Mwansabombwe, and it stands there today.",
     marker: "1890s–1920"
   },
   {
@@ -1236,15 +1236,15 @@ export const kingdomSections = [
   {
     id: "kingdom-wars",
     eyebrow: "Statehood and defence",
-    title: "Wars and Survival",
-    deck: "Defence, consolidation, and the holding of a state.",
+    title: "Wars and Endurance",
+    deck: "Defence, consolidation, and the holding of a state that stands today.",
     paragraphs: [
-      "The wars of the Kingdom are the history of how a state was made and how it was held. They are recorded here as statehood and defence, not as a glory of violence.",
+      "The wars of the Kingdom are the history of how a state was made, how it was held, and how it is held still. They are recorded here as statehood and defence, not as a glory of violence.",
       "The first of them established the Kingdom in the valley: the conquest that followed the crossing at Matanda, and the placing of the conquered under Lunda authority. From that base the Mwatas who came after Ng'anga Bilonda pressed outward, and by the reign of the second and third Mwatas the tribute network of Kazembe reached across river, lake, and forest, gathering copper, ivory, salt, and fish, and gathering the allegiance of the chiefs who controlled them.",
-      "At its height Kazembe was the strongest power of the interior in this region. Before the middle of the nineteenth century the greatest challenge to the Bemba came from the Mwata Kazembe, and the Kingdom stood as the eastern anchor of the Lunda world.",
-      "The turn came from inside the Kingdom's own hospitality. In 1856 Mwata Kazembe VI, Chinyanta Munona, gave the Nyamwezi trader Msiri leave to settle in the west. Msiri built his own power in Katanga, took the copper country beyond the Luapula, and cut the Kingdom off from the Lunda heartland and from the trade that had made the court rich. At the same time traders from the east opened routes that went around the Mwata, and drew his tributary chiefs into trading on their own account. Authority that had rested on tribute was drained by the loss of it.",
-      "The last quarter of the century brought disputed successions, and then the partition. In 1888 the Luapula Valley was divided between the British and the Belgians, and when Belgian rule was fixed west of the river the Kingdom was confined to the eastern bank, where it remains. Mwata Kazembe X, Kanyembo Ntemena, rebuilt at Mwansabombwe under that pressure, and the throne came through the colonial century without being extinguished.",
-      "That is the triumph the Kingdom counts: not that it was never defeated, but that after conquest, after partition, and after a century of administration by others, the Mwata Kazembe still holds court at Mwansabombwe and the Umutomboko is still danced."
+      "Kazembe grew into the strongest power of the interior in this region. Before the middle of the nineteenth century the greatest challenge to the Bemba came from the Mwata Kazembe, and the Kingdom stands as the eastern anchor of the Lunda world.",
+      "The slowdown came from inside the Kingdom's own hospitality. In 1856 Mwata Kazembe VI, Chinyanta Munona, gave the Nyamwezi trader Msiri leave to settle in the west. Msiri built his own power in Katanga, took the copper country beyond the Luapula, and put himself between the Kingdom and the Lunda heartland and the trade that had made the court rich. At the same time traders from the east opened routes that went around the Mwata, and drew his tributary chiefs into trading on their own account. The Kingdom did not fall in those years. Its reach was checked, and the tribute that had run to the court ran more slowly.",
+      "The last quarter of the century brought disputed successions, and then the partition. In 1888 the Luapula Valley was divided between the British and the Belgians, and when Belgian rule was fixed west of the river the Kingdom was held to the eastern bank, where its seat stands today. Mwata Kazembe X, Kanyembo Ntemena, rebuilt at Mwansabombwe under that pressure, and the throne came through the colonial century unbroken.",
+      "This is what the Kingdom counts. The nineteenth century slowed it; it did not end it. After the rival routes, after the partition, and after a century of administration by others, the Mwata Kazembe holds court at Mwansabombwe, the courts of the Kingdom sit, the Umutomboko is danced, and the work of the Kingdom goes on."
     ],
     sourceIds: ["gordon", "britannica", "unza"]
   },

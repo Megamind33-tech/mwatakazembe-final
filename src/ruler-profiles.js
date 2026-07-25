@@ -58,7 +58,7 @@ export const rulerProfiles = {
   },
   4: {
     historicalRole:
-      "Held the throne for nearly half a century through the kingdom's long apogee, and received the second great Portuguese mission.",
+      "Held the throne for nearly half a century at the full reach of the Kingdom's trading power, and received the second great Portuguese mission.",
     keyEvents: [
       "Received the Monteiro and Gamitto expedition of 1831 to 1832, whose record, O Muata Cazembe, is a foundational description of the Lunda court.",
       "Rebuffed Portuguese proposals for an exclusive alliance that would have handed Lisbon the trade route between the Atlantic and Indian oceans."
@@ -68,20 +68,20 @@ export const rulerProfiles = {
     warsDiplomacyTrade:
       "The Luapula remained a hub of the copper and ivory trade, though Swahili-Arab and Nyamwezi traders were beginning to open rival routes that would later bypass the kingdom.",
     culturalNote:
-      "Gamitto's account describes the scale, ritual, and discipline of the court at its height.",
+      "Gamitto's account describes the scale, ritual, and discipline of the court in his day.",
     sourceNote: "Monteiro & Gamitto, O Muata Cazembe (1831-32); 'Kazembe and the Portuguese 1798-1832', Journal of African History; Gordon."
   },
   5: {
     historicalRole:
-      "Reigned at the turn from the kingdom's height into its century of decline, as new traders and raiders began to press on the Luapula.",
+      "Reigned as new traders and raiders began to press on the Luapula, at the turn into the century in which the Kingdom's trade was slowed by rivals.",
     keyEvents: [
-      "Held a short reign as the copper and ivory routes that had made Kazembe rich began to slip toward Swahili-Arab and Nyamwezi rivals.",
+      "Held a short reign as Swahili-Arab and Nyamwezi rivals began to work the copper and ivory routes that had made Kazembe rich.",
       "Court and tribute continued at the royal seat amid mounting external pressure."
     ],
     governance:
       "Maintained customary courts and tribute at the royal capital.",
     warsDiplomacyTrade:
-      "Regional trade continued, but the Kazembe hold over the interior routes was weakening.",
+      "Regional trade continued, with rival networks now competing for the interior routes the Kingdom had held alone.",
     culturalNote: "",
     sourceNote: "Lunda lineage record, Office of the Mwata Kazembe; Gordon."
   },
@@ -93,9 +93,9 @@ export const rulerProfiles = {
       "Msiri used that foothold to build an independent Yeke power base that would seize Kazembe's western trade and tribute."
     ],
     governance:
-      "Ruled the Luapula heartland while control over the western marches began to fracture.",
+      "Ruled the Luapula heartland as the western marches came under competing claims.",
     warsDiplomacyTrade:
-      "The opening to Msiri and the Swahili-Arab traders accelerated the loss of Kazembe's grip on the copper and ivory routes.",
+      "The opening to Msiri and the Swahili-Arab traders drew the copper and ivory routes away from the Kingdom's control.",
     culturalNote: "",
     sourceNote: "David M. Gordon, Nachituti's Gift; Msiri and Yeke Kingdom historiography."
   },
@@ -104,12 +104,12 @@ export const rulerProfiles = {
       "Received David Livingstone at the Kazembe capital, giving the court its most famous nineteenth-century European visitor.",
     keyEvents: [
       "In 1867 welcomed the missionary-explorer David Livingstone, then on the last expedition of his life, at the royal capital near the Mofwe Lagoon.",
-      "Reigned as Bemba and Ngoni raids and Swahili-Arab traders steadily cut into the kingdom's trade and tribute."
+      "Reigned as Bemba and Ngoni raids and Swahili-Arab traders pressed on the Kingdom's trade and tribute."
     ],
     governance:
-      "The court remained a centre of tribute, adjudication, and regional authority even as its reach contracted.",
+      "The court held as a centre of tribute, adjudication, and regional authority through a season of outside pressure.",
     warsDiplomacyTrade:
-      "Livingstone's journals describe a court still important to interior trade but increasingly hemmed in by rivals.",
+      "Livingstone's journals describe a court central to interior trade, with rivals pressing at its edges.",
     culturalNote:
       "Livingstone's account is a key outside record of the mid-century court.",
     sourceNote: "David Livingstone, Last Journals (1867-68); Gordon."
@@ -124,13 +124,13 @@ export const rulerProfiles = {
     governance:
       "Customary authority held at the royal seat through a period of acute external pressure.",
     warsDiplomacyTrade:
-      "Kazembe's long-distance trade was now largely captured by Yeke and Swahili-Arab networks.",
+      "Yeke and Swahili-Arab networks now carried much of the long-distance trade the Kingdom had once directed.",
     culturalNote: "",
     sourceNote: "Gordon; Tippu Tip and Yeke Kingdom historiography."
   },
   9: {
     historicalRole:
-      "A ruler of contested and interrupted reigns, deposed and later restored, whose broken tenure reflects the succession struggles of the kingdom's weakest years.",
+      "A ruler of contested and interrupted reigns, deposed and later restored, whose tenure falls in the years when the succession itself was under outside pressure.",
     keyEvents: [
       "Held the throne across disputed periods, deposed and returning as rival factions and outside traders influenced the succession.",
       "Reigned on the eve of European partition, as the British and the Congo Free State closed in on the Luapula."
@@ -138,7 +138,7 @@ export const rulerProfiles = {
     governance:
       "Central authority was contested; the rebuilding of the royal seat fell to his successor.",
     warsDiplomacyTrade:
-      "Trade continued under the shadow of Yeke and Swahili-Arab dominance.",
+      "Trade continued alongside the Yeke and Swahili-Arab networks then working the routes.",
     culturalNote: "",
     sourceNote: "Contested succession: Gordon; Cunnison, History on the Luapula."
   },
