@@ -443,7 +443,8 @@ export const seniorChiefSeats = [
 // The Baluunda — the judicial council (High Court) of the Kingdom. Hereditary
 // seats, held within their founding clans and inherited through the maternal
 // line (grandchildren of the clan). Listed in order of seat; portraits are
-// shown where a current officeholder has been photographed.
+// shown where a current officeholder has been photographed. The court sits
+// twenty-six seats, numbered without gaps: the Sub Chiefs do not sit here.
 const BALUUNDA_IMG = "assets/images/kazembe/governance/baluunda";
 export const baluunda = {
   intro:
@@ -451,7 +452,7 @@ export const baluunda = {
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
   note:
-    "The court is listed in order of seat, and each card carries the number of the seat itself. Twenty-six seats are named here; seats 4, 21, and 22 are not named in the present record. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
+    "The court sits twenty-six seats, listed here in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
     { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of the Baluunda" },
@@ -464,7 +465,7 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-kasengula.jpg`
     },
     {
-      seat: 5,
+      seat: 4,
       name: "Kapa Chibumbu Ilunga",
       role: "Prince, Umwana wa Mfumu",
       clan: "Abena Luo",
@@ -472,18 +473,18 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-chibumbu-ilunga.jpg`
     },
     {
-      seat: 6,
+      seat: 5,
       name: "Kapa Shikadyata",
       role: "Nephew of the Mwata (Information)",
       clan: "Abena Nsofu",
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-shikadyata.jpg`
     },
-    { seat: 7, name: "Kapa Lubibila", role: "Nephew of the Mwata, Informant" },
-    { seat: 8, name: "Kapa Mwine Ng'unga", role: "Chief Servant" },
-    { seat: 9, name: "Kapa Mwilu Kafunda", role: "Teacher of the Law" },
+    { seat: 6, name: "Kapa Lubibila", role: "Nephew of the Mwata, Informant" },
+    { seat: 7, name: "Kapa Mwine Ng'unga", role: "Chief Servant" },
+    { seat: 8, name: "Kapa Mwilu Kafunda", role: "Teacher of the Law" },
     {
-      seat: 10,
+      seat: 9,
       name: "Kapa Kambele",
       role: "Member of the Court",
       clan: "Abena Kunda",
@@ -491,92 +492,92 @@ export const baluunda = {
       image: `${BALUUNDA_IMG}/kapa-kambele.jpg`
     },
     {
-      seat: 11,
+      seat: 10,
       name: "Kapa Chilembi Mwewa",
       role: "Traditional Judge",
       clan: "Abena Nsofu",
       emblem: "Elephant",
       image: `${BALUUNDA_IMG}/kapa-chilembi.jpg`
     },
-    { seat: 12, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola, representing Bana Mwana Mwata" },
+    { seat: 11, name: "Kapa Kabeya", role: "Mwana wa Mfumu Kasombola, representing Bana Mwana Mwata" },
     {
-      seat: 13,
+      seat: 12,
       name: "Kapa Kasumpa",
       role: "Recording Secretary, Traditional Court",
       image: `${BALUUNDA_IMG}/kapa-kasumpa.jpg`
     },
     {
-      seat: 14,
+      seat: 13,
       name: "Kapa Kipepa Mbuya",
       role: "Judge",
       clan: "Abena Mpende",
       emblem: "Fish",
       image: `${BALUUNDA_IMG}/kapa-kipepa-mbuya.jpg`
     },
-    { seat: 15, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
+    { seat: 14, name: "Kapa Ntondo", role: "Mwana wa Mfumu Ntondo" },
     {
-      seat: 16,
+      seat: 15,
       name: "Kapa Koni",
       role: "Judge",
       image: `${BALUUNDA_IMG}/kapa-koni.jpg`
     },
-    { seat: 17, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" },
+    { seat: 16, name: "Kapa Prince Kazanga Mbayo", role: "Mwana wa Mfumu, Kazembe Mutoto" },
     {
-      seat: 18,
+      seat: 17,
       name: "Kapa Chanshi",
       role: "Palace Secretary",
       image: `${BALUUNDA_IMG}/kapa-chanshi.jpg`
     },
     {
-      seat: 19,
+      seat: 18,
       name: "Kapa Namukamba",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-namukamba.jpg`
     },
     {
-      seat: 20,
+      seat: 19,
       name: "Kapa Kang'omba",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kangomba.jpg`
     },
     {
-      seat: 23,
+      seat: 20,
       name: "Kapa Chilalo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-chilalo.jpg`
     },
     {
-      seat: 24,
+      seat: 21,
       name: "Kapa Mpuya",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mpuya.jpg`
     },
     {
-      seat: 25,
+      seat: 22,
       name: "Kapa Musanda",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-musanda.jpg`
     },
     {
-      seat: 26,
+      seat: 23,
       name: "Kapa Kasao",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kasao.jpg`
     },
     {
-      seat: 27,
+      seat: 24,
       name: "Kapa Chinyanta",
       role: "Umwana wa Mfumu",
       image: `${BALUUNDA_IMG}/kapa-chinyanta.jpg`
     },
     {
-      seat: 28,
+      seat: 25,
       name: "Kapa Mondo",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-mondo.jpg`
     },
     {
-      seat: 29,
+      seat: 26,
       name: "Kapa Kampampi",
       role: "Member of the Court",
       image: `${BALUUNDA_IMG}/kapa-kampampi.jpg`

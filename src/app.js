@@ -510,9 +510,8 @@ function baluundaSectionHtml() {
 
   const cards = baluunda.members
     .map((m, i) => {
-      // The seat number is the one recorded for the office, not the card's
-      // position: seats 4, 21, and 22 are not named in the current record, so
-      // counting cards would renumber every officeholder after seat 3.
+      // The seat number recorded for the office, not the card's position, so
+      // the roster stays truthful if a seat is ever added or set aside.
       const seatNo = m.seat ?? i + 1;
       const media = m.image
         ? `<div class="baluunda-media">
