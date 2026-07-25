@@ -490,7 +490,10 @@ function baluundaSectionHtml() {
 
   const cards = baluunda.members
     .map((m, i) => {
-      const seatNo = i + 1;
+      // The seat number is the one recorded for the office, not the card's
+      // position: seats 4, 21, and 22 are not named in the current record, so
+      // counting cards would renumber every officeholder after seat 3.
+      const seatNo = m.seat ?? i + 1;
       const media = m.image
         ? `<div class="baluunda-media">
              <img src="${esc(m.image)}" alt="${esc(m.name)}, ${esc(m.role)}, Muluunda of the Kazembe High Court" loading="lazy">
@@ -604,8 +607,9 @@ function portraitFor(name) {
 }
 
 // A roster card matching the Baluunda / Sub Chiefs style. Shows a portrait
-// when one is supplied, otherwise a monogram placeholder.
-function rosterCard(name, role, image) {
+// when one is supplied, otherwise a monogram placeholder. `note` carries the
+// longer duty text used for the officers of the spiritual system.
+function rosterCard(name, role, image, note) {
   const initials = name
     .replace(/^(Kapa|Sub Chief|Senior Chief)\s+/i, "")
     .split(/\s+/)
@@ -623,6 +627,7 @@ function rosterCard(name, role, image) {
         <div class="baluunda-body">
           <h3>${esc(name)}</h3>
           ${role ? `<p class="baluunda-role">${esc(role)}</p>` : ""}
+          ${note ? `<p class="baluunda-note">${esc(note)}</p>` : ""}
         </div>
       </article>
     `;
@@ -637,11 +642,8 @@ function mwataCabinetSectionHtml() {
     <section class="subsection cabinet-section" id="mwata-cabinet">
       ${sectionHead("The Mwata's Council", "The Mwata's Cabinet")}
       <p class="section-deck">${esc(mwataCabinet.intro)}</p>
-      <article class="cabinet-chair">
-        <span class="cabinet-chair-label">Chair</span>
-        <h3>${esc(c.name)}</h3>
-        <p>${esc(c.role)}</p>
-      </article>
+      <p class="cabinet-members-label">Chair of the Cabinet</p>
+      <div class="baluunda-grid baluunda-grid-lead">${rosterCard(c.name, c.role, portraitFor(c.name))}</div>
       <p class="cabinet-members-label">Members of the Cabinet</p>
       <div class="baluunda-grid">${cards}</div>
     </section>
@@ -650,26 +652,19 @@ function mwataCabinetSectionHtml() {
 
 function spiritualSystemSectionHtml() {
   const priests = spiritualSystem.highPriests
-    .map(
-      (m) => `
-      <article class="priest-card">
-        <h3>${esc(m.name)}</h3>
-        <p class="priest-role">${esc(m.role)}</p>
-        ${m.note ? `<p>${esc(m.note)}</p>` : ""}
-      </article>
-    `
-    )
+    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note))
     .join("");
   const headmen = spiritualSystem.headmen
-    .map((m) => `<li><strong>${esc(m.name)}</strong><span>${esc(m.role)}</span></li>`)
+    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name)))
     .join("");
   return `
     <section class="subsection spiritual-section" id="spiritual-system">
       ${sectionHead("Faith and the Ancestors", "The Spiritual System of the Kingdom")}
       <p class="section-deck">${esc(spiritualSystem.intro)}</p>
-      <div class="priest-grid">${priests}</div>
+      <p class="cabinet-members-label">High Priests of the Throne</p>
+      <div class="baluunda-grid">${priests}</div>
       <p class="cabinet-members-label">Senior Headmen and Traditional Councillors</p>
-      <ul class="headmen-list">${headmen}</ul>
+      <div class="baluunda-grid">${headmen}</div>
     </section>
   `;
 }

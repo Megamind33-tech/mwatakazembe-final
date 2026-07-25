@@ -451,7 +451,7 @@ export const baluunda = {
   inheritance:
     "The office of a Muluunda is hereditary. It passes to the grandchildren of the founding clan through the maternal line, so that each seat is held within its clan across the generations.",
   note:
-    "The court is listed in order of seat. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
+    "The court is listed in order of seat, and each card carries the number of the seat itself. Twenty-six seats are named here; seats 4, 21, and 22 are not named in the present record. Portraits are shown for the officeholders photographed to date; the remaining seats are named by office, with portraits added as they are provided.",
   members: [
     { seat: 1, name: "Kapa Mwine Mpanda", role: "Mpanda Mano" },
     { seat: 2, name: "Kapa Kalandala", role: "Ears of the Mwata, spokesperson of the Baluunda" },
