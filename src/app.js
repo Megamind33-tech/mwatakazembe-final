@@ -1861,14 +1861,29 @@ const HOME_ANCHORS = new Set([
   "support-kingdom"
 ]);
 
+const GOVERNANCE_ANCHORS = new Set([
+  "council",
+  "chiefs",
+  "agencies",
+  "protocol",
+  "baluunda",
+  "council-chart",
+  "mwata-cabinet",
+  "bashafumu",
+  "sub-chiefs",
+  "spiritual-system"
+]);
+
 function pageFromHash(hash) {
   if (!hash || hash === "home") return "home";
   // Explicit home-section anchors win over the broad prefix checks below
   // (e.g. #kingdom-glance is a home section, not the Kingdom page).
   if (HOME_ANCHORS.has(hash)) return "home";
   if (hash.startsWith("clans") || hash === "royal-family") return "clans";
-  if (hash === "council" || hash === "chiefs" || hash === "agencies" || hash === "protocol" || hash === "baluunda" || hash.startsWith("gov"))
-    return "governance";
+  // Roster sections of the governance page. Without these, #spiritual-system
+  // and #sub-chiefs fall through to the home page, and #mwata-cabinet is
+  // caught by the Mwata rule below, so a link to a roster opens the wrong page.
+  if (GOVERNANCE_ANCHORS.has(hash) || hash.startsWith("gov")) return "governance";
   if (hash.startsWith("mwata") && hash !== "mwata-lineage") return "mwata";
   if (hash.startsWith("kingdom") || hash === "early-mwatas") return "kingdom";
   if (hash.startsWith("mutomboko")) return "mutomboko";
