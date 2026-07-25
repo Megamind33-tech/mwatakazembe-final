@@ -169,7 +169,7 @@ export const royalSpotlight = [
     role: "Office of the Mwata",
     name: "Mwata Kazembe XIX",
     person: "Paul Mpemba Kanyembo Kapale Mpalumena",
-    summary: "Reigning Mwata from 1998; presides over Umutomboko and kingdom public leadership.",
+    summary: "Installed in 1998; presides over Umutomboko and the public leadership of the Kingdom.",
     imageCreditId: "hero-home-portrait",
     href: "#mwata",
     navId: "mwata"
@@ -1192,10 +1192,12 @@ export const mwataProfile = {
   reign: "1998–present",
   image: siteMeta.heroImage,
   role: "The Mwata is the centre of authority, continuity, ceremony, unity, and public leadership for the Kazembe Kingdom.",
+  // The Kingdom states its own reign. It is not reported at second hand from
+  // outside references: the Mwata was installed in 1998 and reigns today.
   biography: [
-    "Listed in public lineage references as Mwata Kazembe XIX from 1998 onward.",
-    "Presides over Umutomboko and represents the Kingdom in regional Lunda diplomatic contexts, including cross-border Lunda affairs.",
-    "Mwata Kazembe XIX is the reigning holder of the royal seat at Mwansabombwe, carrying the duties of authority, ceremony, and public leadership for the Lunda-Kazembe people."
+    "His Royal Highness Mwata Kazembe XIX, Paul Mpemba Kanyembo Kapale Mpalumena, was installed in 1998 and holds the royal seat at Mwansabombwe.",
+    "He presides over Umutomboko and represents the Kingdom in regional Lunda affairs, including relations with the Lunda across the border.",
+    "He carries the duties of authority, ceremony, and public leadership for the Lunda-Kazembe people, and he is the Chief Priest of the Kingdom."
   ],
   appearances: [
     {

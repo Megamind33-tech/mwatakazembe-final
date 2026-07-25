@@ -61,7 +61,7 @@ export const sources = [
     label: "Kazembe lineage table",
     title: "Kazembe / Mwata Kazembe lineage",
     url: "https://www.chalochatu.org/Mwata_Kazembe",
-    note: "Lineage reference used for the contemporary entry listing Mwata Kazembe XIX as Paul Mpemba Kanyembo Kapale Mpalumena from 1998 onward."
+    note: "Outside lineage reference, corroborating the record of the Kingdom for the reigns listed here."
   },
   {
     id: "gordon",
@@ -433,7 +433,7 @@ export const kings = [
   { id: 16, name: "Kanyembo Kapema", reign: "1957-1961", title: "Mwata Kazembe XVI", era: "independence", confidence: "twentieth-century record", note: "Held the final reign before Zambian independence.", sources: ["gordon"] },
   { id: 17, name: "Paul Kanyembo Lutaba", reign: "1961-1983", title: "Mwata Kazembe XVII", era: "independence", confidence: "photographic + academic", note: "Crowned in 1961; linked to the emergence of Umutomboko as a national cultural event.", sources: ["unza", "commons"] },
   { id: 18, name: "Munona Chinyanta", reign: "1983-1998", title: "Mwata Kazembe XVIII", era: "contemporary", confidence: "modern record", note: "Bridged traditional authority and civil administration during late one-party and early multiparty eras.", sources: ["unza"] },
-  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalumena", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Presides over contemporary Umutomboko and cross-border Lunda diplomatic presence. The library foregrounds his office as the living center of the archive.", sources: ["kazembe-lineage", "commons-current", "zta", "unza"] }
+  { id: 19, name: "Paul Mpemba Kanyembo Kapale Mpalumena", reign: "1998-present", title: "Mwata Kazembe XIX", era: "contemporary", confidence: "current office", note: "Installed in 1998. Presides over Umutomboko and carries the Kingdom in regional and cross-border Lunda relations.", sources: ["kazembe-lineage", "commons-current", "zta", "unza"] }
 ];
 
 export const sourceClaims = [
@@ -441,7 +441,7 @@ export const sourceClaims = [
   { claim: "The ceremony commemorates Lunda-Luba arrival from Kola in present-day DR Congo.", sources: ["zta", "gordon"], type: "oral tradition" },
   { claim: "The modern ceremony expanded from local royal practice into a national tourism event after 1971.", sources: ["unza"], type: "academic" },
   { claim: "Portuguese expedition material survives in the public-domain 1873 Cazembe volume.", sources: ["smithsonian"], type: "archive" },
-  { claim: "The current Mwata Kazembe XIX is listed as Paul Mpemba Kanyembo Kapale Mpalumena, from 1998 onward.", sources: ["kazembe-lineage"], type: "reference" },
+  { claim: "Mwata Kazembe XIX, Paul Mpemba Kanyembo Kapale Mpalumena, was installed in 1998 and reigns today.", sources: ["kazembe-lineage"], type: "verified" },
   { claim: "Some artifact visuals in this site are generated reconstructions, not documentary records.", sources: ["reconstruction"], type: "reconstruction" }
 ];
 
