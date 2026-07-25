@@ -2101,11 +2101,15 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   flex-grow: 0;
 }
 
-/* A single lead card — the Chair of the Cabinet — held to one card width and
-   aligned left instead of stretching across the full roster grid. The chair
-   takes the same portrait size as every other officer. */
+/* A single lead card — the Chair of the Cabinet — stands centred above the
+   members rather than stretching across the roster grid. The chair takes the
+   same portrait size as every other officer. */
 .baluunda-grid-lead {
-  justify-items: start;
+  /* One track, centred in the row: the Chair stands on the centre line above
+     the members rather than at the left edge of the first column. */
+  grid-template-columns: 168px;
+  justify-content: center;
+  justify-items: center;
   margin-top: 0.6rem;
 }
 

@@ -860,12 +860,15 @@ function renderKingdom() {
     )
     .join("");
 
+  // The history of the Kingdom is set out in full, not folded into accordions:
+  // an institutional record is read, not clicked open a line at a time.
   const sections = kingdomSections
     .map(
       (s) => `
-      <section class="subsection accordion-block" id="${esc(s.id)}">
-        <button class="accordion-trigger" type="button" aria-expanded="false">${esc(s.title)}</button>
-        <div class="accordion-panel"><p>${esc(s.body)}</p></div>
+      <section class="subsection history-section" id="${esc(s.id)}">
+        ${sectionHead(s.eyebrow || "The record", s.title, s.deck || "")}
+        <div class="impembwe-body">${s.paragraphs.map((para) => `<p>${esc(para)}</p>`).join("")}</div>
+        ${sourceCitation(s.sourceIds || [])}
       </section>
     `
     )
