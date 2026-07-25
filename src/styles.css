@@ -4062,15 +4062,18 @@ body.lightbox-open {
   width: 100%;
 }
 
+/* Nodes hold two to a row on a phone and stay in rows upward, so the chart
+   reads as a chart at every width rather than collapsing into a column. */
 .chart-node {
-  flex: 0 1 260px;
+  flex: 1 1 155px;
+  min-width: 0;
   max-width: 320px;
   background: var(--white);
   border: 1px solid var(--border);
   border-top: 4px solid var(--royal-blue);
   border-radius: 12px;
   box-shadow: var(--shadow);
-  padding: 1.1rem 1.25rem;
+  padding: 1rem 0.85rem;
   text-align: center;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
@@ -4078,15 +4081,57 @@ body.lightbox-open {
 .chart-node h3 {
   margin: 0.35rem 0 0.5rem;
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.2rem);
+  line-height: 1.25;
   color: var(--royal-blue);
 }
 
 .chart-node p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: clamp(0.78rem, 0.72rem + 0.25vw, 0.9rem);
   line-height: 1.45;
   color: var(--stone);
+}
+
+/* The face of each office. A photograph fills the frame; the arms of the
+   Kingdom sit inside it with room to breathe. Both are far below the Mwata's
+   210 x 280 portrait at the apex — see .chart-apex-portrait. */
+.chart-medallion {
+  width: 74px;
+  height: 98px;
+  margin: 0 auto 0.6rem;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  background: var(--ivory);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+.chart-medallion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.chart-medallion-arms {
+  background: linear-gradient(160deg, var(--royal-blue), var(--royal-blue-mid));
+  border-color: rgba(201, 162, 75, 0.75);
+}
+
+.chart-medallion-arms img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.4rem;
+}
+
+/* A body of the Kingdom carries a round seal rather than a portrait frame, so
+   an office reads differently from an officeholder. */
+.chart-medallion-seal {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
 .chart-node-tier {
@@ -4195,20 +4240,23 @@ body.lightbox-open {
   letter-spacing: 0.01em;
 }
 
+/* The three Senior Chiefs are children of the Mwata and hold equal rank, so
+   they stand side by side on one line at every width — never stacked. */
 .chart-seats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-content: center;
-  gap: 1rem;
+  align-items: start;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .chart-seat {
-  flex: 0 1 200px;
-  max-width: 240px;
   background: var(--ivory);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 0.9rem 1rem;
+  padding: 0.85rem 0.6rem;
   text-align: center;
   transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
@@ -4225,26 +4273,28 @@ body.lightbox-open {
   );
 }
 
+/* Three to a line means each seat is narrow on a phone, so its medallion and
+   type scale with the viewport rather than forcing the row to break. */
+.chart-seat .chart-medallion {
+  width: clamp(50px, 15vw, 74px);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 0.5rem;
+}
+
 .chart-seat h4 {
   margin: 0.4rem 0 0.25rem;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: clamp(0.82rem, 0.7rem + 0.55vw, 1.05rem);
+  line-height: 1.25;
   color: var(--royal-blue);
 }
 
 .chart-seat p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: clamp(0.72rem, 0.66rem + 0.25vw, 0.85rem);
+  line-height: 1.35;
   color: var(--stone);
-}
-
-.chart-seat-marker {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--bronze);
-  box-shadow: 0 0 0 4px rgba(154, 123, 79, 0.18);
 }
 
 .council-chart .pending-note {
@@ -4260,10 +4310,32 @@ body.lightbox-open {
 }
 
 @media (max-width: 600px) {
-  .chart-node,
+  /* Only the Mwata takes the full width; the offices below him stay in rows so
+     the structure still reads as a chart on a phone. */
   .chart-node.node-root {
     flex-basis: 100%;
     max-width: 100%;
+  }
+
+  .council-chart .chart-level {
+    gap: 0.75rem;
+  }
+
+  .chart-node {
+    /* Exactly two to a row against the 0.75rem gap above, so the smallest
+       phones still show a structure rather than a stack. */
+    flex-basis: calc(50% - 0.4rem);
+    padding: 0.85rem 0.6rem;
+  }
+
+  .chart-medallion {
+    width: 62px;
+    height: 82px;
+  }
+
+  .chart-medallion-seal {
+    width: 52px;
+    height: 52px;
   }
 
   .chart-rail {

@@ -53,6 +53,10 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 const enrichedKings = enrichKings(kings);
 
+// The arms of the Kingdom stand in wherever a portrait is owed but not yet
+// supplied — as they already do for the unphotographed Mwatas of the ruler line.
+const KINGDOM_ARMS = "assets/images/kazembe/identity/coat-of-arms.png";
+
 function cardImage(src, alt, label, creditId = "") {
   if (creditId) {
     const item = getCreditById(creditId);
@@ -419,8 +423,24 @@ function councilChartHtml() {
   // The chart is where the Royal Council, Senior Chiefs, Traditional Court, and
   // Headmen are stated, so its nodes carry the gov-* anchors the navigation and
   // the home leadership cards link to.
+  // Every station of the chart carries a medallion, the way an executive chart
+  // carries the face of each office: a photograph where the officeholder has
+  // been photographed, and the arms of the Kingdom where one is still to be
+  // supplied — the same stand-in the ruler line uses for unphotographed
+  // Mwatas. Medallions are held well under the Mwata's portrait at the apex.
+  // An office carries a round seal; a person carries a portrait frame, holding
+  // the arms until a photograph is supplied. The two shapes keep a body of the
+  // Kingdom legible from an officeholder at a glance.
+  const medallion = (image, alt, kind = "office") =>
+    image
+      ? `<div class="chart-medallion"><img src="${esc(image)}" alt="${esc(alt)}" loading="lazy"></div>`
+      : `<div class="chart-medallion chart-medallion-arms ${kind === "office" ? "chart-medallion-seal" : ""}">
+           <img src="${esc(KINGDOM_ARMS)}" alt="Arms of the Mwata Kazembe, standing for ${esc(alt)}" loading="lazy">
+         </div>`;
+
   const node = (n, extraClass = "") => `
     <article class="chart-node node-${esc(n.id)} ${extraClass}" id="gov-${esc(n.id)}" data-chart-node>
+      ${medallion(n.image, n.title)}
       <span class="chart-node-tier">Tier ${esc(String(n.tier))}</span>
       <h3>${esc(n.title)}</h3>
       <p>${esc(n.description)}</p>
@@ -447,7 +467,7 @@ function councilChartHtml() {
     .map(
       (s) => `
       <article class="chart-seat ${s.pending ? "is-pending" : ""}" data-chart-seat id="seat-${esc(s.id)}">
-        <span class="chart-seat-marker" aria-hidden="true"></span>
+        ${medallion(s.image, s.title, "person")}
         <h4>${esc(s.title)}</h4>
         <p>${esc(s.area)}</p>
       </article>
