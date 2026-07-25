@@ -409,7 +409,7 @@ export const governanceStructure = [
   },
   {
     id: "bashafumu",
-    title: "The Bashafumu",
+    title: "Bashafumu",
     tier: 5,
     description:
       "Titled holders of traditional office under the Mwata across the villages and lands of the Kingdom. They rank above the Sub Chiefs."
@@ -419,7 +419,7 @@ export const governanceStructure = [
     title: "The Sub Chiefs",
     tier: 6,
     description:
-      "Territorial authority under the Mwata across the chiefdom. They rank below the Bashafumu, are distinct from the Baluunda, and do not sit in the High Court."
+      "Territorial authority under the Mwata across the chiefdom. They rank below Bashafumu, are distinct from the Baluunda, and do not sit in the High Court."
   },
   {
     id: "court",
@@ -603,12 +603,12 @@ export const baluunda = {
 
 // The Sub Chiefs hold territorial authority under the Mwata Kazembe across the
 // chiefdom. They are a distinct office from the Baluunda and do not sit in the
-// High Court, and they rank below the Bashafumu, who are listed before them.
+// High Court, and they rank below Bashafumu, who are listed before them.
 // Portraits are shown where an officeholder has been photographed.
 const SUBCHIEF_IMG = "assets/images/kazembe/governance/subchiefs";
 export const subChiefs = {
   intro:
-    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below the Bashafumu, are distinct from the Baluunda, and do not sit in the High Court.",
+    "The Sub Chiefs hold territorial authority under the Mwata Kazembe across the chiefdom. They rank below Bashafumu, are distinct from the Baluunda, and do not sit in the High Court.",
   members: [
     { name: "Kapa Kazembe Nalukonzi", image: `${SUBCHIEF_IMG}/nalukonzi.jpg` },
     { name: "Kapa Chibwili" },
@@ -622,13 +622,13 @@ export const subChiefs = {
   ]
 };
 
-// The Bashafumu: titled holders of traditional office under the Mwata Kazembe
+// Bashafumu: titled holders of traditional office under the Mwata Kazembe
 // across the villages and lands of the Kingdom. They rank above the Sub Chiefs
 // and are listed before them. Listed by name as supplied by the Office of the
 // Mwata.
 export const bashafumu = {
   intro:
-    "The Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom. They rank above the Sub Chiefs.",
+    "Bashafumu are titled holders of traditional office under the Mwata Kazembe across the villages and lands of the Kingdom. They rank above the Sub Chiefs.",
   members: [
     "Kapa Salanga",
     "Kapa Chisha Munkashi",
@@ -703,7 +703,7 @@ export const impembwe = {
     "The trench runs long, its course put at some fifty-six kilometres in the published record, and its whereabouts were held in secrecy. Only a few close to the Mwata and to the throne knew where it lay. When word came of intruders in the Kingdom, or of a threat to the life of the Mwata or to the throne itself, the Mwata withdrew to Impembwe, and the trench kept what it was dug to keep.",
     "The ground is guarded still. Entry is not open: the Mwata, his aides, and Headman Toka with his aide are the ones who go in. The Guardian of the Mpembwe Shrine, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
     "Each year the trench is cleaned before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then the villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and the offering is made to the ancestral spirits.",
-    "The homage at Impembwe thanks the ancestors for the sacrifice they made in that ground, and it is this act that opens Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, the Ba Kashikayi going before Him and awaiting Him at the trench; only then does the Kingdom turn to the arena and the dance of conquest."
+    "The homage at Impembwe thanks the ancestors for the sacrifice they made in that ground, and it is this act that opens Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, Ba Kashikayi going before Him and awaiting Him at the trench; only then does the Kingdom turn to the arena and the dance of conquest."
   ],
   // Plates in the order of the year: the ground as it lies, the ground made
   // ready, and the day itself.
@@ -726,7 +726,7 @@ export const impembwe = {
       figures: [
         {
           creditId: "impembwe-ground-cleared",
-          caption: "The ground cleared to bare earth, the boundary posts whitened, and the Ba Kashikayi standing at the line."
+          caption: "The ground cleared to bare earth, the boundary posts whitened, and Ba Kashikayi standing at the line."
         },
         {
           creditId: "impembwe-ground-and-shelter",
@@ -753,7 +753,7 @@ export const impembwe = {
 };
 
 // Utumbolo — the sacred places of the Umutomboko procession, as given by the
-// Office of the Mwata: the ground where the Mwata meets the Ba Kashikayi and
+// Office of the Mwata: the ground where the Mwata meets Ba Kashikayi and
 // thanks them for their work, and the place where the bones are kept. Rendered
 // on the Heritage & Culture page. This account comes from the Office itself and
 // is not drawn from the published record; do not add outside claims to it.
@@ -761,13 +761,13 @@ export const utumbolo = {
   title: "Utumbolo",
   eyebrow: "The sacred places of the procession",
   intro:
-    "The Utumbolo are two sacred places of the Kingdom, kept along the way of the Umutomboko procession. They carry no separate names of their own. At the Utumbolo the Mwata meets the Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
+    "The Utumbolo are two sacred places of the Kingdom, kept along the way of the Umutomboko procession. They carry no separate names of their own. At the Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
   paragraphs: [
-    "The Ba Kashikayi are the officers of the spiritual duties of the Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds, and the shrines of the Kingdom are kept. At the Utumbolo the Mwata halts and gives them His word of appreciation. The Kingdom stops in the middle of its own ceremony to thank the officers who carry it.",
+    "Ba Kashikayi are the officers of the spiritual duties of the Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds, and the shrines of the Kingdom are kept. At the Utumbolo the Mwata halts and gives them His word of appreciation. The Kingdom stops in the middle of its own ceremony to thank the officers who carry it.",
     "Of the two, one is the place of the bones. In the past the bones of dangerous animals were kept there, and human bones were kept there also. Today only the bones of animals are kept at that place.",
     "Both of the Utumbolo are set apart and kept apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of the throne.",
     "The ground is prepared before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that the Utumbolo stand ready before the procession comes. The work is done by hand, and it is done every year, at the same places.",
-    "Their significance to the Kingdom is continuity of place, and the honouring of those who serve. The Mwatas change and the generations pass, but the procession halts at the same ground, before the same offices, and the same thanks are given. A stranger sees a tree inside a fence. The Kingdom sees the place where the Mwata turns to the Ba Kashikayi, and the place where the bones are kept."
+    "Their significance to the Kingdom is continuity of place, and the honouring of those who serve. The Mwatas change and the generations pass, but the procession halts at the same ground, before the same offices, and the same thanks are given. A stranger sees a tree inside a fence. The Kingdom sees the place where the Mwata turns to Ba Kashikayi, and the place where the bones are kept."
   ],
   figures: [
     {
@@ -790,7 +790,7 @@ export const utumbolo = {
 export const spiritualSystem = {
   intro:
     "The Mwata Kazembe is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry the spiritual duties of the Lunda: the passage of the Mwata to the Land of the Ancestors, the care of the royal ancestral grounds at Lunde, and the shrines through which the great ancestors of health, agriculture, and rain are addressed. Their villages lie under the Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet the officers themselves serve the Mwata directly.",
-  // Documentary photographs of the Ba Kashikayi supplied by the Office of the
+  // Documentary photographs of Ba Kashikayi supplied by the Office of the
   // Mwata; captions as given by the Office.
   figures: [
     {

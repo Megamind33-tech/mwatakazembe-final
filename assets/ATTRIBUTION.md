@@ -76,7 +76,7 @@ Images held back for rights/identification (not placed live) are listed in
 Supplied with their captions by the Office of the Mwata. Credited to the Office
 of the Mwata Kazembe; all rights reserved.
 
-The Ba Kashikayi, in the Spiritual System section of the Governance page:
+Ba Kashikayi, in the Spiritual System section of the Governance page:
 
 - `assets/images/kazembe/governance/spiritual/kashikayi-procession-to-mpembwe.jpg` — Ba Kashikayi heading to Mpembwe, Kapa Makwe Toka leading the way.
 - `assets/images/kazembe/governance/spiritual/kashikayi-awaiting-mwata-mpembwe-trench.jpg` — Ba Kashikayi await the Mwata as He comes to the Mpembwe Trench.

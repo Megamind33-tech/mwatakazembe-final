@@ -504,7 +504,7 @@ function councilChartHtml() {
 
   return `
     <section class="subsection council-chart-section" id="council-chart">
-      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex to the Royal Council, from the Council to the Baluunda judiciary, and from the judiciary down through the Senior Chiefs, the Bashafumu, and the Sub Chiefs to the offices that serve the people.")}
+      ${sectionHead("Lines of Authority", "The Governance Structure", "Authority in the Kingdom flows from the Mwata at the apex to the Royal Council, from the Council to the Baluunda judiciary, and from the judiciary down through the Senior Chiefs, Bashafumu, and the Sub Chiefs to the offices that serve the people.")}
       <div class="council-chart" data-council-chart>
         <div class="chart-level chart-level-root">${root}</div>
         ${levels}
@@ -609,7 +609,7 @@ function subChiefsSectionHtml() {
 }
 
 // Several officeholders hold more than one seat — Kapa Kasumpa sits in the
-// Baluunda and is also named among the Bashafumu and the Cabinet, for
+// Baluunda and is also named among Bashafumu and the Cabinet, for
 // instance. The portrait is filed once, under the Baluunda or Sub Chiefs, so
 // every later mention of the same person looks it up here rather than falling
 // back to a name-only card.
@@ -746,7 +746,7 @@ function spiritualSystemSectionHtml() {
     .map((m) => rosterCard(m.name, m.role, portraitFor(m.name)))
     .join("");
 
-  // Documentary plates of the Ba Kashikayi. The registry supplies the file,
+  // Documentary plates of Ba Kashikayi. The registry supplies the file,
   // alt text, and credit line; the caption is the one given by the Office.
   const figures = (spiritualSystem.figures || [])
     .map((f) => captionedPlate(f.creditId, f.caption))
@@ -760,7 +760,7 @@ function spiritualSystemSectionHtml() {
       <div class="baluunda-grid baluunda-row swipe-track" data-swipe="High Priests of the Throne">${priests}</div>
       <p class="cabinet-members-label">Senior Headmen and Traditional Councillors</p>
       <div class="baluunda-grid baluunda-row swipe-track" data-swipe="Senior Headmen and Traditional Councillors">${headmen}</div>
-      ${figures ? `<p class="cabinet-members-label">The Ba Kashikayi at Mpembwe</p><div class="media-figure-grid">${figures}</div>` : ""}
+      ${figures ? `<p class="cabinet-members-label">Ba Kashikayi at Mpembwe</p><div class="media-figure-grid">${figures}</div>` : ""}
     </section>
   `;
 }
@@ -769,7 +769,7 @@ function bashafumuSectionHtml() {
   const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu", portraitFor(n))).join("");
   return `
     <section class="subsection bashafumu-section" id="bashafumu">
-      ${sectionHead("Traditional Office", "The Bashafumu")}
+      ${sectionHead("Traditional Office", "Bashafumu")}
       <p class="section-deck">${esc(bashafumu.intro)}</p>
       <div class="baluunda-grid">${cards}</div>
     </section>
