@@ -672,7 +672,9 @@ export const mwataCabinet = {
 };
 
 // Impembwe ya Keleka — the trench at Toka-toka, and the rite that opens
-// Umutomboko. The account below is drawn from the published record: the
+// Umutomboko. It belongs to the heritage of the Kingdom and is rendered on the
+// Heritage & Culture page, not under governance. The account below is drawn
+// from the published record: the
 // Ministry of Tourism reports of 2023 and 2024 and the Nkwazi Magazine feature,
 // alongside the ceremony sequence already carried in data.js. Where the Office
 // of the Mwata holds the fuller oral account, it replaces what is written here.

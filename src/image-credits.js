@@ -374,7 +374,7 @@ export const imageCredits = [
   {
     id: "impembwe-before-cleaning-01",
     fileName: "impembwe-before-cleaning-01.jpg",
-    src: "assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-01.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-01.jpg",
     title: "Impembwe ya Keleka before the ceremony",
     description:
       "The trench of Impembwe ya Keleka under dry grass and bush, photographed before it is cleaned for Umutomboko. The cut of the trench and its raised bank run through the frame.",
@@ -393,7 +393,7 @@ export const imageCredits = [
   {
     id: "impembwe-before-cleaning-02",
     fileName: "impembwe-before-cleaning-02.jpg",
-    src: "assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-02.jpg",
+    src: "assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-02.jpg",
     title: "The line of the trench under dry season growth",
     description:
       "The course of Impembwe ya Keleka running away through the trees, choked with dry grass and fallen leaves before the annual clearing.",

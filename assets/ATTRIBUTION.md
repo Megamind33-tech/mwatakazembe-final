@@ -71,15 +71,20 @@ Confirm original photographer and reuse rights with the Royal Protocol Office be
 Images held back for rights/identification (not placed live) are listed in
 `docs/image-candidates-needing-approval.md`.
 
-## Supplied by the Office of the Mwata — the Ba Kashikayi at Mpembwe
+## Supplied by the Office of the Mwata — Mpembwe
 
-Supplied with their captions by the Office of the Mwata for the Spiritual System
-section. Credited to the Office of the Mwata Kazembe; all rights reserved.
+Supplied with their captions by the Office of the Mwata. Credited to the Office
+of the Mwata Kazembe; all rights reserved.
+
+The Ba Kashikayi, in the Spiritual System section of the Governance page:
 
 - `assets/images/kazembe/governance/spiritual/kashikayi-procession-to-mpembwe.jpg` — Ba Kashikayi heading to Mpembwe, Kapa Makwe Toka leading the way.
 - `assets/images/kazembe/governance/spiritual/kashikayi-awaiting-mwata-mpembwe-trench.jpg` — Ba Kashikayi await the Mwata as He comes to the Mpembwe Trench.
-- `assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-01.jpg` — Impembwe ya Keleka under dry grass and bush, before it is cleaned for the ceremony.
-- `assets/images/kazembe/governance/spiritual/impembwe-before-cleaning-02.jpg` — the course of the trench through the trees, before the annual clearing.
+
+Impembwe ya Keleka, in the Heritage & Culture page:
+
+- `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-01.jpg` — Impembwe ya Keleka under dry grass and bush, before it is cleaned for the ceremony.
+- `assets/images/kazembe/heritage/impembwe/impembwe-before-cleaning-02.jpg` — the course of the trench through the trees, before the annual clearing.
 
 ## Permission required before public launch
 

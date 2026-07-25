@@ -783,7 +783,6 @@ function renderGovernance() {
       ${bashafumuSectionHtml()}
       ${subChiefsSectionHtml()}
       ${spiritualSystemSectionHtml()}
-      ${impembweSectionHtml()}
       <section class="subsection" id="gov-offices">
         ${sectionHead("The royal seat", "Offices of the Royal Seat")}
         <div class="gov-institution-grid">${institutions}</div>
@@ -915,6 +914,7 @@ function renderKingdom() {
           <a class="heritage-hub-link" href="#kingdom-chapters">History &amp; State Formation</a>
           <a class="heritage-hub-link" href="#kingdom-timeline">The Ruler Line</a>
           <a class="heritage-hub-link" href="#mutomboko">Umutomboko Ceremony</a>
+          <a class="heritage-hub-link" href="#impembwe">Impembwe ya Keleka</a>
           <a class="heritage-hub-link" href="#kingdom-built-heritage">Built Heritage</a>
           <a class="heritage-hub-link" href="#museum">Royal Museum</a>
           <a class="heritage-hub-link" href="#kingdom-gallery">Gallery</a>
@@ -947,6 +947,7 @@ function renderKingdom() {
           ${creditCaption("places-kingdom-map-2007")}
         </figure>
       </section>
+      ${impembweSectionHtml()}
       ${builtHeritageHtml()}
       ${heritageGalleryHtml()}
     </div>
@@ -1932,8 +1933,7 @@ const GOVERNANCE_ANCHORS = new Set([
   "mwata-cabinet",
   "bashafumu",
   "sub-chiefs",
-  "spiritual-system",
-  "impembwe"
+  "spiritual-system"
 ]);
 
 function pageFromHash(hash) {
@@ -1947,7 +1947,7 @@ function pageFromHash(hash) {
   // caught by the Mwata rule below, so a link to a roster opens the wrong page.
   if (GOVERNANCE_ANCHORS.has(hash) || hash.startsWith("gov")) return "governance";
   if (hash.startsWith("mwata") && hash !== "mwata-lineage") return "mwata";
-  if (hash.startsWith("kingdom") || hash === "early-mwatas") return "kingdom";
+  if (hash.startsWith("kingdom") || hash === "early-mwatas" || hash === "impembwe") return "kingdom";
   if (hash.startsWith("mutomboko")) return "mutomboko";
   if (hash.startsWith("dev") || hash === "development-public") return "development";
   if (hash.startsWith("news") || hash === "publications" || hash === "gallery" || hash === "archive") return "newsroom";
