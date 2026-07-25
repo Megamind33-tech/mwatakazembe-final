@@ -696,7 +696,7 @@ export const spiritualSystem = {
     {
       name: "Kapa Makwe Toka",
       role: "Guardian of the Mpembwe Shrine",
-      note: "Of the Abena Fula clan, entrusted to protect the Mpembwe Shrine, a place of great significance in Lunda tradition, where the great ancestors of health, agriculture, and rain are communicated with."
+      note: "Of the Abena Mfula clan, entrusted to protect the Mpembwe Shrine, a place of great significance in Lunda tradition, where the great ancestors of health, agriculture, and rain are communicated with."
     }
   ],
   headmen: [
