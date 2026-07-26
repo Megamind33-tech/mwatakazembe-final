@@ -371,11 +371,6 @@ export const governanceInstitutions = [
     title: "Royal Household",
     function:
       "Palace officers, regalia custodians, Ichota protocol, and domestic arrangements for the reigning Mwata and senior royal family."
-  },
-  {
-    id: "land",
-    title: "Land and Community Affairs",
-    function: "Land, settlement, and community representation governed through traditional authority structures linked to the royal seat."
   }
 ];
 
@@ -1127,6 +1122,14 @@ export const royalMap = {
 };
 
 export const kingdomAgencies = [
+  {
+    id: "gov-land",
+    title: "Land and Community Affairs",
+    function:
+      "Land, settlement, and community representation, governed through our traditional authority and answering to the royal seat.",
+    href: "#gov-land",
+    pending: false
+  },
   {
     id: "heritage-culture",
     title: "Heritage and Culture Office",

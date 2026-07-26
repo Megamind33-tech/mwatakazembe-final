@@ -790,7 +790,7 @@ function royalHouseholdSectionHtml() {
     .join("");
   return `
     <section class="subsection household-section" id="royal-household">
-      ${sectionHead("The palace", "The Royal Household")}
+      ${sectionHead("The palace", "Officers of the Palace")}
       <p class="section-deck">${esc(royalHousehold.intro)}</p>
       <div class="baluunda-grid baluunda-row swipe-track" data-swipe="The Royal Household">${cards}</div>
     </section>
@@ -871,16 +871,16 @@ function renderGovernance() {
     </div>
     <div class="container page-body">
       ${councilChartHtml()}
-      ${mwataCabinetSectionHtml()}
-      ${baluundaSectionHtml()}
-      ${royalHouseholdSectionHtml()}
-      ${bashafumuSectionHtml()}
-      ${subChiefsSectionHtml()}
-      ${spiritualSystemSectionHtml()}
       <section class="subsection" id="gov-offices">
         ${sectionHead("The royal seat", "Offices of the Royal Seat")}
         <div class="gov-institution-grid">${institutions}</div>
       </section>
+      ${royalHouseholdSectionHtml()}
+      ${mwataCabinetSectionHtml()}
+      ${baluundaSectionHtml()}
+      ${bashafumuSectionHtml()}
+      ${subChiefsSectionHtml()}
+      ${spiritualSystemSectionHtml()}
       <section class="subsection" id="agencies">
         ${sectionHead("Kingdom desks", "Kingdom Agencies", kingdomAgenciesIntro)}
         <div class="agency-grid">${agencyCards}</div>
