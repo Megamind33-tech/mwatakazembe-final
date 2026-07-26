@@ -269,7 +269,6 @@ function renderMwata() {
         ${s.image || s.verified ? cardImage("", s.title, s.title, "mutomboko-dance-2017-01") : cardImage("", s.title, "Symbol")}
         <h3>${esc(s.title)}</h3>
         <p>${esc(s.description)}</p>
-        ${s.placeholder ? pendingNote() : ""}
       </article>
     `
     )
@@ -552,6 +551,7 @@ function baluundaSectionHtml() {
           <h3>${esc(m.name)}</h3>
           <p class="baluunda-role">${esc(m.role)}</p>
           ${clan}
+          ${alsoServesIn(m.name, "in Baluunda")}
         </div>
       </article>
     `;
@@ -560,7 +560,7 @@ function baluundaSectionHtml() {
 
   return `
     <section class="subsection baluunda-section" id="baluunda">
-      ${sectionHead("The High Court of the Kingdom", "Baluunda Judicial Council")}
+      ${sectionHead("The High Court of the Kingdom", "The Judges of Baluunda")}
       <p class="section-deck">${esc(baluunda.intro)}</p>
       <p class="section-deck">${esc(baluunda.inheritance)}</p>
       <div class="baluunda-grid">${cards}</div>
@@ -595,6 +595,7 @@ function subChiefsSectionHtml() {
         <div class="baluunda-body">
           <h3>${esc(m.name)}</h3>
           <p class="baluunda-role">Sub Chief</p>
+          ${alsoServesIn(m.name, "among the Sub Chiefs")}
         </div>
       </article>
     `;
@@ -603,7 +604,7 @@ function subChiefsSectionHtml() {
 
   return `
     <section class="subsection subchiefs-section" id="sub-chiefs">
-      ${sectionHead("Territorial Authority", "The Sub Chiefs")}
+      ${sectionHead("Territorial Authority", "Our Sub Chiefs")}
       <p class="section-deck">${esc(subChiefs.intro)}</p>
       <div class="baluunda-grid">${cards}</div>
     </section>
@@ -643,10 +644,52 @@ function portraitFor(name) {
   return portraitIndex.byName.get(key) || portraitIndex.byFirstWord.get(key) || undefined;
 }
 
+// Several of our officeholders hold more than one office: Kapa Kasumpa sits in
+// Baluunda, is a Shafumu, and sits in the Cabinet. Their cards would otherwise
+// look like the same card printed twice, so each one names the other bodies
+// the officeholder serves in.
+const membershipIndex = (() => {
+  const index = new Map();
+  const firstWords = new Map();
+  const add = (name, body) => {
+    const key = rosterKey(name);
+    if (!index.has(key)) index.set(key, new Set());
+    index.get(key).add(body);
+    // "Kapa Chilembi" in the Cabinet and "Kapa Chilembi Mwewa" in Baluunda are
+    // one man. A first name resolves only where it belongs to one officeholder.
+    const first = key.split(/\s+/)[0];
+    if (firstWords.has(first) && firstWords.get(first) !== key) firstWords.set(first, null);
+    else if (!firstWords.has(first)) firstWords.set(first, key);
+  };
+  baluunda.members.forEach((m) => add(m.name, "in Baluunda"));
+  add(mwataCabinet.chair.name, "in the Cabinet");
+  mwataCabinet.members.forEach((n) => add(n, "in the Cabinet"));
+  bashafumu.members.forEach((n) => add(n, "among Bashafumu"));
+  subChiefs.members.forEach((m) => add(m.name, "among the Sub Chiefs"));
+  royalHousehold.members.forEach((m) => add(m.name, "in the Royal Household"));
+  spiritualSystem.highPriests.forEach((m) => add(m.name, "among the High Priests"));
+  spiritualSystem.headmen.forEach((m) => add(m.name, "among the Senior Headmen"));
+  return { index, firstWords };
+})();
+
+function alsoServesIn(name, thisBody) {
+  const key = rosterKey(name);
+  const bodies = new Set(membershipIndex.index.get(key) || []);
+  const alias = membershipIndex.firstWords.get(key.split(/\s+/)[0]);
+  if (alias && alias !== key) (membershipIndex.index.get(alias) || []).forEach((b) => bodies.add(b));
+  const others = [...bodies].filter((b) => b !== thisBody);
+  if (!others.length) return "";
+  const list =
+    others.length === 1
+      ? others[0]
+      : others.slice(0, -1).join(", ") + " and " + others[others.length - 1];
+  return `<p class="roster-also">Also serves ${esc(list)}.</p>`;
+}
+
 // A roster card matching Baluunda / Sub Chiefs style. Shows a portrait
 // when one is supplied, otherwise a monogram placeholder. `note` carries the
 // longer duty text used for the officers of the spiritual system.
-function rosterCard(name, role, image, note) {
+function rosterCard(name, role, image, note, also = "") {
   const initials = name
     .replace(/^(Kapa|Sub Chief|Senior Chief)\s+/i, "")
     .split(/\s+/)
@@ -665,6 +708,7 @@ function rosterCard(name, role, image, note) {
           <h3>${esc(name)}</h3>
           ${role ? `<p class="baluunda-role">${esc(role)}</p>` : ""}
           ${note ? `<p class="baluunda-note">${esc(note)}</p>` : ""}
+          ${also}
         </div>
       </article>
     `;
@@ -673,14 +717,14 @@ function rosterCard(name, role, image, note) {
 function mwataCabinetSectionHtml() {
   const c = mwataCabinet.chair;
   const cards = mwataCabinet.members
-    .map((n) => rosterCard(n, "Member of the Cabinet", portraitFor(n)))
+    .map((n) => rosterCard(n, "Member of the Cabinet", portraitFor(n), "", alsoServesIn(n, "in the Cabinet")))
     .join("");
   return `
     <section class="subsection cabinet-section" id="mwata-cabinet">
       ${sectionHead("The Mwata's Council", "The Mwata's Cabinet")}
       <p class="section-deck">${esc(mwataCabinet.intro)}</p>
       <p class="cabinet-members-label">Chair of the Cabinet</p>
-      <div class="baluunda-grid baluunda-grid-lead">${rosterCard(c.name, c.role, portraitFor(c.name))}</div>
+      <div class="baluunda-grid baluunda-grid-lead">${rosterCard(c.name, c.role, portraitFor(c.name), "", alsoServesIn(c.name, "in the Cabinet"))}</div>
       <p class="cabinet-members-label">Members of the Cabinet</p>
       <div class="baluunda-grid">${cards}</div>
     </section>
@@ -742,7 +786,7 @@ function utumboloSectionHtml() {
 
 function royalHouseholdSectionHtml() {
   const cards = royalHousehold.members
-    .map((m) => rosterCard(m.name, m.role, m.image || portraitFor(m.name)))
+    .map((m) => rosterCard(m.name, m.role, m.image || portraitFor(m.name), "", alsoServesIn(m.name, "in the Royal Household")))
     .join("");
   return `
     <section class="subsection household-section" id="royal-household">
@@ -755,10 +799,10 @@ function royalHouseholdSectionHtml() {
 
 function spiritualSystemSectionHtml() {
   const priests = spiritualSystem.highPriests
-    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note))
+    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), m.note, alsoServesIn(m.name, "among the High Priests")))
     .join("");
   const headmen = spiritualSystem.headmen
-    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name)))
+    .map((m) => rosterCard(m.name, m.role, portraitFor(m.name), "", alsoServesIn(m.name, "among the Senior Headmen")))
     .join("");
 
   // Documentary plates of Ba Kashikayi. The registry supplies the file,
@@ -781,10 +825,10 @@ function spiritualSystemSectionHtml() {
 }
 
 function bashafumuSectionHtml() {
-  const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu", portraitFor(n))).join("");
+  const cards = bashafumu.members.map((n) => rosterCard(n, "Shafumu", portraitFor(n), "", alsoServesIn(n, "among Bashafumu"))).join("");
   return `
     <section class="subsection bashafumu-section" id="bashafumu">
-      ${sectionHead("Traditional Office", "Bashafumu")}
+      ${sectionHead("Traditional Office", "Bashafumu, Titled Holders of Office")}
       <p class="section-deck">${esc(bashafumu.intro)}</p>
       <div class="baluunda-grid">${cards}</div>
     </section>
@@ -801,7 +845,6 @@ function renderGovernance() {
       <article class="gov-institution-card" id="${esc(govAnchor(g.id))}">
         <h3>${esc(g.title)}</h3>
         <p>${esc(g.function)}</p>
-        ${g.pending ? pendingNote() : ""}
       </article>
     `
     )
@@ -813,7 +856,6 @@ function renderGovernance() {
       <article class="agency-card" id="${esc(a.id)}">
         <h3>${esc(a.title)}</h3>
         <p>${esc(a.function)}</p>
-        ${a.pending ? pendingNote() : ""}
       </article>
     `
     )
@@ -1148,7 +1190,6 @@ function renderDevelopment() {
       <article class="pillar-card pillar-card-page" id="${esc(d.id)}">
         <h3>${esc(d.title)}</h3>
         <p>${esc(d.summary)}</p>
-        ${d.placeholder ? pendingNote() : ""}
       </article>
     `
     )
@@ -1192,7 +1233,6 @@ function renderNewsroom() {
         <h3>${esc(n.title)}</h3>
         <time>${esc(n.date)}</time>
         <p>${esc(n.excerpt)}</p>
-        ${n.placeholder ? pendingNote() : ""}
       </article>
     `
     )

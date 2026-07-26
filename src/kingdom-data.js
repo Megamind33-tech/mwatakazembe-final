@@ -906,12 +906,6 @@ export const waterProjects = {
 
 export const developmentPillars = [
   {
-    id: "dev-water-brief",
-    title: "Water and Sanitation",
-    summary: "Elevated tanks and reticulated supply bring clean water within reach of the households of the royal seat and the villages around it.",
-    href: "#dev-water"
-  },
-  {
     id: "dev-agriculture",
     title: "Agriculture and Food Security",
     summary: "Fertile Luapula corridors support subsistence and market agriculture under kingdom and community coordination.",
@@ -1389,16 +1383,6 @@ export const newsItems = [
     verification: "official"
   },
   {
-    id: "heritage-archive",
-    category: "Publications",
-    title: "The Lands of Cazembe (1873) in the Kingdom archive",
-    date: "Archive",
-    excerpt: "The public-domain 1873 expedition volume is available in the Kingdom archive as a primary historical reference, to be read critically as an outsider account.",
-    placeholder: false,
-    href: "#publications",
-    verification: "sourced"
-  },
-  {
     id: "stmt-pending",
     category: "Official Statements",
     title: "Official Statements, Kingdom of Kazembe",
@@ -1411,12 +1395,6 @@ export const newsItems = [
 ];
 
 export const publications = [
-  {
-    title: "The Lands of Cazembe (1873)",
-    type: "Historical reference",
-    url: "assets/archive/the-lands-of-cazembe-1873.pdf",
-    note: "Public-domain expedition volume. Read critically as an outsider account."
-  },
   {
     title: "Royal Gazette and Official Publications",
     type: "Official publication",
@@ -1463,16 +1441,16 @@ export const archiveRecords = [
     id: "arc-speeches",
     title: "Royal speeches and addresses",
     type: "Speech records",
-    date: "Pending",
-    note: "Archive entry pending official material from the Royal Protocol Office.",
+    date: "In preparation",
+    note: "Speeches and addresses of the Mwata, held by the Office and published here as they are released.",
     available: false
   },
   {
     id: "arc-gazette",
     title: "Royal Gazette and official statements",
     type: "Official document records",
-    date: "Pending",
-    note: "Archive entry pending official material from the Royal Protocol Office.",
+    date: "In preparation",
+    note: "The Royal Gazette and the official statements of the Kingdom, published here as they are issued.",
     available: false
   }
 ];

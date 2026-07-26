@@ -2097,6 +2097,17 @@ img[data-credit-id="mutomboko-dance-2017-01"] {
   flex-grow: 1;
 }
 
+/* Where an officeholder serves in more than one body, the card says so rather
+   than looking like the same card printed twice. */
+.roster-also {
+  margin: 0.35rem 0 0;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: var(--bronze);
+}
+
 .baluunda-body:has(.baluunda-note) .baluunda-role {
   flex-grow: 0;
 }
