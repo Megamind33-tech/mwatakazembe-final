@@ -959,9 +959,9 @@ export const developmentPillars = [
 export const mutombokoFeature = {
   title: "Mutomboko: Dance of Conquest",
   meaning:
-    "Umutomboko is publicly described as a dance of conquest that commemorates Lunda-Luba arrival from Kola, royal installation, and the continuity of Kazembe authority at Mwansabombwe.",
+    "Umutomboko is our dance of conquest. We dance it for our arrival out of Kola, for the taking of this land, and for the authority we have held at Mwansabombwe ever since.",
   why:
-    "The ceremony unites ancestry, water offerings, palace emergence, royal procession, and public dance into a state ritual of identity, not a spectacle alone.",
+    "It is one act, not a programme of entertainments. We go to our ancestors at the trench, we feed them at the river, our Mwata comes out of Ichota and is carried to the arena, and there He dances. Visitors are welcome to watch, but we do not dance it for them. We dance it because it is ours.",
   stages: ceremonySteps.map((step) => ({
     label: step.label,
     title: step.title,
@@ -971,7 +971,7 @@ export const mutombokoFeature = {
   })),
   calendar,
   protocolNote:
-    "Visitors should observe ceremonial protocol, dress respectfully, and follow guidance from kingdom officials. Detailed dress guidance will be published by the Ceremony Committee ahead of each Umutomboko.",
+    "Come as a guest of the Kingdom. Dress with respect, follow our officials on the day, and keep to the ground set aside for visitors. Our Ceremony Committee publishes guidance on dress and conduct before each Umutomboko.",
   gallery: [
     {
       imageCreditId: "people-lukwesa-umutomboko-2017",

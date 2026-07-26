@@ -353,7 +353,7 @@ export const ceremonySteps = [
     title: "Ancestral Ground",
     location: "Mpembwe ya Keleka",
     objectIds: ["umondo"],
-    summary: "A return to a remembered refuge and ancestral point, treated by the site as sacred landscape rather than spectacle.",
+    summary: "We go first to the trench at Impembwe ya Keleka, the refuge that held us in time of war, and there we thank our ancestors for the sacrifice they made in that ground. Nothing of the public ceremony begins before this.",
     evidence: "UNZA records ritual processions prior to the public celebration and names Mpembwe in the ceremony sequence.",
     sources: ["unza"]
   },
@@ -362,9 +362,9 @@ export const ceremonySteps = [
     day: "Day 1",
     label: "Mutentamo",
     title: "Installation and Tribute",
-    location: "Palace grounds / miyombo trees",
+    location: "The palace grounds",
     objectIds: ["amapango-ulupemba"],
-    summary: "Installation and recognition of hereditary authority, with court hierarchy made public through naming, blessing, and seating.",
+    summary: "We install and recognise those who hold hereditary office. Names are called, blessings given, and seats taken, so that the order of our court is settled in the sight of our people before the ceremony goes out to the arena.",
     evidence: "Described in ceremony documentation as part of the pre-arena ritual order.",
     sources: ["unza"]
   },
@@ -375,7 +375,7 @@ export const ceremonySteps = [
     title: "River Offering",
     location: "Ng'ona River",
     objectIds: ["umondo", "amapango-ulupemba"],
-    summary: "Food, drink, and ritual action connect water, memory, and the spirits of Chinyanta and Kasombola before public return.",
+    summary: "At the river we feed our ancestors. Food and drink are given to the water and to the spirits of Chinyanta and Kasombola, our royal brothers drowned in the early years, before the Mwata returns to His people.",
     evidence: "UNZA figure list and descriptions identify river offering scenes and ancestral feeding at Ng'ona.",
     sources: ["unza"]
   },
@@ -386,7 +386,7 @@ export const ceremonySteps = [
     title: "Palace Threshold",
     location: "Ichota palace",
     objectIds: ["akatasa-cibangula", "umondo"],
-    summary: "The Mwata's emergence from palace space marks a threshold between restricted royal preparation and mass public witness.",
+    summary: "The Mwata comes out of Ichota. What was done in the keeping of the palace now passes into the sight of all: He crosses the threshold in His regalia, to the drums, and the day becomes public.",
     evidence: "Ceremony accounts describe palace-to-arena transition, royal regalia, and drumming.",
     sources: ["unza", "commons"]
   },
@@ -397,7 +397,7 @@ export const ceremonySteps = [
     title: "Carried Authority",
     location: "Palace route",
     objectIds: ["muselo", "akatasa-cibangula"],
-    summary: "The procession converts route into theatre. The crowd sees authority move through space before the dance.",
+    summary: "The Mwata is carried on the Muselo along the route to the arena. Our people line the way, and authority is seen moving among them before it is danced.",
     evidence: "UNZA figure list includes the royal carriage and procession imagery.",
     sources: ["unza"]
   },
@@ -408,7 +408,7 @@ export const ceremonySteps = [
     title: "Dance of Conquest",
     location: "Main arena, Mwansabombwe",
     objectIds: ["mpoko-imbafi", "akatasa-cibangula"],
-    summary: "The public dance centers conquest, conquest memory, and continuity. The site avoids flattening it into performance-only tourism.",
+    summary: "The Mwata dances the Umutomboko, the dance of our conquest, with the sword pointing to the earth, to the sky, and to the roads of our migration. This is not a performance for visitors. It is how we say, once a year and in the open, that we crossed, we took this land, and we hold it still.",
     evidence: "Zambia Tourism defines Umutomboko as a dance of conquest and places it in the last weekend of July.",
     sources: ["zta", "unza"]
   }

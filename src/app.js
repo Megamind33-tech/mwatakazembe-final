@@ -1151,28 +1151,28 @@ function renderMutomboko() {
     </div>
     <div class="container page-body">
       <section class="subsection" id="mutomboko-meaning">
-        ${sectionHead("Ceremonial Protocol", "Meaning of Mutomboko")}
+        ${sectionHead("What we dance", "What Umutomboko Means to Us")}
         <p>${esc(mutombokoFeature.meaning)}</p>
         <p>${esc(mutombokoFeature.why)}</p>
       </section>
       <section class="subsection" id="mutomboko-program">
-        ${sectionHead("Ceremony Program", "Ceremony Stages")}
+        ${sectionHead("The two days", "How We Keep the Ceremony")}
         <div class="ceremony-program">${program}</div>
       </section>
       <section class="subsection accordion-block" id="mutomboko-past">
         <button class="accordion-trigger" type="button" aria-expanded="false">Past Ceremonies</button>
-        <div class="accordion-panel"><p>Archive of past ceremony reports and press photography is linked from the Gallery and verified media sources on the homepage.</p></div>
+        <div class="accordion-panel"><p>Photographs and reports of the ceremonies we have held are gathered in our gallery below and in the media sources on the homepage.</p></div>
       </section>
       <section class="subsection" id="mutomboko-gallery">
-        ${sectionHead("Media Gallery", "Photo and Video Gallery")}
+        ${sectionHead("The record of the day", "Our Photographs and Film")}
         <div class="gallery-grid premium-gallery swipe-track" data-swipe="gallery">${gallery}</div>
         ${mutombokoMediaBlock()}
       </section>
       <section class="subsection" id="mutomboko-visitor">
-        ${sectionHead("Visitor Information", "Visitor Guidance")}
+        ${sectionHead("If you are coming", "Guidance for Our Visitors")}
         <p><strong>Location:</strong> ${esc(calendar.location)}</p>
         <p><strong>Annual pattern:</strong> ${esc(calendar.annualPattern)}</p>
-        <p><strong>Expected next:</strong> ${esc(calendar.nextExpected)}. Confirm final arrangements through the Royal Protocol Office before travel.</p>
+        <p><strong>Expected next:</strong> ${esc(calendar.nextExpected)}. Confirm the arrangements with our Royal Protocol Office before you travel.</p>
         <p>2025 ceremony dates on record: ${esc(calendar.confirmed2025)}.</p>
       </section>
       <section class="subsection" id="mutomboko-protocol">
