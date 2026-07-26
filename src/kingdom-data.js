@@ -713,7 +713,7 @@ export const impembwe = {
     "Impembwe ya Keleka is a trench dug in the earth at Toka-toka, in our lands. We cut it as a work of defence: a hidden refuge that held the Mwata and our people in time of war, and a line that kept intruders from our royal seat.",
   paragraphs: [
     "The trench runs long, its course put at some fifty-six kilometres in the published record, and we held its whereabouts in secrecy. Only a few close to the Mwata and to the throne knew where it lay. When word came of intruders among us, or of a threat to the life of the Mwata or to the throne itself, the Mwata withdrew to Impembwe, and the trench kept what it was dug to keep.",
-    "We guard the ground still. Entry is not open: the Mwata, His aides, and Headman Toka with his aide are the ones who go in. Our Guardian of the Mpembwe Shrine, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
+    "We guard the ground still. Entry is not open: the Mwata, His aides, and Headman Toka with his aide are the ones who go in. Our Guardian of Mpembwe, Kapa Makwe Toka of the Abena Mfula clan, keeps the place, and the people of Toka-toka Village have kept the heritage of the trench across the generations.",
     "Each year we clean the trench before the ceremony. Through the dry season it lies under grass, fallen leaves, and bush, and the line of it is hard to read; the clearing opens the course again for the rite. Then our villages carry traditional beer and seed harvested from that season's fields, prepared for the impembwe rite, and we make the offering to the ancestral spirits.",
     "At Impembwe we thank our ancestors for the sacrifice they made in that ground, and it is this act that opens our Umutomboko. Nothing of the public ceremony begins before it. The Mwata goes to Mpembwe first, Ba Kashikayi going before Him and awaiting Him at the trench; only then do we turn to the arena and the dance of conquest."
   ],
@@ -775,7 +775,7 @@ export const utumbolo = {
   intro:
     "Utumbolo are two of our sacred places, kept along the way of our Umutomboko procession. They carry no separate names of their own. At Utumbolo the Mwata meets Ba Kashikayi and thanks them for their work and for the part they carry in the procession.",
   paragraphs: [
-    "Ba Kashikayi are the officers of the spiritual duties of our Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the care of our royal ancestral grounds, and our shrines are kept. At Utumbolo the Mwata halts and gives them His word of appreciation. We stop in the middle of our own ceremony to thank the officers who carry it.",
+    "Ba Kashikayi are the officers of the spiritual duties of our Throne. They go before the Mwata on the road to Mpembwe and they await Him at the trench, and it is by their hands that the passage of the Mwata to the Land of the Ancestors, the keeping of our royal graveyard, and the care of the places where our ancestors are remembered are in their hands. At Utumbolo the Mwata halts and gives them His word of appreciation. We stop in the middle of our own ceremony to thank the officers who carry it.",
     "Of the two, one is the place of the bones. In the past the bones of dangerous animals were kept there, and human bones were kept there also. Today only the bones of animals are kept at that place.",
     "We set both Utumbolo apart and keep them apart. A fence of brushwood is built close around the ground, a gate is left in the fence, and the earth within is cleared and swept bare. A band of white cloth is bound about the trunk of the tree, and white cloth is tied at the gatepost, so that the place is marked from every side as a place under the care of our throne.",
     "We prepare the ground before the ceremony. The fence is repaired or built again, the earth is cleared, and the cloth is renewed, so that Utumbolo stand ready before the procession comes. We do the work by hand, and we do it every year, at the same places.",
@@ -797,11 +797,11 @@ export const utumbolo = {
 
 // The spiritual system of the Kingdom. The Mwata Kazembe is the Chief Priest;
 // these officers serve as High Priests attached to the Throne, carrying the
-// duties of ancestry, burial, and the shrines. Roles as given by the Office
-// of the Mwata.
+// duties of ancestry, burial, and the places where our ancestors are
+// remembered. Roles as given by the Office of the Mwata.
 export const spiritualSystem = {
   intro:
-    "Our Mwata is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry our spiritual duties: the passage of the Mwata to the Land of the Ancestors, the care of our royal ancestral grounds at Lunde, and the shrines through which our great ancestors of health, agriculture, and rain are addressed. Their villages lie under our Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet the officers themselves serve the Mwata directly.",
+    "Our Mwata is the Chief Priest of the Kingdom. Attached to the Throne are the High Priests who carry our spiritual duties: the passage of the Mwata to the Land of the Ancestors, the keeping of our royal graveyard at Lunde, and the places where our great ancestors of health, agriculture, and rain are remembered. Their villages lie under our Senior Chiefs Kanyembo, Kambwili, and Lukwesa, yet the officers themselves serve the Mwata directly. Three of them, Kapa Munkanso Kashikayi, Kapa Chikumbi, and Kapa Makwe Toka, are Senior Headmen of the Kingdom as well.",
   // Documentary photographs of Ba Kashikayi supplied by the Office of the
   // Mwata; captions as given by the Office.
   figures: [
@@ -817,13 +817,13 @@ export const spiritualSystem = {
   highPriests: [
     {
       name: "Kapa Munkanso Kashikayi",
-      role: "Undertaker of the Mwata",
-      note: "Ensures the Mwata transitions to the Land of the Ancestors through the right traditions. He serves under Senior Chief Kanyembo."
+      role: "Undertaker of the Mwata, and a Senior Headman",
+      note: "Ensures the Mwata passes to the Land of the Ancestors through the right traditions. His village lies under Senior Chief Kanyembo."
     },
     {
       name: "Kapa Chikumbi",
-      role: "Keeper of the royal afterlife",
-      note: "Cares for the afterlife of all the Mwatas and guards the Lunde ancestral grounds from being violated, physically and spiritually."
+      role: "Keeper of the Royal Graveyard, and a Senior Headman",
+      note: "Keeps the royal graveyard at Lunde, where our Mwatas lie, and guards that ground from being violated."
     },
     {
       name: "Kapa Shanyemba",
@@ -832,8 +832,8 @@ export const spiritualSystem = {
     },
     {
       name: "Kapa Makwe Toka",
-      role: "Guardian of the Mpembwe Shrine",
-      note: "Of the Abena Mfula clan, entrusted to protect the Mpembwe Shrine, a place of great significance in Lunda tradition, where the great ancestors of health, agriculture, and rain are communicated with."
+      role: "Guardian of Mpembwe, and a Senior Headman",
+      note: "Of the Abena Mfula clan, entrusted to protect Mpembwe, a place of great significance to us, where our great ancestors of health, agriculture, and rain are remembered."
     }
   ],
   headmen: [

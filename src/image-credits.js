@@ -321,7 +321,7 @@ export const imageCredits = [
     id: "mutomboko-mpembwe-shrine",
     fileName: "mpembwe-shrine.jpg",
     src: "assets/images/kazembe/mutomboko/mpembwe-shrine.jpg",
-    title: "Mwata Kazembe XIX at the Mpembwe Shrine",
+    title: "Mwata Kazembe XIX at Mpembwe",
     description: "His Royal Highness Mwata Kazembe XIX in white ceremonial attire with colourful royal beads, carrying a fly-whisk and staff, walking in procession during a pre-arena ancestral tribute ritual.",
     sourceName: "Lusaka Times",
     sourceUrl: "https://www.lusakatimes.com/2017/07/31/last-week-pictures-5/",
@@ -339,7 +339,7 @@ export const imageCredits = [
     src: "assets/images/kazembe/governance/spiritual/kashikayi-procession-to-mpembwe.jpg",
     title: "Ba Kashikayi heading to Mpembwe",
     description:
-      "Ba Kashikayi in white robes and head coverings move through the crowd on the way to the Mpembwe Shrine, Kapa Makwe Toka leading the way.",
+      "Ba Kashikayi in white robes and head coverings move through the crowd on the way to Mpembwe, Kapa Makwe Toka leading the way.",
     sourceName: "Office of the Mwata / Kingdom archive",
     sourceUrl: "",
     photographerOrCredit: "Office of the Mwata Kazembe",
